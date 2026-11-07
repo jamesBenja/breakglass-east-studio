@@ -2,6 +2,18 @@
 
 *Claude Code, session of 7 Nov 2026. Branch `claude/tender-fermi-0b6nnv`. Written after reading every repo doc, the Drive project index, enumerating all source folders, retrieving 26 original files and solving three photo camera matches. Recommendations marked **[OWNER DECISION]** change priorities or direction and need your approval before I act on them.*
 
+> ### UPDATE v0.2: native scan received
+> The owner exported the Polycam LiDAR mesh (glTF, 9.55 MB). It was transferred in three parts, reassembled byte-exact and verified. Consequences:
+>
+> - **The control room is 11.25 m wide, not 10.5 m.** The screenshot label was not a wall-to-wall dimension, and v0.1 inherited it as its scale. The mesh scale is cross-checked by the live-room width (11.9 m measured vs 11.81 m label).
+> - **Depth 8.20 m and flat ceiling 4.11 m** confirm the v0.1 photo solve (8.10 m, 4.01 m).
+> - **The section is asymmetric.** The left low zone is 2.58 m deep and the right 2.00 m. The doors, clerestory and flat ceiling share a building axis at X = 5.88 m, offset 0.26 m from the room's mid-width. This explains v0.1's systematic residual (discrepancy X1).
+> - **The scan geometry fits the photographs** (fused RMS 6.8 px vs 6.3 px photo-only), so two independent capture methods agree.
+> - **Loft (first read, one slice):** it is one roof-space attic about 14 m long over the intermediate zone and part of the live room. Its deck is about 2.55 m above the control-room floor, with roughly 2.0–2.5 m headroom at the ridge falling to nothing at the eaves. A full loft and live-room read is the next scan task.
+> - **The live-room slab is 0.35 m below the control-room floor.**
+>
+> The details are in `evidence/GEOMETRY_LEDGER.md`. Sections A–E below are the original assessment; items now superseded are noted in the ledger.
+
 ---
 
 ## A. Independent project assessment
@@ -137,16 +149,23 @@ My recommendation keeps your expected milestone (existing-conditions model + cam
   - The posts in CR3 show 12–15 px residuals.
   - The gable-wall side windows and the X=0 wall windows are seen but **not yet solved**.
 
-**Early layout signal from the solved shell (screening only, not a decision):**
-- **Transverse axis (facing a side wall): disfavoured.** The two posts sit at mid-depth (Y ≈ 4.2 m of 8.1 m), so a transverse listening axis would put a post on or beside the axis, about 1.9 m from the front wall, inside the stereo triangle. Posts cannot be removed.
-- **Longitudinal axis on the room centreline: favoured.** The listener would sit under the 3.5 m-wide, 4.0 m-high flat ceiling, the room is symmetric left-to-right, and the posts end up beside the listener about 3.2 m off-axis.
+**Early layout signal from the solved shell (screening only, not a decision; updated for v0.2):**
+- **Transverse axis (facing a side wall): disfavoured.** The two posts sit at mid-depth (Y ≈ 4.27 m of 8.20 m), so a transverse listening axis would put a post on or beside the axis, inside the stereo triangle. Posts cannot be removed.
+- **Longitudinal axis on the building axis (X ≈ 5.88): favoured.** This is the axis shared by the doors, the clerestory and the 3.54 m-wide, 4.11 m-high flat ceiling. The posts end up beside the listener, 3.30 m and 3.37 m off-axis (nearly symmetric). The side walls are 0.52 m asymmetric about this axis (scan-measured), which treatment must equalise.
 - **Remaining trade-off — which end is the front wall.**
   - Facing the partition puts the front wall on the interior side, but the centred doorway behind the speakers is the main route to the live room.
   - Facing the gable puts the exterior entry door, clerestory and daylight on the front wall.
 
   **[OWNER DECISION + acoustician]** after Gate 2.
 
-**Gate 1 status: NOT PASSED — submitted for review.** It can pass once the native scan (or a short field check) confirms the solved values, the asymmetry is resolved, and the remaining windows are added.
+**Gate 1 status (v0.2): READY FOR REVIEW — not self-certified.**
+- Section geometry is now scan-measured and independently confirmed by three photo matches (6.8 px RMS).
+- The asymmetry is resolved.
+- Still open:
+  - the remaining windows (gable side windows, X=0 wall);
+  - tape checks of the post positions;
+  - the void above the ceiling;
+  - an independent review (ChatGPT / owner).
 
 ---
 

@@ -1,51 +1,75 @@
-# Geometry ledger — control room existing conditions v0.1
+# Geometry ledger: control room existing conditions **v0.2**
 
-Single source of truth: `model/solve_result.json` (regenerate with `python3 model/camera_solve.py`).
-Frame: see `docs/COORDINATE_SYSTEM.md`. Units: metres. σ = 1-sigma from the least-squares covariance, scaled by the residual. Treat σ as a **relative** indicator; it does not include model-form error such as the symmetry assumption.
+**v0.2 basis:** the **native iPhone-LiDAR mesh** (Polycam, captured 2022-10-24, exported by the owner 2026-11-07; 40,920 vertices, 31.1 × 14.0 × 6.2 m overall), **fused** with the three photo camera matches.
 
-## Solved / labelled values
+| File | Contents |
+|---|---|
+| `model/scan_control_room_measurements.json` | numbers read directly from the scan |
+| `model/solve_result.json` | fused scan + photo solve |
+| `model/solve_result_photo_only.json` | v0.1 photo-only solve, kept for comparison |
+| `model/solve_result_scan_fixed.json` | cameras solved against the scan geometry frozen |
 
-| Element | Value | σ | Class | Evidence | Independent cross-check |
-|---|---|---|---|---|---|
-| Room width W (X) | 10.34 | 0.19 | SCAN-LABELLED → solved | scan labels 10.51 (overhead), 10.38 (front view), used as prior 10.51 ± 0.15 | labels disagree by 0.13 among themselves |
-| Room depth D (Y) | 8.10 | 0.19 | SCAN-LABELLED → solved | scan label 7.86 used as prior ± 0.15 | +0.24 vs label (1.2σ). Watch item |
-| Low side ceiling at wall `hlo` | 2.23 | 0.09 | PHOTO-SOLVED | CR1 k2; beam geometry | scan label 2.12 m (vertical, location ambiguous) is within ~1σ |
-| Beam underside / post top `hbb` | 2.02 | 0.05 | PHOTO-SOLVED | posts CR1/2/3 | — |
-| Foot of sloped ceiling `hb` | 2.36 | 0.07 | PHOTO-SOLVED | far and gable walls | — |
-| Flat central ceiling `hc` | **4.01** | 0.09 | PHOTO-SOLVED | beams, end walls CR1/2/3 | **scan label 4.07 m, NOT used in the solve** |
-| Flat ceiling width `wc` | 3.49 | 0.09 | PHOTO-SOLVED | end-wall trapezoids | top/bottom width ratio 0.55 identical at both ends → vertical end walls, not a hip |
-| Beam/post line inset `ds` | 1.94 | 0.07 | PHOTO-SOLVED | both sides, **symmetry assumed** | systematic residual on X=W side → possible asymmetry |
-| Post Y (X=ds line) | 4.20 | 0.12 | PHOTO-SOLVED | CR1/2/3 | ≈ mid-depth |
-| Post Y (X=W−ds line) | 4.23 | 0.12 | PHOTO-SOLVED | CR1/2/3 | ≈ mid-depth |
-| Post / beam section | 0.14 / 0.19 | — | PHOTO-INFERRED | visual estimate | needs tape |
-| Exterior entry door (gable) | X 4.72–5.58, head 1.96 | 0.10 / 0.07 | PHOTO-SOLVED | CR3 | 0.86 m wide = standard door ✔ |
-| Gable clerestory | X 4.86–5.41, Z 2.76–3.85 | ~0.10 | PHOTO-SOLVED | CR3 | centred on gable as seen outside ✔ |
-| Gable interior door | X 7.28–8.26, head 2.02 | 0.15 / 0.07 | PHOTO-SOLVED | CR3 | 0.98 m wide (wide for a passage door): check |
-| Partition doorway (to intermediate zone) | X 4.57–5.66, head 1.92–1.99 | 0.10 | PHOTO-SOLVED | CR1, CR2 | centred on room ✔ |
-| Long window, X=W wall (far end) | Y ≤ 6.39, sill 1.11, head 1.78 | 0.06–0.16 | PHOTO-SOLVED (partial) | CR1 | full length UNKNOWN |
-| Gable side windows (2) | — | — | UNKNOWN (seen) | CR3, exterior | not yet solved |
-| X=0 wall windows | — | — | UNKNOWN (seen) | CR1, CR3 | not yet solved |
-| Wood stove + flue | — | — | UNKNOWN (seen) | CR1, CR2 | existing appliance; clearances matter |
-| Wall/roof thickness, roof pitch, void above ceiling | — | — | **UNKNOWN** | — | interior slope ≈47° vs low exterior pitch → void likely |
-| Floor construction / level | — | — | UNKNOWN | — | hallway tile at a different finish (CR3) |
+- **Frame:** `docs/COORDINATE_SYSTEM.md`. Units: metres.
+- **σ:** 1-sigma from the least-squares solve; it does not include LiDAR systematic error (phone LiDAR: typically ±1–2 % over room scale, a few cm locally).
+- **The mesh itself stays private** (`inputs/originals/scan/`, gitignored). Only derived numbers are committed.
 
-## Camera solutions (photo matches)
+## What the native scan changed
 
-| Photo | Points | RMS px | Max px | Camera (X, Y, Z) | Status |
-|---|---|---|---|---|---|
-| CR1 Control Room 1 | 24 | 5.9 | 14.9 | 5.25, 0.40, 1.52 | ✅ match |
-| CR2 Control Room 2 | 15 | 7.8 | 19.3 | 5.21, 0.42, 1.55 | ✅ match (repeatability vs CR1) |
-| CR3 Control Room 3 | 22 | 6.4 | 15.6 | 5.08, 7.95, 1.26 | ✅ match (camera at partition threshold) |
-| WV Window view | 6 | — | — | — | ❌ **UNSOLVED**: zero redundancy after removing an ambiguous point |
-
-Shared ultrawide focal length: 590 ± 16 px (EXIF predicts 601 px).
-
-## Discrepancy register (open)
-
-| ID | Observation | Likely cause | Resolution path |
+| Item | v0.1 (photos + screenshot labels) | **v0.2 (scan + photos)** | Why it changed |
 |---|---|---|---|
-| X1 | Right beam underside at far wall: +15/+19 px in CR1 and CR2 (same sign) | Room or low zones not symmetric; or beam depth differs from far fascia | Free `ds` per side once a third side view exists; native scan |
-| X2 | Posts in CR3: 12–15 px | Residual ultrawide distortion near frame edge, or posts not exactly on beam line | Native scan; tape offsets |
-| X3 | D solves 0.24 m longer than the 7.86 label | Label endpoints not on wall faces; or annotation bias | Native scan |
-| X4 | Interior ceiling slope ≈47° vs shallow exterior roof | Void above ceiling (hypothesis) | Hatch inspection / scan |
-| X5 | WV unsolved | Ambiguous identity of vertical element seen through glass | More control points or native scan |
+| Width, wall to wall | 10.34 ± 0.19 | **11.25** | The 10.51 / 10.38 screenshot labels did **not** span wall to wall (visible on the overhead screenshot), and v0.1 used them as its scale. Cross-check: live-room width measured in the same mesh is 11.9 m vs its label 11.81 m, so the mesh scale is sound. |
+| Depth | 8.10 ± 0.19 | **8.20** | The scan confirms the photo solve; the 7.86 label was short. |
+| Flat ceiling | 4.01 ± 0.09 | **4.11 ± 0.03** | Scan 4.105, fused 4.113, photos agree. |
+| Section symmetry | assumed symmetric | **asymmetric** | Discrepancy X1 from v0.1 is resolved (below). |
+
+## Control-room values (v0.2, fused)
+
+| Element | Value | σ | Class | Notes |
+|---|---|---|---|---|
+| Width W (wall to wall) | **11.25** | 0.03 | SCAN-MEASURED | side walls fit to 2.6 / 4.7 cm scatter |
+| Depth D (gable to partition) | **8.20** | 0.03 | SCAN-MEASURED | |
+| Flat central ceiling | **4.11** | 0.03 | SCAN-MEASURED + photos | scan 4.105; screenshot label 4.07 |
+| Flat ceiling width | 3.54 | 0.06 | PHOTO-SOLVED (scan prior 3.30) | the decimated mesh rounds the edges; the photos see the beam lines |
+| **Flat ceiling / building axis** | **X = 5.88** | 0.07 | SCAN + PHOTO | room mid-width is 5.62 → the axis is offset **+0.26 m** toward the long-window wall |
+| Left low zone: depth / height | 2.58 / 2.25 | 0.08 / 0.03 | SCAN + PHOTO | |
+| Right low zone: depth / height | 2.00 / 2.30 | 0.07 / 0.06 | SCAN + PHOTO | **0.58 m shallower than the left** |
+| Beam underside (post tops), L / R | 2.08 / 2.10 | 0.04 | PHOTO-SOLVED (scan prior) | |
+| Slope foot, L / R | 2.45 / 2.45 | 0.06 | PHOTO-SOLVED (scan prior) | slopes ≈ 45° |
+| Posts (one per side): Y from gable | 4.24 / 4.30 | 0.06 | PHOTO-SOLVED | too thin to resolve in the decimated mesh; ≈ mid-depth |
+| Exterior entry door (gable) | X 5.45–6.32, head 2.01 | 0.08 / 0.05 | PHOTO-SOLVED | centre **5.88** = building axis |
+| Gable clerestory | X 5.58–6.15, Z 2.83–3.95 | 0.08 | PHOTO-SOLVED | centre **5.86** = building axis |
+| Partition doorway | X 5.31–6.43, head 2.05 | 0.08 / 0.05 | PHOTO-SOLVED | centre **5.87** = building axis |
+| Gable interior door | X 8.07–9.08, head 2.08 | 0.11 / 0.06 | PHOTO-SOLVED | leads to ? (UNKNOWN) |
+| Long window, X=W wall | Y 4.45–6.48+, sill 1.15, head 1.86 | 0.05–0.08 | PHOTO-SOLVED (partial) | scan shows a deep reveal (~0.7 m) at about this height; full length still to read from the mesh |
+| Floor level | control-room floor is **0.35 m above the live-room slab** | 0.02 | SCAN-MEASURED | |
+| Roof structure / void above ceiling | — | — | **UNKNOWN** | the scan did not see above the finished ceiling |
+
+### Interpretation (for design review, not a decision)
+The doors, the clerestory and the ceiling share one axis at X ≈ 5.88. The side walls are **not** symmetric about it: the left wall is 5.88 m from the axis and the right wall 5.36 m. The left side may carry an added lining or a different wall build-up; this is an UNKNOWN to check in the field.
+
+For monitoring, a listening axis on the building axis keeps the ceiling, front wall and doors symmetric but leaves the side walls 0.52 m asymmetric. That is a manageable acoustic condition (side-wall treatment can equalise it), but it has to be designed for, not ignored.
+
+## Camera matches (fused model)
+
+| Photo | Points | RMS px | Status |
+|---|---|---|---|
+| CR1 Control Room 1 | 24 | 6.0 | ✅ |
+| CR2 Control Room 2 | 15 | 8.4 | ✅ (repeatability vs CR1) |
+| CR3 Control Room 3 | 22 | 6.3 | ✅ |
+| WV Window view | 6 | — | ❌ unsolved (zero redundancy) |
+
+Overall fused RMS is **6.8 px**, against 6.3 px for the unconstrained photo-only fit. The scan geometry therefore explains the photographs about as well as free parameters do: an independent agreement between two capture methods.
+
+Freezing the geometry to my first hand-read scan breakpoints (`scan_fixed`) gives 11.8 px. That is why the breakpoints carry 0.10 m priors rather than being fixed.
+
+## Discrepancy register
+
+| ID | Status | Note |
+|---|---|---|
+| X1 Right-beam residual (v0.1) | **Explained**: real asymmetry (scan) | |
+| X2 Post residuals in CR3 (12–17 px) | Open | possible residual ultrawide distortion at the frame edge; tape-measure post positions |
+| X3 D vs 7.86 label | **Explained**: the label was short; scan 8.19 | |
+| X4 Void above ceiling | Open | not in the scan; hatch inspection needed |
+| X5 WV unsolved | Open | low priority now that the scan exists |
+| X6 Whole-scan bend | Open | control-room walls run 2.7° off the scan's whole-building average axis: either real skew or phone-LiDAR drift over 31 m. **Each room is aligned to its own walls**; do not chain rooms through the global frame without a check tape (outside length of the building). |
+| X7 Screenshot labels | **Closed** | the labels are user-picked points, not wall-to-wall dimensions; superseded by direct mesh measurement |

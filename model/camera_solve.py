@@ -27,17 +27,42 @@ IMG_W, IMG_H = 1600.0, 1200.0
 
 # ---- parametric section ---------------------------------------------------
 PARAMS = {  # name: (initial, prior_mean or None, prior_sigma)
-    "W":   (10.51, 10.51, 0.15),   # scan label (overhead + front view 10.38)
-    "D":   (7.86, 7.86, 0.15),     # scan label
-    "ds":  (1.5, None, None),      # inset of beam/post line from side walls
-    "hlo": (2.3, None, None),      # low side ceiling at the side wall
-    "hbb": (2.2, None, None),      # underside of beam band (post tops)
-    "hb":  (2.6, None, None),      # top of beam band = foot of sloped ceiling
-    "hc":  (4.0, None, None),      # flat central ceiling
-    "wc":  (4.5, None, None),      # width of flat central ceiling
-    "ypl": (3.9, None, None),      # Y of post on X=ds line (shared across photos)
-    "ypr": (3.9, None, None),      # Y of post on X=W-ds line
+    # v0.2: W and D priors come from the NATIVE Polycam LiDAR mesh (model/scan_control_room_measurements.json),
+    # replacing the screenshot labels (10.51 was not a wall-to-wall measurement). All heights stay FREE so the
+    # photo solve remains an independent check of the scan's ceiling levels.
+    "W":   (11.25, 11.25, 0.05),
+    "D":   (8.19, 8.19, 0.05),
+    "dsL": (2.3, None, None),      # beam/post line inset from LEFT (X=0) wall
+    "dsR": (2.0, None, None),      # beam/post line inset from RIGHT (X=W) wall
+    "hloR": (2.3, None, None),     # low ceiling at the right wall (photo point k2)
+    "hbbL": (2.1, None, None),     # beam underside / post top, left line
+    "hbbR": (2.1, None, None),     # beam underside / post top, right line
+    "hbL": (2.5, None, None),      # foot of left sloped ceiling
+    "hbR": (2.4, None, None),      # foot of right sloped ceiling
+    "hc":  (4.0, None, None),      # flat central ceiling (scan: 4.105, NOT used as prior)
+    "wc":  (3.4, None, None),      # width of flat central ceiling
+    "xf":  (5.9, None, None),      # X of flat-ceiling centreline (asymmetry allowed)
+    "ypl": (4.3, None, None),
+    "ypr": (4.3, None, None),
 }
+# MODE "scan_fixed" (default, v0.2): section geometry FIXED to the native-scan measurements
+# (model/scan_control_room_measurements.json, read off its ceiling profile) and only cameras,
+# post Y and opening positions are solved. The photos then TEST the scan-built model.
+# MODE "photo_only": v0.1 behaviour (all heights free), kept for comparison.
+MODE = os.environ.get("BG_SOLVE_MODE", "fused")
+SCAN_SECTION = {   # metres, from scan ceiling profile measured from the left (X=0) wall; +/- ~0.03-0.05
+    "W": 11.25, "D": 8.19, "hc": 4.105, "wc": 3.30, "xf": 5.90,
+    "dsL": 2.50, "hbL": 2.55, "hbbL": 2.16,
+    "dsR": 2.15, "hbR": 2.60, "hbbR": 2.23, "hloR": 2.30,
+}
+# sigma: 0.03 m for directly measured planes/walls; 0.10 m for breakpoints read off the
+# smoothed, decimated mesh profile (beam steps, slope feet, flat-ceiling edges)
+SCAN_SIGMA = {"W": 0.03, "D": 0.03, "hc": 0.03, "hloR": 0.07,
+              "wc": 0.10, "xf": 0.10, "dsL": 0.10, "dsR": 0.10, "hbL": 0.10, "hbR": 0.10, "hbbL": 0.10, "hbbR": 0.10}
+if MODE == "scan_fixed":
+    for k, v in SCAN_SECTION.items(): PARAMS[k] = (v, v, 0.005)
+elif MODE == "fused":
+    for k, v in SCAN_SECTION.items(): PARAMS[k] = (v, v, SCAN_SIGMA[k])
 PNAMES = list(PARAMS)
 
 def rot(rx, ry, rz):
@@ -126,7 +151,8 @@ def main():
     out = {"params": {n: {"value": round(float(sol.x[i]),3), "sigma": round(float(sig[i]),3)} for i, n in enumerate(names)},
            "rms_px": round(float(np.sqrt(np.mean([row["err_px"]**2 for row in rows]))),2),
            "max_px": max(row["err_px"] for row in rows), "points": rows, "status": sol.message}
-    json.dump(out, open(os.path.join(HERE, "solve_result.json"), "w"), indent=1)
+    out["mode"] = MODE
+    json.dump(out, open(os.path.join(HERE, "solve_result.json" if MODE == "fused" else f"solve_result_{MODE}.json"), "w"), indent=1)
     for n in names: print(f"{n:16s} {out['params'][n]['value']:9.3f}  ±{out['params'][n]['sigma']:.3f}")
     print("RMS px", out["rms_px"], "max", out["max_px"])
     for row in sorted(rows, key=lambda r: -r["err_px"])[:8]: print("  worst", row["photo"], row["id"], row["err_px"], row["desc"])

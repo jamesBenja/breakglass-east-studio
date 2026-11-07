@@ -1,4 +1,5 @@
 title,drive_folder,category,retrieved_this_session,pixels,device,captured,focal_35mm_equiv,sha256_prefix,role_in_reconstruction,publication
+2022-10-24 (Polycam glTF export; uploaded as 3 split parts + original zip),3d renderings raw,NATIVE-LIDAR-MESH,"YES (reassembled, 9,552,360 bytes)","40,920 verts / 59,043 faces",iPhone 13 Pro (Polycam),2022-10-24,,fcec5a61c341,"PRIMARY metric source v0.2: walls, ceilings, floor levels, loft",PRIVATE - not in repo
 Overhead wirh measurements.heic,3d renderings raw,SCAN-SCREENSHOT,YES,790x1617,,,,1fec0fa5561f,"Plan topology; W/D labels 10.51x7.86 (control), 11.81x12.88 (live); intermediate labels 6.98/4.88/4.8/3.54/5.09/2.05",PRIVATE - not in repo
 Front angle view with measurements.heic,3d renderings raw,SCAN-SCREENSHOT,YES,1169x1312,,,,860d2b6ed190,Oblique of same mesh; confirms label axes,PRIVATE - not in repo
 Front view angled between rooms.PNG,3d renderings raw,SCAN-SCREENSHOT,YES,1170x2532,,,,13f443bab209,"App UI (Ruler/Automatic/Floorplan PRO, export/download icons); labels 10.38, 8.94, 4.07 (vertical), 2.12 (vertical) in control room; shows ceiling captured in mesh",PRIVATE - not in repo

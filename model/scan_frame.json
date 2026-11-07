@@ -1,0 +1,6 @@
+{
+ "source": "polycam_2022-10-24.glb sha256 fcec5a61c341",
+ "mesh_axes": "x,y(up),z",
+ "building_axes": "X=mesh x, Y=mesh z, Z=mesh y, then rotate about Z by deg",
+ "rot_deg": -0.875
+}

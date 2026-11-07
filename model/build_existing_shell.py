@@ -3,7 +3,7 @@
     python3 model/build_existing_shell.py            # needs `pip install bpy==5.2.3`
 
 Reads  model/solve_result.json  (written by model/camera_solve.py)
-Writes model/existing_control_room_v01.blend
+Writes model/existing_control_room_v02.blend
        renders/qa/*.png  (clay renders from the three solved photo cameras + axonometric)
 
 Rules enforced here (see docs/STRATEGY_AND_ASSESSMENT.md):
@@ -25,8 +25,11 @@ S = {k: v["sigma"] for k, v in SOL["params"].items()}
 IMG_W, IMG_H = 1600, 1200
 
 W, D = P["W"], P["D"]
-ds, hlo, hbb, hb, hc, wc = P["ds"], P["hlo"], P["hbb"], P["hb"], P["hc"], P["wc"]
-xc1, xc2 = W / 2 - wc / 2, W / 2 + wc / 2
+sys.path.insert(0, HERE)
+from section import geom
+G = geom(P)
+hc, wc, xc1, xc2 = G["hc"], G["wc"], G["xc1"], G["xc2"]
+hloL, hloR, xL, xR = G["hloL"], G["hloR"], G["xL"], G["xR"]
 
 # ---------------------------------------------------------------- scene setup
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -65,38 +68,38 @@ def box(name, x0, x1, y0, y1, z0, z1, col, mat, ev, source, sigma=None, note="")
     f = [(0,1,2,3),(4,7,6,5),(0,4,5,1),(1,5,6,2),(2,6,7,3),(3,7,4,0)]
     return mesh(name, v, f, col, mat, ev, source, sigma, note)
 
-SRC_SOLVE = "camera_solve.py over CR1, CR2, CR3 (Control Room 1/2/3.HEIC), scale from scan-labelled W/D"
+SRC_SOLVE = "fused solve: native Polycam LiDAR mesh (priors) + camera matches CR1/CR2/CR3 (camera_solve.py)"
 
 # ---------------------------------------------------------------- floor + walls
 mesh("CR_floor", [(0,0,0),(W,0,0),(W,D,0),(0,D,0)], [(0,1,2,3)], "10_SCAN_LABELLED", "SCAN-LABELLED",
-     "SCAN-LABELLED", "Scan labels 10.51/10.38 x 7.86 m; solved W=%.2f D=%.2f" % (W, D), max(S["W"], S["D"]),
+     "SCAN-MEASURED", "Native LiDAR mesh wall fits (width %.2f, depth %.2f), refined by photos" % (W, D), max(S["W"], S["D"]),
      "Plan extents. Interior faces; wall thickness UNKNOWN.")
-mesh("CR_wall_X0", [(0,0,0),(0,D,0),(0,D,hlo),(0,0,hlo)], [(0,1,2,3)], "20_PHOTO_SOLVED", "PHOTO-SOLVED", "PHOTO-SOLVED", SRC_SOLVE, S["hlo"])
-mesh("CR_wall_XW", [(W,0,0),(W,D,0),(W,D,hlo),(W,0,hlo)], [(0,3,2,1)], "20_PHOTO_SOLVED", "PHOTO-SOLVED", "PHOTO-SOLVED", SRC_SOLVE, S["hlo"])
+mesh("CR_wall_X0", [(0,0,0),(0,D,0),(0,D,hloL),(0,0,hloL)], [(0,1,2,3)], "20_PHOTO_SOLVED", "PHOTO-SOLVED", "SCAN-MEASURED", "native scan wall fit + low ceiling", 0.05)
+mesh("CR_wall_XW", [(W,0,0),(W,D,0),(W,D,hloR),(W,0,hloR)], [(0,3,2,1)], "20_PHOTO_SOLVED", "PHOTO-SOLVED", "SCAN-MEASURED", SRC_SOLVE, S["hloR"])
 # end walls follow the ceiling section (vertical walls confirmed at both ends: same top/bottom width ratio 0.55 in CR1 and CR3)
-section = [(0,0),(W,0),(W,hlo),(W-ds,hlo),(W-ds,hb),(xc2,hc),(xc1,hc),(ds,hb),(ds,hlo),(0,hlo)]
+section = G["section"]
 for name, y in (("CR_gable_wall_Y0", 0.0), ("CR_partition_wall_YD", D)):
     mesh(name, [(x, y, z) for x, z in section], [tuple(range(len(section)))], "20_PHOTO_SOLVED", "PHOTO-SOLVED",
          "PHOTO-SOLVED", SRC_SOLVE, max(S["hc"], S["W"]),
          "Gable wall = building end wall (exterior)." if y == 0 else "Interior partition to intermediate zone; thickness UNKNOWN.")
 
 # ---------------------------------------------------------------- ceiling (extruded section)
-ceil = [(0,hlo),(ds,hlo),(ds,hb),(xc1,hc),(xc2,hc),(W-ds,hb),(W-ds,hlo),(W,hlo)]
+ceil = G["ceil"]
 verts = [(x, 0, z) for x, z in ceil] + [(x, D, z) for x, z in ceil]
 n = len(ceil)
 faces = [(i, i+1, n+i+1, n+i) for i in range(n-1)]
 mesh("CR_ceiling", verts, faces, "20_PHOTO_SOLVED", "PHOTO-SOLVED", "PHOTO-SOLVED", SRC_SOLVE, S["hc"],
-     "Low side zones (h=%.2f), beam-band faces, sloped planes, flat centre (h=%.2f, w=%.2f). Symmetry ASSUMED; residual on X=W beam suggests possible asymmetry." % (hlo, hc, wc))
+     "ASYMMETRIC section (scan-confirmed): low zones L %.2f m deep @%.2f / R %.2f m deep @%.2f; flat centre h=%.2f w=%.2f centred at X=%.2f (room centre %.2f)." % (xL, hloL, W-xR, hloR, hc, wc, G["xf"], W/2))
 
 # beams (downstand under the low-ceiling edge, carried by posts)
 bw = 0.19  # PHOTO-INFERRED width (not solved)
-for name, x in (("CR_beam_X_ds", ds), ("CR_beam_X_W-ds", W - ds)):
-    box(name, x - bw/2, x + bw/2, 0, D, hbb, hlo, "20_PHOTO_SOLVED", "PHOTO-SOLVED", "PHOTO-SOLVED", SRC_SOLVE, S["hbb"],
+for name, x, hbb, hlo, sk in (("CR_beam_left", xL, G["hbbL"], hloL, "hbbL"), ("CR_beam_right", xR, G["hbbR"], hloR, "hbbR")):
+    box(name, x - bw/2, x + bw/2, 0, D, hbb, hlo, "20_PHOTO_SOLVED", "PHOTO-SOLVED", "PHOTO-SOLVED", SRC_SOLVE, S[sk],
         "Underside solved; width %.2f m photo-inferred; bearing at end walls UNKNOWN." % bw)
 
 # posts (one per side visible in CR1/CR2/CR3; further posts UNKNOWN)
 ps = 0.14  # PHOTO-INFERRED section
-for name, x, y, sy in (("CR_post_X_ds", ds, P["ypl"], S["ypl"]), ("CR_post_X_W-ds", W - ds, P["ypr"], S["ypr"])):
+for name, x, y, sy, hbb in (("CR_post_left", xL, P["ypl"], S["ypl"], G["hbbL"]), ("CR_post_right", xR, P["ypr"], S["ypr"], G["hbbR"])):
     box(name, x - ps/2, x + ps/2, y - ps/2, y + ps/2, 0, hbb, "20_PHOTO_SOLVED", "POST", "PHOTO-SOLVED", SRC_SOLVE, sy,
         "Position solved (Y sigma %.2f m); section %.2f m photo-inferred; footing UNKNOWN." % (sy, ps))
 
@@ -161,7 +164,7 @@ for i, (x, y) in enumerate(((W*0.3, D*0.3), (W*0.7, D*0.3), (W*0.3, D*0.7), (W*0
     lo = bpy.data.objects.new(f"qa_light_{i}", L); lo.location = (x, y, 1.7); scene.collection.objects.link(lo)
 scene.view_settings.view_transform = "AgX"
 out_dir = os.path.join(ROOT, "renders", "qa"); os.makedirs(out_dir, exist_ok=True)
-blend = os.path.join(HERE, "existing_control_room_v01.blend")
+blend = os.path.join(HERE, "existing_control_room_v02.blend")
 bpy.ops.wm.save_as_mainfile(filepath=blend)
 sun = bpy.data.lights.new("qa_sun", "SUN"); sun.energy = 2.5
 sun_ob = bpy.data.objects.new("qa_sun", sun); sun_ob.rotation_euler = (math.radians(50), 0, math.radians(-35)); scene.collection.objects.link(sun_ob)

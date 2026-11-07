@@ -21,18 +21,18 @@ PREVIEW = os.path.join(ROOT, "inputs", "private", "preview")
 PRIV = os.path.join(ROOT, "inputs", "private", "comparisons"); os.makedirs(PRIV, exist_ok=True)
 PUB = os.path.join(ROOT, "renders", "qa")
 
-W, D = P["W"], P["D"]; ds, hlo, hbb, hb, hc, wc = (P[k] for k in ("ds", "hlo", "hbb", "hb", "hc", "wc"))
-xc1, xc2 = W/2 - wc/2, W/2 + wc/2
+from section import geom
+G = geom(P); W, D = G["W"], G["D"]
 
 def edges():
     E = []
-    sec = [(0,0),(W,0),(W,hlo),(W-ds,hlo),(W-ds,hb),(xc2,hc),(xc1,hc),(ds,hb),(ds,hlo),(0,hlo)]
+    sec = G["section"]
     for y in (0, D):
         for i in range(len(sec)):
             a, b = sec[i], sec[(i+1) % len(sec)]; E.append(((a[0], y, a[1]), (b[0], y, b[1]), "shell"))
-    for x, z in [(0,0),(W,0),(0,hlo),(W,hlo),(ds,hlo),(W-ds,hlo),(ds,hb),(W-ds,hb),(xc1,hc),(xc2,hc),(ds,hbb),(W-ds,hbb)]:
+    for x, z in [(0,0),(W,0)] + list(G["ceil"]) + [(G["xL"],G["hbbL"]),(G["xR"],G["hbbR"])]:
         E.append(((x, 0, z), (x, D, z), "shell"))
-    for x, y in ((ds, P["ypl"]), (W-ds, P["ypr"])):
+    for x, y, hbb in ((G["xL"], P["ypl"], G["hbbL"]), (G["xR"], P["ypr"], G["hbbR"])):
         E.append(((x, y, 0), (x, y, hbb), "post"))
     def rect(pl, a0, a1, z0, z1):
         pts = [(a0,z0),(a1,z0),(a1,z1),(a0,z1)]
@@ -87,7 +87,7 @@ def main():
             d.line([(ou, ovv), (ou + 5*(pu-ou), ovv + 5*(pv-ovv))], fill=(255, 40, 40), width=3)
         a, b, c = photo.copy(), render, ov
         label(a, f"ORIGINAL PHOTO  {title}.HEIC  (private)")
-        label(b, f"BLENDER v0.1 from solved camera {cid}")
+        label(b, f"BLENDER v0.2 from solved camera {cid}")
         label(c, f"MODEL EDGES ON PHOTO  RMS {rms:.1f}px  (red = residual x5)")
         panel = Image.new("RGB", (4800, 1200)); [panel.paste(im, (i*1600, 0)) for i, im in enumerate((a, b, c))]
         panel.save(os.path.join(PRIV, f"match_{cid}.jpg"), quality=85)

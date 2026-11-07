@@ -11,7 +11,7 @@
 ## Blender collections
 | Collection | Contents |
 |---|---|
-| `10_SCAN_LABELLED` | floor rectangle (extents from scan labels, adjusted by the solve) |
+| `10_SCAN_LABELLED` | floor rectangle (v0.2: wall-to-wall extents measured on the native LiDAR mesh, refined by photos) |
 | `20_PHOTO_SOLVED` | walls, ceiling section, beams, posts |
 | `30_PHOTO_INFERRED` | (empty in v0.1) |
 | `40_OPENINGS` | doors and windows as dark panels 10 mm proud of the wall |
@@ -21,3 +21,6 @@ Every object has custom properties `evidence_class`, `source`, `sigma_m` and `no
 
 ## Existing vs proposed
 Existing-conditions files are named `existing_*`. Proposed design will live in separate `proposed_*` files or collections that *link* the existing shell and never edit it.
+
+## Native scan frame
+`model/scan_frame.json` maps mesh coordinates (glTF: x, y-up, z) to building axes. Each room is aligned to its **own** walls (control room: −2.74° extra), because a 31 m phone scan may bend (ledger X6). Control-room origin = the left/gable wall intersection found by `scan_measure_control_room.py`.

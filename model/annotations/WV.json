@@ -26,9 +26,9 @@
     400
    ],
    "xyz": [
-    "W-ds",
+    "W-dsR",
     "ypr",
-    "hbb"
+    "hbbR"
    ],
    "sigma_px": 6
   },
@@ -40,7 +40,7 @@
     820
    ],
    "xyz": [
-    "W-ds",
+    "W-dsR",
     "ypr",
     "0"
    ],
