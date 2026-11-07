@@ -1,0 +1,21 @@
+# Original source evidence stays local / in restricted Drive until permissions are reviewed
+inputs/originals/
+inputs/private/
+sources/raw/
+*.heic
+*.HEIC
+*.mov
+*.MOV
+*.mp4
+*.MP4
+*.blend1
+__pycache__/
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Heavy generated artifacts: publish small review images and editable project files selectively
+renders/highres/
+build/tmp/
+cache/
