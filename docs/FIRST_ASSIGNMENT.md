@@ -4,7 +4,7 @@
 Produce an evidence-grounded existing-conditions model of the control room, linked to the overall existing roof/adjacent areas where genuinely supported. Do not copy any rejected v0.6 mesh. Do not put studio equipment in the first accepted geometry render.
 
 ## Inputs
-Primary source: original photographs; dimensional scan screenshots/labels; scan orbit video; exterior photos, legacy control-room equipment references. Store originals privately/local in `inputs/originals/`. The owner/source curator will supply access to restricted Drive originals. Previous v0.6 is **audit-only, invalid design base**.
+Primary source: original photographs; dimensional scan screenshots/labels; scan orbit video; exterior photos, and legacy control-room equipment references. Access them FIRST using Claude's already-connected Google Drive ecosystem. Project index: https://docs.google.com/document/d/1RTL9yHimtZGz-gsyDRrONvW7okwdXZftuZAngoMyyLE/edit. Original archive: https://drive.google.com/drive/folders/1NfCB7MELSA7hZDa1-T1MAhVO0-TxBaR2. Actual Spectra Sonics/Geithain photos: https://drive.google.com/drive/folders/1cgxLtisp46ZwTy_axg0njd5UEju_JAzZ. If local bytes are technically necessary for Blender, stage them privately after reading Drive; do not assume that the owner needs to copy files manually. Previous v0.6 is **audit-only, invalid design base**.
 
 ## First actions
 - Verify all available source originals and create asset manifest with filename, category, date if known, resolution and source ID.
