@@ -14,6 +14,14 @@ Prior v0.6 modelling outputs were **rejected** for wrong console position/orient
 - Calm minimalist, light-focused control room; rugged, honest farm-industrial live room. Reuse suitable old acoustic panels and wood only after inventory and performance review.
 - Don't claim certified survey, architecture, acoustics or permit-ready detailing from scan screenshots, an orbit movie or photos.
 
+## Source access: connected Google Drive FIRST
+The owner has already connected Claude to the Google Drive ecosystem. Before claiming that original evidence is unavailable, discover and USE the connected Google Drive tools in this Claude Code session. Read the project index and original folders directly from Drive, enumerate the source files, and verify source access.
+- Project index: https://docs.google.com/document/d/1RTL9yHimtZGz-gsyDRrONvW7okwdXZftuZAngoMyyLE/edit
+- Ways Mills original photo/scan/reference archive: https://drive.google.com/drive/folders/1NfCB7MELSA7hZDa1-T1MAhVO0-TxBaR2
+- Legacy Sunny Suite photographs of the ACTUAL console and Geithains: https://drive.google.com/drive/folders/1cgxLtisp46ZwTy_axg0njd5UEju_JAzZ
+- Architectural material, including the REJECTED v0.6 for negative audit only: https://drive.google.com/drive/folders/1aY40Pb3cLdOzxmkaw6b3BUDSEzUS_2QT
+A connected Claude chat account does not necessarily guarantee a particular Claude Code session exposes every connector: check actual tool availability rather than assume either success or failure. If the tool is visible, retrieve sources directly. If genuinely absent, clearly identify the exact missing connector capability and request only the smallest remedy; DO NOT demand mass manual downloads by default. Keep source originals in Drive and stage locally only when rendering/model software specifically requires local bytes.
+
 ## Source discipline
 Maintain a source manifest of every photograph, scan view, geometric measurement and reference. Mark evidence as SURVEYED, SCAN-LABELLED, PHOTO-INFERRED, PROPOSED or UNKNOWN, with accuracy and confidence. Don't infer hidden construction as fact.
 The repo is intentionally public. All code, generic design process, issue discussion, drawings and owner-approved renders can be public. Do not commit original private property photographs, restricted Drive access links, floor-level security details, or other non-public owner assets without express owner authorization. Public is a project choice, not a blocker.
