@@ -25,7 +25,7 @@ Claude reads [CLAUDE.md](CLAUDE.md), then completes [Assignment 01](docs/FIRST_A
 
 ## Original source evidence
 
-The owner holds the complete Ways Mills source archive: exterior and interior photographs, labelled 3D-scan stills, scan-orbit video, loft/garage photographs, exact existing Sunny Suite Spectra Sonics and paired Geithain photographs, and Clark acoustic treatment salvage images. Claude Code needs the original files locally in `inputs/originals/` (gitignored), with a structured evidence manifest, before geometry work. An orbit video alone is **not** a certified point cloud.
+The owner holds the complete Ways Mills source archive: exterior and interior photographs, labelled 3D-scan stills, scan-orbit video, loft/garage photographs, exact existing Sunny Suite Spectra Sonics and paired Geithain photographs, and Clark acoustic treatment salvage images. Claude is already connected to the owner's Google Drive ecosystem and must use that source access first, verify the exact source files, and maintain a structured evidence manifest. Stage only the files requiring local rendering into `inputs/originals/` (gitignored), if necessary; do not treat manual downloads as a required owner setup step. An orbit video alone is **not** a certified point cloud.
 
 ## Hard design decisions and dimensions
 
