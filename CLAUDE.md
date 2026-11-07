@@ -16,8 +16,8 @@ Prior v0.6 modelling outputs were **rejected** for wrong console position/orient
 
 ## Source discipline
 Maintain a source manifest of every photograph, scan view, geometric measurement and reference. Mark evidence as SURVEYED, SCAN-LABELLED, PHOTO-INFERRED, PROPOSED or UNKNOWN, with accuracy and confidence. Don't infer hidden construction as fact.
-Do not publish private owner photos, property assets, or restricted Drive links to a public repository.
-The current repository may still be PUBLIC until owner changes visibility. Keep only public-safe scaffold and generic process in it until confirmed PRIVATE.
+The repo is intentionally public. All code, generic design process, issue discussion, drawings and owner-approved renders can be public. Do not commit original private property photographs, restricted Drive access links, floor-level security details, or other non-public owner assets without express owner authorization. Public is a project choice, not a blocker.
+The repository may remain PUBLIC by owner choice. Keep sensitive original photographs and scan data local/private unless the owner deliberately approves their release. Continue development normally with public-safe documentation, reproducible models and approved review renders.
 
 ## Process
 1. Build an evidence inventory, image contact sheets, scan camera/viewpoint map and uncertainty table.
