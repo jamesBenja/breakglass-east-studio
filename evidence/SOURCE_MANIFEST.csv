@@ -1,0 +1,42 @@
+title,drive_folder,category,retrieved_this_session,pixels,device,captured,focal_35mm_equiv,sha256_prefix,role_in_reconstruction,publication
+Overhead wirh measurements.heic,3d renderings raw,SCAN-SCREENSHOT,YES,790x1617,,,,1fec0fa5561f,"Plan topology; W/D labels 10.51x7.86 (control), 11.81x12.88 (live); intermediate labels 6.98/4.88/4.8/3.54/5.09/2.05",PRIVATE - not in repo
+Front angle view with measurements.heic,3d renderings raw,SCAN-SCREENSHOT,YES,1169x1312,,,,860d2b6ed190,Oblique of same mesh; confirms label axes,PRIVATE - not in repo
+Front view angled between rooms.PNG,3d renderings raw,SCAN-SCREENSHOT,YES,1170x2532,,,,13f443bab209,"App UI (Ruler/Automatic/Floorplan PRO, export/download icons); labels 10.38, 8.94, 4.07 (vertical), 2.12 (vertical) in control room; shows ceiling captured in mesh",PRIVATE - not in repo
+Close up hallway between rooms.jpg,3d renderings raw,SCAN-SCREENSHOT,YES,1169x1647,,,,9c6962f6cf17,Intermediate zone topology + labels,PRIVATE - not in repo
+Close up extra room - vocal or amp booth or storage.jpg,3d renderings raw,SCAN-SCREENSHOT,YES,1007x1659,,,,08f3f5637dfd,Intermediate east rooms 4.8x3.54 and 5.09x2.05,PRIVATE - not in repo
+Rendering video moviny around full barn studio.mov,3d renderings raw,SCAN-ORBIT-VIDEO,LISTED,,,,,,41.6 MB orbit of the scan mesh. NOT yet frame-extracted this session (see limitations).,PRIVATE - not in repo
+Control Room 1.HEIC,Control room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:25 17:56:46,13,81a140ca5913,"CAMERA MATCH CR1 (from gable entry, +Y)",PRIVATE - not in repo
+Control Room 2.HEIC,Control room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:25 17:56:51,13,53b560ba6aaf,"CAMERA MATCH CR2 (repeatability, small baseline to CR1)",PRIVATE - not in repo
+Control Room 3.HEIC,Control room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:25 17:57:12,13,452342aa8f53,"CAMERA MATCH CR3 (from partition threshold, -Y)",PRIVATE - not in repo
+Window view into control room.HEIC,Control room pictures,PHOTO-THROUGH-GLASS,YES,4032x3024,iPhone 13 Pro,2022:10:07 18:27:47,26,bafe1132f273,Attempted match WV: UNSOLVED (zero redundancy),PRIVATE - not in repo
+Outside view into control room.HEIC,Control room pictures,PHOTO-EXTERIOR,YES,3024x4032,iPhone 13 Pro,2022:10:23 14:22:03,26,323d259c94c8,Gable elevation. BYTE-IDENTICAL DUPLICATE of 'Front entry to control room.HEIC',PRIVATE - not in repo
+Outside view into control room 2.HEIC,Control room pictures,PHOTO-EXTERIOR,YES,3024x4032,iPhone 13 Pro,2022:10:25 17:56:57,13,bdb46660862b,"Entry door close-up, clerestory above",PRIVATE - not in repo
+Live room view under loft.HEIC,Live room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:09 11:30:07,26,de9280f34069,"Under-loft zone: exposed joists + foil insulation, posts, machinery",PRIVATE - not in repo
+Live room view under loft 2.HEIC,Live room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:09 11:30:11,13,afebbb5994fa,"Same zone, ultrawide",PRIVATE - not in repo
+View into live room.HEIC,Live room pictures,PHOTO-EXTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:09 11:31:27,13,33b5bdb5eb0f,Through garage door: same tray-ceiling section as control room; loft opening high on far end,PRIVATE - not in repo
+Live room view from loft.HEIC,Live room pictures,PHOTO-INTERIOR,YES,3024x4032,iPhone 13 Pro,2022:10:09 11:30:50,13,2f6c0bd00073,Looking down/out from loft opening to garage door,PRIVATE - not in repo
+Outside view into live room - garage door.HEIC,Live room pictures,PHOTO-EXTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:09 11:31:35,13,197fa5bb12ac,Live-room gable: large door opening with swing doors + overhead door,PRIVATE - not in repo
+Live room view from entry - garage door.HEIC,Live room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:09 11:31:48,13,f0bf0a81745c,Live room looking toward loft end; machinery,PRIVATE - not in repo
+Live room view out via garage door.HEIC,Live room pictures,PHOTO-INTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:09 11:31:59,13,c878c4049f8c,Live room looking to garage door; overhead door track,PRIVATE - not in repo
+Loft overlooking live room.HEIC,Live room pictures,PHOTO-INTERIOR,YES,3024x4032,iPhone 13 Pro,2022:10:09 11:30:28,13,2b891c2f8127,"Loft = floored roof void: OSB floor, exposed rafters, low headroom",PRIVATE - not in repo
+Loft overlooking live room 2.HEIC,Live room pictures,PHOTO-INTERIOR,YES,3024x4032,iPhone 13 Pro,2022:10:09 11:30:35,13,5c3fb0573e9b,"Loft, other direction",PRIVATE - not in repo
+Barn studio view.HEIC,Outside views and property maps,PHOTO-EXTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:23 14:22:24,26,32ad258ade2d,"Long side elevation: windows, low eave, shallow metal roof",PRIVATE - not in repo
+Reverse barn studio view.HEIC,Outside views and property maps,PHOTO-EXTERIOR,YES,4032x3024,iPhone 13 Pro,2022:10:23 14:23:03,26,f9b054fd1630,Other long side + live-room gable with overhead door,PRIVATE - not in repo
+Front entry to control room.HEIC,Outside views and property maps,PHOTO-EXTERIOR,YES,3024x4032,iPhone 13 Pro,2022:10:23 14:22:03,26,323d259c94c8,"Control-room gable elevation (duplicate, see above)",PRIVATE - not in repo
+View of barn from pond direction.HEIC,Outside views and property maps,PHOTO-SITE,YES,3024x4032,iPhone 13 Pro,2022:10:23 13:53:02,26,236c22878773,Distant site context,PRIVATE - not in repo
+View of pond outside barn studio.HEIC,Outside views and property maps,PHOTO-SITE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Video of field outside barn.MOV,Outside views and property maps,VIDEO-SITE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Full ways mills property map.jpg,Outside views and property maps,MAP,LISTED,,,,,,"Listed, not downloaded (sensitive: site/parcel)",PRIVATE - not in repo
+Full ways mills property map deliniation.jpg,Outside views and property maps,MAP,LISTED,,,,,,"Listed, not downloaded (sensitive: site/parcel)",PRIVATE - not in repo
+Legacy sunny suite 1.JPG,Breakglass legacy sunny suite,PHOTO-EQUIPMENT,YES,4032x3024,iPhone 15 Pro,2026:04:10 18:17:09,14,847245fb1014,ACTUAL Spectra Sonics console + BOTH Geithain monitors (Clark),PRIVATE - not in repo
+Legacy sunny suite 2.JPG,Breakglass legacy sunny suite,PHOTO-EQUIPMENT,YES,4032x3024,iPhone 15 Pro,2026:04:10 18:17:11,14,44b953b842d1,"Same, wider; console compact frame, 2 angled rack wings",PRIVATE - not in repo
+Legacy live room - wood floors and panels ref.JPG,Breakglass legacy sunny suite,PHOTO-SALVAGE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Legacy old control room panels.HEIC,Breakglass legacy sunny suite,PHOTO-SALVAGE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Legacy panels 3.HEIC,Breakglass legacy sunny suite,PHOTO-SALVAGE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Legacy panels A.JPG,Breakglass legacy sunny suite,PHOTO-SALVAGE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Legacy rolling panels ref.HEIC,Breakglass legacy sunny suite,PHOTO-SALVAGE,LISTED,,,,,,"Listed, not downloaded",PRIVATE - not in repo
+Another great studio ref.JPG,Possible VIBE inspiration pictures,REFERENCE-AESTHETIC,LISTED,,,,,,Listed (first 5 of ~20 enumerated),PRIVATE - not in repo
+Really cool acoustic treatment and surround.JPG,Possible VIBE inspiration pictures,REFERENCE-AESTHETIC,LISTED,,,,,,Listed,PRIVATE - not in repo
+Very cogent turell ref chapelle.JPG,Possible VIBE inspiration pictures,REFERENCE-AESTHETIC,LISTED,,,,,,Listed,PRIVATE - not in repo
+Very cogent turell ref chapelle 2.JPG,Possible VIBE inspiration pictures,REFERENCE-AESTHETIC,LISTED,,,,,,Listed,PRIVATE - not in repo
+Pamm miami colour light ref.HEIC,Possible VIBE inspiration pictures,REFERENCE-AESTHETIC,LISTED,,,,,,Listed,PRIVATE - not in repo

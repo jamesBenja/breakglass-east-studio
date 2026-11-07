@@ -1,0 +1,226 @@
+{
+ "id": "CR2",
+ "source_title": "Control Room 2.HEIC",
+ "note": "Taken 5 s after CR1 from a slightly different pose at the gable entry, looking +Y. Annotated independently of CR1 on its own 1.4x crop. Weak baseline vs CR1: serves as a repeatability check, not an independent geometric constraint.",
+ "exif_f35": 13,
+ "camera_init": {
+  "tx": 5.3,
+  "ty": 0.3,
+  "tz": 1.5,
+  "yaw": 0.0,
+  "pitch": 0.0,
+  "roll": 0.0,
+  "f": 585
+ },
+ "nuisance": {
+  "xd1": 4.6,
+  "xd2": 5.7,
+  "hd": 2.0
+ },
+ "points": [
+  {
+   "id": "c1",
+   "desc": "flat ceiling / far wall, left corner",
+   "uv": [
+    682,
+    366
+   ],
+   "xyz": [
+    "W/2-wc/2",
+    "D",
+    "hc"
+   ]
+  },
+  {
+   "id": "c2",
+   "desc": "flat ceiling / far wall, right corner",
+   "uv": [
+    964,
+    359
+   ],
+   "xyz": [
+    "W/2+wc/2",
+    "D",
+    "hc"
+   ]
+  },
+  {
+   "id": "s1",
+   "desc": "foot of left slope on far wall",
+   "uv": [
+    564,
+    496
+   ],
+   "xyz": [
+    "ds",
+    "D",
+    "hb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "s2",
+   "desc": "foot of right slope on far wall",
+   "uv": [
+    1071,
+    498
+   ],
+   "xyz": [
+    "W-ds",
+    "D",
+    "hb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "b1",
+   "desc": "left beam-band underside at far wall",
+   "uv": [
+    568,
+    512
+   ],
+   "xyz": [
+    "ds",
+    "D",
+    "hbb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "b2",
+   "desc": "right beam-band underside at far wall",
+   "uv": [
+    1050,
+    517
+   ],
+   "xyz": [
+    "W-ds",
+    "D",
+    "hbb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "k1",
+   "desc": "far-right room corner at floor",
+   "uv": [
+    1216,
+    680
+   ],
+   "xyz": [
+    "W",
+    "D",
+    "0"
+   ],
+   "sigma_px": 8
+  },
+  {
+   "id": "d1",
+   "desc": "partition doorway left jamb floor",
+   "uv": [
+    769,
+    676
+   ],
+   "xyz": [
+    "xd1",
+    "D",
+    "0"
+   ]
+  },
+  {
+   "id": "d2",
+   "desc": "partition doorway left jamb head",
+   "uv": [
+    769,
+    529
+   ],
+   "xyz": [
+    "xd1",
+    "D",
+    "hd"
+   ]
+  },
+  {
+   "id": "d3",
+   "desc": "partition doorway right jamb floor",
+   "uv": [
+    852,
+    676
+   ],
+   "xyz": [
+    "xd2",
+    "D",
+    "0"
+   ]
+  },
+  {
+   "id": "d4",
+   "desc": "partition doorway right jamb head",
+   "uv": [
+    852,
+    529
+   ],
+   "xyz": [
+    "xd2",
+    "D",
+    "hd"
+   ]
+  },
+  {
+   "id": "pr1",
+   "desc": "right post top",
+   "uv": [
+    1321,
+    481
+   ],
+   "xyz": [
+    "W-ds",
+    "ypr",
+    "hbb"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "pr2",
+   "desc": "right post base",
+   "uv": [
+    1319,
+    798
+   ],
+   "xyz": [
+    "W-ds",
+    "ypr",
+    "0"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "pl1",
+   "desc": "left post top",
+   "uv": [
+    318,
+    489
+   ],
+   "xyz": [
+    "ds",
+    "ypl",
+    "hbb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "pl2",
+   "desc": "left post base (partly hidden)",
+   "uv": [
+    325,
+    794
+   ],
+   "xyz": [
+    "ds",
+    "ypl",
+    "0"
+   ],
+   "sigma_px": 10
+  }
+ ]
+}

@@ -1,0 +1,360 @@
+{
+ "id": "CR1",
+ "source_title": "Control Room 1.HEIC",
+ "note": "Taken from the gable-end entry doorway looking +Y toward the interior partition (wood stove, curtained doorway). Pixel coords in 1600x1200 preview. Annotated by eye on 2x zoom crops; sigma_px reflects reading precision.",
+ "exif_f35": 13,
+ "camera_init": {
+  "tx": 4.5,
+  "ty": 0.3,
+  "tz": 1.5,
+  "yaw": 0.05,
+  "pitch": 0.0,
+  "roll": 0.0,
+  "f": 600
+ },
+ "nuisance": {
+  "xd1": 4.5,
+  "xd2": 5.3,
+  "hd": 2.0,
+  "yb1": 1.0,
+  "yb2": 1.0,
+  "yc1": 3.0,
+  "yc2": 3.0,
+  "wy1": 4.5,
+  "wy2": 1.5,
+  "wh": 2.0,
+  "wsill": 1.4
+ },
+ "points": [
+  {
+   "id": "c1",
+   "desc": "flat ceiling / far wall, left corner (left beam end)",
+   "uv": [
+    675,
+    430
+   ],
+   "xyz": [
+    "W/2-wc/2",
+    "D",
+    "hc"
+   ]
+  },
+  {
+   "id": "c2",
+   "desc": "flat ceiling / far wall, right corner (right beam end)",
+   "uv": [
+    940,
+    420
+   ],
+   "xyz": [
+    "W/2+wc/2",
+    "D",
+    "hc"
+   ]
+  },
+  {
+   "id": "s1",
+   "desc": "foot of left slope on far wall",
+   "uv": [
+    560,
+    550
+   ],
+   "xyz": [
+    "ds",
+    "D",
+    "hb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "s2",
+   "desc": "foot of right slope on far wall",
+   "uv": [
+    1065,
+    552
+   ],
+   "xyz": [
+    "W-ds",
+    "D",
+    "hb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "b1",
+   "desc": "left beam-band underside at far wall",
+   "uv": [
+    565,
+    578
+   ],
+   "xyz": [
+    "ds",
+    "D",
+    "hbb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "b2",
+   "desc": "right beam-band underside at far wall",
+   "uv": [
+    1045,
+    570
+   ],
+   "xyz": [
+    "W-ds",
+    "D",
+    "hbb"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "k1",
+   "desc": "far-right room corner at floor",
+   "uv": [
+    1212,
+    735
+   ],
+   "xyz": [
+    "W",
+    "D",
+    "0"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "k2",
+   "desc": "far-right room corner at low ceiling",
+   "uv": [
+    1212,
+    553
+   ],
+   "xyz": [
+    "W",
+    "D",
+    "hlo"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "d1",
+   "desc": "partition doorway left jamb, floor",
+   "uv": [
+    767,
+    727
+   ],
+   "xyz": [
+    "xd1",
+    "D",
+    "0"
+   ]
+  },
+  {
+   "id": "d2",
+   "desc": "partition doorway left jamb, head",
+   "uv": [
+    765,
+    577
+   ],
+   "xyz": [
+    "xd1",
+    "D",
+    "hd"
+   ]
+  },
+  {
+   "id": "d3",
+   "desc": "partition doorway right jamb, floor",
+   "uv": [
+    850,
+    727
+   ],
+   "xyz": [
+    "xd2",
+    "D",
+    "0"
+   ]
+  },
+  {
+   "id": "d4",
+   "desc": "partition doorway right jamb, head",
+   "uv": [
+    850,
+    577
+   ],
+   "xyz": [
+    "xd2",
+    "D",
+    "hd"
+   ]
+  },
+  {
+   "id": "pr1",
+   "desc": "right post top (under beam)",
+   "uv": [
+    1315,
+    527
+   ],
+   "xyz": [
+    "W-ds",
+    "ypr",
+    "hbb"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "pr2",
+   "desc": "right post base",
+   "uv": [
+    1325,
+    847
+   ],
+   "xyz": [
+    "W-ds",
+    "ypr",
+    "0"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "pl1",
+   "desc": "left post top (under beam)",
+   "uv": [
+    317,
+    547
+   ],
+   "xyz": [
+    "ds",
+    "ypl",
+    "hbb"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "pl2",
+   "desc": "left post base (partly hidden)",
+   "uv": [
+    320,
+    850
+   ],
+   "xyz": [
+    "ds",
+    "ypl",
+    "0"
+   ],
+   "sigma_px": 10
+  },
+  {
+   "id": "bl",
+   "desc": "left beam-band underside, near",
+   "uv": [
+    120,
+    512
+   ],
+   "xyz": [
+    "ds",
+    "yb1",
+    "hbb"
+   ],
+   "sigma_px": 8
+  },
+  {
+   "id": "br",
+   "desc": "right beam-band underside, near",
+   "uv": [
+    1600,
+    482
+   ],
+   "xyz": [
+    "W-ds",
+    "yb2",
+    "hbb"
+   ],
+   "sigma_px": 8
+  },
+  {
+   "id": "cl",
+   "desc": "left beam (flat-ceiling edge) mid",
+   "uv": [
+    500,
+    212
+   ],
+   "xyz": [
+    "W/2-wc/2",
+    "yc1",
+    "hc"
+   ],
+   "sigma_px": 8
+  },
+  {
+   "id": "cr",
+   "desc": "right beam (flat-ceiling edge) mid",
+   "uv": [
+    1068,
+    210
+   ],
+   "xyz": [
+    "W/2+wc/2",
+    "yc2",
+    "hc"
+   ],
+   "sigma_px": 8
+  },
+  {
+   "id": "wn1",
+   "desc": "long side window (X=W wall) head, far end",
+   "uv": [
+    1330,
+    580
+   ],
+   "xyz": [
+    "W",
+    "wy1",
+    "wh"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "wn2",
+   "desc": "long side window sill, far end",
+   "uv": [
+    1330,
+    650
+   ],
+   "xyz": [
+    "W",
+    "wy1",
+    "wsill"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "wn3",
+   "desc": "long side window head at image edge (not window end)",
+   "uv": [
+    1597,
+    562
+   ],
+   "xyz": [
+    "W",
+    "wy2",
+    "wh"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "wn4",
+   "desc": "long side window sill at image edge",
+   "uv": [
+    1597,
+    665
+   ],
+   "xyz": [
+    "W",
+    "wy2",
+    "wsill"
+   ],
+   "sigma_px": 6
+  }
+ ]
+}

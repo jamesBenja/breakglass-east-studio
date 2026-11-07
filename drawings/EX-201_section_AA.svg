@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1330" height="490" viewBox="0 0 1330 490" font-family="Helvetica,Arial,sans-serif">
+<rect width="1330" height="490" fill="#fbfaf7"/>
+<polygon points="110,340.66 730.34,340.66 730.34,207.16 614.24,207.16 614.24,199.36 524.81,100.0 315.53000000000003,100.0 226.10000000000002,199.36 226.10000000000002,207.16 110,207.16" fill="#efece6" stroke="#1f6f8b" stroke-width="3"/>
+<rect x="220.10000000000002" y="207.16" width="12" height="12.359999999999998" fill="#1f6f8b"/>
+<rect x="222.10000000000002" y="219.52" width="8" height="121.14000000000001" fill="#1f6f8b" opacity="0.55"/>
+<rect x="608.24" y="207.16" width="12" height="12.359999999999998" fill="#1f6f8b"/>
+<rect x="610.24" y="219.52" width="8" height="121.14000000000001" fill="#1f6f8b" opacity="0.55"/>
+<line x1="110" y1="340.66" x2="730.34" y2="340.66" stroke="#5a6b85" stroke-width="4"/>
+<text x="420.17" y="74.80000000000001" font-size="11" text-anchor="middle" fill="#c2187a">ROOF STRUCTURE, PITCH AND ANY VOID ABOVE THE FINISHED CEILING: NOT OBSERVED - NOT DRAWN</text>
+<line x1="50" y1="340.66" x2="50" y2="207.16" stroke="#1f6f8b" stroke-width="1"/><line x1="45" y1="340.66" x2="55" y2="340.66" stroke="#1f6f8b"/><line x1="45" y1="207.16" x2="55" y2="207.16" stroke="#1f6f8b"/><text x="56" y="273.91" font-size="11" fill="#1f6f8b">2.23 &#177;0.09</text>
+<line x1="256.1" y1="340.66" x2="256.1" y2="219.52" stroke="#1f6f8b" stroke-width="1"/><line x1="251.10000000000002" y1="340.66" x2="261.1" y2="340.66" stroke="#1f6f8b"/><line x1="251.10000000000002" y1="219.52" x2="261.1" y2="219.52" stroke="#1f6f8b"/><text x="262.1" y="280.09000000000003" font-size="11" fill="#1f6f8b">2.02 &#177;0.05 u/s beam</text>
+<line x1="602.24" y1="340.66" x2="602.24" y2="199.36" stroke="#1f6f8b" stroke-width="1"/><line x1="597.24" y1="340.66" x2="607.24" y2="340.66" stroke="#1f6f8b"/><line x1="597.24" y1="199.36" x2="607.24" y2="199.36" stroke="#1f6f8b"/><text x="598.24" y="270.01" font-size="11" text-anchor="end" fill="#1f6f8b">2.35 &#177;0.07 slope foot</text>
+<line x1="420.17" y1="340.66" x2="420.17" y2="100.0" stroke="#1f6f8b" stroke-width="1"/><line x1="415.17" y1="340.66" x2="425.17" y2="340.66" stroke="#1f6f8b"/><line x1="415.17" y1="100.0" x2="425.17" y2="100.0" stroke="#1f6f8b"/><text x="426.17" y="220.33" font-size="11" fill="#1f6f8b">4.01 &#177;0.09 (scan label 4.07)</text>
+<line x1="315.53000000000003" y1="86.0" x2="524.81" y2="86.0" stroke="#1f6f8b" stroke-width="1"/><line x1="315.53000000000003" y1="81.0" x2="315.53000000000003" y2="91.0" stroke="#1f6f8b"/><line x1="524.81" y1="81.0" x2="524.81" y2="91.0" stroke="#1f6f8b"/><text x="420.16999999999996" y="82.0" font-size="11" text-anchor="middle" fill="#1f6f8b">3.49 &#177;0.09</text>
+<line x1="110" y1="370.66" x2="730.34" y2="370.66" stroke="#5a6b85" stroke-width="1"/><line x1="110" y1="365.66" x2="110" y2="375.66" stroke="#5a6b85"/><line x1="730.34" y1="365.66" x2="730.34" y2="375.66" stroke="#5a6b85"/><text x="420.17" y="366.66" font-size="11" text-anchor="middle" fill="#5a6b85">W 10.34 &#177;0.19</text>
+<text x="236.10000000000002" y="316.65999999999997" font-size="10" fill="#555">post</text><text x="580.24" y="316.65999999999997" font-size="10" fill="#555">post</text>
+<text x="119.0" y="199.16" font-size="10" fill="#555">low side zone</text>
+<g font-size="11" fill="#333">
+<text x="20" y="432" font-size="15" font-weight="bold">EX-201  SECTION A-A (transverse, looking toward partition)</text>
+<text x="20" y="450">BREAKGLASS EAST / Ways Mills - EXISTING CONDITIONS v0.1 - photo-constrained reconstruction from 3 camera matches; scale from scan labels only.</text>
+<text x="20" y="466">NOT A MEASURED SURVEY. NOT FOR CONSTRUCTION, PRICING OR PERMIT. Dimensions: value +/- 1-sigma solve uncertainty (metres). Interior faces; wall thickness unknown.</text>
+<text x="20" y="482"><tspan fill="#1f6f8b">&#9632; PHOTO-SOLVED</tspan>   <tspan fill="#5a6b85">&#9632; SCAN-LABELLED</tspan>   <tspan fill="#c98a1b">&#9632; PHOTO-INFERRED</tspan>   <tspan fill="#c2187a">&#9632; UNKNOWN / NOT YET OBSERVED</tspan>   Source: model/solve_result.json</text>
+</g></svg>
