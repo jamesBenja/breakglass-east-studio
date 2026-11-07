@@ -5,6 +5,15 @@ Act as an integrated architecture, architectural-visualization, acoustics, and t
 
 Read this with `CLAUDE.md`, `docs/FIRST_ASSIGNMENT.md`, `docs/ACCEPTANCE_GATES.md`, and the Drive project index. Earlier v0.6 geometry/overlay/renders were rejected. Do not patch them.
 
+## Independent challenge and revised strategy — MANDATORY at project kickoff
+Before committing to the prescribed phase sequence, critically evaluate the *project plan itself*, the source evidence, the modelling/rendering toolchain, the handoff arrangement, and the intended deliverables. Treat previous assistant plans as hypotheses, not instructions to obey unquestioningly.
+
+Recommend the best professional approach even if it differs substantially from this document. Explicitly consider whether a single integrated site survey/model, photogrammetry/LiDAR export, camera calibration, measured console and speaker geometry, or a professional acoustician-led monitoring layout should precede the currently proposed control-room-only model.
+
+Your initial report must contain: (1) weaknesses in the proposed plan; (2) a recommended revised workflow with milestones, prioritized technical risks, and quality gates; (3) viable alternatives with tradeoffs in speed, accuracy, cost and final visual quality; (4) a list of work that should be stopped, deferred or reassigned to a qualified architect/acoustician; and (5) a preferred approach with a reasoned justification.
+
+**Authority:** You are free to reorder tasks, replace modelling/rendering methods, and challenge assumed room orientations. You do not need to preserve the current workflow for the sake of agreement. Flag any fundamental change to project goals, building constraints, cost or ownership decisions for owner review. Continue with evidence collection and safe reversible work while reviewing strategy; do not build an elaborate model on a questionable base.
+
 ## Source-first working contract
 1. Discover and test the connected Google Drive tools in this **Code session**. Use the complete Ways Mills original photographs, 3D scan screenshots, scan orbit video, existing roof/exterior shots, loft/garage views, Clark salvage, and the **actual Sunny Suite Spectra Sonics console and BOTH Geithains**. Create an asset index and grouped contact sheets. Do not claim file access until concrete files are retrieved. If a connector is unavailable in this session, record exact connector/tool and minimally scoped remedy.
 2. Inspect actual data format. Survey/scan-labelled floor rectangle `control approximately 10.51 × 7.86 m` and `live approximately 11.81 × 12.88 m` are approximate anchors, not a complete survey. A scan orbit video is not a real point cloud. Seek original CAD/3D export if available, but do not fabricate it.
