@@ -501,7 +501,9 @@ for k in range(4):
     y_ = Y_LOFT_END + 1.2 + k * 1.9
     cyl(f"PR_LV_pendant_{k}", 0.16, 0.18, (AX, y_, LIVE["hc"] - 0.8), "pendant", PL)
     box(f"PR_LV_pendant_cord_{k}", AX - 0.005, AX + 0.005, y_ - 0.005, y_ + 0.005, LIVE["hc"] - 0.71, LIVE["hc"], "steel_black", PL, "PROPOSED")
-box("PR_loft_guard", AX - 0.95, AX + 0.95, Y_LOFT_END - 0.25, Y_LOFT_END - 0.20, LOFT_DECK, LOFT_DECK + 1.07, "steel", PL, "PROPOSED", "guard at loft overlook (code height by architect)")
+box("PR_loft_guard_rail", AX - 0.95, AX + 0.95, Y_LOFT_END - 0.26, Y_LOFT_END - 0.20, LOFT_DECK + 1.02, LOFT_DECK + 1.07, "steel", PL, "PROPOSED", "guard at loft overlook (code height/infill by architect)")
+for gx in (AX - 0.95, AX, AX + 0.95):
+    box(f"PR_loft_guard_post_{gx:.2f}", gx - 0.025, gx + 0.025, Y_LOFT_END - 0.26, Y_LOFT_END - 0.20, LOFT_DECK, LOFT_DECK + 1.02, "steel", PL, "PROPOSED")
 
 # ================================================================== lights, world, cameras, render
 world = bpy.data.worlds.new("World"); scene.world = world; world.use_nodes = True
@@ -515,6 +517,9 @@ area("cr_fill_1", (AX, LPy, G["hc"] - 0.3), 2.5, 260)
 area("cr_fill_2", (AX, 2.0, G["hc"] - 0.3), 2.5, 160)
 area("lv_fill_1", (AX, Y_LOFT_END + 3.5, LIVE["hc"] - 0.2), 3.0, 500)
 area("lv_fill_2", (AX, Y_MID1 + 3.0, UNDERLOFT_CLG - 0.1), 3.0, 300)
+for k, (x, y) in enumerate(((AX - 3.0, Y_PART1 + 2.3), (AX + 3.0, Y_PART1 + 1.0), (AX + 3.0, Y_PART1 + 3.9), (AX - 3.0, Y_PART1 + 6.2), (AX + 3.0, Y_PART1 + 6.8), (AX, Y_PART1 + 3.9))):
+    area(f"mz_light_{k}", (x, y, F_MID + 2.35), 1.5, 220)
+area("loft_light", (AX, Y_LOFT_END - 3.0, LOFT_DECK + 1.6), 2.0, 120)
 
 CAMS = {
  "cr_front":      ((AX - 1.1, 2.35, 1.85), (AX + 0.1, 8.2, 1.25), 21),
