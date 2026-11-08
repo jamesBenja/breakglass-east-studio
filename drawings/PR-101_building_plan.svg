@@ -50,10 +50,10 @@
 <line x1="381.854" y1="145.67000000000004" x2="381.854" y2="114.47000000000006" stroke="#b5651d" stroke-width="5"/>
 <line x1="381.854" y1="107.96999999999997" x2="381.854" y2="76.76999999999998" stroke="#b5651d" stroke-width="5"/>
 <text x="84.414" y="76.77000000000008" font-size="8" text-anchor="start" fill="#b5651d" font-weight="normal">variable panels</text>
-<circle cx="197.51399999999998" cy="673.1060000000001" r="5" fill="#1f4e79"/>
-<circle cx="270.314" cy="673.1060000000001" r="5" fill="#1f4e79"/>
-<rect x="213.30952" y="695.2338493955073" width="41.20896000000002" height="31.038799999999988" fill="#1f4e79" fill-opacity="0.35" stroke="#1f4e79" stroke-width="1.5"/>
-<circle cx="233.914" cy="736.1560000000001" r="4" fill="#000"/>
+<circle cx="197.51399999999998" cy="726.4060000000001" r="5" fill="#1f4e79"/>
+<circle cx="270.314" cy="726.4060000000001" r="5" fill="#1f4e79"/>
+<rect x="213.30952" y="748.5209500000001" width="41.20896000000002" height="31.038799999999988" fill="#1f4e79" fill-opacity="0.35" stroke="#1f4e79" stroke-width="1.5"/>
+<circle cx="233.914" cy="789.4300000000001" r="4" fill="#000"/>
 <text x="233.914" y="825.1930000000001" font-size="11" text-anchor="middle" fill="#b5651d" font-weight="bold">CONTROL ROOM — see PR-102</text>
 <text x="233.914" y="883.6800000000001" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">GABLE ENTRY</text>
 <line x1="233.914" y1="879.78" x2="233.914" y2="67.80000000000001" stroke="#999" stroke-dasharray="14 4 2 4" stroke-width="0.8"/>
@@ -62,5 +62,5 @@
 <text x="399.014" y="552.388" font-size="10" fill="#555">8.0</text>
 <g font-size="11" fill="#333"><text x="20" y="933" font-size="15" font-weight="bold">PR-101  WHOLE BUILDING — PROPOSED PLAN (control room / support rooms / live room; loft dashed)</text>
 <text x="20" y="951">Interior length about 30.5 m gable to gable; dims in metres; existing partitions in the middle zone are scan-inferred and unchanged (no new walls).</text>
-<text x="20" y="967">PROPOSED DESIGN v0.3 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
+<text x="20" y="967">PROPOSED DESIGN v0.4 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
 <text x="20" y="985"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment (tape)</tspan>  <tspan fill="#b5651d">&#9632; proposed</tspan>  <tspan fill="#7a2e8e">&#9679; immersive 7.1.4 (phase P7)</tspan>  <tspan fill="#c9a400">&#9632; machinery zone/aisle</tspan>  <tspan fill="#c2187a">&#9632; placeholder/unknown</tspan></text></g></svg>

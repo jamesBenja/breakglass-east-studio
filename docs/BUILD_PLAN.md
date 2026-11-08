@@ -39,7 +39,13 @@ Critical dependencies:
 | Electrical engineer / master electrician | Service capacity, technical power (CEC-bonded star topology), lighting control |
 | Land surveyor (optional) | Only if the tape check disagrees with the scan or the permit requires certified dimensions |
 
-## 4. Budget, revised 8 Nov 2026 on the owner's direction (supersedes the contractor-led estimate below)
+## 4. Budget v0.4 (fireside + cinema). Current version: the owner's Google Sheet
+- **Essential build:** $35,300–$109,500.
+- **With 10–15 % contingency:** $38,830–$125,925.
+- **New lines since the lean budget below:** 5.1 cinema sound now ($2–8k), one-touch movie mode ($1.5–5k), blackout ($1–3k). The stove now stays in place ($0–1.5k for the hearth pad and clearances).
+- **Later:** completing 7.1.4 costs $12k–70k.
+
+## 4a. Lean budget, first revision (8 Nov 2026)
 Owner direction:
 - No architect, minimal professional fees.
 - Roof as-is.
@@ -112,8 +118,8 @@ These are not quotes: drawings, a specification and bids from 2–3 contractors 
 ## 6. Decision register (owner)
 | ID | Decision | Recommendation | Blocking |
 |---|---|---|---|
-| D1 | Control-room orientation | **A: lengthwise, facing the partition** | P1 |
-| D2 | Wood stove (owner: keep) | Move to the rear corner by the sofa (A1), or keep in place and face the gable (B) | before setup |
+| D1 | Control-room orientation | **DECIDED: fireside + cinema layout (facing the partition, console and speakers pulled into the room)** | done |
+| D2 | Wood stove | **DECIDED: stays in place; fireside lounge behind the speakers** | done |
 | D3 | Immersive timing | Infrastructure now, speakers in P7 | P3 |
 | D4 | Inner acoustic door at the garage | Decide after the noise survey | P1 |
 | D5 | Grand piano | Size/budget; humidity system either way | P7 |

@@ -7,58 +7,69 @@
 <rect x="256.02" y="369.85" width="10" height="10" fill="#555"/>
 <rect x="721.87" y="366.56" width="10" height="10" fill="#555"/>
 <line x1="492.23" y1="692.9300000000001" x2="492.23" y2="76.99999999999997" stroke="#999" stroke-dasharray="14 4 2 4"/>
-<rect x="80" y="98.00000000000003" width="368.2" height="21.0" fill="#b5651d" fill-opacity="0.35"/>
+<rect x="80" y="98.00000000000003" width="224.76999999999998" height="21.0" fill="#b5651d" fill-opacity="0.35"/>
+<rect x="367.77" y="106.39999999999998" width="39.2" height="35.0" fill="#222"/>
+<text x="387.37" y="102.39999999999998" font-size="9" text-anchor="middle" fill="#222">wood stove (existing, kept)</text>
+<rect x="247.37" y="150.50000000000003" width="182.0" height="98.00000000000003" fill="#b5651d" fill-opacity="0.12" stroke="#b5651d" stroke-dasharray="4 3"/>
+<text x="317.37" y="224.0" font-size="11" text-anchor="middle" fill="#b5651d" font-weight="bold">FIRESIDE LOUNGE</text>
+<text x="317.37" y="237.0" font-size="9" text-anchor="middle" fill="#b5651d">low soft seating; doorway route kept clear</text>
 <rect x="533.88" y="98.00000000000003" width="333.2" height="21.0" fill="#b5651d" fill-opacity="0.35"/>
-<text x="164.0" y="113.00000000000003" font-size="10" fill="#b5651d">front-wall broadband absorber ~300 mm</text>
+<text x="94.0" y="113.00000000000003" font-size="9" fill="#b5651d">front absorber (stove clearance kept)</text>
 <rect x="80" y="122.5" width="52.5" height="507.42999999999995" fill="#b5651d" fill-opacity="0.2"/>
 <rect x="814.5799999999999" y="122.5" width="52.5" height="507.42999999999995" fill="#b5651d" fill-opacity="0.2"/>
 <text x="106.6" y="384.96500000000003" font-size="10" fill="#b5651d" transform="rotate(-90 106.6 384.96500000000003)" text-anchor="middle">LF trap under windows (0.75 m)</text>
 <text x="840.4799999999999" y="384.96500000000003" font-size="10" fill="#b5651d" transform="rotate(-90 840.4799999999999 384.96500000000003)" text-anchor="middle">LF trap under windows (0.75 m)</text>
 <rect x="101.0" y="657.9300000000001" width="745.08" height="14.0" fill="#b5651d" fill-opacity="0.45"/>
 <text x="473.53999999999996" y="651.9300000000001" font-size="10" text-anchor="middle" fill="#b5651d">rear-wall diffusion (reclaimed Clark wood) between existing openings</text>
-<rect x="383.73" y="157.5" width="217.0" height="197.75" fill="none" stroke="#b5651d" stroke-dasharray="4 3"/>
-<text x="604.23" y="250.25" font-size="10" fill="#b5651d">ceiling cloud above (3.9 m)</text>
-<rect x="415.22999999999996" y="386.75" width="154.0" height="49.0" fill="#b5651d" fill-opacity="0.3" stroke="#b5651d"/><text x="492.23" y="414.75000000000006" font-size="10" text-anchor="middle" fill="#b5651d">producer / outboard desk</text>
-<rect x="394.2300000000001" y="535.4300000000001" width="196.0" height="63.0" fill="#b5651d" fill-opacity="0.3" stroke="#b5651d"/><text x="492.23" y="566.9300000000001" font-size="10" text-anchor="middle" fill="#b5651d">client sofa / screening row</text>
-<rect x="436.7564" y="203.07497914175008" width="110.94720000000004" height="83.56599999999997" fill="#1f4e79" fill-opacity="0.45" stroke="#1f4e79" stroke-width="2"/>
-<text x="492.23" y="248.85797914175006" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">SPECTRA SONICS</text>
-<text x="492.23" y="262.8579791417501" font-size="9" text-anchor="middle" fill="#fff">1585 x 1194 mm</text>
-<polygon points="379.07435408736745,152.24965124853009 409.3856459126325,134.7503487514699 394.5462373951255,109.04637328364515 364.2349455698604,126.5456757807053" fill="#1f4e79"/>
-<line x1="394.23" y1="143.5" x2="492.23" y2="313.25" stroke="#1f4e79" stroke-dasharray="5 3"/>
-<text x="334.23" y="154.0" font-size="10" text-anchor="middle" fill="#1f4e79" font-weight="bold">RL 901K L</text>
-<polygon points="575.0743540873674,134.7503487514699 605.3856459126325,152.24965124853009 620.2250544301396,126.5456757807053 589.9137626048745,109.04637328364515" fill="#1f4e79"/>
-<line x1="590.23" y1="143.5" x2="492.23" y2="313.25" stroke="#1f4e79" stroke-dasharray="5 3"/>
-<text x="650.23" y="154.0" font-size="10" text-anchor="middle" fill="#1f4e79" font-weight="bold">RL 901K R</text>
-<line x1="394.23" y1="143.5" x2="590.23" y2="143.5" stroke="#1f4e79" stroke-dasharray="5 3"/>
-<circle cx="492.23" cy="313.25" r="6" fill="#000"/><text x="502.23" y="331.25" font-size="10">LP (ears 1.20 m)</text>
-<text x="492.23" y="161.5" font-size="10" text-anchor="middle" fill="#1f4e79">2.80 m  |  +/-30 deg  |  2.80 m to ears  |  toe-in 30 deg</text>
-<circle cx="492.23" cy="117.39000000000004" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
-<text x="501.23" y="111.39000000000004" font-size="9" fill="#7a2e8e">C</text>
-<circle cx="297.0" cy="330.33000000000004" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
-<text x="306.0" y="324.33000000000004" font-size="9" fill="#7a2e8e">Ls</text>
-<circle cx="687.46" cy="330.33000000000004" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
-<text x="696.46" y="324.33000000000004" font-size="9" fill="#7a2e8e">Rs</text>
-<circle cx="366.23" cy="463.40000000000003" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
-<text x="375.23" y="457.40000000000003" font-size="9" fill="#7a2e8e">Lrs</text>
-<circle cx="618.23" cy="463.40000000000003" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
-<text x="627.23" y="457.40000000000003" font-size="9" fill="#7a2e8e">Rrs</text>
-<circle cx="394.23" cy="215.25" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
-<text x="403.23" y="209.25" font-size="9" fill="#7a2e8e">Ltf (overhead 3.18)</text>
-<circle cx="590.23" cy="215.25" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
-<text x="599.23" y="209.25" font-size="9" fill="#7a2e8e">Rtf (overhead 3.18)</text>
-<circle cx="394.23" cy="411.25" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
-<text x="403.23" y="405.25" font-size="9" fill="#7a2e8e">Ltr (overhead 3.18)</text>
-<circle cx="590.23" cy="411.25" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
-<text x="599.23" y="405.25" font-size="9" fill="#7a2e8e">Rtr (overhead 3.18)</text>
-<line x1="380.22999999999996" y1="175.0" x2="604.23" y2="175.0" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>
-<text x="611.23" y="179.0" font-size="9" fill="#555">AT screen 3.2 m (drops for screening)</text>
-<line x1="705.73" y1="313.25" x2="705.73" y2="98.00000000000003" stroke="#333"/><line x1="701.73" y1="313.25" x2="709.73" y2="313.25" stroke="#333"/><line x1="701.73" y1="98.00000000000003" x2="709.73" y2="98.00000000000003" stroke="#333"/><text x="710.73" y="205.625" font-size="10">3.08 (0.375 L)</text>
-<line x1="341.73" y1="143.5" x2="341.73" y2="98.00000000000003" stroke="#333"/><line x1="337.73" y1="143.5" x2="345.73" y2="143.5" stroke="#333"/><line x1="337.73" y1="98.00000000000003" x2="345.73" y2="98.00000000000003" stroke="#333"/><text x="346.73" y="120.75000000000001" font-size="10">0.65</text>
+<rect x="383.73" y="301.00000000000006" width="217.0" height="197.67999999999995" fill="none" stroke="#b5651d" stroke-dasharray="4 3"/>
+<text x="604.23" y="393.68000000000006" font-size="10" fill="#b5651d">ceiling cloud above (3.9 m)</text>
+<rect x="139.5" y="398.93" width="49.0" height="154.0" fill="#b5651d" fill-opacity="0.3" stroke="#b5651d"/><text x="164.0" y="475.93" font-size="9" text-anchor="middle" fill="#b5651d" transform="rotate(-90 164.0 475.93)">producer / outboard desk</text>
+<rect x="394.2300000000001" y="584.4300000000001" width="196.0" height="66.5" fill="#b5651d" fill-opacity="0.3" stroke="#b5651d"/><text x="492.23" y="619.4300000000001" font-size="10" text-anchor="middle" fill="#b5651d">FAMILY CINEMA SOFA</text>
+<rect x="271.73" y="542.4300000000001" width="56.0" height="56.0" fill="#b5651d" fill-opacity="0.3" stroke="#b5651d"/>
+<rect x="656.7299999999999" y="542.4300000000001" width="56.0" height="56.0" fill="#b5651d" fill-opacity="0.3" stroke="#b5651d"/>
+<line x1="492.23" y1="580.9300000000001" x2="597.23" y2="304.5" stroke="#555" stroke-dasharray="2 4"/>
+<line x1="492.23" y1="580.9300000000001" x2="387.23" y2="304.5" stroke="#555" stroke-dasharray="2 4"/>
+<text x="562.23" y="542.4300000000001" font-size="9" fill="#555">3.95 m to screen, 41.6 deg wide, centre 14.1 deg up</text>
+<rect x="474.73" y="587.93" width="35.0" height="35.0" fill="none" stroke="#555"/><text x="513.23" y="601.9300000000001" font-size="8" fill="#555">projector (ceiling)</text>
+<rect x="436.7564" y="346.54025" width="110.94720000000004" height="83.56599999999997" fill="#1f4e79" fill-opacity="0.45" stroke="#1f4e79" stroke-width="2"/>
+<text x="492.23" y="392.32325000000003" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">SPECTRA SONICS</text>
+<text x="492.23" y="406.32325000000003" font-size="9" text-anchor="middle" fill="#fff">1585 x 1194 mm</text>
+<polygon points="379.0759171256216,295.75235809576316 409.3840828743784,278.24764190423684 394.5400835439641,252.54631734929106 364.2319177952073,270.05103354081734" fill="#1f4e79"/>
+<line x1="394.23" y1="287.0" x2="492.23" y2="456.68" stroke="#1f4e79" stroke-dasharray="5 3"/>
+<text x="334.23" y="297.50000000000006" font-size="10" text-anchor="middle" fill="#1f4e79" font-weight="bold">RL 901K L</text>
+<polygon points="575.0759171256216,278.24764190423696 605.3840828743784,295.75235809576316 620.2280822047927,270.0510335408173 589.9199164560359,252.54631734929112" fill="#1f4e79"/>
+<line x1="590.23" y1="287.0" x2="492.23" y2="456.68" stroke="#1f4e79" stroke-dasharray="5 3"/>
+<text x="650.23" y="297.50000000000006" font-size="10" text-anchor="middle" fill="#1f4e79" font-weight="bold">RL 901K R</text>
+<line x1="394.23" y1="287.0" x2="590.23" y2="287.0" stroke="#1f4e79" stroke-dasharray="5 3"/>
+<circle cx="492.23" cy="456.68" r="6" fill="#000"/><text x="502.23" y="474.68" font-size="10">LP (ears 1.20 m)</text>
+<text x="492.23" y="492.68" font-size="10" text-anchor="middle" fill="#1f4e79">RL 901K: 2.80 m apart | +/-30 deg | 2.80 m to ears | toe-in 30 deg</text>
+<circle cx="492.23" cy="260.82" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
+<text x="501.23" y="254.82" font-size="9" fill="#7a2e8e">C</text>
+<circle cx="297.0" cy="473.76000000000005" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
+<text x="306.0" y="467.76000000000005" font-size="9" fill="#7a2e8e">Ls</text>
+<circle cx="687.46" cy="473.76000000000005" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
+<text x="696.46" y="467.76000000000005" font-size="9" fill="#7a2e8e">Rs</text>
+<circle cx="366.23" cy="606.83" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
+<text x="375.23" y="600.83" font-size="9" fill="#7a2e8e">Lrs</text>
+<circle cx="618.23" cy="606.83" r="7" fill="#7a2e8e" stroke="#7a2e8e" stroke-width="2"/>
+<text x="627.23" y="600.83" font-size="9" fill="#7a2e8e">Rrs</text>
+<circle cx="394.23" cy="358.68000000000006" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
+<text x="403.23" y="352.68000000000006" font-size="9" fill="#7a2e8e">Ltf (overhead 3.18)</text>
+<circle cx="590.23" cy="358.68000000000006" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
+<text x="599.23" y="352.68000000000006" font-size="9" fill="#7a2e8e">Rtf (overhead 3.18)</text>
+<circle cx="394.23" cy="554.6800000000001" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
+<text x="403.23" y="548.6800000000001" font-size="9" fill="#7a2e8e">Ltr (overhead 3.18)</text>
+<circle cx="590.23" cy="554.6800000000001" r="7" fill="#fff" stroke="#7a2e8e" stroke-width="2"/>
+<text x="599.23" y="548.6800000000001" font-size="9" fill="#7a2e8e">Rtr (overhead 3.18)</text>
+<line x1="387.23" y1="304.5" x2="597.23" y2="304.5" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>
+<text x="604.23" y="316.5" font-size="9" fill="#555">AT screen 3.0 m (drops for film nights)</text>
+<line x1="705.73" y1="671.9300000000001" x2="705.73" y2="456.68" stroke="#333"/><line x1="701.73" y1="671.9300000000001" x2="709.73" y2="671.9300000000001" stroke="#333"/><line x1="701.73" y1="456.68" x2="709.73" y2="456.68" stroke="#333"/><text x="710.73" y="564.3050000000001" font-size="10">3.08 (0.375 L from rear)</text>
+<line x1="632.23" y1="287.0" x2="632.23" y2="98.00000000000003" stroke="#333"/><line x1="628.23" y1="287.0" x2="636.23" y2="287.0" stroke="#333"/><line x1="628.23" y1="98.00000000000003" x2="636.23" y2="98.00000000000003" stroke="#333"/><text x="637.23" y="192.5" font-size="10">2.70</text>
 <line x1="48.5" y1="671.9300000000001" x2="48.5" y2="98.00000000000003" stroke="#333"/><line x1="44.5" y1="671.9300000000001" x2="52.5" y2="671.9300000000001" stroke="#333"/><line x1="44.5" y1="98.00000000000003" x2="52.5" y2="98.00000000000003" stroke="#333"/><text x="53.5" y="384.96500000000003" font-size="10">8.20</text>
-<text x="473.53999999999996" y="88.00000000000003" font-size="11" text-anchor="middle">FRONT: partition (doorway kept, centred between the speakers)</text>
-<text x="473.53999999999996" y="693.9300000000001" font-size="11" text-anchor="middle">REAR: gable — entry door, clerestory, 2 windows (all kept)</text>
+<text x="473.53999999999996" y="88.00000000000003" font-size="11" text-anchor="middle">FRONT: partition (doorway kept, opens into the fireside lounge)</text>
+<text x="473.53999999999996" y="693.9300000000001" font-size="11" text-anchor="middle">REAR: gable: entry door, clerestory, 2 windows (all kept; blackout for daytime films)</text>
 <text x="473.53999999999996" y="709.9300000000001" font-size="10" text-anchor="middle" fill="#777">W 11.24  |  posts ■  |  beam lines dashed  |  flat ceiling (4.11 m) dotted  |  building axis dash-dot</text>
-<g font-size="11" fill="#333"><text x="20" y="772" font-size="15" font-weight="bold">PR-102  CONTROL ROOM — PROPOSED MONITORING LAYOUT (orientation A: facing the partition)</text>
+<g font-size="11" fill="#333"><text x="20" y="772" font-size="15" font-weight="bold">PR-102  CONTROL ROOM: FIRESIDE + CINEMA LAYOUT v0.4 (facing the partition; console and speakers pulled into the room)</text>
 <text x="20" y="790">Actual Spectra Sonics (tape 62.4 x 47 in) and both actual Geithain RL 901K (tape 19.7 x 16.7 x 21.4 in, top at 61 in). Geometry from model/monitoring_geometry.json.</text>
-<text x="20" y="806">PROPOSED DESIGN v0.3 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
+<text x="20" y="806">PROPOSED DESIGN v0.4 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
 <text x="20" y="824"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment (tape)</tspan>  <tspan fill="#b5651d">&#9632; proposed</tspan>  <tspan fill="#7a2e8e">&#9679; immersive 7.1.4 (phase P7)</tspan>  <tspan fill="#c9a400">&#9632; machinery zone/aisle</tspan>  <tspan fill="#c2187a">&#9632; placeholder/unknown</tspan></text></g></svg>

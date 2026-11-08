@@ -23,7 +23,7 @@ def frame(w, h, body, title, sub):
 <rect width="{w}" height="{h}" fill="#fbfaf7"/>{body}
 <g font-size="11" fill="#333"><text x="20" y="{h-62}" font-size="15" font-weight="bold">{title}</text>
 <text x="20" y="{h-44}">{sub}</text>
-<text x="20" y="{h-28}">PROPOSED DESIGN v0.3 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
+<text x="20" y="{h-28}">PROPOSED DESIGN v0.4 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
 <text x="20" y="{h-10}"><tspan fill="{C['ex']}">&#9632; existing</tspan>  <tspan fill="{C['eq']}">&#9632; actual equipment (tape)</tspan>  <tspan fill="{C['pr']}">&#9632; proposed</tspan>  <tspan fill="{C['imm']}">&#9679; immersive 7.1.4 (phase P7)</tspan>  <tspan fill="{C['zone']}">&#9632; machinery zone/aisle</tspan>  <tspan fill="{C['unk']}">&#9632; placeholder/unknown</tspan></text></g></svg>'''
 
 # ------------------------------------------------------------ PR-101 building plan
@@ -97,9 +97,16 @@ for x in (G["xc1"], G["xc2"]): b.append(f'<line x1="{X(x)}" y1="{Y(0)}" x2="{X(x
 for x, y in ((G["xL"], P["ypl"]), (G["xR"], P["ypr"])): b.append(f'<rect x="{X(x)-5}" y="{Y(y)-5}" width="10" height="10" fill="{C["ex"]}"/>')
 b.append(f'<line x1="{X(AX)}" y1="{Y(-0.3)}" x2="{X(AX)}" y2="{Y(D + 0.3)}" stroke="#999" stroke-dasharray="14 4 2 4"/>')
 # proposed treatment
-b.append(f'<rect x="{X(0)}" y="{Y(D)}" width="{(P["CR1.xd1"]-0.05)*sc}" height="{0.3*sc}" fill="{C["pr"]}" fill-opacity="0.35"/>')
+STX = P["g_xs"]; STY = min(P["g_ys"], D - 0.35)
+b.append(f'<rect x="{X(0)}" y="{Y(D)}" width="{(STX-0.28-0.9)*sc}" height="{0.3*sc}" fill="{C["pr"]}" fill-opacity="0.35"/>')
+# existing wood stove (kept) + fireside lounge
+b.append(f'<rect x="{X(STX-0.28)}" y="{Y(STY+0.25)}" width="{0.56*sc}" height="{0.5*sc}" fill="#222"/>')
+b.append(f'<text x="{X(STX)}" y="{Y(STY+0.25)-4}" font-size="9" text-anchor="middle" fill="#222">wood stove (existing, kept)</text>')
+b.append(f'<rect x="{X(STX-2.0)}" y="{Y(D-0.75)}" width="{2.6*sc}" height="{(D-0.75-(st["L"][1]+0.55))*sc}" fill="{C["pr"]}" fill-opacity="0.12" stroke="{C["pr"]}" stroke-dasharray="4 3"/>')
+b.append(f'<text x="{X(STX-1.0)}" y="{Y(st["L"][1]+0.9)}" font-size="11" text-anchor="middle" fill="{C["pr"]}" font-weight="bold">FIRESIDE LOUNGE</text>')
+b.append(f'<text x="{X(STX-1.0)}" y="{Y(st["L"][1]+0.9)+13}" font-size="9" text-anchor="middle" fill="{C["pr"]}">low soft seating; doorway route kept clear</text>')
 b.append(f'<rect x="{X(P["CR1.xd2"]+0.05)}" y="{Y(D)}" width="{(W-P["CR1.xd2"]-0.05)*sc}" height="{0.3*sc}" fill="{C["pr"]}" fill-opacity="0.35"/>')
-b.append(f'<text x="{X(1.2)}" y="{Y(D)+15}" font-size="10" fill="{C["pr"]}">front-wall broadband absorber ~300 mm</text>')
+b.append(f'<text x="{X(0.2)}" y="{Y(D)+15}" font-size="9" fill="{C["pr"]}">front absorber (stove clearance kept)</text>')
 for x0_ in (0, W - 0.75): b.append(f'<rect x="{X(x0_)}" y="{Y(D-0.35)}" width="{0.75*sc}" height="{(D-0.95)*sc}" fill="{C["pr"]}" fill-opacity="0.2"/>')
 b.append(f'<text x="{X(0.38)}" y="{Y(D/2)}" font-size="10" fill="{C["pr"]}" transform="rotate(-90 {X(0.38)} {Y(D/2)})" text-anchor="middle">LF trap under windows (0.75 m)</text>')
 b.append(f'<text x="{X(W-0.38)}" y="{Y(D/2)}" font-size="10" fill="{C["pr"]}" transform="rotate(-90 {X(W-0.38)} {Y(D/2)})" text-anchor="middle">LF trap under windows (0.75 m)</text>')
@@ -108,8 +115,16 @@ b.append(f'<text x="{X(W/2)}" y="{Y(0.2)-6}" font-size="10" text-anchor="middle"
 lp = st["listening_position"]
 b.append(f'<rect x="{X(AX-1.55)}" y="{Y(st["L"][1]-0.2)}" width="{3.1*sc}" height="{(st["L"][1]-0.2-(lp[1]-0.6))*sc}" fill="none" stroke="{C["pr"]}" stroke-dasharray="4 3"/>')
 b.append(f'<text x="{X(AX+1.6)}" y="{Y(lp[1]+0.9)}" font-size="10" fill="{C["pr"]}">ceiling cloud above (3.9 m)</text>')
-b.append(f'<rect x="{X(AX-1.1)}" y="{Y(lp[1]-1.05)}" width="{2.2*sc}" height="{0.7*sc}" fill="{C["pr"]}" fill-opacity="0.3" stroke="{C["pr"]}"/><text x="{X(AX)}" y="{Y(lp[1]-1.45)}" font-size="10" text-anchor="middle" fill="{C["pr"]}">producer / outboard desk</text>')
-b.append(f'<rect x="{X(AX-1.4)}" y="{Y(1.95)}" width="{2.8*sc}" height="{0.9*sc}" fill="{C["pr"]}" fill-opacity="0.3" stroke="{C["pr"]}"/><text x="{X(AX)}" y="{Y(1.5)}" font-size="10" text-anchor="middle" fill="{C["pr"]}">client sofa / screening row</text>')
+CIN = MG["cinema"]
+b.append(f'<rect x="{X(0.85)}" y="{Y(3.9)}" width="{0.7*sc}" height="{2.2*sc}" fill="{C["pr"]}" fill-opacity="0.3" stroke="{C["pr"]}"/><text x="{X(1.2)}" y="{Y(2.8)}" font-size="9" text-anchor="middle" fill="{C["pr"]}" transform="rotate(-90 {X(1.2)} {Y(2.8)})">producer / outboard desk</text>')
+b.append(f'<rect x="{X(AX-1.4)}" y="{Y(1.25)}" width="{2.8*sc}" height="{0.95*sc}" fill="{C["pr"]}" fill-opacity="0.3" stroke="{C["pr"]}"/><text x="{X(AX)}" y="{Y(0.75)}" font-size="10" text-anchor="middle" fill="{C["pr"]}">FAMILY CINEMA SOFA</text>')
+for cx in (AX - 2.75, AX + 2.75):
+    b.append(f'<rect x="{X(cx-0.4)}" y="{Y(1.85)}" width="{0.8*sc}" height="{0.8*sc}" fill="{C["pr"]}" fill-opacity="0.3" stroke="{C["pr"]}"/>')
+se = CIN["sofa_eye"]
+for sx in (CIN["screen_width"]/2, -CIN["screen_width"]/2):
+    b.append(f'<line x1="{X(se[0])}" y1="{Y(se[1])}" x2="{X(AX+sx)}" y2="{Y(CIN["screen_y"])}" stroke="#555" stroke-dasharray="2 4"/>')
+b.append(f'<text x="{X(AX+1.0)}" y="{Y(se[1]+0.55)}" font-size="9" fill="#555">{CIN["viewing_distance"]} m to screen, {CIN["horizontal_view_angle_deg"]} deg wide, centre {CIN["elevation_to_centre_deg"]} deg up</text>')
+b.append(f'<rect x="{X(AX-0.25)}" y="{Y(1.2)}" width="{0.5*sc}" height="{0.5*sc}" fill="none" stroke="#555"/><text x="{X(AX+0.3)}" y="{Y(1.0)}" font-size="8" fill="#555">projector (ceiling)</text>')
 # equipment
 c_ = st["console"]
 b.append(f'<rect x="{X(c_["x0"])}" y="{Y(c_["back_edge_y"])}" width="{(c_["x1"]-c_["x0"])*sc}" height="{(c_["back_edge_y"]-c_["front_edge_y"])*sc}" fill="{C["eq"]}" fill-opacity="0.45" stroke="{C["eq"]}" stroke-width="2"/>')
@@ -124,24 +139,24 @@ for k in ("L", "R"):
     b.append(f'<text x="{X(x) + (-60 if k == "L" else 60)}" y="{Y(y-0.15)}" font-size="10" text-anchor="middle" fill="{C["eq"]}" font-weight="bold">RL 901K {k}</text>')
 b.append(f'<line x1="{X(st["L"][0])}" y1="{Y(st["L"][1])}" x2="{X(st["R"][0])}" y2="{Y(st["R"][1])}" stroke="{C["eq"]}" stroke-dasharray="5 3"/>')
 b.append(f'<circle cx="{X(lp[0])}" cy="{Y(lp[1])}" r="6" fill="#000"/><text x="{X(lp[0])+10}" y="{Y(lp[1])+18}" font-size="10">LP (ears 1.20 m)</text>')
-b.append(f'<text x="{X(AX)}" y="{Y(st["L"][1])+18}" font-size="10" text-anchor="middle" fill="{C["eq"]}">2.80 m  |  +/-30 deg  |  2.80 m to ears  |  toe-in 30 deg</text>')
+b.append(f'<text x="{X(AX)}" y="{Y(lp[1])+36}" font-size="10" text-anchor="middle" fill="{C["eq"]}">RL 901K: 2.80 m apart | +/-30 deg | 2.80 m to ears | toe-in 30 deg</text>')
 for k, v in MG["immersive_7_1_4"].items():
     if not isinstance(v, list): continue
     x, y, z = v
     filled = z < 2
     b.append(f'<circle cx="{X(x)}" cy="{Y(y)}" r="7" fill="{C["imm"] if filled else "#fff"}" stroke="{C["imm"]}" stroke-width="2"/>')
     b.append(f'<text x="{X(x)+9}" y="{Y(y)-6}" font-size="9" fill="{C["imm"]}">{k}{"" if filled else " (overhead 3.18)"}</text>')
-b.append(f'<line x1="{X(AX-1.6)}" y1="{Y(st["L"][1]-0.45)}" x2="{X(AX+1.6)}" y2="{Y(st["L"][1]-0.45)}" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>')
-b.append(f'<text x="{X(AX+1.7)}" y="{Y(st["L"][1]-0.45)+4}" font-size="9" fill="#555">AT screen 3.2 m (drops for screening)</text>')
+b.append(f'<line x1="{X(AX-CIN["screen_width"]/2)}" y1="{Y(CIN["screen_y"])}" x2="{X(AX+CIN["screen_width"]/2)}" y2="{Y(CIN["screen_y"])}" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>')
+b.append(f'<text x="{X(AX+1.6)}" y="{Y(CIN["screen_y"])+12}" font-size="9" fill="#555">AT screen 3.0 m (drops for film nights)</text>')
 # dims
 def dimv(x, y0, y1, label):
     b.append(f'<line x1="{X(x)}" y1="{Y(y0)}" x2="{X(x)}" y2="{Y(y1)}" stroke="#333"/><line x1="{X(x)-4}" y1="{Y(y0)}" x2="{X(x)+4}" y2="{Y(y0)}" stroke="#333"/><line x1="{X(x)-4}" y1="{Y(y1)}" x2="{X(x)+4}" y2="{Y(y1)}" stroke="#333"/><text x="{X(x)+5}" y="{(Y(y0)+Y(y1))/2}" font-size="10">{label}</text>')
-dimv(AX + 3.05, lp[1], D, f"{D - lp[1]:.2f} (0.375 L)"); dimv(AX - 2.15, st["L"][1], D, "0.65")
+dimv(AX + 3.05, 0, lp[1], f"{lp[1]:.2f} (0.375 L from rear)"); dimv(AX + 2.0, st["L"][1], D, f"{D - st['L'][1]:.2f}")
 dimv(-0.45, 0, D, "8.20")
-b.append(f'<text x="{X(W/2)}" y="{Y(D)-10}" font-size="11" text-anchor="middle">FRONT: partition (doorway kept, centred between the speakers)</text>')
-b.append(f'<text x="{X(W/2)}" y="{Y(0)+22}" font-size="11" text-anchor="middle">REAR: gable — entry door, clerestory, 2 windows (all kept)</text>')
+b.append(f'<text x="{X(W/2)}" y="{Y(D)-10}" font-size="11" text-anchor="middle">FRONT: partition (doorway kept, opens into the fireside lounge)</text>')
+b.append(f'<text x="{X(W/2)}" y="{Y(0)+22}" font-size="11" text-anchor="middle">REAR: gable: entry door, clerestory, 2 windows (all kept; blackout for daytime films)</text>')
 b.append(f'<text x="{X(W/2)}" y="{Y(0)+38}" font-size="10" text-anchor="middle" fill="#777">W 11.24  |  posts ■  |  beam lines dashed  |  flat ceiling (4.11 m) dotted  |  building axis dash-dot</text>')
 open(os.path.join(OUT, "PR-102_control_room_plan.svg"), "w").write(frame(int(X(W + 1.0)) + 200, int(Y(-0.9)) + 100, "\n".join(b),
-    "PR-102  CONTROL ROOM — PROPOSED MONITORING LAYOUT (orientation A: facing the partition)",
+    "PR-102  CONTROL ROOM: FIRESIDE + CINEMA LAYOUT v0.4 (facing the partition; console and speakers pulled into the room)",
     "Actual Spectra Sonics (tape 62.4 x 47 in) and both actual Geithain RL 901K (tape 19.7 x 16.7 x 21.4 in, top at 61 in). Geometry from model/monitoring_geometry.json."))
 print("wrote PR-101, PR-102")

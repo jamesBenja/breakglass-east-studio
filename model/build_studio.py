@@ -1,6 +1,6 @@
 """Breakglass East — whole-building Blender model: EXISTING shell + actual equipment + PROPOSED fit-out.
 
-    python3 model/build_studio.py                 # build + save model/breakglass_east_v03.blend
+    python3 model/build_studio.py                 # build + save model/breakglass_east_v04.blend
     BG_RENDER=1 python3 model/build_studio.py     # also render renders/design/*.png (Cycles CPU)
     BG_ONLY=cr_front,live_piano BG_RENDER=1 ...   # render a subset
 
@@ -113,7 +113,7 @@ M = {
  "reclaimed": mat("pr_reclaimed_wood_clark", (0.45, 0.30, 0.18), 0.6, noise=(40, 0.25, (1, 1, 10))),
  "cove": mat("pr_cove_light", (1, 0.9, 0.75), 0.5, emit=(1.0, 0.86, 0.68), estr=25),
  "cove_cool": mat("pr_cove_light_cool", (0.85, 0.9, 1), 0.5, emit=(0.70, 0.80, 1.0), estr=12),
- "screen": mat("pr_ac_screen", (0.85, 0.85, 0.85), 0.9),
+ "screen": mat("pr_ac_screen", (0.85, 0.85, 0.85), 0.9, emit=(0.55, 0.65, 0.85), estr=0.0),
  "sofa": mat("pr_sofa_wool", (0.35, 0.33, 0.30), 0.95, noise=(60, 0.05)),
  "rug": mat("pr_wool_rug", (0.30, 0.28, 0.25), 1.0, noise=(90, 0.08)),
  "spk_small": mat("pr_monitor_small", (0.03, 0.03, 0.035), 0.5),
@@ -392,7 +392,8 @@ box("PR_CR_oak_floor", 0.02, W - 0.02, 0.02, D - 0.02, 0.0, 0.012, "oak", PR, "P
 box("PR_CR_rug_mixpos", LPx - 2.0, LPx + 2.0, LPy - 2.6, LPy + 1.8, 0.012, 0.022, "rug", PR, "PROPOSED")
 # front wall: full-width deep broadband absorber (fabric), doorway kept open
 fw_y = D - 0.30
-for nm, a, b in (("L", 0.0, S_("CR1.xd1") - 0.05), ("R", S_("CR1.xd2") + 0.05, W)):
+STOVE_X0 = S_("g_xs") - 0.28 - 0.90   # keep ~0.9 m clear of the existing wood stove (clearances per its label / WETT)
+for nm, a, b in (("L", 0.0, STOVE_X0), ("R", S_("CR1.xd2") + 0.05, W)):
     box(f"PR_front_absorber_{nm}", a, b, fw_y, D - 0.01, 0.0, 2.15, "fabric_dark", PR, "PROPOSED", "~300 mm broadband absorber, front wall; depth/spec by acoustician")
 box("PR_front_absorber_header", S_("CR1.xd1") - 0.05, S_("CR1.xd2") + 0.05, fw_y, D - 0.01, S_("CR1.hd") + 0.05, 2.15, "fabric_dark", PR, "PROPOSED")
 # side low zones: LF traps BELOW the sills (windows preserved), reclaimed-wood capped
@@ -416,12 +417,28 @@ for nm, x, z in (("L", G["xL"] + 0.12, G["hbL"] + 0.02), ("R", G["xR"] - 0.12, G
     box(f"PR_cove_{nm}", x - 0.03, x + 0.03, 0.15, D - 0.15, z, z + 0.02, "cove", PR, "PROPOSED", "dimmable tunable-white LED cove (Turrell-like wash)")
 box("PR_cove_flat_perimeter", AX - G["wc"]/2 + 0.05, AX + G["wc"]/2 - 0.05, D - 0.45, D - 0.43, G["hc"] - 0.03, G["hc"] - 0.01, "cove_cool", PR, "PROPOSED")
 # producer desk + rear sofa (client listening / screening row)
-box("PR_producer_desk", AX - 1.1, AX + 1.1, LPy - 1.75, LPy - 1.05, 0.70, 0.74, "reclaimed", PR, "PROPOSED", "producer/outboard desk; racks below")
-box("PR_producer_desk_racks", AX - 1.0, AX + 1.0, LPy - 1.70, LPy - 1.10, 0.05, 0.70, "panel_black", PR, "PROPOSED")
-box("PR_sofa", AX - 1.4, AX + 1.4, 1.05, 1.95, 0.0, 0.45, "sofa", PR, "PROPOSED")
-box("PR_sofa_back", AX - 1.4, AX + 1.4, 1.75, 1.95, 0.45, 0.85, "sofa", PR, "PROPOSED")
+CIN = MG["cinema"]
+box("PR_producer_desk", 0.85, 1.55, 1.70, 3.90, 0.70, 0.74, "reclaimed", PR, "PROPOSED", "producer/outboard desk along the left wall (under the window line); racks below")
+box("PR_producer_desk_racks", 0.90, 1.50, 1.75, 3.85, 0.05, 0.70, "panel_black", PR, "PROPOSED")
+SOFA_Y0 = 0.30   # against the rear diffusers: family cinema row (eyes ~1.3 m from the gable)
+box("PR_sofa", AX - 1.4, AX + 1.4, SOFA_Y0, SOFA_Y0 + 0.95, 0.0, 0.45, "sofa", PR, "PROPOSED", "family cinema sofa (3-4 seats)")
+box("PR_sofa_back", AX - 1.4, AX + 1.4, SOFA_Y0, SOFA_Y0 + 0.22, 0.45, 0.85, "sofa", PR, "PROPOSED")
 for nm, x in (("L", AX - 1.4), ("R", AX + 1.25)):
-    box(f"PR_sofa_arm_{nm}", x, x + 0.15, 1.05, 1.95, 0.45, 0.65, "sofa", PR, "PROPOSED")
+    box(f"PR_sofa_arm_{nm}", x, x + 0.15, SOFA_Y0, SOFA_Y0 + 0.95, 0.45, 0.65, "sofa", PR, "PROPOSED")
+for nm, x in (("L", AX - 2.75), ("R", AX + 2.75)):   # extra cinema seats beside the sofa
+    box(f"PR_cinema_chair_{nm}", x - 0.40, x + 0.40, 1.05, 1.85, 0.0, 0.42, "sofa", PR, "PROPOSED")
+    box(f"PR_cinema_chair_{nm}_back", x - 0.40, x + 0.40, 1.05, 1.25, 0.42, 0.85, "sofa", PR, "PROPOSED")
+# fireside lounge around the EXISTING wood stove (kept by owner), behind the speakers
+LOUNGE_Y = (st["L"][1] + D) / 2
+box("PR_lounge_rug", S_("g_xs") - 2.0, S_("g_xs") + 0.6, st["L"][1] + 0.55, D - 0.75, 0.012, 0.022, "rug", PR, "PROPOSED", "fireside lounge (low, soft furniture below ~1 m)")
+box("PR_hearth_pad", S_("g_xs") - 0.65, S_("g_xs") + 0.65, ys - 0.85, D - 0.02, 0.012, 0.03, "ex_concrete", PR, "PROPOSED", "non-combustible hearth pad (size per stove label / WETT)")
+for k, (dx, dy, r) in enumerate(((-1.45, -0.45, -90), (-1.25, -1.45, -55))):   # left of the stove: doorway route stays clear
+    e = bpy.data.objects.new(f"PR_lounge_chair_{k}", None); col(PR).objects.link(e)
+    for o in (box(f"PR_lounge_chair_{k}_seat", -0.42, 0.42, -0.40, 0.40, 0.0, 0.40, "sofa", PR, "PROPOSED"),
+              box(f"PR_lounge_chair_{k}_back", -0.42, 0.42, -0.40, -0.20, 0.40, 0.80, "sofa", PR, "PROPOSED")):
+        o.parent = e
+    e.location = (S_("g_xs") + dx, ys + dy, 0); e.rotation_euler = (0, 0, math.radians(180 + r))
+box("PR_lounge_table", S_("g_xs") - 1.05, S_("g_xs") - 0.55, ys - 1.25, ys - 0.70, 0.0, 0.38, "reclaimed", PR, "PROPOSED")
 # mix chair
 box("PR_mix_chair_seat", LPx - 0.28, LPx + 0.28, LPy - 0.30, LPy + 0.22, 0.45, 0.55, "fabric_dark", PR, "PROPOSED")
 box("PR_mix_chair_back", LPx - 0.25, LPx + 0.25, LPy - 0.36, LPy - 0.30, 0.55, 1.05, "fabric_dark", PR, "PROPOSED")
@@ -438,13 +455,13 @@ for k in ("C", "Ls", "Rs", "Lrs", "Rrs", "Ltf", "Rtf", "Ltr", "Rtr"):
         box(f"PR_imm_{k}_stand", x - 0.12, x + 0.12, y - 0.12, y + 0.12, 0, z - 0.2, "steel_black", PR, "PROPOSED")
     else:
         box(f"PR_imm_{k}_hanger", x - 0.01, x + 0.01, y - 0.01, y + 0.01, z + 0.2, G["hc"], "steel_black", PR, "PROPOSED")
-for nm, x in (("L", AX - 2.6), ("R", AX + 2.6)):
-    box(f"PR_sub_{nm}", x - 0.30, x + 0.30, D - 0.95, D - 0.35, 0, 0.62, "spk_small", PR, "PROPOSED", "subwoofer (LFE/bass management) position for acoustician to optimise")
-SCR_Y, SCR_W = st["L"][1] - 0.45, 3.2
-scr = box("PR_screen_down", AX - SCR_W/2, AX + SCR_W/2, SCR_Y, SCR_Y + 0.02, 0.80, 0.80 + SCR_W * 9/16, "screen", "32_PROPOSED_SCREEN_MODE", "PROPOSED",
-          "motorised acoustically-transparent 16:9 screen; drops in front of the Geithains for screening, retracts into the flat ceiling")
+for nm, x in (("L", AX - 2.15), ("R", AX + 2.15)):
+    box(f"PR_sub_{nm}", x - 0.30, x + 0.30, st["L"][1] + 0.15, st["L"][1] + 0.75, 0, 0.62, "spk_small", PR, "PROPOSED", "subwoofer (LFE/bass management) position for acoustician to optimise")
+SCR_Y, SCR_W = CIN["screen_y"], CIN["screen_width"]
+scr = box("PR_screen_down", AX - SCR_W/2, AX + SCR_W/2, SCR_Y, SCR_Y + 0.02, CIN["screen_bottom_z"], CIN["screen_bottom_z"] + CIN["screen_height"], "screen", "32_PROPOSED_SCREEN_MODE", "PROPOSED",
+          "motorised acoustically-transparent 16:9 screen 3.0 m; drops in front of the Geithains for family film nights, retracts into the flat ceiling")
 box("PR_screen_cassette", AX - SCR_W/2 - 0.1, AX + SCR_W/2 + 0.1, SCR_Y - 0.08, SCR_Y + 0.10, G["hc"] - 0.16, G["hc"] - 0.02, "steel_black", PR, "PROPOSED")
-box("PR_projector", AX - 0.25, AX + 0.25, 0.9, 1.4, G["hc"] - 0.40, G["hc"] - 0.22, "steel_black", PR, "PROPOSED", "projector in hush-box on the flat ceiling; throw ~6.4 m")
+box("PR_projector", AX - 0.25, AX + 0.25, 0.70, 1.20, G["hc"] - 0.40, G["hc"] - 0.22, "steel_black", PR, "PROPOSED", "projector in hush-box on the flat ceiling above the sofa; throw ~4.3 m")
 # HVAC (indicative): linear slot supplies at the slope/flat junction, low return at rear
 for nm, x in (("L", AX - G["wc"]/2 - 0.25), ("R", AX + G["wc"]/2 + 0.25)):
     box(f"PR_hvac_slot_{nm}", x - 0.04, x + 0.04, 0.8, D - 0.8, G["hc"] - 0.12, G["hc"] - 0.08, "steel_black", PR, "PROPOSED", "low-velocity linear supply fed from roof void; design by mechanical engineer")
@@ -522,9 +539,11 @@ for k, (x, y) in enumerate(((AX - 3.0, Y_PART1 + 2.3), (AX + 3.0, Y_PART1 + 1.0)
 area("loft_light", (AX, Y_LOFT_END - 3.0, LOFT_DECK + 1.6), 2.0, 120)
 
 CAMS = {
- "cr_front":      ((AX - 1.1, 2.35, 1.85), (AX + 0.1, 8.2, 1.25), 21),
- "cr_rear":       ((AX + 1.9, 7.05, 1.75), (AX - 0.6, 0.4, 1.05), 19),
- "cr_console":    ((AX - 1.55, 4.25, 1.75), (AX + 0.3, 7.2, 1.05), 28),
+ "cr_front":      ((AX - 0.6, 0.55, 1.75), (AX + 0.1, 8.2, 1.15), 20),
+ "cr_rear":       ((AX + 2.1, 7.25, 1.70), (AX - 0.6, 0.3, 0.95), 19),
+ "cr_console":    ((AX - 1.55, 2.30, 1.75), (AX + 0.3, 5.3, 1.05), 28),
+ "cr_cinema":     ((AX + 0.35, 1.05, 1.10), (AX, CIN["screen_y"], CIN["screen_bottom_z"] + CIN["screen_height"]/2), 24),
+ "cr_fireside":   ((AX + 1.7, 6.9, 1.50), (AX - 2.2, 7.4, 0.65), 22),
  "live_piano":    ((AX + 2.7, Y_LIVE_G - 0.6, 1.70), (AX - 1.5, Y_MID1 + 2.0, 1.6), 18),
  "live_farm":     ((AX - 0.6, Y_MID1 + 0.6, 1.60), (AX + 0.3, Y_LIVE_G, 1.4), 18),
  "loft_overlook": ((AX + 0.1, Y_LOFT_END - 0.9, LOFT_DECK + 0.72), (AX - 0.6, Y_LIVE_G - 1.5, F_LIVE + 0.6), 16),
@@ -545,7 +564,7 @@ scene.cycles.samples = int(os.environ.get("BG_SAMPLES", 96)); scene.cycles.use_d
 scene.cycles.max_bounces = 6
 scene.render.resolution_x, scene.render.resolution_y = int(os.environ.get("BG_RES_X", 1600)), int(os.environ.get("BG_RES_Y", 900))
 scene.view_settings.view_transform = "AgX"; scene.view_settings.look = "AgX - Base Contrast"
-blend = os.path.join(HERE, "breakglass_east_v03.blend")
+blend = os.path.join(HERE, "breakglass_east_v04.blend")
 bpy.ops.wm.save_as_mainfile(filepath=blend); print("saved", blend)
 
 INTERIOR_HIDE = ["EX_roof_metal", "EX_siding_long_L", "EX_siding_long_R", "EX_siding_gable_control", "EX_siding_gable_live", "EX_ground"]
@@ -563,6 +582,11 @@ if os.environ.get("BG_RENDER"):
         for nm in ("EX_CR_ceiling", "EX_LV_tray_ceiling", "EX_MZ_ceiling", "EX_LOFT_deck", "EX_LV_underloft_foil", "EX_siding_long_L", "EX_CR_wall_X0", "EX_LV_wall_L", "EX_MZ_extwall_L", "EX_siding_gable_control"):
             if nm in bpy.data.objects:
                 bpy.data.objects[nm].visible_camera = bpy.data.objects[nm].visible_camera if k != "axo_cutaway" else False
-        for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = True   # screen shown retracted (stereo mode)
+        cinema = (k == "cr_cinema")
+        for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = not cinema   # retracted except in movie mode
+        for L in bpy.data.lights:
+            if L.type == "AREA" and L.name.startswith("cr_fill"): L.energy = (25 if cinema else (260 if L.name.endswith("1") else 160))
+        M["screen"].node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 2.5 if cinema else 0.0
+        M["cove"].node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 4 if cinema else 25
         sun.energy = 3.0 if not interior else 2.0
-        scene.render.filepath = os.path.join(out, f"{k}.png"); bpy.ops.render.render(write_still=True); print("rendered", k)
+        scene.render.filepath = os.path.join(out, f"{k}{os.environ.get('BG_TAG', '')}.png"); bpy.ops.render.render(write_still=True); print("rendered", k)
