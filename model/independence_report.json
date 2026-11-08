@@ -1,0 +1,46 @@
+{
+ "scale_free_photo_only_vs_scan": [
+  {
+   "ratio": "D/W",
+   "photo_only": 0.9293,
+   "scan": 0.728,
+   "diff_pct": 27.7
+  },
+  {
+   "ratio": "hc/W",
+   "photo_only": 0.4355,
+   "scan": 0.3649,
+   "diff_pct": 19.3
+  },
+  {
+   "ratio": "hloR/W",
+   "photo_only": 0.2412,
+   "scan": 0.212,
+   "diff_pct": 13.8
+  }
+ ],
+ "holdout_scan_geometry": [
+  {
+   "photo": "CR1",
+   "fit_points": 23,
+   "test_points": 4,
+   "test_rms_px": 16.0,
+   "test_median_px": 17.7
+  },
+  {
+   "photo": "CR2",
+   "fit_points": 12,
+   "test_points": 3,
+   "test_rms_px": 16.5,
+   "test_median_px": 16.7
+  },
+  {
+   "photo": "CR3",
+   "fit_points": 28,
+   "test_points": 2,
+   "test_rms_px": 13.8,
+   "test_median_px": 13.7
+  }
+ ],
+ "note": "Holdout: section frozen to scan breakpoints (scan_fixed); camera (and opening nuisances) fitted on all points except every 2nd point that depends ONLY on the scan section (walls/ceiling/beam corners); those held-out points are then predicted. Small samples - indicative only."
+}

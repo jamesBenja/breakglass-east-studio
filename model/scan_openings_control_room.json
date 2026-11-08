@@ -1,0 +1,141 @@
+{
+ "method": "Detect wall openings (windows/doors) in the control room from the native mesh.",
+ "openings": [
+  {
+   "wall": "X=0 (left)",
+   "along_from": 1.55,
+   "along_to": 1.95,
+   "z_from": 1.45,
+   "z_to": 1.95,
+   "cells": 30
+  },
+  {
+   "wall": "X=0 (left)",
+   "along_from": 1.95,
+   "along_to": 2.9,
+   "z_from": 1.05,
+   "z_to": 2.0,
+   "cells": 196
+  },
+  {
+   "wall": "X=0 (left)",
+   "along_from": 4.0,
+   "along_to": 4.4,
+   "z_from": 1.5,
+   "z_to": 1.85,
+   "cells": 30
+  },
+  {
+   "wall": "X=0 (left)",
+   "along_from": 4.45,
+   "along_to": 8.1,
+   "z_from": 0.9,
+   "z_to": 2.35,
+   "cells": 954
+  },
+  {
+   "wall": "X=W (right)",
+   "along_from": 1.15,
+   "along_to": 4.35,
+   "z_from": 1.05,
+   "z_to": 2.1,
+   "cells": 812
+  },
+  {
+   "wall": "X=W (right)",
+   "along_from": 4.5,
+   "along_to": 7.95,
+   "z_from": 1.15,
+   "z_to": 2.15,
+   "cells": 812
+  },
+  {
+   "wall": "X=W (right)",
+   "along_from": 7.3,
+   "along_to": 8.0,
+   "z_from": 0.4,
+   "z_to": 1.0,
+   "cells": 78
+  },
+  {
+   "wall": "Y=0 (gable)",
+   "along_from": 8.95,
+   "along_to": 10.8,
+   "z_from": 1.9,
+   "z_to": 2.35,
+   "cells": 82
+  },
+  {
+   "wall": "Y=0 (gable)",
+   "along_from": 9.9,
+   "along_to": 10.4,
+   "z_from": 1.7,
+   "z_to": 2.1,
+   "cells": 30
+  },
+  {
+   "wall": "Y=0 (gable)",
+   "along_from": 10.35,
+   "along_to": 11.15,
+   "z_from": 0.9,
+   "z_to": 2.05,
+   "cells": 174
+  },
+  {
+   "wall": "Y=0 (gable)",
+   "along_from": 10.6,
+   "along_to": 11.15,
+   "z_from": 1.9,
+   "z_to": 2.35,
+   "cells": 35
+  },
+  {
+   "wall": "Y=D (partition)",
+   "along_from": 0.1,
+   "along_to": 0.55,
+   "z_from": 0.05,
+   "z_to": 1.85,
+   "cells": 115
+  },
+  {
+   "wall": "Y=D (partition)",
+   "along_from": 0.1,
+   "along_to": 11.15,
+   "z_from": 2.15,
+   "z_to": 4.1,
+   "cells": 1581
+  },
+  {
+   "wall": "Y=D (partition)",
+   "along_from": 3.05,
+   "along_to": 3.4,
+   "z_from": 3.75,
+   "z_to": 4.2,
+   "cells": 40
+  },
+  {
+   "wall": "Y=D (partition)",
+   "along_from": 8.85,
+   "along_to": 9.9,
+   "z_from": 0.05,
+   "z_to": 1.15,
+   "cells": 202
+  },
+  {
+   "wall": "Y=D (partition)",
+   "along_from": 10.4,
+   "along_to": 10.85,
+   "z_from": 0.5,
+   "z_to": 0.8,
+   "cells": 31
+  },
+  {
+   "wall": "Y=D (partition)",
+   "along_from": 10.85,
+   "along_to": 11.15,
+   "z_from": 0.05,
+   "z_to": 0.5,
+   "cells": 27
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "id": "WV",
+ "source_title": "Window view into control room.HEIC",
+ "note": "Exterior photo through a long side window on the X=W wall, looking -X across the room (gable wall at image-left, partition/stove at image-right). Main 26 mm-equiv lens, independent of CR1/CR3. Through-glass reflections reduce reading precision.",
+ "exif_f35": 26,
+ "camera_init": {
+  "tx": 11.5,
+  "ty": 4.0,
+  "tz": 1.4,
+  "yaw": -1.5708,
+  "pitch": 0.0,
+  "roll": 0.0,
+  "f": 1200
+ },
+ "nuisance": {
+  "g_xi1": 8.3,
+  "g_xi2": 7.4,
+  "g_hi": 2.0
+ },
+ "points": [
+  {
+   "id": "v1",
+   "desc": "near post (X=W-ds line) top",
+   "uv": [
+    427,
+    400
+   ],
+   "xyz": [
+    "W-dsR",
+    "ypr",
+    "hbbR"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "v2",
+   "desc": "near post base",
+   "uv": [
+    433,
+    820
+   ],
+   "xyz": [
+    "W-dsR",
+    "ypr",
+    "0"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "v5",
+   "desc": "gable-wall white door, near jamb head",
+   "uv": [
+    155,
+    520
+   ],
+   "xyz": [
+    "g_xi1",
+    "0",
+    "g_hi"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "v6",
+   "desc": "gable-wall white door, near jamb floor",
+   "uv": [
+    155,
+    800
+   ],
+   "xyz": [
+    "g_xi1",
+    "0",
+    "0"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "v7",
+   "desc": "gable-wall white door, far jamb head",
+   "uv": [
+    257,
+    522
+   ],
+   "xyz": [
+    "g_xi2",
+    "0",
+    "g_hi"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "v8",
+   "desc": "gable-wall white door, far jamb floor",
+   "uv": [
+    257,
+    785
+   ],
+   "xyz": [
+    "g_xi2",
+    "0",
+    "0"
+   ],
+   "sigma_px": 5
+  }
+ ],
+ "excluded_points": [
+  {
+   "id": "v3/v4",
+   "reason": "Vertical element at u~875 initially read as the X=ds post. Including it forces focal 760 px vs 1202 px EXIF and 30-45 px residuals; identity is ambiguous through reflective glass (could be an easel/stand). Excluded pending owner check."
+  }
+ ],
+ "focal_sigma_frac": 0.03,
+ "exclude": true,
+ "exclude_reason": "UNSOLVED: after removing the ambiguous far-post points only 6 observations remain for 6 pose unknowns (zero redundancy); solution places camera outside the control-room bay. Needs more control points (or the native scan) before it can count as a camera match."
+}
