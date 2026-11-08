@@ -39,7 +39,47 @@ Critical dependencies:
 | Electrical engineer / master electrician | Service capacity, technical power (CEC-bonded star topology), lighting control |
 | Land surveyor (optional) | Only if the tape check disagrees with the scan or the permit requires certified dimensions |
 
-## 4. Order-of-magnitude budget (planning allowances, CAD, excl. taxes)
+## 4. Budget, revised 8 Nov 2026 on the owner's direction (supersedes the contractor-led estimate below)
+Owner direction:
+- No architect, minimal professional fees.
+- Roof as-is.
+- HVAC unit (also heats), acoustic panels, floor wood, studio wiring and a grand piano ($5k) come from Clark.
+- Wood stove kept.
+- Film screening now.
+- Rural site with no neighbours, so no heavy isolation.
+
+| # | Package | Low | High |
+|---|---|---|---|
+| 1 | Permits/checks: municipal, CPTAQ call, insurer/WETT stove inspection | 0.5 k | 3 k |
+| 2 | DIY measurement kit + optional remote acoustician consult | 0.3 k | 3 k |
+| 3 | Licensed master electrician: studio circuits, small technical subpanel, cove/projector circuits | 6 k | 15 k |
+| 4 | Move the Clark HVAC unit (licensed refrigeration tech, line set, mounts) | 2 k | 6 k |
+| 5 | Wood stove: kept; move it + flue only if decision D2 requires | 0 | 5 k |
+| 6 | Control-room acoustics with Clark panels (framing, mounting, repairs, a few LF traps) | 2 k | 8 k |
+| 7 | Clark-wood floor (underlay, fixings, sanding, labour) | 1.5 k | 6 k |
+| 8 | Live/support rooms: Clark gobos, cover foil insulation, fuel cabinet, CO alarm, floor boxes | 2 k | 7 k |
+| 9 | Clark wiring + extra tie-line lengths | 0.5 k | 3 k |
+| 10 | Film screening now: 4K projector, 3.2 m acoustically transparent screen, mount/hush box | 6 k | 20 k |
+| 11 | Grand piano from Clark | 5 k | 5 k |
+| 12 | Move from Clark (truck, movers, piano movers, crates) | 4 k | 12 k |
+| 13 | Lighting materials (cove LED, controller) | 1 k | 4 k |
+| | **Essential build** | **30.8 k** | **97 k** |
+| | **With 10–15 % contingency** | **33.9 k** | **111.6 k** |
+| 14 | Later: immersive 7.1.4 speakers + subs | 15 k | 80 k |
+
+**Still legally or practically required:**
+- A licensed electrician (Québec).
+- A licensed refrigeration technician to move the HVAC unit.
+- An insurer/WETT check of the stove.
+- A structural engineer only for loft loading or heavy ceiling-hung items.
+
+**Wood-stove conflict (D2):** the stove sits where the left RL 901K goes in orientation A. The options:
+- **A1 (recommended):** move the stove and flue to the rear corner by the sofa, as a "fireside" lounge.
+- **B:** keep the stove in place and face the gable, which puts the windows, entry door and clerestory behind the speakers and screen.
+
+The editable version is the owner's Google Sheet ("Breakglass East v0.3 — Budget, Decisions, Next Steps & Tape Check").
+
+## 4b. Original contractor-led estimate (v0.3, superseded)
 | # | Package | Low | High | Main assumptions / drivers |
 |---|---|---|---|---|
 | 1 | Feasibility: zoning/CPTAQ advice, tape survey, acoustic measurement day | 5 k | 20 k | Owner does the tape check; a consultant does the measurements |
@@ -73,7 +113,7 @@ These are not quotes: drawings, a specification and bids from 2–3 contractors 
 | ID | Decision | Recommendation | Blocking |
 |---|---|---|---|
 | D1 | Control-room orientation | **A: lengthwise, facing the partition** | P1 |
-| D2 | Wood stove | Remove (or relocate out of the control room) | P1 |
+| D2 | Wood stove (owner: keep) | Move to the rear corner by the sofa (A1), or keep in place and face the gable (B) | before setup |
 | D3 | Immersive timing | Infrastructure now, speakers in P7 | P3 |
 | D4 | Inner acoustic door at the garage | Decide after the noise survey | P1 |
 | D5 | Grand piano | Size/budget; humidity system either way | P7 |

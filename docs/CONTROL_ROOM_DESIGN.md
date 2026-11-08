@@ -10,7 +10,7 @@
 | Building axis | X = 5.88 m (entry door, clerestory, partition doorway and flat ceiling all on it); room mid-width is 5.62 | Listening axis goes on the building axis; side walls are 0.52 m asymmetric about it and must be equalised by treatment |
 | Posts | one per side, X 2.58 / 9.24, about mid-depth (Y ≈ 4.25) | A transverse layout would put a post in the stereo field, so the room is used lengthwise |
 | Openings | centred entry door, clerestory and two windows in the gable; four ribbon windows (sill 1.15, head 1.86); centred doorway in the partition | All kept. Windows stay as the "light" in Quiet Light, with acoustic shutters for control |
-| Wood stove + flue | existing, near the partition | **Remove or relocate** (fire, heat and noise in a mix room). This is an owner decision with the architect; flue penetration to be sealed |
+| Wood stove + flue | existing, near the partition, at about X 4.4 m — **exactly where the left RL 901K goes** | **Owner keeps the stove.** So either move it to the rear corner by the sofa (A1, recommended) or face the gable (B). Insurer/WETT inspection either way |
 
 ## 2. Orientation: decided by the evidence, alternatives quantified
 | Option | Verdict | Why |
@@ -83,7 +83,7 @@ No RT, isolation or frequency-response figures are claimed. These need the empty
 
 ## 7. Open decisions [OWNER]
 1. Orientation A (recommended) vs B.
-2. Wood stove: remove or relocate.
+2. Wood stove: **kept** (owner). Choose its placement: A1 rear corner (recommended) or B face the gable.
 3. Immersive phase timing and speaker family.
-4. Screen and projector now or in phase 2.
+4. ~~Screen and projector now or in phase 2~~: **now** (owner, 8 Nov).
 5. Whether the reclaimed Clark panels meet the specification (acoustic test or datasheet).
