@@ -1,7 +1,7 @@
 {
  "id": "CR1",
  "source_title": "Control Room 1.HEIC",
- "note": "Taken from the gable-end entry doorway looking +Y toward the interior partition (wood stove, curtained doorway). Pixel coords in 1600x1200 preview. Annotated by eye on 2x zoom crops; sigma_px reflects reading precision.",
+ "note": "Taken from the gable-end entry doorway looking +Y toward the interior partition (wood stove, curtained doorway). Pixel coords in 1600x1200 preview. Annotated by eye on 2x zoom crops; sigma_px reflects reading precision. v0.3: stove + flue added (review G1-07); flue assumed vertical and entering the partition plane - route beyond UNKNOWN. Window points wn1/wn2 are the POST EDGE occluding the window, not the window end (corrected in v0.3; window extent now from scan reveals).",
  "exif_f35": 13,
  "camera_init": {
   "tx": 4.5,
@@ -23,7 +23,11 @@
   "wy1": 4.5,
   "wy2": 1.5,
   "wh": 2.0,
-  "wsill": 1.4
+  "wsill": 1.4,
+  "g_xs": 4.4,
+  "g_ys": 7.3,
+  "hs": 0.75,
+  "hfl": 2.0
  },
  "points": [
   {
@@ -302,7 +306,7 @@
   },
   {
    "id": "wn1",
-   "desc": "long side window (X=W wall) head, far end",
+   "desc": "long side window (X=W wall) head, far end [CORRECTION: this is where the post occludes the window, not its end]",
    "uv": [
     1330,
     580
@@ -316,7 +320,7 @@
   },
   {
    "id": "wn2",
-   "desc": "long side window sill, far end",
+   "desc": "long side window sill, far end [CORRECTION: this is where the post occludes the window, not its end]",
    "uv": [
     1330,
     650
@@ -355,6 +359,48 @@
     "wsill"
    ],
    "sigma_px": 6
+  },
+  {
+   "id": "st1",
+   "desc": "wood stove: front-bottom centre on floor",
+   "uv": [
+    694,
+    740
+   ],
+   "xyz": [
+    "g_xs",
+    "g_ys",
+    "0"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "st2",
+   "desc": "wood stove: top front centre",
+   "uv": [
+    694,
+    682
+   ],
+   "xyz": [
+    "g_xs",
+    "g_ys",
+    "hs"
+   ],
+   "sigma_px": 6
+  },
+  {
+   "id": "fl1",
+   "desc": "stove flue: top where it meets far-wall band (assumed at partition plane)",
+   "uv": [
+    690,
+    570
+   ],
+   "xyz": [
+    "g_xs",
+    "D",
+    "hfl"
+   ],
+   "sigma_px": 8
   }
  ]
 }

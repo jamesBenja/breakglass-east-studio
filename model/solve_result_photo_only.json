@@ -2,243 +2,291 @@
  "params": {
   "W": {
    "value": 11.25,
-   "sigma": 0.054
+   "sigma": 0.0
   },
   "D": {
-   "value": 8.19,
-   "sigma": 0.054
+   "value": 10.455,
+   "sigma": 0.223
   },
   "dsL": {
-   "value": 3.232,
-   "sigma": 0.274
-  },
-  "dsR": {
-   "value": 1.823,
-   "sigma": 0.087
-  },
-  "hloR": {
-   "value": 2.138,
-   "sigma": 0.103
-  },
-  "hbbL": {
-   "value": 1.933,
-   "sigma": 0.072
-  },
-  "hbbR": {
-   "value": 1.938,
-   "sigma": 0.073
-  },
-  "hbL": {
-   "value": 2.267,
-   "sigma": 0.091
-  },
-  "hbR": {
-   "value": 2.243,
-   "sigma": 0.095
-  },
-  "hc": {
-   "value": 3.853,
+   "value": 1.066,
    "sigma": 0.126
   },
+  "dsR": {
+   "value": 2.315,
+   "sigma": 0.078
+  },
+  "hloR": {
+   "value": 2.714,
+   "sigma": 0.098
+  },
+  "hbbL": {
+   "value": 2.463,
+   "sigma": 0.055
+  },
+  "hbbR": {
+   "value": 2.459,
+   "sigma": 0.049
+  },
+  "hbL": {
+   "value": 2.889,
+   "sigma": 0.075
+  },
+  "hbR": {
+   "value": 2.848,
+   "sigma": 0.08
+  },
+  "hc": {
+   "value": 4.899,
+   "sigma": 0.069
+  },
   "wc": {
-   "value": 3.349,
-   "sigma": 0.113
+   "value": 4.256,
+   "sigma": 0.075
   },
   "xf": {
-   "value": 6.312,
-   "sigma": 0.182
+   "value": 4.984,
+   "sigma": 0.09
   },
   "ypl": {
-   "value": 4.268,
-   "sigma": 0.061
+   "value": 5.451,
+   "sigma": 0.138
   },
   "ypr": {
-   "value": 4.292,
-   "sigma": 0.068
+   "value": 5.474,
+   "sigma": 0.128
   },
   "CR1.tx": {
-   "value": 6.41,
-   "sigma": 0.202
+   "value": 5.103,
+   "sigma": 0.132
   },
   "CR1.ty": {
-   "value": 0.448,
-   "sigma": 0.101
+   "value": 0.565,
+   "sigma": 0.127
   },
   "CR1.tz": {
-   "value": 1.455,
-   "sigma": 0.066
+   "value": 1.849,
+   "sigma": 0.059
   },
   "CR1.yaw": {
    "value": -0.028,
    "sigma": 0.01
   },
   "CR1.pitch": {
-   "value": 0.022,
-   "sigma": 0.007
+   "value": 0.023,
+   "sigma": 0.006
   },
   "CR1.roll": {
-   "value": -0.013,
+   "value": -0.014,
    "sigma": 0.006
   },
   "lens13.f": {
-   "value": 618.287,
-   "sigma": 20.17
+   "value": 621.943,
+   "sigma": 19.91
   },
   "CR1.xd1": {
-   "value": 5.757,
-   "sigma": 0.195
+   "value": 4.274,
+   "sigma": 0.098
   },
   "CR1.xd2": {
-   "value": 6.807,
-   "sigma": 0.165
+   "value": 5.607,
+   "sigma": 0.087
   },
   "CR1.hd": {
-   "value": 1.915,
-   "sigma": 0.076
+   "value": 2.439,
+   "sigma": 0.063
   },
   "CR1.yb1": {
-   "value": 3.169,
-   "sigma": 0.075
+   "value": 4.046,
+   "sigma": 0.13
   },
   "CR1.yb2": {
-   "value": 2.905,
-   "sigma": 0.078
+   "value": 3.702,
+   "sigma": 0.118
   },
   "CR1.yc1": {
-   "value": 3.952,
-   "sigma": 0.108
+   "value": 5.041,
+   "sigma": 0.176
   },
   "CR1.yc2": {
-   "value": 4.177,
-   "sigma": 0.11
+   "value": 5.334,
+   "sigma": 0.181
   },
   "CR1.wy1": {
-   "value": 6.432,
-   "sigma": 0.086
+   "value": 8.208,
+   "sigma": 0.181
   },
   "CR1.wy2": {
-   "value": 4.43,
-   "sigma": 0.073
+   "value": 5.65,
+   "sigma": 0.135
   },
   "CR1.wh": {
-   "value": 1.712,
-   "sigma": 0.073
+   "value": 2.17,
+   "sigma": 0.06
   },
   "CR1.wsill": {
-   "value": 1.065,
+   "value": 1.349,
    "sigma": 0.058
   },
+  "g_xs": {
+   "value": 3.183,
+   "sigma": 0.118
+  },
+  "g_ys": {
+   "value": 10.0,
+   "sigma": 0.429
+  },
+  "CR1.hs": {
+   "value": 0.84,
+   "sigma": 0.106
+  },
+  "CR1.hfl": {
+   "value": 2.58,
+   "sigma": 0.141
+  },
   "CR2.tx": {
-   "value": 6.393,
-   "sigma": 0.218
+   "value": 5.09,
+   "sigma": 0.165
   },
   "CR2.ty": {
-   "value": 0.462,
-   "sigma": 0.102
+   "value": 0.582,
+   "sigma": 0.127
   },
   "CR2.tz": {
-   "value": 1.485,
-   "sigma": 0.076
+   "value": 1.888,
+   "sigma": 0.075
   },
   "CR2.yaw": {
-   "value": -0.034,
-   "sigma": 0.015
+   "value": -0.035,
+   "sigma": 0.014
   },
   "CR2.pitch": {
    "value": -0.068,
-   "sigma": 0.009
+   "sigma": 0.008
   },
   "CR2.roll": {
-   "value": -0.001,
+   "value": -0.002,
    "sigma": 0.007
   },
   "CR2.xd1": {
-   "value": 5.739,
-   "sigma": 0.198
+   "value": 4.25,
+   "sigma": 0.101
   },
   "CR2.xd2": {
-   "value": 6.779,
-   "sigma": 0.168
+   "value": 5.571,
+   "sigma": 0.091
   },
   "CR2.hd": {
-   "value": 1.841,
-   "sigma": 0.076
+   "value": 2.341,
+   "sigma": 0.064
   },
   "CR3.tx": {
-   "value": 6.23,
-   "sigma": 0.206
+   "value": 4.876,
+   "sigma": 0.151
   },
   "CR3.ty": {
-   "value": 8.006,
-   "sigma": 0.094
+   "value": 10.222,
+   "sigma": 0.214
   },
   "CR3.tz": {
-   "value": 1.224,
-   "sigma": 0.065
+   "value": 1.553,
+   "sigma": 0.069
   },
   "CR3.yaw": {
-   "value": 3.036,
+   "value": 3.037,
    "sigma": 0.014
   },
   "CR3.pitch": {
-   "value": -0.198,
+   "value": -0.196,
    "sigma": 0.009
   },
   "CR3.roll": {
-   "value": -0.04,
+   "value": -0.038,
    "sigma": 0.007
   },
   "CR3.xe1": {
-   "value": 6.743,
-   "sigma": 0.182
+   "value": 5.526,
+   "sigma": 0.108
   },
   "CR3.xe2": {
-   "value": 5.92,
-   "sigma": 0.204
+   "value": 4.482,
+   "sigma": 0.111
   },
   "CR3.he": {
-   "value": 1.867,
-   "sigma": 0.079
+   "value": 2.375,
+   "sigma": 0.065
   },
   "CR3.xw1": {
-   "value": 6.574,
-   "sigma": 0.184
+   "value": 5.317,
+   "sigma": 0.106
   },
   "CR3.xw2": {
-   "value": 6.038,
-   "sigma": 0.198
+   "value": 4.635,
+   "sigma": 0.107
   },
   "CR3.hwt": {
-   "value": 3.706,
-   "sigma": 0.125
+   "value": 4.713,
+   "sigma": 0.079
   },
   "CR3.hwb": {
-   "value": 2.642,
-   "sigma": 0.099
+   "value": 3.36,
+   "sigma": 0.07
   },
   "CR3.yc1": {
-   "value": 2.939,
-   "sigma": 0.124
+   "value": 3.748,
+   "sigma": 0.175
   },
   "CR3.yc2": {
-   "value": 2.454,
-   "sigma": 0.127
+   "value": 3.144,
+   "sigma": 0.179
   },
   "g_xi1": {
-   "value": 9.321,
-   "sigma": 0.136
+   "value": 8.798,
+   "sigma": 0.127
   },
   "g_xi2": {
-   "value": 8.378,
-   "sigma": 0.147
+   "value": 7.602,
+   "sigma": 0.115
   },
   "g_hi": {
-   "value": 1.931,
-   "sigma": 0.084
+   "value": 2.451,
+   "sigma": 0.069
+  },
+  "CR3.gw1a": {
+   "value": 10.281,
+   "sigma": 0.14
+  },
+  "CR3.gw1b": {
+   "value": 8.849,
+   "sigma": 0.123
+  },
+  "CR3.gw1s": {
+   "value": 1.067,
+   "sigma": 0.075
+  },
+  "CR3.gw1h": {
+   "value": 2.288,
+   "sigma": 0.08
+  },
+  "CR3.gw2a": {
+   "value": 1.747,
+   "sigma": 0.13
+  },
+  "CR3.gw2b": {
+   "value": 0.355,
+   "sigma": 0.141
+  },
+  "CR3.gw2s": {
+   "value": 1.057,
+   "sigma": 0.076
+  },
+  "CR3.gw2h": {
+   "value": 2.339,
+   "sigma": 0.078
   }
  },
- "rms_px": 6.31,
- "max_px": 19.5,
+ "rms_px": 6.01,
+ "max_px": 19.4,
  "points": [
   {
    "photo": "CR1",
@@ -249,10 +297,10 @@
     430
    ],
    "pred": [
-    675.3,
-    426.2
+    675.2,
+    426.5
    ],
-   "err_px": 3.8
+   "err_px": 3.5
   },
   {
    "photo": "CR1",
@@ -263,8 +311,8 @@
     420
    ],
    "pred": [
-    941.0,
-    420.5
+    941.1,
+    420.4
    ],
    "err_px": 1.1
   },
@@ -277,10 +325,10 @@
     550
    ],
    "pred": [
-    566.2,
-    552.7
+    565.9,
+    552.9
    ],
-   "err_px": 6.8
+   "err_px": 6.6
   },
   {
    "photo": "CR1",
@@ -291,8 +339,8 @@
     552
    ],
    "pred": [
-    1060.1,
-    546.9
+    1059.9,
+    547.0
    ],
    "err_px": 7.1
   },
@@ -305,8 +353,8 @@
     578
    ],
    "pred": [
-    566.3,
-    579.0
+    566.1,
+    579.3
    ],
    "err_px": 1.7
   },
@@ -319,10 +367,10 @@
     570
    ],
    "pred": [
-    1060.6,
-    571.5
+    1060.5,
+    571.7
    ],
-   "err_px": 15.7
+   "err_px": 15.6
   },
   {
    "photo": "CR1",
@@ -333,10 +381,10 @@
     735
    ],
    "pred": [
-    1214.7,
-    727.4
+    1214.8,
+    727.3
    ],
-   "err_px": 8.1
+   "err_px": 8.2
   },
   {
    "photo": "CR1",
@@ -347,10 +395,10 @@
     553
    ],
    "pred": [
-    1209.9,
+    1209.7,
     553.1
    ],
-   "err_px": 2.1
+   "err_px": 2.3
   },
   {
    "photo": "CR1",
@@ -361,10 +409,10 @@
     727
    ],
    "pred": [
-    766.9,
-    730.7
+    767.0,
+    731.2
    ],
-   "err_px": 3.7
+   "err_px": 4.2
   },
   {
    "photo": "CR1",
@@ -375,10 +423,10 @@
     577
    ],
    "pred": [
-    765.1,
-    577.6
+    765.0,
+    577.7
    ],
-   "err_px": 0.6
+   "err_px": 0.7
   },
   {
    "photo": "CR1",
@@ -389,10 +437,10 @@
     727
    ],
    "pred": [
-    851.1,
-    730.1
+    851.2,
+    730.5
    ],
-   "err_px": 3.3
+   "err_px": 3.7
   },
   {
    "photo": "CR1",
@@ -403,10 +451,10 @@
     577
    ],
    "pred": [
-    848.9,
-    576.4
+    848.8,
+    576.3
    ],
-   "err_px": 1.3
+   "err_px": 1.4
   },
   {
    "photo": "CR1",
@@ -417,10 +465,10 @@
     527
    ],
    "pred": [
-    1311.9,
-    527.9
+    1311.7,
+    528.0
    ],
-   "err_px": 3.3
+   "err_px": 3.4
   },
   {
    "photo": "CR1",
@@ -431,10 +479,10 @@
     847
    ],
    "pred": [
-    1321.9,
-    848.7
+    1322.3,
+    848.6
    ],
-   "err_px": 3.6
+   "err_px": 3.1
   },
   {
    "photo": "CR1",
@@ -446,9 +494,9 @@
    ],
    "pred": [
     315.0,
-    544.5
+    544.7
    ],
-   "err_px": 3.2
+   "err_px": 3.1
   },
   {
    "photo": "CR1",
@@ -459,10 +507,10 @@
     850
    ],
    "pred": [
-    313.5,
-    852.1
+    313.9,
+    853.3
    ],
-   "err_px": 6.8
+   "err_px": 6.9
   },
   {
    "photo": "CR1",
@@ -474,7 +522,7 @@
    ],
    "pred": [
     119.3,
-    517.6
+    517.7
    ],
    "err_px": 5.7
   },
@@ -488,9 +536,9 @@
    ],
    "pred": [
     1599.3,
-    478.1
+    478.0
    ],
-   "err_px": 4.0
+   "err_px": 4.1
   },
   {
    "photo": "CR1",
@@ -501,10 +549,10 @@
     212
    ],
    "pred": [
-    508.1,
+    508.0,
     206.2
    ],
-   "err_px": 10.0
+   "err_px": 9.8
   },
   {
    "photo": "CR1",
@@ -518,33 +566,33 @@
     1073.3,
     213.3
    ],
-   "err_px": 6.3
+   "err_px": 6.2
   },
   {
    "photo": "CR1",
    "id": "wn1",
-   "desc": "long side window (X=W wall) head, far end",
+   "desc": "long side window (X=W wall) head, far end [CORRECTION: this is where the post occludes the window, not its end]",
    "obs": [
     1330,
     580
    ],
    "pred": [
-    1329.0,
-    579.8
+    1328.9,
+    579.9
    ],
    "err_px": 1.1
   },
   {
    "photo": "CR1",
    "id": "wn2",
-   "desc": "long side window sill, far end",
+   "desc": "long side window sill, far end [CORRECTION: this is where the post occludes the window, not its end]",
    "obs": [
     1330,
     650
    ],
    "pred": [
-    1331.1,
-    648.3
+    1331.2,
+    648.4
    ],
    "err_px": 2.0
   },
@@ -557,10 +605,10 @@
     562
    ],
    "pred": [
-    1594.8,
-    562.3
+    1594.7,
+    562.2
    ],
-   "err_px": 2.2
+   "err_px": 2.3
   },
   {
    "photo": "CR1",
@@ -571,10 +619,52 @@
     665
    ],
    "pred": [
-    1599.1,
-    666.5
+    1599.2,
+    666.4
    ],
    "err_px": 2.6
+  },
+  {
+   "photo": "CR1",
+   "id": "st1",
+   "desc": "wood stove: front-bottom centre on floor",
+   "obs": [
+    694,
+    740
+   ],
+   "pred": [
+    692.8,
+    737.5
+   ],
+   "err_px": 2.7
+  },
+  {
+   "photo": "CR1",
+   "id": "st2",
+   "desc": "wood stove: top front centre",
+   "obs": [
+    694,
+    682
+   ],
+   "pred": [
+    692.3,
+    682.0
+   ],
+   "err_px": 1.7
+  },
+  {
+   "photo": "CR1",
+   "id": "fl1",
+   "desc": "stove flue: top where it meets far-wall band (assumed at partition plane)",
+   "obs": [
+    690,
+    570
+   ],
+   "pred": [
+    696.9,
+    569.9
+   ],
+   "err_px": 6.9
   },
   {
    "photo": "CR2",
@@ -585,10 +675,10 @@
     366
    ],
    "pred": [
-    678.6,
-    364.8
+    678.8,
+    364.9
    ],
-   "err_px": 3.6
+   "err_px": 3.4
   },
   {
    "photo": "CR2",
@@ -599,10 +689,10 @@
     359
    ],
    "pred": [
-    953.1,
-    361.6
+    953.3,
+    361.3
    ],
-   "err_px": 11.2
+   "err_px": 10.9
   },
   {
    "photo": "CR2",
@@ -613,10 +703,10 @@
     496
    ],
    "pred": [
-    569.3,
-    495.5
+    569.2,
+    495.2
    ],
-   "err_px": 5.3
+   "err_px": 5.2
   },
   {
    "photo": "CR2",
@@ -627,7 +717,7 @@
     498
    ],
    "pred": [
-    1069.9,
+    1069.8,
     495.2
    ],
    "err_px": 3.0
@@ -641,10 +731,10 @@
     512
    ],
    "pred": [
-    570.0,
-    522.3
+    569.9,
+    522.1
    ],
-   "err_px": 10.5
+   "err_px": 10.3
   },
   {
    "photo": "CR2",
@@ -655,10 +745,10 @@
     517
    ],
    "pred": [
-    1069.2,
+    1069.1,
     520.4
    ],
-   "err_px": 19.5
+   "err_px": 19.4
   },
   {
    "photo": "CR2",
@@ -669,8 +759,8 @@
     680
    ],
    "pred": [
-    1214.3,
-    677.8
+    1214.5,
+    677.6
    ],
    "err_px": 2.8
   },
@@ -683,10 +773,10 @@
     676
    ],
    "pred": [
-    769.3,
-    675.3
+    769.4,
+    675.5
    ],
-   "err_px": 0.8
+   "err_px": 0.6
   },
   {
    "photo": "CR2",
@@ -697,10 +787,10 @@
     529
    ],
    "pred": [
-    768.7,
+    768.6,
     529.1
    ],
-   "err_px": 0.3
+   "err_px": 0.4
   },
   {
    "photo": "CR2",
@@ -711,10 +801,10 @@
     676
    ],
    "pred": [
-    851.6,
-    675.7
+    851.7,
+    675.9
    ],
-   "err_px": 0.4
+   "err_px": 0.3
   },
   {
    "photo": "CR2",
@@ -725,10 +815,10 @@
     529
    ],
    "pred": [
-    852.4,
+    852.3,
     528.9
    ],
-   "err_px": 0.4
+   "err_px": 0.3
   },
   {
    "photo": "CR2",
@@ -739,10 +829,10 @@
     481
    ],
    "pred": [
-    1330.7,
-    481.0
+    1330.3,
+    481.1
    ],
-   "err_px": 9.7
+   "err_px": 9.3
   },
   {
    "photo": "CR2",
@@ -753,10 +843,10 @@
     798
    ],
    "pred": [
-    1312.6,
+    1312.7,
     798.4
    ],
-   "err_px": 6.4
+   "err_px": 6.3
   },
   {
    "photo": "CR2",
@@ -767,10 +857,10 @@
     489
    ],
    "pred": [
-    316.3,
-    486.6
+    316.4,
+    486.3
    ],
-   "err_px": 3.0
+   "err_px": 3.1
   },
   {
    "photo": "CR2",
@@ -781,10 +871,10 @@
     794
    ],
    "pred": [
-    332.5,
-    787.9
+    332.7,
+    788.4
    ],
-   "err_px": 9.7
+   "err_px": 9.5
   },
   {
    "photo": "CR3",
@@ -796,7 +886,7 @@
    ],
    "pred": [
     711.7,
-    257.3
+    257.1
    ],
    "err_px": 5.3
   },
@@ -809,10 +899,10 @@
     232
    ],
    "pred": [
-    996.5,
-    235.2
+    996.4,
+    235.6
    ],
-   "err_px": 3.5
+   "err_px": 3.9
   },
   {
    "photo": "CR3",
@@ -823,10 +913,10 @@
     392
    ],
    "pred": [
-    610.1,
-    402.4
+    610.3,
+    402.3
    ],
-   "err_px": 11.5
+   "err_px": 11.3
   },
   {
    "photo": "CR3",
@@ -837,8 +927,8 @@
     375
    ],
    "pred": [
-    1115.8,
-    373.0
+    1115.9,
+    373.1
    ],
    "err_px": 2.1
   },
@@ -851,10 +941,10 @@
     570
    ],
    "pred": [
-    824.4,
-    570.3
+    824.3,
+    570.5
    ],
-   "err_px": 2.5
+   "err_px": 2.4
   },
   {
    "photo": "CR3",
@@ -865,10 +955,10 @@
     421
    ],
    "pred": [
-    819.8,
-    422.7
+    819.9,
+    422.6
    ],
-   "err_px": 2.8
+   "err_px": 2.7
   },
   {
    "photo": "CR3",
@@ -879,10 +969,10 @@
     570
    ],
    "pred": [
-    887.8,
-    568.8
+    887.7,
+    569.1
    ],
-   "err_px": 1.4
+   "err_px": 1.1
   },
   {
    "photo": "CR3",
@@ -893,10 +983,10 @@
     421
    ],
    "pred": [
-    886.1,
-    419.4
+    886.2,
+    419.5
    ],
-   "err_px": 1.8
+   "err_px": 1.7
   },
   {
    "photo": "CR3",
@@ -907,10 +997,10 @@
     260
    ],
    "pred": [
-    828.8,
+    828.9,
     261.7
    ],
-   "err_px": 2.1
+   "err_px": 2.0
   },
   {
    "photo": "CR3",
@@ -921,10 +1011,10 @@
     260
    ],
    "pred": [
-    874.2,
-    258.3
+    874.3,
+    258.4
    ],
-   "err_px": 1.9
+   "err_px": 1.8
   },
   {
    "photo": "CR3",
@@ -938,7 +1028,7 @@
     831.4,
     356.3
    ],
-   "err_px": 1.9
+   "err_px": 1.8
   },
   {
    "photo": "CR3",
@@ -949,10 +1039,10 @@
     355
    ],
    "pred": [
-    875.6,
+    875.5,
     353.7
    ],
-   "err_px": 1.5
+   "err_px": 1.4
   },
   {
    "photo": "CR3",
@@ -963,10 +1053,10 @@
     577
    ],
    "pred": [
-    634.2,
+    634.0,
     574.8
    ],
-   "err_px": 7.5
+   "err_px": 7.3
   },
   {
    "photo": "CR3",
@@ -977,10 +1067,10 @@
     425
    ],
    "pred": [
-    620.5,
-    427.2
+    620.6,
+    427.1
    ],
-   "err_px": 6.9
+   "err_px": 6.7
   },
   {
    "photo": "CR3",
@@ -991,10 +1081,10 @@
     577
    ],
    "pred": [
-    702.3,
-    573.2
+    702.2,
+    573.3
    ],
-   "err_px": 6.6
+   "err_px": 6.4
   },
   {
    "photo": "CR3",
@@ -1005,10 +1095,10 @@
     425
    ],
    "pred": [
-    691.7,
+    691.9,
     423.7
    ],
-   "err_px": 5.4
+   "err_px": 5.3
   },
   {
    "photo": "CR3",
@@ -1019,10 +1109,10 @@
     377
    ],
    "pred": [
-    338.6,
-    376.0
+    339.2,
+    375.7
    ],
-   "err_px": 10.7
+   "err_px": 11.3
   },
   {
    "photo": "CR3",
@@ -1033,10 +1123,10 @@
     680
    ],
    "pred": [
-    391.7,
-    676.4
+    391.2,
+    675.9
    ],
-   "err_px": 7.3
+   "err_px": 7.9
   },
   {
    "photo": "CR3",
@@ -1047,10 +1137,10 @@
     312
    ],
    "pred": [
-    1442.4,
-    310.3
+    1442.3,
+    310.2
    ],
-   "err_px": 3.0
+   "err_px": 2.9
   },
   {
    "photo": "CR3",
@@ -1062,9 +1152,9 @@
    ],
    "pred": [
     1387.2,
-    668.6
+    669.6
    ],
-   "err_px": 13.9
+   "err_px": 14.9
   },
   {
    "photo": "CR3",
@@ -1075,10 +1165,10 @@
     125
    ],
    "pred": [
-    618.1,
-    122.8
+    618.4,
+    122.7
    ],
-   "err_px": 3.8
+   "err_px": 4.1
   },
   {
    "photo": "CR3",
@@ -1089,12 +1179,124 @@
     115
    ],
    "pred": [
-    1064.5,
-    114.7
+    1064.6,
+    114.8
    ],
-   "err_px": 0.6
+   "err_px": 0.5
+  },
+  {
+   "photo": "CR3",
+   "id": "gwa1",
+   "desc": "gable window (X=W side, image-left of white door) jamb A sill",
+   "obs": [
+    540,
+    514
+   ],
+   "pred": [
+    544.4,
+    515.0
+   ],
+   "err_px": 4.5
+  },
+  {
+   "photo": "CR3",
+   "id": "gwa2",
+   "desc": "gable window jamb A head",
+   "obs": [
+    540,
+    439
+   ],
+   "pred": [
+    535.8,
+    441.3
+   ],
+   "err_px": 4.8
+  },
+  {
+   "photo": "CR3",
+   "id": "gwa3",
+   "desc": "gable window jamb B sill",
+   "obs": [
+    622,
+    514
+   ],
+   "pred": [
+    625.4,
+    512.3
+   ],
+   "err_px": 3.8
+  },
+  {
+   "photo": "CR3",
+   "id": "gwa4",
+   "desc": "gable window jamb B head",
+   "obs": [
+    622,
+    439
+   ],
+   "pred": [
+    618.5,
+    437.5
+   ],
+   "err_px": 3.8
+  },
+  {
+   "photo": "CR3",
+   "id": "gwb1",
+   "desc": "gable window (X=0 side, image-right of entry door) jamb A sill",
+   "obs": [
+    1065,
+    497
+   ],
+   "pred": [
+    1063.2,
+    498.4
+   ],
+   "err_px": 2.3
+  },
+  {
+   "photo": "CR3",
+   "id": "gwb2",
+   "desc": "gable window jamb A head",
+   "obs": [
+    1065,
+    411
+   ],
+   "pred": [
+    1067.0,
+    413.4
+   ],
+   "err_px": 3.1
+  },
+  {
+   "photo": "CR3",
+   "id": "gwb3",
+   "desc": "gable window jamb B sill",
+   "obs": [
+    1160,
+    497
+   ],
+   "pred": [
+    1156.7,
+    495.3
+   ],
+   "err_px": 3.7
+  },
+  {
+   "photo": "CR3",
+   "id": "gwb4",
+   "desc": "gable window jamb B head",
+   "obs": [
+    1160,
+    411
+   ],
+   "pred": [
+    1163.0,
+    408.9
+   ],
+   "err_px": 3.7
   }
  ],
- "status": "`ftol` termination condition is satisfied.",
+ "status": "`xtol` termination condition is satisfied.",
  "mode": "photo_only"
 }

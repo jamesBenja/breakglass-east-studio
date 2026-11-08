@@ -1,0 +1,151 @@
+{
+ "inputs": {
+  "room": {
+   "W": 11.244,
+   "D": 8.199,
+   "flat_ceiling": 4.113,
+   "building_axis_x": 5.889
+  },
+  "console_tape": {
+   "width": 1.58496,
+   "depth": 1.1938,
+   "h_front": 0.7874,
+   "h_top": 1.0413999999999999
+  },
+  "rl901k_tape": {
+   "width": 0.5003799999999999,
+   "depth": 0.42417999999999995,
+   "height": 0.5435599999999999,
+   "top_on_stand": 1.5493999999999999,
+   "bottom_on_stand": 1.00584,
+   "acoustic_centre_z": 1.27762
+  }
+ },
+ "stereo": {
+  "listening_position": [
+   5.889,
+   5.124,
+   1.2
+  ],
+  "L": [
+   4.489,
+   7.549,
+   1.278
+  ],
+  "R": [
+   7.289,
+   7.549,
+   1.278
+  ],
+  "spacing_m": 2.8,
+  "ear_distance_m": 2.8,
+  "angle_deg": 30.0,
+  "toe_in_deg": 30.0,
+  "lp_from_front_wall_m": 3.07,
+  "lp_fraction_of_length_from_front": 0.375,
+  "baffle_to_front_wall_m": 0.65,
+  "console": {
+   "front_edge_y": 5.504128869403571,
+   "back_edge_y": 6.697928869403571,
+   "x0": 5.09652,
+   "x1": 6.6814800000000005
+  },
+  "sightline_z_at_console_back_edge": 1.25,
+  "meter_bridge_top": 1.041,
+  "sightline_clear": true
+ },
+ "immersive_7_1_4": {
+  "C": [
+   5.889,
+   7.922,
+   1.298
+  ],
+  "Ls": [
+   3.1,
+   4.88,
+   1.2
+  ],
+  "Rs": [
+   8.678,
+   4.88,
+   1.2
+  ],
+  "Lrs": [
+   4.089,
+   2.979,
+   1.2
+  ],
+  "Rrs": [
+   7.689,
+   2.979,
+   1.2
+  ],
+  "Ltf": [
+   4.489,
+   6.524,
+   3.18
+  ],
+  "Rtf": [
+   7.289,
+   6.524,
+   3.18
+  ],
+  "Ltr": [
+   4.489,
+   3.724,
+   3.18
+  ],
+  "Rtr": [
+   7.289,
+   3.724,
+   3.18
+  ],
+  "Ltf_ceiling_at_point": 4.11,
+  "Ltf_elev_deg": 45.0,
+  "Rtf_ceiling_at_point": 4.11,
+  "Rtf_elev_deg": 45.0,
+  "Ltr_ceiling_at_point": 4.11,
+  "Ltr_elev_deg": 45.0,
+  "Rtr_ceiling_at_point": 4.11,
+  "Rtr_elev_deg": 45.0
+ },
+ "posts_vs_lp": {
+  "left_post": [
+   2.586,
+   4.244
+  ],
+  "right_post": [
+   9.241,
+   4.291
+  ]
+ },
+ "axial_modes_Hz": {
+  "length_Y_8.20": [
+   20.9,
+   41.8,
+   62.8,
+   83.7,
+   104.6
+  ],
+  "width_X_11.24": [
+   15.3,
+   30.5,
+   45.8,
+   61.0,
+   76.3
+  ],
+  "height_effective_3.14": [
+   54.6,
+   109.2,
+   163.7,
+   218.3,
+   272.9
+  ]
+ },
+ "modal_note": "Room volume ~290 m3; modal region roughly below ~59 Hz (Schroeder estimate, RT 0.25 s assumed)",
+ "sbir_front": {
+  "front_wall_distance_m": 0.65,
+  "omni_first_notch_Hz": 132.0,
+  "note": "Quarter-wave estimate for an omni source at the baffle; the RL 901K's cardioid low-frequency radiation reduces rear energy, and thick front-wall absorption is proposed. Measure and tune on site."
+ }
+}

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="995" viewBox="0 0 1400 995" font-family="Helvetica,Arial,sans-serif">
+<rect width="1400" height="995" fill="#fbfaf7"/><rect x="80.8" y="656.2060000000001" width="292.344" height="213.174" fill="none" fill-opacity="1" stroke="#555" stroke-width="3"/>
+<rect x="80.8" y="448.57" width="292.344" height="203.73600000000005" fill="none" fill-opacity="1" stroke="#555" stroke-width="2.5"/>
+<rect x="74.014" y="75.60000000000004" width="309.4" height="372.96999999999997" fill="none" fill-opacity="1" stroke="#555" stroke-width="3"/>
+<rect x="166.31400000000002" y="274.37" width="135.20000000000002" height="377.93600000000004" fill="none" fill-opacity="1" stroke="#555" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="296.314" y="458.97" font-size="9" text-anchor="end" fill="#555" font-weight="normal">LOFT above (deck +2.79 m, headroom >=2.1 m only ~2 m wide)</text>
+<line x1="215.714" y1="652.306" x2="215.714" y2="448.57" stroke="#555" stroke-width="1.5"/>
+<line x1="252.114" y1="652.306" x2="252.114" y2="448.57" stroke="#555" stroke-width="1.5"/>
+<line x1="80.8" y1="534.0060000000001" x2="215.714" y2="534.0060000000001" stroke="#555" stroke-width="1.5"/>
+<line x1="252.114" y1="599.0060000000001" x2="373.144" y2="599.0060000000001" stroke="#555" stroke-width="1.5"/>
+<line x1="252.114" y1="502.80600000000004" x2="373.144" y2="502.80600000000004" stroke="#555" stroke-width="1.5"/>
+<text x="233.914" y="547.0060000000001" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">corridor</text>
+<text x="148.257" y="593.806" font-size="10" text-anchor="middle" fill="#b5651d" font-weight="bold">VOCAL / ISO</text>
+<text x="148.257" y="604.2060000000001" font-size="8" text-anchor="middle" fill="#555" font-weight="normal">(existing room)</text>
+<text x="312.629" y="625.0060000000001" font-size="10" text-anchor="middle" fill="#b5651d" font-weight="bold">MACHINE ROOM</text>
+<text x="312.629" y="552.2060000000001" font-size="10" text-anchor="middle" fill="#b5651d" font-weight="bold">AMP / ISO</text>
+<text x="148.257" y="487.20600000000013" font-size="9" text-anchor="middle" fill="#b5651d" font-weight="normal">STORAGE / MIC LOCKER</text>
+<text x="312.629" y="474.2060000000001" font-size="9" text-anchor="middle" fill="#b5651d" font-weight="normal">STORAGE</text>
+<line x1="74.014" y1="274.37" x2="383.414" y2="274.37" stroke="#555" stroke-dasharray="3 3"/>
+<text x="378.214" y="283.47" font-size="9" text-anchor="end" fill="#555" font-weight="normal">under-loft 2.59 m | tray zone 4.33 m</text>
+<rect x="185.814" y="75.60000000000004" width="96.20000000000003" height="365.16999999999996" fill="#c9a400" fill-opacity="0.08" stroke="#c9a400" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="233.914" y="91.20000000000007" font-size="10" text-anchor="middle" fill="#c9a400" font-weight="bold">MACHINERY AISLE 3.7 m</text>
+<text x="396.414" y="114.60000000000004" font-size="10" fill="#c9a400">FARM MODE: aisle cleared, piano on locked dolly</text>
+<text x="396.414" y="125.0" font-size="10" fill="#c9a400">rolls to the west bay, machines move in/out.</text>
+<text x="396.414" y="140.60000000000002" font-size="10" fill="#b5651d">STUDIO MODE: machines parked under the loft;</text>
+<text x="396.414" y="151.0" font-size="10" fill="#b5651d">the aisle becomes performance floor (shown).</text>
+<rect x="81.814" y="292.57" width="96.2" height="145.60000000000002" fill="#c9a400" fill-opacity="0.15" stroke="#c9a400" stroke-width="2"/>
+<text x="129.914" y="361.46999999999997" font-size="10" text-anchor="middle" fill="#c9a400" font-weight="bold">MACHINERY STORAGE</text>
+<text x="129.914" y="373.16999999999996" font-size="8" text-anchor="middle" fill="#c2187a" font-weight="normal">(owner list/sizes TBD)</text>
+<rect x="289.8140000000001" y="292.57" width="85.79999999999993" height="145.60000000000002" fill="#c9a400" fill-opacity="0.15" stroke="#c9a400" stroke-width="2"/>
+<text x="332.714" y="361.46999999999997" font-size="10" text-anchor="middle" fill="#c9a400" font-weight="bold">MACHINERY STORAGE</text>
+<text x="332.714" y="373.16999999999996" font-size="8" text-anchor="middle" fill="#c2187a" font-weight="normal">(owner list/sizes TBD)</text>
+<rect x="185.814" y="69.10000000000004" width="96.2" height="6.5" fill="#555"/>
+<text x="233.914" y="61.30000000000002" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">GARAGE DOOR (size to tape)</text>
+<polygon points="179.6053581281558,198.41906314800372 215.42264187184423,215.12093685199625 221.46608301473623,202.16073549737214 221.85289461490157,182.2596305836751 224.45319970464288,158.22688597469903 212.67119847316644,152.73284857207 192.24164415420273,171.32046031560793" fill="#111" fill-opacity="0.85"/>
+<text x="158.514" y="193.76999999999998" font-size="10" text-anchor="end" fill="#b5651d" font-weight="bold">GRAND PIANO</text>
+<circle cx="261.79559023147965" cy="165.44102847176092" r="5.72" fill="#b5651d" fill-opacity="0.6"/>
+<circle cx="277.92831023369024" cy="183.0468029555436" r="5.72" fill="#b5651d" fill-opacity="0.6"/>
+<circle cx="301.78502847176094" cy="184.08840976852045" r="5.72" fill="#b5651d" fill-opacity="0.6"/>
+<circle cx="319.3908029555435" cy="167.95568976630986" r="5.72" fill="#b5651d" fill-opacity="0.6"/>
+<text x="291.11400000000003" y="144.37000000000003" font-size="9" text-anchor="middle" fill="#b5651d" font-weight="normal">string quartet</text>
+<line x1="75.574" y1="258.77" x2="75.574" y2="227.57" stroke="#b5651d" stroke-width="5"/>
+<line x1="75.574" y1="221.07" x2="75.574" y2="189.87000000000003" stroke="#b5651d" stroke-width="5"/>
+<line x1="75.574" y1="183.37000000000003" x2="75.574" y2="152.17000000000004" stroke="#b5651d" stroke-width="5"/>
+<line x1="75.574" y1="145.67000000000004" x2="75.574" y2="114.47000000000006" stroke="#b5651d" stroke-width="5"/>
+<line x1="75.574" y1="107.96999999999997" x2="75.574" y2="76.76999999999998" stroke="#b5651d" stroke-width="5"/>
+<line x1="381.854" y1="258.77" x2="381.854" y2="227.57" stroke="#b5651d" stroke-width="5"/>
+<line x1="381.854" y1="221.07" x2="381.854" y2="189.87000000000003" stroke="#b5651d" stroke-width="5"/>
+<line x1="381.854" y1="183.37000000000003" x2="381.854" y2="152.17000000000004" stroke="#b5651d" stroke-width="5"/>
+<line x1="381.854" y1="145.67000000000004" x2="381.854" y2="114.47000000000006" stroke="#b5651d" stroke-width="5"/>
+<line x1="381.854" y1="107.96999999999997" x2="381.854" y2="76.76999999999998" stroke="#b5651d" stroke-width="5"/>
+<text x="84.414" y="76.77000000000008" font-size="8" text-anchor="start" fill="#b5651d" font-weight="normal">variable panels</text>
+<circle cx="197.51399999999998" cy="673.1060000000001" r="5" fill="#1f4e79"/>
+<circle cx="270.314" cy="673.1060000000001" r="5" fill="#1f4e79"/>
+<rect x="213.30952" y="695.2338493955073" width="41.20896000000002" height="31.038799999999988" fill="#1f4e79" fill-opacity="0.35" stroke="#1f4e79" stroke-width="1.5"/>
+<circle cx="233.914" cy="736.1560000000001" r="4" fill="#000"/>
+<text x="233.914" y="825.1930000000001" font-size="11" text-anchor="middle" fill="#b5651d" font-weight="bold">CONTROL ROOM — see PR-102</text>
+<text x="233.914" y="883.6800000000001" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">GABLE ENTRY</text>
+<line x1="233.914" y1="879.78" x2="233.914" y2="67.80000000000001" stroke="#999" stroke-dasharray="14 4 2 4" stroke-width="0.8"/>
+<text x="237.81400000000002" y="66.5" font-size="8" text-anchor="start" fill="#888" font-weight="normal">building axis</text>
+<text x="396.54400000000004" y="762.7930000000001" font-size="10" fill="#555">8.20</text><text x="399.014" y="262.08500000000004" font-size="10" fill="#555">14.3</text>
+<text x="399.014" y="552.388" font-size="10" fill="#555">8.0</text>
+<g font-size="11" fill="#333"><text x="20" y="933" font-size="15" font-weight="bold">PR-101  WHOLE BUILDING — PROPOSED PLAN (control room / support rooms / live room; loft dashed)</text>
+<text x="20" y="951">Interior length about 30.5 m gable to gable; dims in metres; existing partitions in the middle zone are scan-inferred and unchanged (no new walls).</text>
+<text x="20" y="967">PROPOSED DESIGN v0.3 on a provisional existing shell (phone-LiDAR + photos, about +/-0.1-0.2 m). NOT FOR CONSTRUCTION, PRICING OR PERMIT. Acoustician/architect review required.</text>
+<text x="20" y="985"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment (tape)</tspan>  <tspan fill="#b5651d">&#9632; proposed</tspan>  <tspan fill="#7a2e8e">&#9679; immersive 7.1.4 (phase P7)</tspan>  <tspan fill="#c9a400">&#9632; machinery zone/aisle</tspan>  <tspan fill="#c2187a">&#9632; placeholder/unknown</tspan></text></g></svg>

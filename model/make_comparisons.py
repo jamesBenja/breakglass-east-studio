@@ -42,7 +42,13 @@ def edges():
     rect("Y0", P["CR3.xw1"], P["CR3.xw2"], P["CR3.hwb"], P["CR3.hwt"])
     rect("Y0", P["g_xi1"], P["g_xi2"], 0, P["g_hi"])
     rect("YD", P["CR1.xd1"], P["CR1.xd2"], 0, P["CR1.hd"])
-    rect("XW", P["CR1.wy1"], P["CR1.wy2"], P["CR1.wsill"], P["CR1.wh"])
+    rect("Y0", P["CR3.gw1a"], P["CR3.gw1b"], P["CR3.gw1s"], P["CR3.gw1h"])      # v0.3 gable windows (G1-01)
+    rect("Y0", P["CR3.gw2a"], P["CR3.gw2b"], P["CR3.gw2s"], P["CR3.gw2h"])
+    for a, b_ in ((1.15, 4.35), (4.50, 7.95)): rect("XW", a, b_, P["CR1.wsill"], P["CR1.wh"])   # scan reveals
+    xs, ys = P["g_xs"], min(P["g_ys"], D - 0.35)                                   # stove (G1-07)
+    for (x0, y0), (x1, y1) in (((xs-0.28, ys-0.25), (xs+0.28, ys-0.25)), ((xs-0.28, ys-0.25), (xs-0.28, ys+0.25)), ((xs+0.28, ys-0.25), (xs+0.28, ys+0.25))):
+        for z in (0, P["CR1.hs"]): E.append(((x0, y0, z), (x1, y1, z), "opening"))
+    E.append(((xs, ys + 0.1, P["CR1.hs"]), (xs, ys + 0.1, P["CR1.hfl"]), "post"))
     return E
 
 COLORS = {"shell": (0, 230, 255), "post": (255, 200, 0), "opening": (255, 60, 200)}
@@ -87,8 +93,8 @@ def main():
             d.line([(ou, ovv), (ou + 5*(pu-ou), ovv + 5*(pv-ovv))], fill=(255, 40, 40), width=3)
         a, b, c = photo.copy(), render, ov
         label(a, f"ORIGINAL PHOTO  {title}.HEIC  (private)")
-        label(b, f"BLENDER v0.2 from solved camera {cid}")
-        label(c, f"MODEL EDGES ON PHOTO  RMS {rms:.1f}px  (red = residual x5)")
+        label(b, f"BLENDER v0.2 clay (pre-review shell) - camera {cid}")
+        label(c, f"v0.3 MODEL EDGES ON PHOTO  RMS {rms:.1f}px  (red = residual x5)")
         panel = Image.new("RGB", (4800, 1200)); [panel.paste(im, (i*1600, 0)) for i, im in enumerate((a, b, c))]
         panel.save(os.path.join(PRIV, f"match_{cid}.jpg"), quality=85)
         print(cid, "RMS", round(rms, 2), "->", os.path.join(PRIV, f"match_{cid}.jpg"))

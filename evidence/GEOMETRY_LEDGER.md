@@ -1,4 +1,21 @@
-# Geometry ledger: control room existing conditions **v0.2**
+# Geometry ledger: control room existing conditions **v0.3**
+
+> **v0.3 corrections after the independent review (PR #1, 2026-11-08)**
+> - **G1-02 accepted.** The v0.2 claim that the fused solve showed "independent scan/photo agreement" was wrong. The photo-only mode then still carried scan-derived W/D priors, and all residuals were in-sample.
+>   - Now `photo_only` uses **no** section priors (W only as a gauge).
+>   - The scale-free comparison (`model/independence_report.json`) shows the three ultrawide photos **cannot pin the room proportions on their own**: D/W is 28 % off and hc/W 19 % off vs the scan.
+>   - A **held-out test** (camera fitted on other points, predicting scan-only wall/ceiling/beam corners) gives **14–17 px** (≈ 10–20 cm at room distances).
+>   - **Correct reading: the scan is the metric source; the photos are consistent with it at about ±0.1–0.2 m; tape checks remain the independent validation.**
+> - **G1-04 accepted.** σ values below are statistical fit uncertainties. **Systematic** uncertainty of phone LiDAR (scale/drift) is separate: assume up to ~±1 % of a dimension (≈ ±0.11 m on the 11.25 m width) until tape-checked. "2.5 M samples" are resampled from a 40,920-vertex mesh, not independent measurements.
+> - **G1-01, G1-07 fixed in `model/build_studio.py`.**
+>   - Openings are real boolean cuts.
+>   - The two gable side windows have been photo-solved (CR3).
+>   - Side-wall windows come from scan reveals: right wall Y 1.15–4.35 and 4.50–7.95 m; left wall Y 1.95–2.90 and 4.45–8.05 m.
+>   - The wood stove and flue are added (photo-solved at X 4.39, Y ≈ 7.8 (σ 0.34), top 0.71 m; flue route beyond the partition UNKNOWN).
+>   - Correction: the v0.1/v0.2 "far end of the right window" was where the **post occludes** the window, not the window's end.
+> - **New discrepancy X8:** the photo solve puts the gable window on the X=W side at X 9.12–10.33. A scan reveal suggests 10.35–11.15. Tape needed.
+> - The black stove is invisible to the LiDAR (dark-surface dropout); its position is photo-only.
+
 
 **v0.2 basis:** the **native iPhone-LiDAR mesh** (Polycam, captured 2022-10-24, exported by the owner 2026-11-07; 40,920 vertices, 31.1 × 14.0 × 6.2 m overall), **fused** with the three photo camera matches.
 

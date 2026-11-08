@@ -28,12 +28,30 @@ python3 model/make_drawings.py
 python3 model/make_comparisons.py
 ```
 
+```bash
+python3 model/monitoring_geometry.py
+```
+
+```bash
+BG_RENDER=1 python3 model/build_studio.py
+```
+
+```bash
+python3 model/make_proposed_plans.py
+```
+
 | Script | Input | Output |
 |---|---|---|
 | `scan_analysis.py` | private native mesh `inputs/originals/scan/polycam_2022-10-24.glb` | `scan_frame.json` (axis transform) |
 | `scan_measure_control_room.py` | private surface samples of the mesh | `scan_control_room_measurements.json` (numbers only) |
 | `camera_solve.py` | `annotations/*.json` + scan priors | `solve_result.json` (fused, default), `solve_result_scan_fixed.json`, `solve_result_photo_only.json` (`BG_SOLVE_MODE=`) |
 | `section.py` | solve + scan | the one asymmetric section used by every script below |
+| `scan_openings.py` | private mesh samples | `scan_openings_control_room.json` (window reveals) |
+| `scan_measure_building.py` | private mesh samples | `scan_building_measurements.json` (live room, middle zone, loft) |
+| `independence_report.py` | solve modes | `independence_report.json` (scale-free photo-vs-scan check + held-out test; review G1-02) |
+| `monitoring_geometry.py` | shell + owner tape measurements | `monitoring_geometry.json` (LP, RL 901K, console, 7.1.4, modes, SBIR) |
+| `build_studio.py` | all of the above | `breakglass_east_v03.blend` (existing + actual equipment + proposed); `BG_RENDER=1` → `renders/design/*.png` |
+| `make_proposed_plans.py` | all of the above | `drawings/PR-101`, `PR-102` |
 | `build_existing_shell.py` | `solve_result.json` | `existing_control_room_v02.blend`, `renders/qa/clay_*.png` |
 | `make_drawings.py` | `solve_result.json` | `drawings/EX-101/201/202*.svg` |
 | `make_comparisons.py` | `solve_result.json` + private photo previews | `renders/qa/edges_*.png` (public); `inputs/private/comparisons/match_*.jpg` (private) |

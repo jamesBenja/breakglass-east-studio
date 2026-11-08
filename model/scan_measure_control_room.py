@@ -51,7 +51,8 @@ for i in np.argsort(H.ravel())[::-1][:60]:
     cols.append({"x": float(px), "y": float(py), "x_from_left": round(float(px - xl), 2), "y_from_gable": round(float(py - yg), 2),
                  "n": int(H[a, b]), "z_min": round(float(Z[col].min()), 2), "z_max": round(float(Z[col].max()), 2)})
     if len(cols) >= 10: break
-out = {"source": "native Polycam LiDAR mesh 2022-10-24 (sha256 fcec5a61c341...), 2.5M surface samples",
+out = {"frame": {"ang_deg": ang, "cx": cx, "cy": cy, "xl": xl, "yg": yg, "floor_z_mesh": FZ},
+       "source": "native Polycam LiDAR mesh 2022-10-24 (sha256 fcec5a61c341...), 2.5M surface samples",
        "floor_z_mesh": round(FZ, 3), "local_alignment_deg": round(ang, 2),
        "wall_fit_sd_m": {"right": round(sdR, 3), "left": round(sdL, 3)},
        "width_wall_to_wall": round(xr - xl, 3), "depth_gable_to_partition": round(yp - yg, 3),

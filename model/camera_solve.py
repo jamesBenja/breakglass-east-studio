@@ -59,7 +59,13 @@ SCAN_SECTION = {   # metres, from scan ceiling profile measured from the left (X
 # smoothed, decimated mesh profile (beam steps, slope feet, flat-ceiling edges)
 SCAN_SIGMA = {"W": 0.03, "D": 0.03, "hc": 0.03, "hloR": 0.07,
               "wc": 0.10, "xf": 0.10, "dsL": 0.10, "dsR": 0.10, "hbL": 0.10, "hbR": 0.10, "hbbL": 0.10, "hbbR": 0.10}
-if MODE == "scan_fixed":
+if MODE == "photo_only":
+    # Truly scan-independent shape: no section priors at all. W is FIXED only as a gauge (any
+    # value gives identical ratios). Compare RATIOS (h/W, D/W, ...) with the scan - absolute
+    # metres from this mode are not independent evidence. (Review finding G1-02.)
+    PARAMS["W"] = (11.25, 11.25, 1e-4)
+    PARAMS["D"] = (8.19, None, None)
+elif MODE == "scan_fixed":
     for k, v in SCAN_SECTION.items(): PARAMS[k] = (v, v, 0.005)
 elif MODE == "fused":
     for k, v in SCAN_SECTION.items(): PARAMS[k] = (v, v, SCAN_SIGMA[k])

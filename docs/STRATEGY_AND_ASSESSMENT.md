@@ -36,7 +36,7 @@
 7. **What's overlooked in construction, MEP, code and logistics** (none of these is covered by the current docs):
    - **Agricultural land-use (CPTAQ)** and municipal zoning for commercial studio use. This is already in the index but must be resolved **before** design spend.
    - **Wood-stove clearances** in the control room.
-   - **Electrical service size** and a separate technical-power system with a single-point ground.
+   - **Electrical service size** and a dedicated technical-power distribution designed by a licensed electrical engineer/electrician, fully **bonded per the Canadian Electrical Code**. This is a star-topology technical ground that remains bonded to the building's grounding electrode, never an isolated or unbonded earth (review G1-09).
    - **Fuel and exhaust management** for machinery parked in a room with a grand piano.
    - **Humidity control** for a piano and an analog console in a rural Québec barn (winter RH below 20 %).
    - **Snow loads** if heavy acoustic ceilings are hung from existing framing.
@@ -66,7 +66,7 @@ SketchUp or Rhino add nothing material here, and Revit is premature until a lice
 Stereo first is correct. But an immersive (e.g. 7.1.4) plan needs **height-speaker positions** on a ceiling that is only 2.2 m at the sides and 4.0 m in the centre. That constrains the immersive layout geometrically, so **reserve the infrastructure** (conduit, rigging points, blocking) in phase 1 even though the speakers come later. A large projection screen on the front wall conflicts with free-standing Geithains on stands. An acoustically transparent screen or a retractable screen is a decision for **[OWNER DECISION]** after Gate 2.
 
 ### Is enough of the building being preserved?
-The constraints already prevent invention. The bigger risk is the reverse: an isolated "room within a room" control room would hide the very tray ceiling, posts and windows you want to keep. **Isolation should come from the envelope and door/glazing upgrades plus quiet MEP**, not from new inner walls. That also respects the no-new-partitions rule. Expected outside noise in a rural setting is low; the machinery in the live room is the real neighbour, and it is off during sessions.
+The constraints already prevent invention. The bigger risk is the reverse: an isolated "room within a room" control room would hide the very tray ceiling, posts and windows you want to keep. My **working hypothesis** is that isolation can come from the envelope and door/glazing upgrades plus quiet MEP, not from new inner walls, which also respects the no-new-partitions rule. *(Review G1-09: this stays a hypothesis until a background-noise survey, an isolation target and the acoustician's review exist.)* Expected outside noise in a rural setting is low; the machinery in the live room is the real neighbour, and it is off during sessions.
 
 ### What needs licensed professionals
 | Item | Who |

@@ -7,7 +7,15 @@ Professional design-development project for converting the actual agricultural b
 - **Source archive:** collected in owner's Google Drive / local reference folder, not automatically public.
 - **v0.6 3D viewer, layouts and renderings:** **REJECTED**. Do not reuse their geometry or equipment placement.
 - **Current assignment:** reconstruct existing control room and camera-match it to actual photographs before proposing any studio fit-out.
-- **v0.2 existing-conditions control room (Claude, draft for review):** native LiDAR scan fused with a 3-photo camera match; Blender model, plan and sections. See [docs/STRATEGY_AND_ASSESSMENT.md](docs/STRATEGY_AND_ASSESSMENT.md), [evidence/GEOMETRY_LEDGER.md](evidence/GEOMETRY_LEDGER.md), [model/README.md](model/README.md). Gate 1 **ready for review**.
+- **v0.3 (Claude, draft for review, PR #1):** whole building from the native LiDAR scan; the actual Spectra Sonics console and both Geithain RL 901K modelled from owner tape measurements; proposed control room (stereo + 7.1.4 + screening), live room, support rooms, loft position; renders, plans and a build plan. Start here:
+  - [docs/BUILD_PLAN.md](docs/BUILD_PLAN.md): phases, budget, decisions, next steps
+  - [docs/CONTROL_ROOM_DESIGN.md](docs/CONTROL_ROOM_DESIGN.md)
+  - [docs/LIVE_ROOM_LOFT_SUPPORT.md](docs/LIVE_ROOM_LOFT_SUPPORT.md)
+  - [evidence/GEOMETRY_LEDGER.md](evidence/GEOMETRY_LEDGER.md)
+  - `drawings/PR-101`, `drawings/PR-102`
+  - `renders/design/`
+
+  The existing shell is still under Gate 1 revision; the design was produced on owner instruction and is labelled PROPOSED throughout.
 - **Agent coordination:** Claude Code implements on branches and creates PRs; ChatGPT independently reviews source fidelity and documentation via GitHub.
 
 The project is intentionally **public**, and that is fine. Publish code, general specifications, review summaries and owner-approved images openly. Avoid exposing the private source photos / scans or confidential property details without owner approval.

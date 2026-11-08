@@ -1,7 +1,7 @@
 {
  "id": "CR3",
  "source_title": "Control Room 3.HEIC",
- "note": "Taken from near the interior partition looking -Y toward the gable-end wall (exterior door, clerestory window). Image-left is the X=W side. Pixel coords in 1600x1200 preview.",
+ "note": "Taken from near the interior partition looking -Y toward the gable-end wall (exterior door, clerestory window). Image-left is the X=W side. Pixel coords in 1600x1200 preview. v0.3: gable side windows added (review G1-01).",
  "exif_f35": 13,
  "camera_init": {
   "tx": 5.0,
@@ -24,7 +24,15 @@
   "yc2": 3.0,
   "g_xi1": 7.0,
   "g_xi2": 6.2,
-  "g_hi": 2.0
+  "g_hi": 2.0,
+  "gw1a": 9.8,
+  "gw1b": 9.0,
+  "gw1s": 1.0,
+  "gw1h": 1.9,
+  "gw2a": 3.0,
+  "gw2b": 2.2,
+  "gw2s": 1.0,
+  "gw2h": 1.9
  },
  "points": [
   {
@@ -320,6 +328,118 @@
     "hc"
    ],
    "sigma_px": 8
+  },
+  {
+   "id": "gwa1",
+   "desc": "gable window (X=W side, image-left of white door) jamb A sill",
+   "uv": [
+    540,
+    514
+   ],
+   "xyz": [
+    "gw1a",
+    "0",
+    "gw1s"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwa2",
+   "desc": "gable window jamb A head",
+   "uv": [
+    540,
+    439
+   ],
+   "xyz": [
+    "gw1a",
+    "0",
+    "gw1h"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwa3",
+   "desc": "gable window jamb B sill",
+   "uv": [
+    622,
+    514
+   ],
+   "xyz": [
+    "gw1b",
+    "0",
+    "gw1s"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwa4",
+   "desc": "gable window jamb B head",
+   "uv": [
+    622,
+    439
+   ],
+   "xyz": [
+    "gw1b",
+    "0",
+    "gw1h"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwb1",
+   "desc": "gable window (X=0 side, image-right of entry door) jamb A sill",
+   "uv": [
+    1065,
+    497
+   ],
+   "xyz": [
+    "gw2a",
+    "0",
+    "gw2s"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwb2",
+   "desc": "gable window jamb A head",
+   "uv": [
+    1065,
+    411
+   ],
+   "xyz": [
+    "gw2a",
+    "0",
+    "gw2h"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwb3",
+   "desc": "gable window jamb B sill",
+   "uv": [
+    1160,
+    497
+   ],
+   "xyz": [
+    "gw2b",
+    "0",
+    "gw2s"
+   ],
+   "sigma_px": 5
+  },
+  {
+   "id": "gwb4",
+   "desc": "gable window jamb B head",
+   "uv": [
+    1160,
+    411
+   ],
+   "xyz": [
+    "gw2b",
+    "0",
+    "gw2h"
+   ],
+   "sigma_px": 5
   }
  ]
 }
