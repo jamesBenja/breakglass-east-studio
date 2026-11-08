@@ -518,11 +518,11 @@ area("lv_fill_2", (AX, Y_MID1 + 3.0, UNDERLOFT_CLG - 0.1), 3.0, 300)
 
 CAMS = {
  "cr_front":      ((AX - 1.1, 2.35, 1.85), (AX + 0.1, 8.2, 1.25), 21),
- "cr_rear":       ((AX + 0.6, 7.25, 1.65), (AX - 0.2, 0.0, 1.25), 20),
+ "cr_rear":       ((AX + 1.9, 7.05, 1.75), (AX - 0.6, 0.4, 1.05), 19),
  "cr_console":    ((AX - 1.55, 4.25, 1.75), (AX + 0.3, 7.2, 1.05), 28),
  "live_piano":    ((AX + 2.7, Y_LIVE_G - 0.6, 1.70), (AX - 1.5, Y_MID1 + 2.0, 1.6), 18),
  "live_farm":     ((AX - 0.6, Y_MID1 + 0.6, 1.60), (AX + 0.3, Y_LIVE_G, 1.4), 18),
- "loft_overlook": ((AX + 0.2, Y_LOFT_END - 1.2, LOFT_DECK + 1.5), (AX - 0.5, Y_LIVE_G - 1.0, F_LIVE + 0.3), 20),
+ "loft_overlook": ((AX + 0.1, Y_LOFT_END - 0.9, LOFT_DECK + 0.72), (AX - 0.6, Y_LIVE_G - 1.5, F_LIVE + 0.6), 16),
  "exterior":      ((-9.0, -12.0, 1.7), (AX, 10.0, 1.5), 26),
  "axo_cutaway":   ((-14.0, -10.0, 16.0), (AX, 15.0, 0.0), 24),
 }
@@ -557,7 +557,7 @@ if os.environ.get("BG_RENDER"):
         bpy.data.objects["EX_ground"].visible_camera = not interior
         for nm in ("EX_CR_ceiling", "EX_LV_tray_ceiling", "EX_MZ_ceiling", "EX_LOFT_deck", "EX_LV_underloft_foil", "EX_siding_long_L", "EX_CR_wall_X0", "EX_LV_wall_L", "EX_MZ_extwall_L", "EX_siding_gable_control"):
             if nm in bpy.data.objects:
-                bpy.data.objects[nm].visible_camera = bpy.data.objects[nm].visible_camera if k != "axo_cutaway" else (nm in ("EX_LOFT_deck",))
-        for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = (k != "cr_rear")
+                bpy.data.objects[nm].visible_camera = bpy.data.objects[nm].visible_camera if k != "axo_cutaway" else False
+        for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = True   # screen shown retracted (stereo mode)
         sun.energy = 3.0 if not interior else 2.0
         scene.render.filepath = os.path.join(out, f"{k}.png"); bpy.ops.render.render(write_still=True); print("rendered", k)
