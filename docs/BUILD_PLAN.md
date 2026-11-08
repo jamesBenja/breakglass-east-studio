@@ -52,7 +52,7 @@ Critical dependencies:
 | 8 | Studio wiring: tie-lines, patching, machine room, video line-of-sight, talkback | 25 k | 70 k | Copper vs. network audio choice |
 | 9 | Clark dismantling, crating, transport, Spectra Sonics service, re-installation | 10 k | 35 k | Specialist handling for the console and 2 × 48 kg monitors |
 | | **Essential build subtotal (1–9)** | **380 k** | **1,075 k** | |
-| | Contingency 15–20 % | 60 k | 215 k | Old agricultural building |
+| | Contingency 15–20 % | 57 k | 215 k | Old agricultural building |
 | 10 | P7 immersive 7.1.4 completion (9 compact monitors + 2 subs + processing) | 35 k | 110 k | Brand-dependent; a Geithain family match is at the high end |
 | 11 | P7 screen + projector + hush box | 15 k | 50 k | Acoustically transparent motorised screen |
 | 12 | P7 grand piano | 30 k | 200 k+ | Used 7-ft to new concert-class |
