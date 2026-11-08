@@ -15,7 +15,7 @@ Professional design-development project for converting the actual agricultural b
   - `drawings/PR-101`, `drawings/PR-102`
   - `renders/design/`
 
-  Owner review copies in Google Drive: folder "Breakglass East — v0.3 Review Package (Claude, 8 Nov 2026)" (a Design & Build Plan Doc and a Budget/Decisions/Next steps/Tape check Sheet).
+  Owner review copies in Google Drive: folder "Breakglass East — Review Package (Claude, current: v0.4)" (Design & Build Plan Doc + Budget/Decisions/Next steps/Tape check Sheet, both v0.4 fireside + cinema).
 
   The existing shell is still under Gate 1 revision; the design was produced on owner instruction and is labelled PROPOSED throughout.
 - **Agent coordination:** Claude Code implements on branches and creates PRs; ChatGPT independently reviews source fidelity and documentation via GitHub.
