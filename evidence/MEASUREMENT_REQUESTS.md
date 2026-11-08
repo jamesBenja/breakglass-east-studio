@@ -14,7 +14,7 @@ Tape-measure in millimetres and photograph front, side, top and rear (with any m
 | Item | Measurements |
 |---|---|
 | **Spectra Sonics console** | Overall width, depth, height at front edge and at meter bridge; working-surface height; table/stand footprint and leg positions; frame weight if known; number of input/output modules; position of the patch/connector panel |
-| **Geithain monitor L and R** (both, separately) | Model name from the rear plate; cabinet W × H × D; driver centre height above stand base; stand height and footprint; current toe-in angle and tweeter height; distance between acoustic centres; distance from each to the listener's ears in the current room |
+| **Geithain RL 901K L and R** (model confirmed; published size 550 × 500 × 430 mm, 48 kg — see `EQUIPMENT_REFERENCE.md`) | Only: photo of each rear panel (serial plate + switch settings); one tape check of a cabinet; current stand height, toe-in angle, distance between the cabinets, and distance from each to the listener's ears |
 | **Two timber rack wings** | W × D × H; rack-space count; angle to the console |
 | **Patchbays and outboard** | Count of rack units; heat load if known |
 | **Clark acoustic panels and wood** | Count; W × H × thickness; core material (mineral wool / foam / unknown); fabric condition; mounting method; any panel datasheets |
