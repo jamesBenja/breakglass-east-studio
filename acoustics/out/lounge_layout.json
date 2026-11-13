@@ -1,0 +1,256 @@
+{
+ "fire_point": [
+  4.391,
+  7.579
+ ],
+ "stove_clearance_placeholder_m": 0.9,
+ "fireside_mode": {
+  "loveseat": {
+   "centre": [
+    2.6,
+    5.8
+   ],
+   "size": [
+    1.45,
+    0.85
+   ],
+   "yaw_deg": -45.2,
+   "to_fire_m": 2.53,
+   "stove_clearance_m": 1.9,
+   "facing_error_deg": 0.0,
+   "footprint": [
+    [
+     1.787,
+     6.014
+    ],
+    [
+     2.81,
+     4.985
+    ],
+    [
+     3.413,
+     5.584
+    ],
+    [
+     2.39,
+     6.613
+    ]
+   ]
+  },
+  "swivel armchair A": {
+   "centre": [
+    2.8,
+    7.4
+   ],
+   "size": [
+    0.8,
+    0.8
+   ],
+   "yaw_deg": -83.5,
+   "to_fire_m": 1.6,
+   "stove_clearance_m": 0.92,
+   "facing_error_deg": 0.0,
+   "footprint": [
+    [
+     2.358,
+     7.751
+    ],
+    [
+     2.448,
+     6.957
+    ],
+    [
+     3.242,
+     7.047
+    ],
+    [
+     3.152,
+     7.841
+    ]
+   ]
+  },
+  "side table": {
+   "centre": [
+    2.05,
+    6.95
+   ],
+   "size": [
+    0.5,
+    0.5
+   ],
+   "yaw_deg": 0
+  }
+ },
+ "cinema_mode": {
+  "swivel armchair A (rolls back from the fire)": {
+   "centre": [
+    3.14,
+    1.45
+   ],
+   "yaw_deg": -35.9,
+   "screen_view_angle_deg": 29.8,
+   "off_axis_to_screen_centre_deg": 35.9
+  },
+  "swivel armchair B (stays in the rear row)": {
+   "centre": [
+    8.64,
+    1.45
+   ],
+   "yaw_deg": 35.9,
+   "screen_view_angle_deg": 29.8,
+   "off_axis_to_screen_centre_deg": -35.9
+  }
+ },
+ "obstacles": {
+  "left RL 901K + clear zone (stand sliders \u00b10.2 m, cardioid rear/side ports)": [
+   [
+    3.739,
+    5.049
+   ],
+   [
+    5.239,
+    5.049
+   ],
+   [
+    5.239,
+    6.399
+   ],
+   [
+    3.739,
+    6.399
+   ]
+  ],
+  "left sub": [
+   [
+    3.439,
+    5.649
+   ],
+   [
+    4.039,
+    5.649
+   ],
+   [
+    4.039,
+    6.249
+   ],
+   [
+    3.439,
+    6.249
+   ]
+  ],
+  "left bench trap (NEW-01)": [
+   [
+    0,
+    1.6
+   ],
+   [
+    0.75,
+    1.6
+   ],
+   [
+    0.75,
+    7.45
+   ],
+   [
+    0,
+    7.45
+   ]
+  ],
+  "front-left corner trap (NEW-02)": [
+   [
+    0,
+    8.199
+   ],
+   [
+    0.7,
+    8.199
+   ],
+   [
+    0,
+    7.499
+   ]
+  ],
+  "front-left PAN-001 on stand-off (NEW-07)": [
+   [
+    0.72,
+    7.869
+   ],
+   [
+    3.19,
+    7.869
+   ],
+   [
+    3.19,
+    8.199
+   ],
+   [
+    0.72,
+    8.199
+   ]
+  ],
+  "future Ls surround stand (7.1.4)": [
+   [
+    2.9,
+    2.631
+   ],
+   [
+    3.3,
+    2.631
+   ],
+   [
+    3.3,
+    3.031
+   ],
+   [
+    2.9,
+    3.031
+   ]
+  ],
+  "hearth pad": [
+   [
+    3.741,
+    6.979
+   ],
+   [
+    5.041,
+    6.979
+   ],
+   [
+    5.041,
+    8.199
+   ],
+   [
+    3.741,
+    8.199
+   ]
+  ],
+  "doorway route (partition doorway to the room)": [
+   [
+    5.21,
+    5.199
+   ],
+   [
+    6.534,
+    5.199
+   ],
+   [
+    6.534,
+    8.199
+   ],
+   [
+    5.21,
+    8.199
+   ]
+  ]
+ },
+ "checks": {
+  "all fireside pieces face the stove glass": true,
+  "min stove clearance (m)": 0.92,
+  "lounge furniture max height (m)": 0.8,
+  "speaker acoustic-centre height (m)": 1.278,
+  "doorway route kept clear": true,
+  "obstructs LP->speaker direct path": false,
+  "seats": "fireside: loveseat (2) + swivel armchair (1) = 3 facing the fire; cinema: sofa (3-4) + 2 swivel armchairs = 5-6 (as v0.4)",
+  "note": "the lounge is BEHIND the drop-down screen and the speakers; it is a fireside / listening-back spot, not a cinema seat"
+ }
+}

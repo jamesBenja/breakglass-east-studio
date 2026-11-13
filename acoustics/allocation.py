@@ -77,7 +77,7 @@ B = json.load(open(os.path.join(ROOT, "model/scan_building_measurements.json")))
 Y_OFF = 15.185; F_MID, F_LIVE = B["middle_floor"], B["live_floor"]
 Y_PART1 = D + 0.15; Y_MID1 = 1.0 + Y_OFF; Y_LOFT_END = 7.7 + Y_OFF; Y_LG = B["live_gable_y"] + Y_OFF
 LIVE_L, LIVE_R = AX - 6.15, AX + 5.75; LIVE_HC = B["live_flat_ceiling"]; UL_CLG = B["underloft_ceiling"]
-CORR0, CORR1 = AX - 0.76, AX + 0.76
+CORR0, CORR1 = AX - 0.70, AX + 0.70   # as model/build_studio.py
 STOVE_CLEAR_X = P["g_xs"] - 0.28 - 0.90
 def slope_z(x):
     if x <= xc1: return G["hbL"] + (hc - G["hbL"]) * (x - xL) / (xc1 - xL)
@@ -121,15 +121,15 @@ for asset, x, y, yaw in (("BTR-001", 0.05 + m(46.5) / 2, 0.0, 0), ("BTR-001", 0.
 # --- front wall: Dead Room Roxul panels, clear of the stove (front reflections 15 ms)
 for i, z0 in enumerate((0.45, 1.26)):
     place("ABS-003", CR, "front wall right of doorway", "broadband absorption behind the speakers (right front reflection point X 6.81)", "panel",
-          (6.70 + m(134) / 2, D - m(4) / 2, z0 + m(30) / 2), (m(134), m(4), m(30)), mode="reuse intact (horizontal, stacked)",
-          install="cleats; full-fill Roxul, mesh back, mount 50 mm off wall if room allows")
+          (6.70 + m(134) / 2, D - 0.20 - m(4) / 2, z0 + m(30) / 2), (m(134), m(4), m(30)), mode="reuse intact (horizontal, stacked)",
+          gap=0.20, install="re-hung on NEW-07 200 mm stand-off frame filled with mineral wool")
 for i, z0 in enumerate((0.15, 0.80, 1.45)):
     place("PAN-001", CR, "front wall left (outside stove clearance)", "broadband absorption front-left", "panel",
-          (0.72 + m(97) / 2, D - m(5) / 2, z0 + m(24.8) / 2), (m(97), m(5), m(24.8)), mode="reuse intact (turned horizontal)",
-          install="direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)")
+          (0.72 + m(97) / 2, D - 0.20 - m(5) / 2, z0 + m(24.8) / 2), (m(97), m(5), m(24.8)), mode="reuse intact (turned horizontal)",
+          gap=0.20, install="on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)")
 # --- left side wall between windows (right-speaker side reflection, 31 ms)
 place("GOB-005", CR, "left wall between windows", "late side reflection R->left wall (Y 4.16)", "panel",
-      (m(3) / 2 + 0.05, 3.67, 1.0 + m(42) / 2), (m(3), m(45), m(42)), gap=0.05, install="cleats, 50 mm stand-off")
+      (m(3) / 2 + 0.05, 3.67, 1.17 + m(42) / 2), (m(3), m(45), m(42)), gap=0.05, install="cleats, 50 mm stand-off")
 
 LV = "Live room"
 # --- live room left wall (tray zone): perforated panels + diffuser/trap pair, between windows
@@ -161,17 +161,20 @@ for x in (AX - 0.75, AX + 0.75):
     place("HYB-001", LV, "tray-zone ceiling over piano/ensemble", "overhead absorb/scatter, tames flutter under the flat ceiling", "hyb",
           (x, 26.6, LIVE_HC - m(30) - m(9) / 2), (m(45.7), m(98), m(9)), mode="reuse intact (horizontal, 30 in chains)",
           install="chains to structure; verify ceiling framing load")
-# --- under-loft 'drum ceiling' over the aisle: 2 GOB-003 + 2 GOB-006 horizontal under the joists
-for a, x, y in (("GOB-003", AX - cw / 2 - 0.02, 20.35), ("GOB-003", AX + cw / 2 + 0.02, 20.35), ("GOB-006", AX - cw / 2 - 0.02, 17.85), ("GOB-006", AX + cw / 2 + 0.02, 17.85)):
-    place(a, LV, "under-loft ceiling over drum/band zone", "absorb the low joist ceiling over drums/band; covers foil insulation", "panel",
+# --- under-loft ceiling over the two machinery/overflow bays (NOT over the machinery aisle: keeps aisle headroom)
+GD_W = 3.70; BAY_L = (LIVE_L + 0.3, AX - GD_W / 2 - 0.3); BAY_R = (AX + GD_W / 2 + 0.3, LIVE_R - 0.3)
+for a, x, y in (("GOB-003", BAY_L[1] - 0.70, 19.4), ("GOB-003", BAY_L[1] - 2.05, 19.4), ("GOB-006", BAY_R[0] + 0.70, 19.4), ("GOB-006", BAY_R[0] + 2.05, 19.4)):
+    place(a, LV, "under-loft ceiling over the storage bays", "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation", "panel",
           (x, y, UL_CLG - 0.05 - ct / 2), (cw, cl, ct), gap=0.05, mode="reuse intact (horizontal under joists)",
-          install="screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)")
-# --- movable gobos (live room)
-for i, (x, y, yaw) in enumerate(((AX - 1.6, 21.3, 30), (AX + 1.6, 21.3, -30), (AX, 22.2, 0), (AX - 2.6, 27.9, 70), (AX + 3.4, 25.4, 110))):
-    place("GOB-001", LV, "movable (shown: drum booth + piano screens)", "movable isolation/absorption", "gobo_wheeled",
+          install="screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)")
+# --- movable gobos (live room tray zone); shown in the default 'ensemble' configuration (piano + strings + drums)
+DRUM = (AX + 3.35, 24.15)
+for i, (x, y, yaw) in enumerate(((DRUM[0] - 1.05, DRUM[1] + 0.35, 75), (DRUM[0] - 0.35, DRUM[1] + 1.10, 15), (DRUM[0] + 0.85, DRUM[1] + 1.00, -30),
+                                 (AX - 3.40, 27.30, 70), (AX - 0.20, 26.90, 105))):
+    place("GOB-001", LV, "movable (ensemble config: 3 around drums, 2 screening the piano)", "movable isolation/absorption", "gobo_wheeled",
           (x, y, F_LIVE + 0.15 + m(97) / 2), (m(49.7), m(3.6), m(97)), rot=(0, 0, yaw), mode="reuse intact (wheeled)")
-for i, (x, y, yaw) in enumerate(((AX + 3.6, 28.3, 60), (AX + 1.0, 29.0, 10))):
-    place("GOB-002", LV, "movable half-height (quartet / amps)", "low screens (pegboard both faces; fill unknown)", "gobo_wheeled",
+for i, (x, y, yaw) in enumerate(((AX + 3.75, 29.30, 60), (AX + 1.10, 29.60, 10))):
+    place("GOB-002", LV, "movable half-height (amps / sight-line screens)", "low screens (pegboard both faces; fill unknown)", "gobo_wheeled",
           (x, y, F_LIVE + 0.17 + m(45.5) / 2), (m(55), m(3.5), m(45.5)), rot=(0, 0, yaw), mode="reuse intact (wheeled)")
 
 # --- support rooms (existing partitions only; scan-inferred)
@@ -209,9 +212,9 @@ RESERVE_NOTE = {"ABS-004": "reserve: tapered polygon and light aperture unmeasur
 
 # ---------------------------------------------------------------- new purpose-built items (not Clark assets)
 NEW = [
- {"id": "NEW-01", "room": CR, "item": "Under-sill low-frequency bench traps, both side walls", "qty": 2, "size_m": "≈5.7 m long × 0.60 deep × 0.95 high each",
+ {"id": "NEW-01", "room": CR, "item": "Under-sill low-frequency bench traps, both side walls", "qty": 2, "size_m": "≈5.85 m long × 0.75 deep × 1.10 high each (v0.4 envelope, under the sills)",
   "build": "Mineral wool (e.g. 2 layers 100–150 mm + air) behind fabric and spaced reclaimed-wood slats; window sills stay clear", "why": "the room's main LF control; the Clark inventory has no deep traps",
-  "geom": [{"centre": [0.30, 4.45, 0.475], "size": [0.60, 5.70, 0.95]}, {"centre": [W - 0.30, 4.45, 0.475], "size": [0.60, 5.70, 0.95]}]},
+  "geom": [{"centre": [0.375, 4.525, 0.55], "size": [0.75, 5.85, 1.10]}, {"centre": [W - 0.375, 4.525, 0.55], "size": [0.75, 5.85, 1.10]}]},
  {"id": "NEW-02", "room": CR, "item": "Front-corner full-height corner traps", "qty": 2, "size_m": "triangular, 0.70 m legs, floor to low ceiling (≈2.2 m)",
   "build": "Stacked mineral-wool triangles behind fabric", "why": "pressure maxima of all modes are in the corners",
   "geom": [{"tri": [0, D, 0.70], "h": G["hloL"] - 0.02}, {"tri": [W, D, 0.70], "h": G["hloR"] - 0.02}]},
@@ -220,6 +223,9 @@ NEW = [
   "geom": [{"centre": [AX, 0.16, 1.10], "size": [1.30, 0.06, 2.20]}]},
  {"id": "NEW-04", "room": CR, "item": "Fabric-faced folding window shutters / blackout", "qty": 6, "size_m": "to suit 4 side + 2 gable windows",
   "build": "Insulated board + fabric face, hinged in the reveals", "why": "late side reflections fall on glass; daytime film blackout; Quiet-Light daylight control", "geom": []},
+ {"id": "NEW-07", "room": CR, "item": "Front-wall stand-off frames: reused ABS-003 / PAN-001 mounted 200 mm proud, cavity filled with mineral wool", "qty": 1, "size_m": "≈3.4 × 1.6 m right + 2.5 × 1.9 m left, 200 mm deep",
+  "build": "Timber stand-off frame, mineral-wool batts in the cavity, Clark panels re-hung on the face unmodified", "why": "turns 100-125 mm panels into ~300 mm broadband absorbers (the v0.4 front-wall intent) without new panels",
+  "geom": [{"centre": [6.70 + 3.4036 / 2, D - 0.1016 - 0.10, 1.215], "size": [3.4036, 0.20, 1.55]}, {"centre": [0.72 + 2.4638 / 2, D - 0.127 - 0.10, 1.10], "size": [2.4638, 0.20, 1.93]}]},
  {"id": "NEW-05", "room": "All", "item": "Mounting kit: cleats, aircraft cable, chains, stand-off brackets", "qty": 1, "size_m": "-", "build": "-", "why": "hang the reused assets safely", "geom": []},
  {"id": "NEW-06", "room": LV, "item": "Farm-mode protective covers (piano, gobos) and stove-safe hearth pad", "qty": 1, "size_m": "-", "build": "-", "why": "dust/fumes when machinery moves", "geom": []},
 ]

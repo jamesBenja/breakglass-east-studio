@@ -288,7 +288,7 @@
    "shape": "panel",
    "centre": [
     8.402,
-    8.148,
+    7.948,
     0.831
    ],
    "size": [
@@ -301,9 +301,9 @@
     0,
     0
    ],
-   "air_gap_m": 0.0,
+   "air_gap_m": 0.2,
    "mode": "reuse intact (horizontal, stacked)",
-   "install": "cleats; full-fill Roxul, mesh back, mount 50 mm off wall if room allows",
+   "install": "re-hung on NEW-07 200 mm stand-off frame filled with mineral wool",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -316,7 +316,7 @@
    "shape": "panel",
    "centre": [
     8.402,
-    8.148,
+    7.948,
     1.641
    ],
    "size": [
@@ -329,9 +329,9 @@
     0,
     0
    ],
-   "air_gap_m": 0.0,
+   "air_gap_m": 0.2,
    "mode": "reuse intact (horizontal, stacked)",
-   "install": "cleats; full-fill Roxul, mesh back, mount 50 mm off wall if room allows",
+   "install": "re-hung on NEW-07 200 mm stand-off frame filled with mineral wool",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -344,7 +344,7 @@
    "shape": "panel",
    "centre": [
     1.952,
-    8.136,
+    7.935,
     0.465
    ],
    "size": [
@@ -357,9 +357,9 @@
     0,
     0
    ],
-   "air_gap_m": 0.0,
+   "air_gap_m": 0.2,
    "mode": "reuse intact (turned horizontal)",
-   "install": "direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)",
+   "install": "on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -372,7 +372,7 @@
    "shape": "panel",
    "centre": [
     1.952,
-    8.136,
+    7.935,
     1.115
    ],
    "size": [
@@ -385,9 +385,9 @@
     0,
     0
    ],
-   "air_gap_m": 0.0,
+   "air_gap_m": 0.2,
    "mode": "reuse intact (turned horizontal)",
-   "install": "direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)",
+   "install": "on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -400,7 +400,7 @@
    "shape": "panel",
    "centre": [
     1.952,
-    8.136,
+    7.935,
     1.765
    ],
    "size": [
@@ -413,9 +413,9 @@
     0,
     0
    ],
-   "air_gap_m": 0.0,
+   "air_gap_m": 0.2,
    "mode": "reuse intact (turned horizontal)",
-   "install": "direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)",
+   "install": "on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -429,7 +429,7 @@
    "centre": [
     0.088,
     3.67,
-    1.533
+    1.703
    ],
    "size": [
     0.0762,
@@ -1095,12 +1095,12 @@
   {
    "asset": "GOB-003",
    "room": "Live room",
-   "zone": "under-loft ceiling over drum/band zone",
-   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "zone": "under-loft ceiling over the storage bays",
+   "purpose": "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation",
    "shape": "panel",
    "centre": [
-    5.237,
-    20.35,
+    3.039,
+    19.4,
     2.147
    ],
    "size": [
@@ -1115,7 +1115,7 @@
    ],
    "air_gap_m": 0.05,
    "mode": "reuse intact (horizontal under joists)",
-   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -1123,12 +1123,12 @@
   {
    "asset": "GOB-003",
    "room": "Live room",
-   "zone": "under-loft ceiling over drum/band zone",
-   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "zone": "under-loft ceiling over the storage bays",
+   "purpose": "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation",
    "shape": "panel",
    "centre": [
-    6.541,
-    20.35,
+    1.689,
+    19.4,
     2.147
    ],
    "size": [
@@ -1143,7 +1143,7 @@
    ],
    "air_gap_m": 0.05,
    "mode": "reuse intact (horizontal under joists)",
-   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
    "depth_provisional": false
@@ -1151,12 +1151,12 @@
   {
    "asset": "GOB-006",
    "room": "Live room",
-   "zone": "under-loft ceiling over drum/band zone",
-   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "zone": "under-loft ceiling over the storage bays",
+   "purpose": "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation",
    "shape": "panel",
    "centre": [
-    5.237,
-    17.85,
+    8.739,
+    19.4,
     2.147
    ],
    "size": [
@@ -1171,7 +1171,7 @@
    ],
    "air_gap_m": 0.05,
    "mode": "reuse intact (horizontal under joists)",
-   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "FAMILY MATCHED (NOT TAPED)",
    "note": "",
    "depth_provisional": false
@@ -1179,12 +1179,12 @@
   {
    "asset": "GOB-006",
    "room": "Live room",
-   "zone": "under-loft ceiling over drum/band zone",
-   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "zone": "under-loft ceiling over the storage bays",
+   "purpose": "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation",
    "shape": "panel",
    "centre": [
-    6.541,
-    17.85,
+    10.089,
+    19.4,
     2.147
    ],
    "size": [
@@ -1199,7 +1199,7 @@
    ],
    "air_gap_m": 0.05,
    "mode": "reuse intact (horizontal under joists)",
-   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "FAMILY MATCHED (NOT TAPED)",
    "note": "",
    "depth_provisional": false
@@ -1207,12 +1207,12 @@
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (shown: drum booth + piano screens)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    4.289,
-    21.3,
+    8.189,
+    24.5,
     1.027
    ],
    "size": [
@@ -1223,7 +1223,7 @@
    "rot_deg": [
     0,
     0,
-    30
+    75
    ],
    "air_gap_m": 0.0,
    "mode": "reuse intact (wheeled)",
@@ -1235,12 +1235,40 @@
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (shown: drum booth + piano screens)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    7.489,
-    21.3,
+    8.889,
+    25.25,
+    1.027
+   ],
+   "size": [
+    1.2624,
+    0.0914,
+    2.4638
+   ],
+   "rot_deg": [
+    0,
+    0,
+    15
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-001",
+   "room": "Live room",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
+   "purpose": "movable isolation/absorption",
+   "shape": "gobo_wheeled",
+   "centre": [
+    10.089,
+    25.15,
     1.027
    ],
    "size": [
@@ -1263,40 +1291,12 @@
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (shown: drum booth + piano screens)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    5.889,
-    22.2,
-    1.027
-   ],
-   "size": [
-    1.2624,
-    0.0914,
-    2.4638
-   ],
-   "rot_deg": [
-    0,
-    0,
-    0
-   ],
-   "air_gap_m": 0.0,
-   "mode": "reuse intact (wheeled)",
-   "install": "",
-   "verification": "DIMENSIONS DOCUMENTED",
-   "note": "",
-   "depth_provisional": false
-  },
-  {
-   "asset": "GOB-001",
-   "room": "Live room",
-   "zone": "movable (shown: drum booth + piano screens)",
-   "purpose": "movable isolation/absorption",
-   "shape": "gobo_wheeled",
-   "centre": [
-    3.289,
-    27.9,
+    2.489,
+    27.3,
     1.027
    ],
    "size": [
@@ -1319,12 +1319,12 @@
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (shown: drum booth + piano screens)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    9.289,
-    25.4,
+    5.689,
+    26.9,
     1.027
    ],
    "size": [
@@ -1335,7 +1335,7 @@
    "rot_deg": [
     0,
     0,
-    110
+    105
    ],
    "air_gap_m": 0.0,
    "mode": "reuse intact (wheeled)",
@@ -1347,12 +1347,12 @@
   {
    "asset": "GOB-002",
    "room": "Live room",
-   "zone": "movable half-height (quartet / amps)",
+   "zone": "movable half-height (amps / sight-line screens)",
    "purpose": "low screens (pegboard both faces; fill unknown)",
    "shape": "gobo_wheeled",
    "centre": [
-    9.489,
-    28.3,
+    9.639,
+    29.3,
     0.393
    ],
    "size": [
@@ -1375,12 +1375,12 @@
   {
    "asset": "GOB-002",
    "room": "Live room",
-   "zone": "movable half-height (quartet / amps)",
+   "zone": "movable half-height (amps / sight-line screens)",
    "purpose": "low screens (pegboard both faces; fill unknown)",
    "shape": "gobo_wheeled",
    "centre": [
-    6.889,
-    29.0,
+    6.989,
+    29.6,
     0.393
    ],
    "size": [
@@ -1519,7 +1519,7 @@
    "purpose": "tall broadband panel",
    "shape": "panel",
    "centre": [
-    5.018,
+    5.078,
     9.409,
     0.992
    ],
@@ -1659,7 +1659,7 @@
    "purpose": "absorption",
    "shape": "panel",
    "centre": [
-    5.031,
+    5.091,
     11.009,
     1.208
    ],
@@ -1687,7 +1687,7 @@
    "purpose": "absorption",
    "shape": "panel",
    "centre": [
-    5.031,
+    5.091,
     12.159,
     1.208
    ],
@@ -1771,7 +1771,7 @@
    "purpose": "absorption",
    "shape": "panel",
    "centre": [
-    7.849,
+    7.789,
     10.484,
     1.012
    ],
@@ -1799,7 +1799,7 @@
    "purpose": "absorption",
    "shape": "panel",
    "centre": [
-    9.049,
+    8.989,
     10.484,
     1.012
    ],
@@ -1827,7 +1827,7 @@
    "purpose": "absorption",
    "shape": "panel",
    "centre": [
-    8.449,
+    8.389,
     14.014,
     1.012
    ],
@@ -1883,7 +1883,7 @@
    "purpose": "absorption",
    "shape": "panel",
    "centre": [
-    6.747,
+    6.687,
     12.059,
     1.208
    ],
@@ -1939,7 +1939,7 @@
    "purpose": "fan-noise absorption",
    "shape": "panel",
    "centre": [
-    7.649,
+    7.589,
     8.434,
     1.38
    ],
@@ -1967,7 +1967,7 @@
    "purpose": "fan-noise absorption",
    "shape": "panel",
    "centre": [
-    8.949,
+    8.889,
     8.434,
     1.38
    ],
@@ -1995,32 +1995,32 @@
    "room": "Control room",
    "item": "Under-sill low-frequency bench traps, both side walls",
    "qty": 2,
-   "size_m": "\u22485.7 m long \u00d7 0.60 deep \u00d7 0.95 high each",
+   "size_m": "\u22485.85 m long \u00d7 0.75 deep \u00d7 1.10 high each (v0.4 envelope, under the sills)",
    "build": "Mineral wool (e.g. 2 layers 100\u2013150 mm + air) behind fabric and spaced reclaimed-wood slats; window sills stay clear",
    "why": "the room's main LF control; the Clark inventory has no deep traps",
    "geom": [
     {
      "centre": [
-      0.3,
-      4.45,
-      0.475
+      0.375,
+      4.525,
+      0.55
      ],
      "size": [
-      0.6,
-      5.7,
-      0.95
+      0.75,
+      5.85,
+      1.1
      ]
     },
     {
      "centre": [
-      10.943999999999999,
-      4.45,
-      0.475
+      10.869,
+      4.525,
+      0.55
      ],
      "size": [
-      0.6,
-      5.7,
-      0.95
+      0.75,
+      5.85,
+      1.1
      ]
     }
    ]
@@ -2084,6 +2084,41 @@
    "build": "Insulated board + fabric face, hinged in the reveals",
    "why": "late side reflections fall on glass; daytime film blackout; Quiet-Light daylight control",
    "geom": []
+  },
+  {
+   "id": "NEW-07",
+   "room": "Control room",
+   "item": "Front-wall stand-off frames: reused ABS-003 / PAN-001 mounted 200 mm proud, cavity filled with mineral wool",
+   "qty": 1,
+   "size_m": "\u22483.4 \u00d7 1.6 m right + 2.5 \u00d7 1.9 m left, 200 mm deep",
+   "build": "Timber stand-off frame, mineral-wool batts in the cavity, Clark panels re-hung on the face unmodified",
+   "why": "turns 100-125 mm panels into ~300 mm broadband absorbers (the v0.4 front-wall intent) without new panels",
+   "geom": [
+    {
+     "centre": [
+      8.4018,
+      7.997400000000001,
+      1.215
+     ],
+     "size": [
+      3.4036,
+      0.2,
+      1.55
+     ]
+    },
+    {
+     "centre": [
+      1.9519,
+      7.9719999999999995,
+      1.1
+     ],
+     "size": [
+      2.4638,
+      0.2,
+      1.93
+     ]
+    }
+   ]
   },
   {
    "id": "NEW-05",
