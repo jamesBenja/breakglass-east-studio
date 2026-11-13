@@ -20,6 +20,15 @@ These are verified: the v0.4 build with the v0.5 code produces 589 objects with 
 | Live room: 4 generic gobos + 10 generic hinged side-wall panels | Clark HYB-001 ×3, PRF-001 ×4, PRF-002 ×3, DIF-003 + BTR-002, WOOD-001…005 (11 pcs), GOB-001 ×5, GOB-002 ×2, GOB-003/006 ×4 under the loft bays | actual assets; 4 documented configurations |
 | Support rooms: none | Clark vocal-booth set + Sunny Suite panels in the vocal booth, amp booth and machine room | uses existing rooms only |
 
+## Erratum found in owner review (13 Nov): overhead immersive speakers mis-aimed
+The v0.4 model tilts each overhead speaker in its own frame *before* turning it toward the listening position, but flips the tilt sign for the rear pair:
+- **Ltr / Rtr** pointed 35° *up*, 80° off the listening position.
+- **Ltf / Rtf** pointed 10° off it (35° tilt where the layout calls for 45° elevation).
+
+**v0.5** aims all four exactly at the ears: 0.0° off, tilted 45° down. An assertion in `model/build_studio.py` now fails the build if any immersive speaker is more than 2° off the listening position.
+
+The approved v0.4 files are left as they were (owner rule: preserve v0.4). The positions were always correct (`monitoring_geometry.json`); only the rendered cabinet orientation was wrong. These are phase-P7 speakers, so nothing approved for construction depends on it.
+
 ## New files
 - `acoustics/`: geometry, reflections, modes / SBIR / decay, allocation, lounge, costs, plus `out/` results.
 - `model/v05_treatment.py`, `model/make_v05_drawings.py`, `model/qa_v05_clashes.py`, `model/breakglass_east_v05.blend`.

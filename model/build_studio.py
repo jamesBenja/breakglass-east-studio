@@ -456,6 +456,12 @@ for k in ("C", "Ls", "Rs", "Lrs", "Rrs", "Ltf", "Rtf", "Ltr", "Rtr"):
     b_ = box(f"PR_imm_{k}_cab", -0.14, 0.14, -0.12, 0.12, -0.20, 0.20, "spk_small", PR, "PROPOSED", "compact coaxial monitor, model TBD (e.g. smaller Geithain family)")
     d_ = cyl(f"PR_imm_{k}_driver", 0.09, 0.01, (0, 0.121, 0.02), "spk_cone", PR, rot=(math.pi/2, 0, 0), verts=24)
     b_.parent = e; d_.parent = e; e.location = (x, y, z); e.rotation_euler = (0, 0, -yaw) if z < 2 else (-math.radians(35) * (1 if y > LPy else -1), 0, -yaw)
+    if V05:   # v0.5 fix (owner review): tilt is applied before yaw, so every overhead aims DOWN; aim exactly at the ears
+        el = math.atan2(z - st["listening_position"][2], math.hypot(LPx - x, LPy - y))
+        e.rotation_euler = (-el, 0, -yaw)
+        bpy.context.view_layer.update()
+        ax_ = (e.matrix_world.to_3x3() @ Vector((0, 1, 0))).normalized(); to_lp = (Vector(st["listening_position"]) - Vector((x, y, z))).normalized()
+        assert math.degrees(ax_.angle(to_lp)) < 2.0, f"PR_imm_{k} not aimed at the LP"
     if z < 2.0:
         box(f"PR_imm_{k}_stand", x - 0.12, x + 0.12, y - 0.12, y + 0.12, 0, z - 0.2, "steel_black", PR, "PROPOSED")
     else:
