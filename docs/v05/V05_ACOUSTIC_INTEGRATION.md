@@ -109,6 +109,8 @@ Counts are asserted in code: `acoustics/allocation.py` fails if any family is ov
 | C6 | stove | WETT/insurer clearances: confirm the lounge, PAN-001 frame and hearth pad, or move them | WETT inspector |
 
 ## 7. Files
+Drive (owner): folder “v0.5 — Acoustic Integration & Salvage” in the review package, containing the presentation Doc and the workbook (Budget v0.5 / Asset deployment / New items / Open items). The v0.4 Doc and Sheet are untouched.
+
 | Type | Files |
 |---|---|
 | Model | `model/breakglass_east_v05.blend`, built by `BG_VERSION=v05 python3 model/build_studio.py`. v0.4 stays the default build and `breakglass_east_v04.blend` is untouched. Collections `35_V05_CLARK_ASSETS`, `36_V05_NEW_TREATMENT`, `37_V05_LOUNGE`. |

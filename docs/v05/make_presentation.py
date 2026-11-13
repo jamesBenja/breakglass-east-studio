@@ -36,6 +36,7 @@ P.append("<h2>1. Concept</h2><ul>"
 P.append("<h2>2. Matched-camera comparisons (v0.4 approved → v0.5 proposed)</h2><p>Same camera, lens, samples and resolution; only the design differs.</p>")
 for v in ("cr_front", "cr_fireside", "cr_cinema", "cr_rear", "cr_console", "axo_cutaway"):
     P.append(img(f"renders/compare_v04_v05/{v}.jpg", 640))
+P.append("<p><b>Erratum found in owner review:</b> in the v0.4 model the rear overhead (Ltr/Rtr) immersive speakers pointed 35° up, 80° off the listening position, and the front pair (Ltf/Rtf) were 10° off. v0.5 aims all four at the ears (0.0° off, 45° down), and the build now fails if any immersive speaker is more than 2° off the listening position. Positions were always correct; v0.4 files are left as approved.</p>")
 P.append("<h2>3. Control room drawings</h2>")
 for d in ("PR-501_control_room_treatment_plan", "PR-502_control_room_RCP", "PR-503_control_room_elevations", "PR-504_control_room_sections"):
     P.append(img(f"drawings/v05/{d}.png", 640))
@@ -62,7 +63,7 @@ P.append(img("drawings/v05/PR-511_live_room_treatment_configs.png", 640))
 P.append("<p>A piano / chamber (bright) · B ensemble (as modelled) · C band / overdubs (dead) · D farm mode (aisle clear, piano on a locked dolly in the west bay). Under-loft panels hang only over the storage bays (2.46 m clear), never over the machinery aisle.</p>")
 P.append("<h2>8. Live room renders (farm equipment, piano, movable treatment)</h2>")
 for v in ("live_piano", "live_farm"): P.append(img(f"renders/compare_v04_v05/{v}.jpg", 640))
-P.append(img("renders/design/live_drums_v05.png", 640))
+P.append(img("renders/design/live_drums_v05.png", 640)); P.append("<p><i>View across the drum / ensemble zone toward the rustic wood wall (drum kit itself not modelled).</i></p>")
 P.append(img("drawings/v05/PR-512_support_rooms_treatment.png", 640))
 P.append("<h2>9. Inventory deployment matrix</h2>")
 P.append(f"<p><b>74 counted units in 41 families → 71 allocated, 3 held/reserve, 0 over-allocated</b> (asserted in code). Control room 16 · live room 34 · vocal booth 11 · amp booth 7 · machine room 3. "
