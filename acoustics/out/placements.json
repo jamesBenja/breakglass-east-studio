@@ -26,7 +26,37 @@
    "install": "4-point aircraft-cable suspension from ceiling framing; structural check of fixings",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     4.6,
+     2.601,
+     3.837
+    ],
+    [
+     5.864,
+     5.039,
+     3.913
+    ]
+   ],
+   "footprint_xy": [
+    [
+     4.6,
+     2.601
+    ],
+    [
+     4.6,
+     5.039
+    ],
+    [
+     5.864,
+     2.601
+    ],
+    [
+     5.864,
+     5.039
+    ]
+   ]
   },
   {
    "asset": "GOB-003",
@@ -54,7 +84,37 @@
    "install": "4-point aircraft-cable suspension from ceiling framing; structural check of fixings",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     5.914,
+     2.601,
+     3.837
+    ],
+    [
+     7.178,
+     5.039,
+     3.913
+    ]
+   ],
+   "footprint_xy": [
+    [
+     5.914,
+     2.601
+    ],
+    [
+     5.914,
+     5.039
+    ],
+    [
+     7.178,
+     2.601
+    ],
+    [
+     7.178,
+     5.039
+    ]
+   ]
   },
   {
    "asset": "GOB-003",
@@ -82,7 +142,29 @@
    "install": "Z-clips/cleats into slope framing, 50 mm stand-off; long edge along the room",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     2.993,
+     2.601,
+     2.809
+    ],
+    [
+     3.907,
+     5.039,
+     3.789
+    ]
+   ],
+   "footprint_xy": [
+    [
+     3.049,
+     2.601
+    ],
+    [
+     3.049,
+     5.039
+    ]
+   ]
   },
   {
    "asset": "GOB-003",
@@ -110,7 +192,29 @@
    "install": "Z-clips/cleats into slope framing, 50 mm stand-off; long edge along the room",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     7.847,
+     2.601,
+     2.854
+    ],
+    [
+     8.773,
+     5.039,
+     3.824
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.718,
+     2.601
+    ],
+    [
+     8.718,
+     5.039
+    ]
+   ]
   },
   {
    "asset": "DIF-001",
@@ -138,7 +242,37 @@
    "install": "French cleat to gable wall; bottom 0.92 m clears the cinema sofa back",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "fin layout in model is indicative; real fin order from DIF-001 photos",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     4.0,
+     0.001,
+     0.92
+    ],
+    [
+     5.32,
+     0.128,
+     2.952
+    ]
+   ],
+   "footprint_xy": [
+    [
+     4.0,
+     0.001
+    ],
+    [
+     4.0,
+     0.128
+    ],
+    [
+     5.32,
+     0.001
+    ],
+    [
+     5.32,
+     0.128
+    ]
+   ]
   },
   {
    "asset": "DIF-001",
@@ -166,7 +300,37 @@
    "install": "French cleat to gable wall; bottom 0.92 m clears the cinema sofa back",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "fin layout in model is indicative; real fin order from DIF-001 photos",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.45,
+     0.001,
+     0.92
+    ],
+    [
+     7.77,
+     0.128,
+     2.952
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.45,
+     0.001
+    ],
+    [
+     6.45,
+     0.128
+    ],
+    [
+     7.77,
+     0.001
+    ],
+    [
+     7.77,
+     0.128
+    ]
+   ]
   },
   {
    "asset": "BTR-001",
@@ -194,7 +358,37 @@
    "install": "floor-standing against wall/corner; solid wood back to wall",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.05,
+     0.0,
+     0.0
+    ],
+    [
+     1.232,
+     0.305,
+     0.381
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.05,
+     0.0
+    ],
+    [
+     0.05,
+     0.305
+    ],
+    [
+     1.232,
+     0.0
+    ],
+    [
+     1.232,
+     0.305
+    ]
+   ]
   },
   {
    "asset": "BTR-001",
@@ -222,7 +416,37 @@
    "install": "floor-standing against wall/corner; solid wood back to wall",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.0,
+     0.35,
+     0.0
+    ],
+    [
+     0.305,
+     1.532,
+     0.381
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.0,
+     1.532
+    ],
+    [
+     0.305,
+     1.532
+    ],
+    [
+     0.0,
+     0.35
+    ],
+    [
+     0.305,
+     0.35
+    ]
+   ]
   },
   {
    "asset": "BTR-002",
@@ -250,7 +474,37 @@
    "install": "floor-standing against wall/corner; solid wood back to wall",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     10.012,
+     0.0,
+     0.0
+    ],
+    [
+     11.194,
+     0.305,
+     0.381
+    ]
+   ],
+   "footprint_xy": [
+    [
+     10.012,
+     0.0
+    ],
+    [
+     10.012,
+     0.305
+    ],
+    [
+     11.194,
+     0.0
+    ],
+    [
+     11.194,
+     0.305
+    ]
+   ]
   },
   {
    "asset": "BTR-002",
@@ -278,7 +532,37 @@
    "install": "floor-standing against wall/corner; solid wood back to wall",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     10.939,
+     0.35,
+     0.0
+    ],
+    [
+     11.244,
+     1.532,
+     0.381
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.244,
+     0.35
+    ],
+    [
+     10.939,
+     0.35
+    ],
+    [
+     11.244,
+     1.532
+    ],
+    [
+     10.939,
+     1.532
+    ]
+   ]
   },
   {
    "asset": "ABS-003",
@@ -306,7 +590,37 @@
    "install": "re-hung on NEW-07 200 mm stand-off frame filled with mineral wool",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.7,
+     7.897,
+     0.45
+    ],
+    [
+     10.104,
+     7.999,
+     1.212
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.7,
+     7.897
+    ],
+    [
+     6.7,
+     7.999
+    ],
+    [
+     10.104,
+     7.897
+    ],
+    [
+     10.104,
+     7.999
+    ]
+   ]
   },
   {
    "asset": "ABS-003",
@@ -334,7 +648,37 @@
    "install": "re-hung on NEW-07 200 mm stand-off frame filled with mineral wool",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.7,
+     7.897,
+     1.26
+    ],
+    [
+     10.104,
+     7.999,
+     2.022
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.7,
+     7.897
+    ],
+    [
+     6.7,
+     7.999
+    ],
+    [
+     10.104,
+     7.897
+    ],
+    [
+     10.104,
+     7.999
+    ]
+   ]
   },
   {
    "asset": "PAN-001",
@@ -362,7 +706,37 @@
    "install": "on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.72,
+     7.871,
+     0.15
+    ],
+    [
+     3.184,
+     7.998,
+     0.78
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.72,
+     7.871
+    ],
+    [
+     0.72,
+     7.998
+    ],
+    [
+     3.184,
+     7.871
+    ],
+    [
+     3.184,
+     7.998
+    ]
+   ]
   },
   {
    "asset": "PAN-001",
@@ -390,7 +764,37 @@
    "install": "on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.72,
+     7.871,
+     0.8
+    ],
+    [
+     3.184,
+     7.998,
+     1.43
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.72,
+     7.871
+    ],
+    [
+     0.72,
+     7.998
+    ],
+    [
+     3.184,
+     7.871
+    ],
+    [
+     3.184,
+     7.998
+    ]
+   ]
   },
   {
    "asset": "PAN-001",
@@ -418,7 +822,37 @@
    "install": "on NEW-07 stand-off frame (was direct-to-wall at Clark); > 0.9 m from the stove (verify label/WETT)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.72,
+     7.871,
+     1.45
+    ],
+    [
+     3.184,
+     7.998,
+     2.08
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.72,
+     7.871
+    ],
+    [
+     0.72,
+     7.998
+    ],
+    [
+     3.184,
+     7.871
+    ],
+    [
+     3.184,
+     7.998
+    ]
+   ]
   },
   {
    "asset": "GOB-005",
@@ -446,7 +880,37 @@
    "install": "cleats, 50 mm stand-off",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.05,
+     3.099,
+     1.17
+    ],
+    [
+     0.126,
+     4.242,
+     2.236
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.05,
+     3.099
+    ],
+    [
+     0.05,
+     4.242
+    ],
+    [
+     0.126,
+     3.099
+    ],
+    [
+     0.126,
+     4.242
+    ]
+   ]
   },
   {
    "asset": "PRF-001",
@@ -474,7 +938,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.232,
+     22.945,
+     -0.155
+    ],
+    [
+     -0.164,
+     23.555,
+     2.257
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.189,
+     22.945
+    ],
+    [
+     -0.232,
+     23.553
+    ],
+    [
+     -0.164,
+     22.947
+    ],
+    [
+     -0.207,
+     23.555
+    ]
+   ]
   },
   {
    "asset": "PRF-001",
@@ -502,7 +996,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.232,
+     23.695,
+     -0.155
+    ],
+    [
+     -0.164,
+     24.305,
+     2.257
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.189,
+     23.695
+    ],
+    [
+     -0.232,
+     24.303
+    ],
+    [
+     -0.164,
+     23.697
+    ],
+    [
+     -0.207,
+     24.305
+    ]
+   ]
   },
   {
    "asset": "PRF-001",
@@ -530,7 +1054,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.232,
+     29.345,
+     -0.155
+    ],
+    [
+     -0.164,
+     29.955,
+     2.257
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.189,
+     29.345
+    ],
+    [
+     -0.232,
+     29.953
+    ],
+    [
+     -0.164,
+     29.347
+    ],
+    [
+     -0.207,
+     29.955
+    ]
+   ]
   },
   {
    "asset": "PRF-001",
@@ -558,7 +1112,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.232,
+     29.945,
+     -0.155
+    ],
+    [
+     -0.164,
+     30.555,
+     2.257
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.189,
+     29.945
+    ],
+    [
+     -0.232,
+     30.553
+    ],
+    [
+     -0.164,
+     29.947
+    ],
+    [
+     -0.207,
+     30.555
+    ]
+   ]
   },
   {
    "asset": "DIF-003",
@@ -572,21 +1156,51 @@
     1.061
    ],
    "size": [
-    0.127,
     1.3208,
+    0.127,
     2.032
    ],
    "rot_deg": [
     0,
     0,
-    90
+    -90
    ],
    "air_gap_m": 0.0,
    "mode": "reuse (reassemble)",
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.262,
+     26.19,
+     0.045
+    ],
+    [
+     -0.134,
+     27.51,
+     2.077
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.262,
+     27.51
+    ],
+    [
+     -0.135,
+     27.51
+    ],
+    [
+     -0.261,
+     26.19
+    ],
+    [
+     -0.134,
+     26.19
+    ]
+   ]
   },
   {
    "asset": "BTR-002",
@@ -607,14 +1221,44 @@
    "rot_deg": [
     0,
     0,
-    90
+    -90
    ],
    "air_gap_m": 0.0,
    "mode": "reuse intact",
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     -0.261,
+     26.259,
+     -0.355
+    ],
+    [
+     0.044,
+     27.441,
+     0.026
+    ]
+   ],
+   "footprint_xy": [
+    [
+     -0.261,
+     27.441
+    ],
+    [
+     0.044,
+     27.441
+    ],
+    [
+     -0.261,
+     26.259
+    ],
+    [
+     0.044,
+     26.259
+    ]
+   ]
   },
   {
    "asset": "WOOD-001",
@@ -642,7 +1286,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     22.971,
+     0.095
+    ],
+    [
+     11.639,
+     24.229,
+     0.497
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     22.971
+    ],
+    [
+     11.537,
+     24.229
+    ],
+    [
+     11.639,
+     22.971
+    ],
+    [
+     11.639,
+     24.229
+    ]
+   ]
   },
   {
    "asset": "WOOD-001",
@@ -670,7 +1344,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     22.971,
+     0.545
+    ],
+    [
+     11.639,
+     24.229,
+     0.947
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     22.971
+    ],
+    [
+     11.537,
+     24.229
+    ],
+    [
+     11.639,
+     22.971
+    ],
+    [
+     11.639,
+     24.229
+    ]
+   ]
   },
   {
    "asset": "WOOD-001",
@@ -698,7 +1402,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     22.971,
+     0.995
+    ],
+    [
+     11.639,
+     24.229,
+     1.397
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     22.971
+    ],
+    [
+     11.537,
+     24.229
+    ],
+    [
+     11.639,
+     22.971
+    ],
+    [
+     11.639,
+     24.229
+    ]
+   ]
   },
   {
    "asset": "WOOD-004",
@@ -726,7 +1460,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.575,
+     23.181,
+     1.445
+    ],
+    [
+     11.639,
+     24.019,
+     1.711
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.575,
+     23.181
+    ],
+    [
+     11.575,
+     24.019
+    ],
+    [
+     11.639,
+     23.181
+    ],
+    [
+     11.639,
+     24.019
+    ]
+   ]
   },
   {
    "asset": "WOOD-001",
@@ -754,7 +1518,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     25.901,
+     0.045
+    ],
+    [
+     11.639,
+     27.159,
+     0.447
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     25.901
+    ],
+    [
+     11.537,
+     27.159
+    ],
+    [
+     11.639,
+     25.901
+    ],
+    [
+     11.639,
+     27.159
+    ]
+   ]
   },
   {
    "asset": "WOOD-001",
@@ -782,7 +1576,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     25.901,
+     0.495
+    ],
+    [
+     11.639,
+     27.159,
+     0.897
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     25.901
+    ],
+    [
+     11.537,
+     27.159
+    ],
+    [
+     11.639,
+     25.901
+    ],
+    [
+     11.639,
+     27.159
+    ]
+   ]
   },
   {
    "asset": "WOOD-001",
@@ -810,7 +1634,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     25.901,
+     0.945
+    ],
+    [
+     11.639,
+     27.159,
+     1.347
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     25.901
+    ],
+    [
+     11.537,
+     27.159
+    ],
+    [
+     11.639,
+     25.901
+    ],
+    [
+     11.639,
+     27.159
+    ]
+   ]
   },
   {
    "asset": "WOOD-002",
@@ -838,7 +1692,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     25.933,
+     1.395
+    ],
+    [
+     11.639,
+     27.127,
+     1.783
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     25.933
+    ],
+    [
+     11.537,
+     27.127
+    ],
+    [
+     11.639,
+     25.933
+    ],
+    [
+     11.639,
+     27.127
+    ]
+   ]
   },
   {
    "asset": "WOOD-002",
@@ -866,7 +1750,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     25.933,
+     1.845
+    ],
+    [
+     11.639,
+     27.127,
+     2.233
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     25.933
+    ],
+    [
+     11.537,
+     27.127
+    ],
+    [
+     11.639,
+     25.933
+    ],
+    [
+     11.639,
+     27.127
+    ]
+   ]
   },
   {
    "asset": "WOOD-003",
@@ -894,7 +1808,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     27.337,
+     0.045
+    ],
+    [
+     11.639,
+     27.763,
+     1.005
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     27.337
+    ],
+    [
+     11.537,
+     27.763
+    ],
+    [
+     11.639,
+     27.337
+    ],
+    [
+     11.639,
+     27.763
+    ]
+   ]
   },
   {
    "asset": "WOOD-005",
@@ -922,7 +1866,37 @@
    "install": "cleats; open backs face the wall (as built at Clark)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "internal wall thickness unknown - modelled 15 mm nominal",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     11.537,
+     27.321,
+     1.065
+    ],
+    [
+     11.639,
+     27.779,
+     1.395
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.537,
+     27.321
+    ],
+    [
+     11.537,
+     27.779
+    ],
+    [
+     11.639,
+     27.321
+    ],
+    [
+     11.639,
+     27.779
+    ]
+   ]
   },
   {
    "asset": "PRF-002",
@@ -950,7 +1924,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.369,
+     30.454,
+     0.245
+    ],
+    [
+     1.131,
+     30.48,
+     1.769
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.369,
+     30.454
+    ],
+    [
+     0.369,
+     30.48
+    ],
+    [
+     1.131,
+     30.454
+    ],
+    [
+     1.131,
+     30.48
+    ]
+   ]
   },
   {
    "asset": "PRF-002",
@@ -978,7 +1982,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     1.369,
+     30.454,
+     0.245
+    ],
+    [
+     2.131,
+     30.48,
+     1.769
+    ]
+   ],
+   "footprint_xy": [
+    [
+     1.369,
+     30.454
+    ],
+    [
+     1.369,
+     30.48
+    ],
+    [
+     2.131,
+     30.454
+    ],
+    [
+     2.131,
+     30.48
+    ]
+   ]
   },
   {
    "asset": "PRF-002",
@@ -1006,7 +2040,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     2.369,
+     30.454,
+     0.245
+    ],
+    [
+     3.131,
+     30.48,
+     1.769
+    ]
+   ],
+   "footprint_xy": [
+    [
+     2.369,
+     30.454
+    ],
+    [
+     2.369,
+     30.48
+    ],
+    [
+     3.131,
+     30.454
+    ],
+    [
+     3.131,
+     30.48
+    ]
+   ]
   },
   {
    "asset": "HYB-001",
@@ -1016,7 +2080,7 @@
    "shape": "hyb",
    "centre": [
     9.1,
-    30.23,
+    30.366,
     1.04
    ],
    "size": [
@@ -1025,7 +2089,7 @@
     0.2286
    ],
    "rot_deg": [
-    90,
+    -90,
     0,
     0
    ],
@@ -1034,7 +2098,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     8.52,
+     30.252,
+     -0.205
+    ],
+    [
+     9.68,
+     30.48,
+     2.285
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.52,
+     30.252
+    ],
+    [
+     8.52,
+     30.48
+    ],
+    [
+     9.68,
+     30.252
+    ],
+    [
+     9.68,
+     30.48
+    ]
+   ]
   },
   {
    "asset": "HYB-001",
@@ -1062,7 +2156,37 @@
    "install": "chains to structure; verify ceiling framing load",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     4.559,
+     25.355,
+     2.985
+    ],
+    [
+     5.719,
+     27.845,
+     3.213
+    ]
+   ],
+   "footprint_xy": [
+    [
+     4.559,
+     25.355
+    ],
+    [
+     4.559,
+     27.845
+    ],
+    [
+     5.719,
+     25.355
+    ],
+    [
+     5.719,
+     27.845
+    ]
+   ]
   },
   {
    "asset": "HYB-001",
@@ -1090,7 +2214,37 @@
    "install": "chains to structure; verify ceiling framing load",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.059,
+     25.355,
+     2.985
+    ],
+    [
+     7.219,
+     27.845,
+     3.213
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.059,
+     25.355
+    ],
+    [
+     6.059,
+     27.845
+    ],
+    [
+     7.219,
+     25.355
+    ],
+    [
+     7.219,
+     27.845
+    ]
+   ]
   },
   {
    "asset": "GOB-003",
@@ -1100,7 +2254,7 @@
    "shape": "panel",
    "centre": [
     3.039,
-    19.4,
+    19.95,
     2.147
    ],
    "size": [
@@ -1118,7 +2272,37 @@
    "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     2.407,
+     18.731,
+     2.109
+    ],
+    [
+     3.671,
+     21.169,
+     2.185
+    ]
+   ],
+   "footprint_xy": [
+    [
+     2.407,
+     18.731
+    ],
+    [
+     2.407,
+     21.169
+    ],
+    [
+     3.671,
+     18.731
+    ],
+    [
+     3.671,
+     21.169
+    ]
+   ]
   },
   {
    "asset": "GOB-003",
@@ -1128,7 +2312,7 @@
    "shape": "panel",
    "centre": [
     1.689,
-    19.4,
+    19.95,
     2.147
    ],
    "size": [
@@ -1146,7 +2330,37 @@
    "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     1.057,
+     18.731,
+     2.109
+    ],
+    [
+     2.321,
+     21.169,
+     2.185
+    ]
+   ],
+   "footprint_xy": [
+    [
+     1.057,
+     18.731
+    ],
+    [
+     1.057,
+     21.169
+    ],
+    [
+     2.321,
+     18.731
+    ],
+    [
+     2.321,
+     21.169
+    ]
+   ]
   },
   {
    "asset": "GOB-006",
@@ -1156,7 +2370,7 @@
    "shape": "panel",
    "centre": [
     8.739,
-    19.4,
+    19.95,
     2.147
    ],
    "size": [
@@ -1174,7 +2388,37 @@
    "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "FAMILY MATCHED (NOT TAPED)",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     8.107,
+     18.731,
+     2.109
+    ],
+    [
+     9.371,
+     21.169,
+     2.185
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.107,
+     18.731
+    ],
+    [
+     8.107,
+     21.169
+    ],
+    [
+     9.371,
+     18.731
+    ],
+    [
+     9.371,
+     21.169
+    ]
+   ]
   },
   {
    "asset": "GOB-006",
@@ -1184,7 +2428,7 @@
    "shape": "panel",
    "centre": [
     10.089,
-    19.4,
+    19.95,
     2.147
    ],
    "size": [
@@ -1202,17 +2446,47 @@
    "install": "screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)",
    "verification": "FAMILY MATCHED (NOT TAPED)",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     9.457,
+     18.731,
+     2.109
+    ],
+    [
+     10.721,
+     21.169,
+     2.185
+    ]
+   ],
+   "footprint_xy": [
+    [
+     9.457,
+     18.731
+    ],
+    [
+     9.457,
+     21.169
+    ],
+    [
+     10.721,
+     18.731
+    ],
+    [
+     10.721,
+     21.169
+    ]
+   ]
   },
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening piano / strings)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    8.189,
-    24.5,
+    8.139,
+    24.45,
     1.027
    ],
    "size": [
@@ -1230,17 +2504,47 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     7.931,
+     23.828,
+     -0.205
+    ],
+    [
+     8.347,
+     25.072,
+     2.259
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.02,
+     23.828
+    ],
+    [
+     7.931,
+     23.852
+    ],
+    [
+     8.347,
+     25.048
+    ],
+    [
+     8.258,
+     25.072
+    ]
+   ]
   },
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening piano / strings)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    8.889,
-    25.25,
+    8.939,
+    25.31,
     1.027
    ],
    "size": [
@@ -1258,17 +2562,47 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     8.317,
+     25.102,
+     -0.205
+    ],
+    [
+     9.561,
+     25.518,
+     2.259
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.341,
+     25.102
+    ],
+    [
+     8.317,
+     25.191
+    ],
+    [
+     9.561,
+     25.429
+    ],
+    [
+     9.537,
+     25.518
+    ]
+   ]
   },
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening piano / strings)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    10.089,
-    25.15,
+    10.169,
+    25.13,
     1.027
    ],
    "size": [
@@ -1286,12 +2620,42 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     9.6,
+     24.775,
+     -0.205
+    ],
+    [
+     10.738,
+     25.485,
+     2.259
+    ]
+   ],
+   "footprint_xy": [
+    [
+     9.6,
+     25.406
+    ],
+    [
+     9.645,
+     25.485
+    ],
+    [
+     10.693,
+     24.775
+    ],
+    [
+     10.738,
+     24.854
+    ]
+   ]
   },
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening piano / strings)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
@@ -1314,17 +2678,47 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     2.23,
+     26.691,
+     -0.205
+    ],
+    [
+     2.748,
+     27.909,
+     2.259
+    ]
+   ],
+   "footprint_xy": [
+    [
+     2.316,
+     26.691
+    ],
+    [
+     2.23,
+     26.722
+    ],
+    [
+     2.748,
+     27.878
+    ],
+    [
+     2.662,
+     27.909
+    ]
+   ]
   },
   {
    "asset": "GOB-001",
    "room": "Live room",
-   "zone": "movable (ensemble config: 3 around drums, 2 screening the piano)",
+   "zone": "movable (ensemble config: 3 around drums, 2 screening piano / strings)",
    "purpose": "movable isolation/absorption",
    "shape": "gobo_wheeled",
    "centre": [
-    5.689,
-    26.9,
+    6.789,
+    25.4,
     1.027
    ],
    "size": [
@@ -1335,14 +2729,44 @@
    "rot_deg": [
     0,
     0,
-    105
+    80
    ],
    "air_gap_m": 0.0,
    "mode": "reuse intact (wheeled)",
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.634,
+     24.77,
+     -0.205
+    ],
+    [
+     6.944,
+     26.03,
+     2.259
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.724,
+     24.77
+    ],
+    [
+     6.634,
+     24.786
+    ],
+    [
+     6.944,
+     26.014
+    ],
+    [
+     6.854,
+     26.03
+    ]
+   ]
   },
   {
    "asset": "GOB-002",
@@ -1370,7 +2794,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     9.251,
+     28.673,
+     -0.185
+    ],
+    [
+     10.027,
+     29.927,
+     0.971
+    ]
+   ],
+   "footprint_xy": [
+    [
+     9.328,
+     28.673
+    ],
+    [
+     9.251,
+     28.717
+    ],
+    [
+     10.027,
+     29.883
+    ],
+    [
+     9.95,
+     29.927
+    ]
+   ]
   },
   {
    "asset": "GOB-002",
@@ -1398,7 +2852,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.293,
+     29.435,
+     -0.185
+    ],
+    [
+     7.685,
+     29.765,
+     0.971
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.309,
+     29.435
+    ],
+    [
+     6.293,
+     29.522
+    ],
+    [
+     7.685,
+     29.678
+    ],
+    [
+     7.669,
+     29.765
+    ]
+   ]
   },
   {
    "asset": "DIF-004",
@@ -1419,14 +2903,44 @@
    "rot_deg": [
     0,
     0,
-    0
+    180
    ],
    "air_gap_m": 0.0,
    "mode": "reuse (reassemble)",
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     1.94,
+     12.713,
+     0.175
+    ],
+    [
+     3.26,
+     12.839,
+     2.207
+    ]
+   ],
+   "footprint_xy": [
+    [
+     3.26,
+     12.839
+    ],
+    [
+     3.26,
+     12.713
+    ],
+    [
+     1.94,
+     12.839
+    ],
+    [
+     1.94,
+     12.713
+    ]
+   ]
   },
   {
    "asset": "BTR-003",
@@ -1454,7 +2968,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     2.009,
+     12.534,
+     -0.225
+    ],
+    [
+     3.191,
+     12.839,
+     0.156
+    ]
+   ],
+   "footprint_xy": [
+    [
+     3.191,
+     12.839
+    ],
+    [
+     3.191,
+     12.534
+    ],
+    [
+     2.009,
+     12.839
+    ],
+    [
+     2.009,
+     12.534
+    ]
+   ]
   },
   {
    "asset": "ABS-015",
@@ -1482,7 +3026,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     0.03,
+     9.004,
+     0.675
+    ],
+    [
+     0.132,
+     10.414,
+     1.831
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.03,
+     9.004
+    ],
+    [
+     0.03,
+     10.414
+    ],
+    [
+     0.132,
+     9.004
+    ],
+    [
+     0.132,
+     10.414
+    ]
+   ]
   },
   {
    "asset": "ABS-011",
@@ -1510,7 +3084,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     0.056,
+     10.63,
+     0.525
+    ],
+    [
+     0.106,
+     12.788,
+     1.769
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.056,
+     10.63
+    ],
+    [
+     0.056,
+     12.788
+    ],
+    [
+     0.106,
+     10.63
+    ],
+    [
+     0.106,
+     12.788
+    ]
+   ]
   },
   {
    "asset": "ABS-016",
@@ -1538,7 +3142,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     5.027,
+     9.091,
+     -0.075
+    ],
+    [
+     5.129,
+     9.727,
+     2.059
+    ]
+   ],
+   "footprint_xy": [
+    [
+     5.027,
+     9.091
+    ],
+    [
+     5.027,
+     9.727
+    ],
+    [
+     5.129,
+     9.091
+    ],
+    [
+     5.129,
+     9.727
+    ]
+   ]
   },
   {
    "asset": "ABS-008",
@@ -1566,7 +3200,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     0.416,
+     8.409,
+     0.576
+    ],
+    [
+     1.584,
+     8.459,
+     1.973
+    ]
+   ],
+   "footprint_xy": [
+    [
+     0.416,
+     8.409
+    ],
+    [
+     0.416,
+     8.459
+    ],
+    [
+     1.584,
+     8.409
+    ],
+    [
+     1.584,
+     8.459
+    ]
+   ]
   },
   {
    "asset": "ABS-008",
@@ -1594,7 +3258,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     2.016,
+     8.409,
+     0.576
+    ],
+    [
+     3.184,
+     8.459,
+     1.973
+    ]
+   ],
+   "footprint_xy": [
+    [
+     2.016,
+     8.409
+    ],
+    [
+     2.016,
+     8.459
+    ],
+    [
+     3.184,
+     8.409
+    ],
+    [
+     3.184,
+     8.459
+    ]
+   ]
   },
   {
    "asset": "PAN-002",
@@ -1622,7 +3316,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     3.971,
+     8.409,
+     0.975
+    ],
+    [
+     4.429,
+     8.459,
+     1.889
+    ]
+   ],
+   "footprint_xy": [
+    [
+     3.971,
+     8.409
+    ],
+    [
+     3.971,
+     8.459
+    ],
+    [
+     4.429,
+     8.409
+    ],
+    [
+     4.429,
+     8.459
+    ]
+   ]
   },
   {
    "asset": "ABS-001",
@@ -1650,7 +3374,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     1.978,
+     9.987,
+     2.087
+    ],
+    [
+     3.222,
+     11.231,
+     2.214
+    ]
+   ],
+   "footprint_xy": [
+    [
+     1.978,
+     9.987
+    ],
+    [
+     1.978,
+     11.231
+    ],
+    [
+     3.222,
+     9.987
+    ],
+    [
+     3.222,
+     11.231
+    ]
+   ]
   },
   {
    "asset": "GOB-005",
@@ -1678,7 +3432,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     5.053,
+     10.438,
+     0.675
+    ],
+    [
+     5.129,
+     11.581,
+     1.741
+    ]
+   ],
+   "footprint_xy": [
+    [
+     5.053,
+     10.438
+    ],
+    [
+     5.053,
+     11.581
+    ],
+    [
+     5.129,
+     10.438
+    ],
+    [
+     5.129,
+     11.581
+    ]
+   ]
   },
   {
    "asset": "GOB-005",
@@ -1706,7 +3490,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     5.053,
+     11.588,
+     0.675
+    ],
+    [
+     5.129,
+     12.731,
+     1.741
+    ]
+   ],
+   "footprint_xy": [
+    [
+     5.053,
+     11.588
+    ],
+    [
+     5.053,
+     12.731
+    ],
+    [
+     5.129,
+     11.588
+    ],
+    [
+     5.129,
+     12.731
+    ]
+   ]
   },
   {
    "asset": "ABS-005",
@@ -1734,7 +3548,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     11.194,
+     10.654,
+     0.375
+    ],
+    [
+     11.244,
+     12.064,
+     1.543
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.194,
+     10.654
+    ],
+    [
+     11.194,
+     12.064
+    ],
+    [
+     11.244,
+     10.654
+    ],
+    [
+     11.244,
+     12.064
+    ]
+   ]
   },
   {
    "asset": "ABS-005",
@@ -1762,7 +3606,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     11.194,
+     12.254,
+     0.375
+    ],
+    [
+     11.244,
+     13.664,
+     1.543
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.194,
+     12.254
+    ],
+    [
+     11.194,
+     13.664
+    ],
+    [
+     11.244,
+     12.254
+    ],
+    [
+     11.244,
+     13.664
+    ]
+   ]
   },
   {
    "asset": "ABS-009",
@@ -1790,7 +3664,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     7.47,
+     10.459,
+     0.275
+    ],
+    [
+     8.108,
+     10.509,
+     1.749
+    ]
+   ],
+   "footprint_xy": [
+    [
+     7.47,
+     10.459
+    ],
+    [
+     7.47,
+     10.509
+    ],
+    [
+     8.108,
+     10.459
+    ],
+    [
+     8.108,
+     10.509
+    ]
+   ]
   },
   {
    "asset": "ABS-009",
@@ -1818,7 +3722,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     8.67,
+     10.459,
+     0.275
+    ],
+    [
+     9.308,
+     10.509,
+     1.749
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.67,
+     10.459
+    ],
+    [
+     8.67,
+     10.509
+    ],
+    [
+     9.308,
+     10.459
+    ],
+    [
+     9.308,
+     10.509
+    ]
+   ]
   },
   {
    "asset": "ABS-010",
@@ -1846,7 +3780,37 @@
    "install": "",
    "verification": "DUPLICATION CHECK",
    "note": "ABS-014 held until duplicate resolved",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     8.07,
+     13.989,
+     0.275
+    ],
+    [
+     8.708,
+     14.039,
+     1.749
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.07,
+     13.989
+    ],
+    [
+     8.07,
+     14.039
+    ],
+    [
+     8.708,
+     13.989
+    ],
+    [
+     8.708,
+     14.039
+    ]
+   ]
   },
   {
    "asset": "BTR-004",
@@ -1874,7 +3838,37 @@
    "install": "",
    "verification": "INHERITED FROM BTR-001",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     10.012,
+     13.734,
+     -0.225
+    ],
+    [
+     11.194,
+     14.039,
+     0.156
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.194,
+     14.039
+    ],
+    [
+     11.194,
+     13.734
+    ],
+    [
+     10.012,
+     14.039
+    ],
+    [
+     10.012,
+     13.734
+    ]
+   ]
   },
   {
    "asset": "GOB-005",
@@ -1902,7 +3896,37 @@
    "install": "",
    "verification": "DIMENSIONS DOCUMENTED",
    "note": "",
-   "depth_provisional": false
+   "depth_provisional": false,
+   "aabb": [
+    [
+     6.649,
+     11.487,
+     0.675
+    ],
+    [
+     6.725,
+     12.63,
+     1.741
+    ]
+   ],
+   "footprint_xy": [
+    [
+     6.649,
+     11.487
+    ],
+    [
+     6.649,
+     12.63
+    ],
+    [
+     6.725,
+     11.487
+    ],
+    [
+     6.725,
+     12.63
+    ]
+   ]
   },
   {
    "asset": "ABS-007",
@@ -1930,7 +3954,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     11.194,
+     8.799,
+     0.975
+    ],
+    [
+     11.244,
+     10.019,
+     1.585
+    ]
+   ],
+   "footprint_xy": [
+    [
+     11.194,
+     8.799
+    ],
+    [
+     11.194,
+     10.019
+    ],
+    [
+     11.244,
+     8.799
+    ],
+    [
+     11.244,
+     10.019
+    ]
+   ]
   },
   {
    "asset": "ABS-012",
@@ -1958,7 +4012,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     7.125,
+     8.409,
+     1.075
+    ],
+    [
+     8.053,
+     8.459,
+     1.685
+    ]
+   ],
+   "footprint_xy": [
+    [
+     7.125,
+     8.409
+    ],
+    [
+     7.125,
+     8.459
+    ],
+    [
+     8.053,
+     8.409
+    ],
+    [
+     8.053,
+     8.459
+    ]
+   ]
   },
   {
    "asset": "ABS-013",
@@ -1986,7 +4070,37 @@
    "install": "",
    "verification": "DEPTH UNKNOWN",
    "note": "",
-   "depth_provisional": true
+   "depth_provisional": true,
+   "aabb": [
+    [
+     8.425,
+     8.409,
+     1.075
+    ],
+    [
+     9.353,
+     8.459,
+     1.685
+    ]
+   ],
+   "footprint_xy": [
+    [
+     8.425,
+     8.409
+    ],
+    [
+     8.425,
+     8.459
+    ],
+    [
+     9.353,
+     8.409
+    ],
+    [
+     9.353,
+     8.459
+    ]
+   ]
   }
  ],
  "new_items": [
@@ -2097,7 +4211,7 @@
     {
      "centre": [
       8.4018,
-      7.997400000000001,
+      8.099,
       1.215
      ],
      "size": [
@@ -2109,7 +4223,7 @@
     {
      "centre": [
       1.9519,
-      7.9719999999999995,
+      8.099,
       1.1
      ],
      "size": [

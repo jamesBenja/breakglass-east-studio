@@ -138,8 +138,8 @@ for y in (23.25, 24.0, 29.65, 30.25):
           (LIVE_L + 0.05 + m(1) / 2, y, F_LIVE + 0.20 + m(95) / 2), (m(1), m(24), m(95)), rot=(0, 0, 4), gap=0.05,
           mode="reuse intact (2 in shims, angled)")
 place("DIF-003", LV, "left wall, tray zone", "scattering near the piano position", "diffuser",
-      (LIVE_L + m(5) / 2, 26.85, F_LIVE + 0.40 + m(80) / 2), (m(5), m(52), m(80)), rot=(0, 0, 90), mode="reuse (reassemble)")
-place("BTR-002", LV, "left wall under DIF-003", "LF trap paired with diffuser", "btr", (LIVE_L, 26.85, F_LIVE), (m(46.5), m(12), m(15)), rot=(0, 0, 90))
+      (LIVE_L + m(5) / 2, 26.85, F_LIVE + 0.40 + m(80) / 2), (m(52), m(5), m(80)), rot=(0, 0, -90), mode="reuse (reassemble)")
+place("BTR-002", LV, "left wall under DIF-003", "LF trap paired with diffuser", "btr", (LIVE_L, 26.85, F_LIVE), (m(46.5), m(12), m(15)), rot=(0, 0, -90))
 # --- live room right wall: the rustic wood wall (all 11 pieces), as at Clark
 rw = LIVE_R - m(4) / 2
 wood = [("WOOD-001", 23.6, 0.45), ("WOOD-001", 23.6, 0.90), ("WOOD-001", 23.6, 1.35), ("WOOD-004", 23.6, 1.80),
@@ -155,7 +155,7 @@ for x in (0.75, 1.75, 2.75):
     place("PRF-002", LV, "garage gable wall, left of door", "mid/high control at the garage end", "panel",
           (x, Y_LG - 0.05 - m(1) / 2, F_LIVE + 0.60 + m(60) / 2), (m(30), m(1), m(60)), gap=0.05, mode="reuse intact (2 in shims)")
 place("HYB-001", LV, "garage gable wall, right of door", "vertical abfusor (absorb/scatter) at the garage end", "hyb",
-      (9.10, Y_LG - 0.30, F_LIVE + 0.15 + m(98) / 2), (m(45.7), m(98), m(9)), rot=(90, 0, 0), mode="reuse intact (vertical, chain to wall cleat)")
+      (9.10, Y_LG - 0.05 - m(9) / 2, F_LIVE + 0.15 + m(98) / 2), (m(45.7), m(98), m(9)), rot=(-90, 0, 0), mode="reuse intact (vertical, chain to wall cleat)")
 # --- live room ceiling: two horizontal HYB abfusors over the piano / ensemble area (30 in chains)
 for x in (AX - 0.75, AX + 0.75):
     place("HYB-001", LV, "tray-zone ceiling over piano/ensemble", "overhead absorb/scatter, tames flutter under the flat ceiling", "hyb",
@@ -163,15 +163,15 @@ for x in (AX - 0.75, AX + 0.75):
           install="chains to structure; verify ceiling framing load")
 # --- under-loft ceiling over the two machinery/overflow bays (NOT over the machinery aisle: keeps aisle headroom)
 GD_W = 3.70; BAY_L = (LIVE_L + 0.3, AX - GD_W / 2 - 0.3); BAY_R = (AX + GD_W / 2 + 0.3, LIVE_R - 0.3)
-for a, x, y in (("GOB-003", BAY_L[1] - 0.70, 19.4), ("GOB-003", BAY_L[1] - 2.05, 19.4), ("GOB-006", BAY_R[0] + 0.70, 19.4), ("GOB-006", BAY_R[0] + 2.05, 19.4)):
+for a, x, y in (("GOB-003", BAY_L[1] - 0.70, 19.95), ("GOB-003", BAY_L[1] - 2.05, 19.95), ("GOB-006", BAY_R[0] + 0.70, 19.95), ("GOB-006", BAY_R[0] + 2.05, 19.95)):   # between the scan posts
     place(a, LV, "under-loft ceiling over the storage bays", "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation", "panel",
           (x, y, UL_CLG - 0.05 - ct / 2), (cw, cl, ct), gap=0.05, mode="reuse intact (horizontal under joists)",
           install="screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)")
 # --- movable gobos (live room tray zone); shown in the default 'ensemble' configuration (piano + strings + drums)
 DRUM = (AX + 3.35, 24.15)
-for i, (x, y, yaw) in enumerate(((DRUM[0] - 1.05, DRUM[1] + 0.35, 75), (DRUM[0] - 0.35, DRUM[1] + 1.10, 15), (DRUM[0] + 0.85, DRUM[1] + 1.00, -30),
-                                 (AX - 3.40, 27.30, 70), (AX - 0.20, 26.90, 105))):
-    place("GOB-001", LV, "movable (ensemble config: 3 around drums, 2 screening the piano)", "movable isolation/absorption", "gobo_wheeled",
+for i, (x, y, yaw) in enumerate(((DRUM[0] - 1.10, DRUM[1] + 0.30, 75), (DRUM[0] - 0.30, DRUM[1] + 1.16, 15), (DRUM[0] + 0.93, DRUM[1] + 0.98, -30),
+                                 (AX - 3.40, 27.30, 70), (AX + 0.90, 25.40, 80))):
+    place("GOB-001", LV, "movable (ensemble config: 3 around drums, 2 screening piano / strings)", "movable isolation/absorption", "gobo_wheeled",
           (x, y, F_LIVE + 0.15 + m(97) / 2), (m(49.7), m(3.6), m(97)), rot=(0, 0, yaw), mode="reuse intact (wheeled)")
 for i, (x, y, yaw) in enumerate(((AX + 3.75, 29.30, 60), (AX + 1.10, 29.60, 10))):
     place("GOB-002", LV, "movable half-height (amps / sight-line screens)", "low screens (pegboard both faces; fill unknown)", "gobo_wheeled",
@@ -180,7 +180,7 @@ for i, (x, y, yaw) in enumerate(((AX + 3.75, 29.30, 60), (AX + 1.10, 29.60, 10))
 # --- support rooms (existing partitions only; scan-inferred)
 VB, AB, MR = "Vocal booth (middle zone, west room)", "Amp / iso booth (middle zone, east room)", "Machine room (middle zone, east room by control room)"
 vb_y0, vb_y1 = Y_PART1 + 0.06, Y_PART1 + 4.55 - 0.06
-place("DIF-004", VB, "cross wall", "scattering behind the singer (as at Clark)", "diffuser", (2.6, vb_y1 - m(5) / 2, F_MID + 0.40 + m(80) / 2), (m(52), m(5), m(80)), mode="reuse (reassemble)")
+place("DIF-004", VB, "cross wall", "scattering behind the singer (as at Clark)", "diffuser", (2.6, vb_y1 - m(5) / 2, F_MID + 0.40 + m(80) / 2), (m(52), m(5), m(80)), rot=(0, 0, 180), mode="reuse (reassemble)")
 place("BTR-003", VB, "under DIF-004", "LF trap paired with diffuser", "btr", (2.6, vb_y1, F_MID), (m(46.5), m(12), m(15)), rot=(0, 0, 180))
 place("ABS-015", VB, "west wall", "broadband absorption", "panel", (m(4) / 2 + 0.03, vb_y0 + 1.3, F_MID + 0.9 + m(45.5) / 2), (m(4), m(55.5), m(45.5)), gap=0.03)
 place("ABS-011", VB, "west wall", "broadband absorption", "panel", (m(4) / 2 + 0.03, vb_y0 + 3.3, F_MID + 0.75 + m(49) / 2), (PROV_DEPTH, m(85), m(49)), gap=0.03, status="DEPTH UNKNOWN")
@@ -225,10 +225,27 @@ NEW = [
   "build": "Insulated board + fabric face, hinged in the reveals", "why": "late side reflections fall on glass; daytime film blackout; Quiet-Light daylight control", "geom": []},
  {"id": "NEW-07", "room": CR, "item": "Front-wall stand-off frames: reused ABS-003 / PAN-001 mounted 200 mm proud, cavity filled with mineral wool", "qty": 1, "size_m": "≈3.4 × 1.6 m right + 2.5 × 1.9 m left, 200 mm deep",
   "build": "Timber stand-off frame, mineral-wool batts in the cavity, Clark panels re-hung on the face unmodified", "why": "turns 100-125 mm panels into ~300 mm broadband absorbers (the v0.4 front-wall intent) without new panels",
-  "geom": [{"centre": [6.70 + 3.4036 / 2, D - 0.1016 - 0.10, 1.215], "size": [3.4036, 0.20, 1.55]}, {"centre": [0.72 + 2.4638 / 2, D - 0.127 - 0.10, 1.10], "size": [2.4638, 0.20, 1.93]}]},
+  "geom": [{"centre": [6.70 + 3.4036 / 2, D - 0.10, 1.215], "size": [3.4036, 0.20, 1.55]}, {"centre": [0.72 + 2.4638 / 2, D - 0.10, 1.10], "size": [2.4638, 0.20, 1.93]}]},
  {"id": "NEW-05", "room": "All", "item": "Mounting kit: cleats, aircraft cable, chains, stand-off brackets", "qty": 1, "size_m": "-", "build": "-", "why": "hang the reused assets safely", "geom": []},
  {"id": "NEW-06", "room": LV, "item": "Farm-mode protective covers (piano, gobos) and stove-safe hearth pad", "qty": 1, "size_m": "-", "build": "-", "why": "dust/fumes when machinery moves", "geom": []},
 ]
+
+# ---------------------------------------------------------------- world footprints (single geometry source for model + drawings)
+def _rot(v, rot):
+    rx, ry, rz = (math.radians(a) for a in rot); x, y, z = v
+    y, z = y * math.cos(rx) - z * math.sin(rx), y * math.sin(rx) + z * math.cos(rx)
+    x, z = x * math.cos(ry) + z * math.sin(ry), -x * math.sin(ry) + z * math.cos(ry)
+    x, y = x * math.cos(rz) - y * math.sin(rz), x * math.sin(rz) + y * math.cos(rz)
+    return x, y, z
+for p in PL:
+    sx, sy, sz = p["size"]
+    if p["shape"] == "btr":   # anchor = back-bottom-centre on the wall; local +Y into the room
+        loc = [(x, y, z) for x in (-sx/2, sx/2) for y in (0, sy) for z in (0, sz)]
+    else:
+        loc = [(x, y, z) for x in (-sx/2, sx/2) for y in (-sy/2, sy/2) for z in (-sz/2, sz/2)]
+    w = [tuple(c + d for c, d in zip(p["centre"], _rot(v, p["rot_deg"]))) for v in loc]
+    p["aabb"] = [[round(min(q[i] for q in w), 3) for i in range(3)], [round(max(q[i] for q in w), 3) for i in range(3)]]
+    p["footprint_xy"] = [[round(q[0], 3), round(q[1], 3)] for q in w if q[2] == min(r[2] for r in w)][:4]
 
 # ---------------------------------------------------------------- validation + outputs
 used = Counter(p["asset"] for p in PL)

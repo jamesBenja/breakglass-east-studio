@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="872" viewBox="0 0 1400 872" font-family="Helvetica,Arial,sans-serif">
+<rect width="1400" height="872" fill="#fbfaf7"/><polygon points="130.8,671.5 895.4,671.5 895.4,114.0 130.8,114.0" fill="#fff" fill-opacity="1" stroke="#555" stroke-width="4"/>
+<line x1="306.6" y1="671.5" x2="306.6" y2="114.0" stroke="#555" stroke-width="2" stroke-opacity="1"/>
+<text x="306.6" y="105.8" font-size="8" text-anchor="middle" fill="#555" font-weight="normal">beam 2.45</text>
+<line x1="759.2" y1="671.5" x2="759.2" y2="114.0" stroke="#555" stroke-width="2" stroke-opacity="1"/>
+<text x="759.2" y="105.8" font-size="8" text-anchor="middle" fill="#555" font-weight="normal">beam 2.45</text>
+<line x1="411.0" y1="671.5" x2="411.0" y2="114.0" stroke="#555" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 4"/>
+<line x1="651.5" y1="671.5" x2="651.5" y2="114.0" stroke="#555" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 4"/>
+<text x="218.7" y="134.4" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">low ceiling 2.25</text>
+<text x="827.3" y="134.4" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">low ceiling 2.30</text>
+<text x="358.8" y="134.4" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">slope</text>
+<text x="705.3" y="134.4" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">slope</text>
+<text x="531.3" y="134.4" font-size="9" text-anchor="middle" fill="#555" font-weight="normal">flat ceiling 4.11</text>
+<polygon points="443.6,494.7 529.6,494.7 529.6,328.9 443.6,328.9" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.5"/>
+<text x="486.6" y="411.8" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">GOB-004</text>
+<text x="486.6" y="426.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="normal">3.84–3.91</text>
+<polygon points="533.0,494.7 618.9,494.7 618.9,328.9 533.0,328.9" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.5"/>
+<text x="575.9" y="411.8" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">GOB-003</text>
+<text x="575.9" y="426.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="normal">3.84–3.91</text>
+<polygon points="338.1,494.7 338.1,328.9" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.5"/>
+<text x="365.4" y="411.8" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">GOB-003</text>
+<text x="365.4" y="426.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="normal">2.81–3.79</text>
+<polygon points="723.6,494.7 723.6,328.9" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.5"/>
+<text x="695.9" y="411.8" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">GOB-003</text>
+<text x="695.9" y="426.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="normal">2.85–3.82</text>
+<circle cx="343.0" cy="363.5" r="5" fill="#2f6f4f" stroke="#fff" stroke-width="1.5"/>
+<text x="351.1" y="371.7" font-size="8" text-anchor="start" fill="#2f6f4f" font-weight="normal">L 9.5 ms</text>
+<circle cx="719.0" cy="364.2" r="5" fill="#2f6f4f" stroke="#fff" stroke-width="1.5"/>
+<text x="727.2" y="372.3" font-size="8" text-anchor="start" fill="#2f6f4f" font-weight="normal">R 9.6 ms</text>
+<circle cx="483.0" cy="379.1" r="5" fill="#2f6f4f" stroke="#fff" stroke-width="1.5"/>
+<text x="491.2" y="387.3" font-size="8" text-anchor="start" fill="#2f6f4f" font-weight="normal">L 10.5 ms</text>
+<circle cx="579.6" cy="379.1" r="5" fill="#2f6f4f" stroke="#fff" stroke-width="1.5"/>
+<text x="587.8" y="387.3" font-size="8" text-anchor="start" fill="#2f6f4f" font-weight="normal">R 10.5 ms</text>
+<circle cx="387.8" cy="390.7" r="5" fill="#2f6f4f" stroke="#fff" stroke-width="1.5"/>
+<text x="396.0" y="398.9" font-size="8" text-anchor="start" fill="#2f6f4f" font-weight="normal">R 15.1 ms</text>
+<circle cx="672.8" cy="390.7" r="5" fill="#2f6f4f" stroke="#fff" stroke-width="1.5"/>
+<text x="680.9" y="398.9" font-size="8" text-anchor="start" fill="#2f6f4f" font-weight="normal">L 15.1 ms</text>
+<polygon points="514.3,623.9 548.3,623.9 548.3,589.9 514.3,589.9" fill="none" fill-opacity="0" stroke="#555" stroke-width="1.2"/>
+<text x="531.3" y="634.1" font-size="8" text-anchor="middle" fill="#555" font-weight="normal">projector hush box</text>
+<polygon points="422.5,320.0 640.1,320.0 640.1,307.8 422.5,307.8" fill="#555" fill-opacity="0.3" stroke="#555" stroke-width="1"/>
+<text x="531.3" y="297.6" font-size="8" text-anchor="middle" fill="#555" font-weight="normal">screen cassette</text>
+<circle cx="436.1" cy="367.2" r="6" fill="#fff" stroke="#7a2e8e" stroke-width="1.5"/>
+<text x="444.2" y="359.1" font-size="8" text-anchor="start" fill="#7a2e8e" font-weight="normal">Ltf</text>
+<circle cx="626.5" cy="367.2" r="6" fill="#fff" stroke="#7a2e8e" stroke-width="1.5"/>
+<text x="634.6" y="359.1" font-size="8" text-anchor="start" fill="#7a2e8e" font-weight="normal">Rtf</text>
+<circle cx="436.1" cy="557.6" r="6" fill="#fff" stroke="#7a2e8e" stroke-width="1.5"/>
+<text x="444.2" y="549.5" font-size="8" text-anchor="start" fill="#7a2e8e" font-weight="normal">Ltr</text>
+<circle cx="626.5" cy="557.6" r="6" fill="#fff" stroke="#7a2e8e" stroke-width="1.5"/>
+<text x="634.6" y="549.5" font-size="8" text-anchor="start" fill="#7a2e8e" font-weight="normal">Rtr</text>
+<line x1="314.8" y1="661.3" x2="314.8" y2="124.2" stroke="#e0a020" stroke-width="3" stroke-opacity="1"/>
+<line x1="751.0" y1="661.3" x2="751.0" y2="124.2" stroke="#e0a020" stroke-width="3" stroke-opacity="1"/>
+<text x="320.2" y="651.1" font-size="8" text-anchor="start" fill="#c08000" font-weight="normal">LED cove</text><text x="20" y="780" font-size="10" fill="#444">HVAC linear slots (v0.4, indicative) at the slope / flat junctions remain; confirm the roof-void route before fixing any cloud (ledger X4).</text><text x="20" y="765" font-size="10" fill="#444">Clouds sit clear of the 7.1.4 overhead positions, projector, screen cassette and LED coves. Hanging hardware into the ceiling framing needs a structural check (load ~25–35 kg per panel, to verify).</text>
+<g font-size="11" fill="#333"><text x="20" y="810" font-size="15" font-weight="bold">PR-502  CONTROL ROOM — REFLECTED CEILING PLAN v0.5 (looking up; plan orientation as PR-501)</text>
+<text x="20" y="828">Cloud = GOB-004 + GOB-003 hung 200 mm below the flat ceiling; GOB-003 on each slope on 50 mm stand-offs. Dots = first-reflection points (green treated, red open).</text>
+<text x="20" y="844">v0.5 ACOUSTIC INTEGRATION on the approved v0.4 layout and the provisional existing shell (scan + photos, about ±0.1–0.2 m). NOT FOR CONSTRUCTION. Acoustician review and on-site measurement required.</text>
+<text x="20" y="862"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment</tspan>  <tspan fill="#2f6f4f">&#9632; Clark asset (owner-measured body)</tspan>  <tspan fill="#c2187a">&#9632; Clark asset, depth PROVISIONAL</tspan>  <tspan fill="#b5651d">&#9632; NEW purpose-built</tspan>  <tspan fill="#8a5a2b">&#9632; lounge (owner-authorised correction)</tspan>  <tspan fill="#7a2e8e">&#9679; immersive (later)</tspan></text></g></svg>

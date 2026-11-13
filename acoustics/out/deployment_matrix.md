@@ -25,7 +25,7 @@
 | ABS-014 | 1 | 0 | 1 | 25.1 × 58 × ? | DUPLICATION CHECK | RESERVE |  |  |  |  |
 | ABS-015 | 1 | 1 | 0 | 55.5 × 45.5 × 4 | DIMENSIONS DOCUMENTED | Vocal booth (middle zone, west room) | west wall | broadband absorption | 0.03 | reuse intact |
 | ABS-016 | 1 | 1 | 0 | 25 × 84 × 4 | DIMENSIONS DOCUMENTED | Vocal booth (middle zone, west room) | corridor wall | tall broadband panel | 0.0 | reuse intact |
-| GOB-001 | 5 | 5 | 0 | 49.7 × 97 × 3.6 | DIMENSIONS DOCUMENTED | Live room | movable (ensemble config: 3 around drums, 2 screening the piano) | movable isolation/absorption | 0.0 | reuse intact (wheeled) |
+| GOB-001 | 5 | 5 | 0 | 49.7 × 97 × 3.6 | DIMENSIONS DOCUMENTED | Live room | movable (ensemble config: 3 around drums, 2 screening piano / strings) | movable isolation/absorption | 0.0 | reuse intact (wheeled) |
 | GOB-002 | 2 | 2 | 0 | 55 × 45.5 × 3.5 | DIMENSIONS DOCUMENTED | Live room | movable half-height (amps / sight-line screens) | low screens (pegboard both faces; fill unknown) | 0.0 | reuse intact (wheeled) |
 | GOB-003 | 5 | 5 | 0 | 49.8 × 96 × 3 | DIMENSIONS DOCUMENTED | Control room; Live room | flat-ceiling cloud; sloped-ceiling panel; under-loft ceiling over the storage bays | absorb flat-ceiling first reflections (10.5 ms, -7 dB); absorb same/opposite-side sloped-ceiling reflections (9.5-15 ms); damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation | 0.05; 0.2 | reuse intact (fixed parallel to slope); reuse intact (horizontal under joists); reuse intact (rehang horizontal) |
 | GOB-004 | 1 | 1 | 0 | 49.8 × 96 × 3 | DIMENSIONS DOCUMENTED | Control room | flat-ceiling cloud | absorb flat-ceiling first reflections (10.5 ms, -7 dB) | 0.2 | reuse intact (rehang horizontal) |
