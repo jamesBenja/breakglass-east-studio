@@ -305,7 +305,7 @@ px, pz = section_cut(s, 0.6, 4.7, sc, 4.30)
 s.raw(f'<text x="{px(W/2):.1f}" y="{pz(-0.45):.1f}" font-size="12" text-anchor="middle" font-weight="bold">SECTION A-A at Y = 4.30 (through the ceiling reflection zone), looking toward the front; speakers behind the cut dashed</text>')
 for r in COV:   # ceiling + floor rays in the transverse plane (projected)
     if r["surface"] in ("flat ceiling (4.11 m)", "left sloped ceiling", "right sloped ceiling", "left side wall (X=0)", "right side wall (X=W)"):
-        sp = st[r["speaker"]]; col_ = C["ray_ok"] if r["treated_by"] else C["ray_open"]
+        sp = st[r["speaker"]]; col_ = C["ray_ok"] if r["treated_by"] else (C["ray_shadow"] if r["status"] != "untreated" else C["ray_open"])
         s.raw(f'<polyline points="{px(sp[0]):.1f},{pz(sp[2]):.1f} {px(r["point"][0]):.1f},{pz(r["point"][2]):.1f} {px(LP[0]):.1f},{pz(LP[2]):.1f}" fill="none" stroke="{col_}" stroke-width="1.2" stroke-dasharray="5 3"/>')
 s.raw(f'<circle cx="{px(LP[0]):.1f}" cy="{pz(LP[2]):.1f}" r="5" fill="#000"/>')
 # longitudinal section B-B on the axis
@@ -320,7 +320,7 @@ for p in PL:
     lo, hi = p["aabb"]
     if not (lo[0] - 0.4 <= AX <= hi[0] + 0.4) and p["asset"] not in ("DIF-001",): continue
     s.raw(f'<rect x="{qx(hi[1]):.1f}" y="{qz(hi[2]):.1f}" width="{(hi[1]-lo[1])*sc:.1f}" height="{(hi[2]-lo[2])*sc:.1f}" fill="{acol(p)}" fill-opacity="0.6" stroke="{acol(p)}"/>')
-s.raw(f'<text x="{qx(0.2):.1f}" y="{qz(3.1):.1f}" font-size="8" fill="{C["asset"]}" font-weight="bold">DIF-001 (beside door)</text>')
+s.raw(f'<text x="{qx(0.2):.1f}" y="{qz(3.1):.1f}" font-size="8" fill="{C["asset"]}" font-weight="bold" text-anchor="end">DIF-001 (beside door) · NEW-03 curtain</text>')
 c3 = next(i for i in NEW if i["id"] == "NEW-03")["geom"][0]
 s.raw(f'<rect x="{qx(0.19):.1f}" y="{qz(2.2):.1f}" width="{0.06*sc:.1f}" height="{2.2*sc:.1f}" fill="{C["new"]}" fill-opacity="0.6"/>')
 s.raw(f'<rect x="{qx(CON["back_edge_y"]):.1f}" y="{qz(1.041):.1f}" width="{(CON["back_edge_y"]-CON["front_edge_y"])*sc:.1f}" height="{1.041*sc:.1f}" fill="{C["eq"]}" fill-opacity="0.5" stroke="{C["eq"]}"/>')
@@ -443,18 +443,18 @@ piano(s, AX - 1.4, Y_LOFT_END + 2.6, -25)
 for k in range(4):
     a = math.radians(200 + k * 45); s.circle(AX + 2.2 + 1.2 * math.cos(a), Y_LOFT_END + 4.6 + 1.2 * math.sin(a), 0.2 * 40, C["new"])
 s.circle(AX + 3.35, 24.15, 0.75 * 40, "none", "#333"); s.text(AX + 3.35, 24.1, "drums", "#333", 9)
-lbl = [("HYB-001 ×2 overhead (30 in chains)", AX, 26.6 + 1.5), ("HYB-001 vertical", 9.1, Y_LG - 0.55), ("PRF-002 ×3", 1.75, Y_LG - 0.45),
+lbl = [("HYB-001 ×2 overhead (30 in chains)", AX, 26.6 + 1.5), ("HYB-001 vertical", 10.2, Y_LG - 0.85), ("PRF-002 ×3", 1.75, Y_LG - 0.45),
        ("PRF-001 ×4 (shimmed)", LL + 0.9, 23.6), ("DIF-003 + BTR-002", LL + 1.0, 26.85), ("WOOD-001…005 rustic wall (11 pcs)", LR - 1.6, 25.6),
        ("GOB-003 ×2 under joists", (LL + AX - GD / 2) / 2, 21.3), ("GOB-006 ×2 under joists", (AX + GD / 2 + LR) / 2, 21.3),
-       ("GOB-001 ×5 wheeled", AX + 3.4, 25.9), ("GOB-002 ×2 half-height", AX + 2.6, 29.9), ("MACHINERY STORAGE", (LL + AX - GD / 2) / 2, 18.0), ("MACHINERY STORAGE", (AX + GD / 2 + LR) / 2, 18.0),
+       ("GOB-001 ×5 wheeled", AX + 3.4, 25.9), ("GOB-002 ×2 half-height", AX + 1.0, 29.1), ("MACHINERY STORAGE", (LL + AX - GD / 2) / 2, 18.0), ("MACHINERY STORAGE", (AX + GD / 2 + LR) / 2, 18.0),
        ("MACHINERY AISLE 3.7 m → garage door", AX, Y_MID1 + 0.6), ("grand piano", AX - 1.9, Y_LOFT_END + 2.2), ("strings", AX + 2.2, Y_LOFT_END + 4.6)]
 for t, x, y in lbl: s.text(x, y, t, C["zone"] if "MACHIN" in t else C["txt"], 9, weight="bold" if "MACHIN" in t else "normal")
 s.text(AX, Y_LOFT_END + 0.15, "loft edge (under-loft 2.59 m | tray zone 4.33 m)", C["ex"], 8)
 # configuration minis
-cfg = [("A  PIANO / CHAMBER (bright)", "gobos parked in the bays; HYBs raised; piano on the axis", [], [(AX, 25.6, 0)]),
-       ("B  ENSEMBLE (as modelled, neutral)", "3 gobos around drums, 2 screening piano/strings; GOB-002 at amps", [(p["centre"][0], p["centre"][1], p["rot_deg"][2], p["size"][0]) for p in lv if p["shape"].startswith("gobo")], [(AX - 1.4, Y_LOFT_END + 2.6, -25)]),
-       ("C  BAND / OVERDUBS (dead)", "all gobos in booths; NEW curtains drawn on the tray side walls", [(AX + 2.4, 24.6, 75, 1.26), (AX + 3.1, 25.4, 15, 1.26), (AX + 4.2, 25.2, -30, 1.26), (AX - 3.0, 24.0, 90, 1.26), (AX - 2.4, 25.0, 0, 1.26), (AX + 0.6, 28.8, 60, 1.4), (AX - 0.6, 28.8, -60, 1.4)], [(AX - 1.4, Y_LOFT_END + 2.6, -25)]),
-       ("D  FARM MODE", "aisle cleared to the garage door; piano on a locked dolly in the west bay; gobos nested", [(LL + 0.5, 23.2 + 0.3 * i, 90, 1.26) for i in range(5)] + [(LR - 0.5, 23.4 + 0.3 * i, 90, 1.4) for i in range(2)], [(LL + 2.0, Y_MID1 + 4.6, 90)])]
+cfg = [("A  PIANO / CHAMBER (bright)", "gobos parked; HYBs raised; piano on axis", [], [(AX, 25.6, 0)]),
+       ("B  ENSEMBLE (as modelled, neutral)", "3 gobos at drums, 2 at piano/strings", [(p["centre"][0], p["centre"][1], p["rot_deg"][2], p["size"][0]) for p in lv if p["shape"].startswith("gobo")], [(AX - 1.4, Y_LOFT_END + 2.6, -25)]),
+       ("C  BAND / OVERDUBS (dead)", "gobos in booths; NEW curtains drawn", [(AX + 2.4, 24.6, 75, 1.26), (AX + 3.1, 25.4, 15, 1.26), (AX + 4.2, 25.2, -30, 1.26), (AX - 3.0, 24.0, 90, 1.26), (AX - 2.4, 25.0, 0, 1.26), (AX + 0.6, 28.8, 60, 1.4), (AX - 0.6, 28.8, -60, 1.4)], [(AX - 1.4, Y_LOFT_END + 2.6, -25)]),
+       ("D  FARM MODE", "aisle clear; piano on dolly in west bay", [(LL + 0.5, 23.2 + 0.3 * i, 90, 1.26) for i in range(5)] + [(LR - 0.5, 23.4 + 0.3 * i, 90, 1.4) for i in range(2)], [(LL + 2.0, Y_MID1 + 4.6, 90)])]
 mini = []
 for i, (t, sub, gob, pianos) in enumerate(cfg):
     m = Sheet(17, s.X(LR + 1.0) + 40 + (i % 2) * ((LR - LL + 1.2) * 17 + 30), 60 + (i // 2) * ((Y_LG - Y_MID1 + 2.4) * 17 + 40), LL - 0.6, Y_LG + 0.8)

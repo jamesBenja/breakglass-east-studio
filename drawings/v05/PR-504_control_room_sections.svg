@@ -19,9 +19,9 @@
 <polyline points="592.2,279.5 544.0,81.3 494.2,285.0" fill="none" stroke="#2f6f4f" stroke-width="1.2" stroke-dasharray="5 3"/>
 <polyline points="592.2,279.5 346.6,107.2 494.2,285.0" fill="none" stroke="#2f6f4f" stroke-width="1.2" stroke-dasharray="5 3"/>
 <polyline points="396.2,279.5 639.9,103.7 494.2,285.0" fill="none" stroke="#2f6f4f" stroke-width="1.2" stroke-dasharray="5 3"/>
-<polyline points="592.2,279.5 868.8,282.2 494.2,285.0" fill="none" stroke="#d0342c" stroke-width="1.2" stroke-dasharray="5 3"/>
-<polyline points="396.2,279.5 82.0,282.2 494.2,285.0" fill="none" stroke="#d0342c" stroke-width="1.2" stroke-dasharray="5 3"/>
-<polyline points="396.2,279.5 868.8,282.9 494.2,285.0" fill="none" stroke="#d0342c" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polyline points="592.2,279.5 868.8,282.2 494.2,285.0" fill="none" stroke="#999" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polyline points="396.2,279.5 82.0,282.2 494.2,285.0" fill="none" stroke="#999" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polyline points="396.2,279.5 868.8,282.9 494.2,285.0" fill="none" stroke="#999" stroke-width="1.2" stroke-dasharray="5 3"/>
 <polyline points="592.2,279.5 82.0,282.9 494.2,285.0" fill="none" stroke="#2f6f4f" stroke-width="1.2" stroke-dasharray="5 3"/>
 <circle cx="494.2" cy="285.0" r="5" fill="#000"/>
 <polygon points="1555.0,369.0 981.1,369.0 981.1,81.1 1555.0,81.1" fill="#fff" stroke="#555" stroke-width="3"/>
@@ -31,7 +31,7 @@
 <rect x="1202.3" y="95.1" width="170.7" height="5.3" fill="#2f6f4f" fill-opacity="0.6" stroke="#2f6f4f"/>
 <rect x="1546.0" y="162.4" width="8.9" height="142.2" fill="#2f6f4f" fill-opacity="0.6" stroke="#2f6f4f"/>
 <rect x="1546.0" y="162.4" width="8.9" height="142.2" fill="#2f6f4f" fill-opacity="0.6" stroke="#2f6f4f"/>
-<text x="1541.0" y="152.0" font-size="8" fill="#2f6f4f" font-weight="bold">DIF-001 (beside door)</text>
+<text x="1541.0" y="152.0" font-size="8" fill="#2f6f4f" font-weight="bold" text-anchor="end">DIF-001 (beside door) · NEW-03 curtain</text>
 <rect x="1541.7" y="215.0" width="4.2" height="154.0" fill="#b5651d" fill-opacity="0.6"/>
 <rect x="1229.6" y="296.1" width="83.6" height="72.9" fill="#1f4e79" fill-opacity="0.5" stroke="#1f4e79"/>
 <rect x="1140.7" y="260.5" width="29.4" height="37.8" fill="#1f4e79" fill-opacity="0.8"/>
