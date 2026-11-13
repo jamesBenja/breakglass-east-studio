@@ -1,0 +1,2119 @@
+{
+ "placements": [
+  {
+   "asset": "GOB-004",
+   "room": "Control room",
+   "zone": "flat-ceiling cloud",
+   "purpose": "absorb flat-ceiling first reflections (10.5 ms, -7 dB)",
+   "shape": "panel",
+   "centre": [
+    5.232,
+    3.82,
+    3.875
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.2,
+   "mode": "reuse intact (rehang horizontal)",
+   "install": "4-point aircraft-cable suspension from ceiling framing; structural check of fixings",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-003",
+   "room": "Control room",
+   "zone": "flat-ceiling cloud",
+   "purpose": "absorb flat-ceiling first reflections (10.5 ms, -7 dB)",
+   "shape": "panel",
+   "centre": [
+    6.546,
+    3.82,
+    3.875
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.2,
+   "mode": "reuse intact (rehang horizontal)",
+   "install": "4-point aircraft-cable suspension from ceiling framing; structural check of fixings",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-003",
+   "room": "Control room",
+   "zone": "sloped-ceiling panel",
+   "purpose": "absorb same/opposite-side sloped-ceiling reflections (9.5-15 ms)",
+   "shape": "panel",
+   "centre": [
+    3.45,
+    3.82,
+    3.299
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    -47.28,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (fixed parallel to slope)",
+   "install": "Z-clips/cleats into slope framing, 50 mm stand-off; long edge along the room",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-003",
+   "room": "Control room",
+   "zone": "sloped-ceiling panel",
+   "purpose": "absorb same/opposite-side sloped-ceiling reflections (9.5-15 ms)",
+   "shape": "panel",
+   "centre": [
+    8.31,
+    3.82,
+    3.339
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    46.44,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (fixed parallel to slope)",
+   "install": "Z-clips/cleats into slope framing, 50 mm stand-off; long edge along the room",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "DIF-001",
+   "room": "Control room",
+   "zone": "rear wall flanking entry door",
+   "purpose": "scatter rear-wall reflections behind the mix position",
+   "shape": "diffuser",
+   "centre": [
+    4.66,
+    0.064,
+    1.936
+   ],
+   "size": [
+    1.3208,
+    0.127,
+    2.032
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse (reassemble fins in original order)",
+   "install": "French cleat to gable wall; bottom 0.92 m clears the cinema sofa back",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "fin layout in model is indicative; real fin order from DIF-001 photos",
+   "depth_provisional": false
+  },
+  {
+   "asset": "DIF-001",
+   "room": "Control room",
+   "zone": "rear wall flanking entry door",
+   "purpose": "scatter rear-wall reflections behind the mix position",
+   "shape": "diffuser",
+   "centre": [
+    7.11,
+    0.064,
+    1.936
+   ],
+   "size": [
+    1.3208,
+    0.127,
+    2.032
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse (reassemble fins in original order)",
+   "install": "French cleat to gable wall; bottom 0.92 m clears the cinema sofa back",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "fin layout in model is indicative; real fin order from DIF-001 photos",
+   "depth_provisional": false
+  },
+  {
+   "asset": "BTR-001",
+   "room": "Control room",
+   "zone": "rear corner",
+   "purpose": "low-frequency/corner absorption (rear corners)",
+   "shape": "btr",
+   "centre": [
+    0.641,
+    0.0,
+    0
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "floor-standing against wall/corner; solid wood back to wall",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "BTR-001",
+   "room": "Control room",
+   "zone": "rear corner",
+   "purpose": "low-frequency/corner absorption (rear corners)",
+   "shape": "btr",
+   "centre": [
+    0.0,
+    0.941,
+    0
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    -90
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "floor-standing against wall/corner; solid wood back to wall",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "BTR-002",
+   "room": "Control room",
+   "zone": "rear corner",
+   "purpose": "low-frequency/corner absorption (rear corners)",
+   "shape": "btr",
+   "centre": [
+    10.603,
+    0.0,
+    0
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "floor-standing against wall/corner; solid wood back to wall",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "BTR-002",
+   "room": "Control room",
+   "zone": "rear corner",
+   "purpose": "low-frequency/corner absorption (rear corners)",
+   "shape": "btr",
+   "centre": [
+    11.244,
+    0.941,
+    0
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    90
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "floor-standing against wall/corner; solid wood back to wall",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-003",
+   "room": "Control room",
+   "zone": "front wall right of doorway",
+   "purpose": "broadband absorption behind the speakers (right front reflection point X 6.81)",
+   "shape": "panel",
+   "centre": [
+    8.402,
+    8.148,
+    0.831
+   ],
+   "size": [
+    3.4036,
+    0.1016,
+    0.762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (horizontal, stacked)",
+   "install": "cleats; full-fill Roxul, mesh back, mount 50 mm off wall if room allows",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-003",
+   "room": "Control room",
+   "zone": "front wall right of doorway",
+   "purpose": "broadband absorption behind the speakers (right front reflection point X 6.81)",
+   "shape": "panel",
+   "centre": [
+    8.402,
+    8.148,
+    1.641
+   ],
+   "size": [
+    3.4036,
+    0.1016,
+    0.762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (horizontal, stacked)",
+   "install": "cleats; full-fill Roxul, mesh back, mount 50 mm off wall if room allows",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PAN-001",
+   "room": "Control room",
+   "zone": "front wall left (outside stove clearance)",
+   "purpose": "broadband absorption front-left",
+   "shape": "panel",
+   "centre": [
+    1.952,
+    8.136,
+    0.465
+   ],
+   "size": [
+    2.4638,
+    0.127,
+    0.6299
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (turned horizontal)",
+   "install": "direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PAN-001",
+   "room": "Control room",
+   "zone": "front wall left (outside stove clearance)",
+   "purpose": "broadband absorption front-left",
+   "shape": "panel",
+   "centre": [
+    1.952,
+    8.136,
+    1.115
+   ],
+   "size": [
+    2.4638,
+    0.127,
+    0.6299
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (turned horizontal)",
+   "install": "direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PAN-001",
+   "room": "Control room",
+   "zone": "front wall left (outside stove clearance)",
+   "purpose": "broadband absorption front-left",
+   "shape": "panel",
+   "centre": [
+    1.952,
+    8.136,
+    1.765
+   ],
+   "size": [
+    2.4638,
+    0.127,
+    0.6299
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (turned horizontal)",
+   "install": "direct to wall as at Clark; stays > 0.9 m from stove (verify against stove label/WETT)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-005",
+   "room": "Control room",
+   "zone": "left wall between windows",
+   "purpose": "late side reflection R->left wall (Y 4.16)",
+   "shape": "panel",
+   "centre": [
+    0.088,
+    3.67,
+    1.533
+   ],
+   "size": [
+    0.0762,
+    1.143,
+    1.0668
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact",
+   "install": "cleats, 50 mm stand-off",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-001",
+   "room": "Live room",
+   "zone": "left wall, tray zone",
+   "purpose": "mid/high variable reflection (angled on shims as at Clark)",
+   "shape": "panel",
+   "centre": [
+    -0.198,
+    23.25,
+    1.051
+   ],
+   "size": [
+    0.0254,
+    0.6096,
+    2.413
+   ],
+   "rot_deg": [
+    0,
+    0,
+    4
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims, angled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-001",
+   "room": "Live room",
+   "zone": "left wall, tray zone",
+   "purpose": "mid/high variable reflection (angled on shims as at Clark)",
+   "shape": "panel",
+   "centre": [
+    -0.198,
+    24.0,
+    1.051
+   ],
+   "size": [
+    0.0254,
+    0.6096,
+    2.413
+   ],
+   "rot_deg": [
+    0,
+    0,
+    4
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims, angled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-001",
+   "room": "Live room",
+   "zone": "left wall, tray zone",
+   "purpose": "mid/high variable reflection (angled on shims as at Clark)",
+   "shape": "panel",
+   "centre": [
+    -0.198,
+    29.65,
+    1.051
+   ],
+   "size": [
+    0.0254,
+    0.6096,
+    2.413
+   ],
+   "rot_deg": [
+    0,
+    0,
+    4
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims, angled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-001",
+   "room": "Live room",
+   "zone": "left wall, tray zone",
+   "purpose": "mid/high variable reflection (angled on shims as at Clark)",
+   "shape": "panel",
+   "centre": [
+    -0.198,
+    30.25,
+    1.051
+   ],
+   "size": [
+    0.0254,
+    0.6096,
+    2.413
+   ],
+   "rot_deg": [
+    0,
+    0,
+    4
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims, angled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "DIF-003",
+   "room": "Live room",
+   "zone": "left wall, tray zone",
+   "purpose": "scattering near the piano position",
+   "shape": "diffuser",
+   "centre": [
+    -0.198,
+    26.85,
+    1.061
+   ],
+   "size": [
+    0.127,
+    1.3208,
+    2.032
+   ],
+   "rot_deg": [
+    0,
+    0,
+    90
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse (reassemble)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "BTR-002",
+   "room": "Live room",
+   "zone": "left wall under DIF-003",
+   "purpose": "LF trap paired with diffuser",
+   "shape": "btr",
+   "centre": [
+    -0.261,
+    26.85,
+    -0.355
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    90
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-001",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    23.6,
+    0.296
+   ],
+   "size": [
+    0.1016,
+    1.2573,
+    0.4013
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-001",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    23.6,
+    0.746
+   ],
+   "size": [
+    0.1016,
+    1.2573,
+    0.4013
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-001",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    23.6,
+    1.196
+   ],
+   "size": [
+    0.1016,
+    1.2573,
+    0.4013
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-004",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.607,
+    23.6,
+    1.578
+   ],
+   "size": [
+    0.0635,
+    0.8382,
+    0.2667
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-001",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    26.53,
+    0.246
+   ],
+   "size": [
+    0.1016,
+    1.2573,
+    0.4013
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-001",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    26.53,
+    0.696
+   ],
+   "size": [
+    0.1016,
+    1.2573,
+    0.4013
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-001",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    26.53,
+    1.146
+   ],
+   "size": [
+    0.1016,
+    1.2573,
+    0.4013
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-002",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    26.53,
+    1.589
+   ],
+   "size": [
+    0.1016,
+    1.1938,
+    0.3886
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-002",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    26.53,
+    2.039
+   ],
+   "size": [
+    0.1016,
+    1.1938,
+    0.3886
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-003",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    27.55,
+    0.525
+   ],
+   "size": [
+    0.1016,
+    0.4267,
+    0.9601
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "WOOD-005",
+   "room": "Live room",
+   "zone": "right wall rustic wood composition",
+   "purpose": "visual + unknown scattering (open-backed hollow boxes; no acoustic claim)",
+   "shape": "wood_box",
+   "centre": [
+    11.588,
+    27.55,
+    1.23
+   ],
+   "size": [
+    0.1016,
+    0.4572,
+    0.3302
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (open back to wall)",
+   "install": "cleats; open backs face the wall (as built at Clark)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "internal wall thickness unknown - modelled 15 mm nominal",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-002",
+   "room": "Live room",
+   "zone": "garage gable wall, left of door",
+   "purpose": "mid/high control at the garage end",
+   "shape": "panel",
+   "centre": [
+    0.75,
+    30.467,
+    1.007
+   ],
+   "size": [
+    0.762,
+    0.0254,
+    1.524
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-002",
+   "room": "Live room",
+   "zone": "garage gable wall, left of door",
+   "purpose": "mid/high control at the garage end",
+   "shape": "panel",
+   "centre": [
+    1.75,
+    30.467,
+    1.007
+   ],
+   "size": [
+    0.762,
+    0.0254,
+    1.524
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "PRF-002",
+   "room": "Live room",
+   "zone": "garage gable wall, left of door",
+   "purpose": "mid/high control at the garage end",
+   "shape": "panel",
+   "centre": [
+    2.75,
+    30.467,
+    1.007
+   ],
+   "size": [
+    0.762,
+    0.0254,
+    1.524
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (2 in shims)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "HYB-001",
+   "room": "Live room",
+   "zone": "garage gable wall, right of door",
+   "purpose": "vertical abfusor (absorb/scatter) at the garage end",
+   "shape": "hyb",
+   "centre": [
+    9.1,
+    30.23,
+    1.04
+   ],
+   "size": [
+    1.1608,
+    2.4892,
+    0.2286
+   ],
+   "rot_deg": [
+    90,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (vertical, chain to wall cleat)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "HYB-001",
+   "room": "Live room",
+   "zone": "tray-zone ceiling over piano/ensemble",
+   "purpose": "overhead absorb/scatter, tames flutter under the flat ceiling",
+   "shape": "hyb",
+   "centre": [
+    5.139,
+    26.6,
+    3.099
+   ],
+   "size": [
+    1.1608,
+    2.4892,
+    0.2286
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (horizontal, 30 in chains)",
+   "install": "chains to structure; verify ceiling framing load",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "HYB-001",
+   "room": "Live room",
+   "zone": "tray-zone ceiling over piano/ensemble",
+   "purpose": "overhead absorb/scatter, tames flutter under the flat ceiling",
+   "shape": "hyb",
+   "centre": [
+    6.639,
+    26.6,
+    3.099
+   ],
+   "size": [
+    1.1608,
+    2.4892,
+    0.2286
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (horizontal, 30 in chains)",
+   "install": "chains to structure; verify ceiling framing load",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-003",
+   "room": "Live room",
+   "zone": "under-loft ceiling over drum/band zone",
+   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "shape": "panel",
+   "centre": [
+    5.237,
+    20.35,
+    2.147
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (horizontal under joists)",
+   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-003",
+   "room": "Live room",
+   "zone": "under-loft ceiling over drum/band zone",
+   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "shape": "panel",
+   "centre": [
+    6.541,
+    20.35,
+    2.147
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (horizontal under joists)",
+   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-006",
+   "room": "Live room",
+   "zone": "under-loft ceiling over drum/band zone",
+   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "shape": "panel",
+   "centre": [
+    5.237,
+    17.85,
+    2.147
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (horizontal under joists)",
+   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "verification": "FAMILY MATCHED (NOT TAPED)",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-006",
+   "room": "Live room",
+   "zone": "under-loft ceiling over drum/band zone",
+   "purpose": "absorb the low joist ceiling over drums/band; covers foil insulation",
+   "shape": "panel",
+   "centre": [
+    6.541,
+    17.85,
+    2.147
+   ],
+   "size": [
+    1.2649,
+    2.4384,
+    0.0762
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.05,
+   "mode": "reuse intact (horizontal under joists)",
+   "install": "screwed cleats to joists; leaves 2.46 m clear above the live slab (check tallest machine)",
+   "verification": "FAMILY MATCHED (NOT TAPED)",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-001",
+   "room": "Live room",
+   "zone": "movable (shown: drum booth + piano screens)",
+   "purpose": "movable isolation/absorption",
+   "shape": "gobo_wheeled",
+   "centre": [
+    4.289,
+    21.3,
+    1.027
+   ],
+   "size": [
+    1.2624,
+    0.0914,
+    2.4638
+   ],
+   "rot_deg": [
+    0,
+    0,
+    30
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-001",
+   "room": "Live room",
+   "zone": "movable (shown: drum booth + piano screens)",
+   "purpose": "movable isolation/absorption",
+   "shape": "gobo_wheeled",
+   "centre": [
+    7.489,
+    21.3,
+    1.027
+   ],
+   "size": [
+    1.2624,
+    0.0914,
+    2.4638
+   ],
+   "rot_deg": [
+    0,
+    0,
+    -30
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-001",
+   "room": "Live room",
+   "zone": "movable (shown: drum booth + piano screens)",
+   "purpose": "movable isolation/absorption",
+   "shape": "gobo_wheeled",
+   "centre": [
+    5.889,
+    22.2,
+    1.027
+   ],
+   "size": [
+    1.2624,
+    0.0914,
+    2.4638
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-001",
+   "room": "Live room",
+   "zone": "movable (shown: drum booth + piano screens)",
+   "purpose": "movable isolation/absorption",
+   "shape": "gobo_wheeled",
+   "centre": [
+    3.289,
+    27.9,
+    1.027
+   ],
+   "size": [
+    1.2624,
+    0.0914,
+    2.4638
+   ],
+   "rot_deg": [
+    0,
+    0,
+    70
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-001",
+   "room": "Live room",
+   "zone": "movable (shown: drum booth + piano screens)",
+   "purpose": "movable isolation/absorption",
+   "shape": "gobo_wheeled",
+   "centre": [
+    9.289,
+    25.4,
+    1.027
+   ],
+   "size": [
+    1.2624,
+    0.0914,
+    2.4638
+   ],
+   "rot_deg": [
+    0,
+    0,
+    110
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-002",
+   "room": "Live room",
+   "zone": "movable half-height (quartet / amps)",
+   "purpose": "low screens (pegboard both faces; fill unknown)",
+   "shape": "gobo_wheeled",
+   "centre": [
+    9.489,
+    28.3,
+    0.393
+   ],
+   "size": [
+    1.397,
+    0.0889,
+    1.1557
+   ],
+   "rot_deg": [
+    0,
+    0,
+    60
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-002",
+   "room": "Live room",
+   "zone": "movable half-height (quartet / amps)",
+   "purpose": "low screens (pegboard both faces; fill unknown)",
+   "shape": "gobo_wheeled",
+   "centre": [
+    6.889,
+    29.0,
+    0.393
+   ],
+   "size": [
+    1.397,
+    0.0889,
+    1.1557
+   ],
+   "rot_deg": [
+    0,
+    0,
+    10
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact (wheeled)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "DIF-004",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "cross wall",
+   "purpose": "scattering behind the singer (as at Clark)",
+   "shape": "diffuser",
+   "centre": [
+    2.6,
+    12.776,
+    1.191
+   ],
+   "size": [
+    1.3208,
+    0.127,
+    2.032
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse (reassemble)",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "BTR-003",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "under DIF-004",
+   "purpose": "LF trap paired with diffuser",
+   "shape": "btr",
+   "centre": [
+    2.6,
+    12.839,
+    -0.225
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    180
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-015",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "west wall",
+   "purpose": "broadband absorption",
+   "shape": "panel",
+   "centre": [
+    0.081,
+    9.709,
+    1.253
+   ],
+   "size": [
+    0.1016,
+    1.4097,
+    1.1557
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.03,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-011",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "west wall",
+   "purpose": "broadband absorption",
+   "shape": "panel",
+   "centre": [
+    0.081,
+    11.709,
+    1.147
+   ],
+   "size": [
+    0.05,
+    2.159,
+    1.2446
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.03,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-016",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "corridor wall",
+   "purpose": "tall broadband panel",
+   "shape": "panel",
+   "centre": [
+    5.018,
+    9.409,
+    0.992
+   ],
+   "size": [
+    0.1016,
+    0.635,
+    2.1336
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-008",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "partition wall (control-room side)",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    1.0,
+    8.434,
+    1.274
+   ],
+   "size": [
+    1.1684,
+    0.05,
+    1.397
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-008",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "partition wall (control-room side)",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    2.6,
+    8.434,
+    1.274
+   ],
+   "size": [
+    1.1684,
+    0.05,
+    1.397
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "PAN-002",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "partition wall",
+   "purpose": "small absorber",
+   "shape": "panel",
+   "centre": [
+    4.2,
+    8.434,
+    1.432
+   ],
+   "size": [
+    0.4572,
+    0.0508,
+    0.9144
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-001",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "ceiling cloud over the vocal mic",
+   "purpose": "ceiling absorption",
+   "shape": "panel",
+   "centre": [
+    2.6,
+    10.609,
+    2.151
+   ],
+   "size": [
+    1.2446,
+    1.2446,
+    0.127
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.1,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-005",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "corridor wall",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    5.031,
+    11.009,
+    1.208
+   ],
+   "size": [
+    0.0762,
+    1.143,
+    1.0668
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-005",
+   "room": "Vocal booth (middle zone, west room)",
+   "zone": "corridor wall",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    5.031,
+    12.159,
+    1.208
+   ],
+   "size": [
+    0.0762,
+    1.143,
+    1.0668
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-005",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "east wall",
+   "purpose": "absorption around amps",
+   "shape": "panel",
+   "centre": [
+    11.219,
+    11.359,
+    0.959
+   ],
+   "size": [
+    0.05,
+    1.4097,
+    1.1684
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-005",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "east wall",
+   "purpose": "absorption around amps",
+   "shape": "panel",
+   "centre": [
+    11.219,
+    12.959,
+    0.959
+   ],
+   "size": [
+    0.05,
+    1.4097,
+    1.1684
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-009",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "south cross wall",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    7.849,
+    10.484,
+    1.012
+   ],
+   "size": [
+    0.6375,
+    0.05,
+    1.4732
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-009",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "south cross wall",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    9.049,
+    10.484,
+    1.012
+   ],
+   "size": [
+    0.6375,
+    0.05,
+    1.4732
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-010",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "north cross wall",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    8.449,
+    14.014,
+    1.012
+   ],
+   "size": [
+    0.6375,
+    0.05,
+    1.4732
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DUPLICATION CHECK",
+   "note": "ABS-014 held until duplicate resolved",
+   "depth_provisional": true
+  },
+  {
+   "asset": "BTR-004",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "corner",
+   "purpose": "LF trap",
+   "shape": "btr",
+   "centre": [
+    10.603,
+    14.039,
+    -0.225
+   ],
+   "size": [
+    1.1811,
+    0.3048,
+    0.381
+   ],
+   "rot_deg": [
+    0,
+    0,
+    180
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "INHERITED FROM BTR-001",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "GOB-005",
+   "room": "Amp / iso booth (middle zone, east room)",
+   "zone": "corridor wall",
+   "purpose": "absorption",
+   "shape": "panel",
+   "centre": [
+    6.747,
+    12.059,
+    1.208
+   ],
+   "size": [
+    0.0762,
+    1.143,
+    1.0668
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DIMENSIONS DOCUMENTED",
+   "note": "",
+   "depth_provisional": false
+  },
+  {
+   "asset": "ABS-007",
+   "room": "Machine room (middle zone, east room by control room)",
+   "zone": "east wall",
+   "purpose": "fan-noise absorption",
+   "shape": "panel",
+   "centre": [
+    11.219,
+    9.409,
+    1.28
+   ],
+   "size": [
+    0.05,
+    1.2192,
+    0.6096
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-012",
+   "room": "Machine room (middle zone, east room by control room)",
+   "zone": "partition wall",
+   "purpose": "fan-noise absorption",
+   "shape": "panel",
+   "centre": [
+    7.649,
+    8.434,
+    1.38
+   ],
+   "size": [
+    0.9271,
+    0.05,
+    0.6096
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  },
+  {
+   "asset": "ABS-013",
+   "room": "Machine room (middle zone, east room by control room)",
+   "zone": "partition wall",
+   "purpose": "fan-noise absorption",
+   "shape": "panel",
+   "centre": [
+    8.949,
+    8.434,
+    1.38
+   ],
+   "size": [
+    0.9271,
+    0.05,
+    0.6096
+   ],
+   "rot_deg": [
+    0,
+    0,
+    0
+   ],
+   "air_gap_m": 0.0,
+   "mode": "reuse intact",
+   "install": "",
+   "verification": "DEPTH UNKNOWN",
+   "note": "",
+   "depth_provisional": true
+  }
+ ],
+ "new_items": [
+  {
+   "id": "NEW-01",
+   "room": "Control room",
+   "item": "Under-sill low-frequency bench traps, both side walls",
+   "qty": 2,
+   "size_m": "\u22485.7 m long \u00d7 0.60 deep \u00d7 0.95 high each",
+   "build": "Mineral wool (e.g. 2 layers 100\u2013150 mm + air) behind fabric and spaced reclaimed-wood slats; window sills stay clear",
+   "why": "the room's main LF control; the Clark inventory has no deep traps",
+   "geom": [
+    {
+     "centre": [
+      0.3,
+      4.45,
+      0.475
+     ],
+     "size": [
+      0.6,
+      5.7,
+      0.95
+     ]
+    },
+    {
+     "centre": [
+      10.943999999999999,
+      4.45,
+      0.475
+     ],
+     "size": [
+      0.6,
+      5.7,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "id": "NEW-02",
+   "room": "Control room",
+   "item": "Front-corner full-height corner traps",
+   "qty": 2,
+   "size_m": "triangular, 0.70 m legs, floor to low ceiling (\u22482.2 m)",
+   "build": "Stacked mineral-wool triangles behind fabric",
+   "why": "pressure maxima of all modes are in the corners",
+   "geom": [
+    {
+     "tri": [
+      0,
+      8.199,
+      0.7
+     ],
+     "h": 2.235
+    },
+    {
+     "tri": [
+      11.244,
+      8.199,
+      0.7
+     ],
+     "h": 2.279
+    }
+   ]
+  },
+  {
+   "id": "NEW-03",
+   "room": "Control room",
+   "item": "Heavy wool acoustic curtain across the gable entry door",
+   "qty": 1,
+   "size_m": "\u22481.3 \u00d7 2.2 m on a ceiling track",
+   "build": "Heavy wool/velour, generous fullness",
+   "why": "the rear reflection lands on the door jambs (17 ms, near on-axis); also draught and cinema blackout",
+   "geom": [
+    {
+     "centre": [
+      5.889,
+      0.16,
+      1.1
+     ],
+     "size": [
+      1.3,
+      0.06,
+      2.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "NEW-04",
+   "room": "Control room",
+   "item": "Fabric-faced folding window shutters / blackout",
+   "qty": 6,
+   "size_m": "to suit 4 side + 2 gable windows",
+   "build": "Insulated board + fabric face, hinged in the reveals",
+   "why": "late side reflections fall on glass; daytime film blackout; Quiet-Light daylight control",
+   "geom": []
+  },
+  {
+   "id": "NEW-05",
+   "room": "All",
+   "item": "Mounting kit: cleats, aircraft cable, chains, stand-off brackets",
+   "qty": 1,
+   "size_m": "-",
+   "build": "-",
+   "why": "hang the reused assets safely",
+   "geom": []
+  },
+  {
+   "id": "NEW-06",
+   "room": "Live room",
+   "item": "Farm-mode protective covers (piano, gobos) and stove-safe hearth pad",
+   "qty": 1,
+   "size_m": "-",
+   "build": "-",
+   "why": "dust/fumes when machinery moves",
+   "geom": []
+  }
+ ],
+ "inventory_units": 74,
+ "allocated_units": 71,
+ "reserve": {
+  "ABS-004": "reserve: tapered polygon and light aperture unmeasured; candidate for the fireside lounge ceiling once surveyed",
+  "ABS-006": "reserve: 95.5 x 13.4 in strip; candidate for the lounge or a booth once depth is known",
+  "ABS-014": "held: possible duplicate of ABS-010 (owner to confirm)",
+  "DIF-002": "reserve: count/size unknown (photo only) - measure before allocating",
+  "ABS-002": "reserve: count/size unknown (photo only)",
+  "MAT-002": "reserve: count/size unknown (photo only)"
+ }
+}
