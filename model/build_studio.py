@@ -589,6 +589,7 @@ INTERIOR_HIDE = ["EX_roof_metal", "EX_siding_long_L", "EX_siding_long_R", "EX_si
 if os.environ.get("BG_RENDER"):
     out = os.path.join(ROOT, "renders", "design"); os.makedirs(out, exist_ok=True)
     only = [s for s in os.environ.get("BG_ONLY", "").split(",") if s]
+    VIS0 = {nm: bpy.data.objects[nm].visible_camera for nm in ("EX_CR_ceiling", "EX_LV_tray_ceiling", "EX_MZ_ceiling", "EX_LOFT_deck", "EX_LV_underloft_foil", "EX_CR_wall_X0", "EX_LV_wall_L", "EX_MZ_extwall_L") if nm in bpy.data.objects}
     for k, o in cam_obs.items():
         if only and k not in only: continue
         scene.camera = o
@@ -598,8 +599,9 @@ if os.environ.get("BG_RENDER"):
             if nm == "EX_roof_metal": ob.hide_render = (k == "axo_cutaway")
         bpy.data.objects["EX_ground"].visible_camera = not interior
         for nm in ("EX_CR_ceiling", "EX_LV_tray_ceiling", "EX_MZ_ceiling", "EX_LOFT_deck", "EX_LV_underloft_foil", "EX_siding_long_L", "EX_CR_wall_X0", "EX_LV_wall_L", "EX_MZ_extwall_L", "EX_siding_gable_control"):
-            if nm in bpy.data.objects:
-                bpy.data.objects[nm].visible_camera = bpy.data.objects[nm].visible_camera if k != "axo_cutaway" else False
+            if nm in bpy.data.objects:   # restore after the axo cut-away (matters when views render after it, e.g. the v0.5 extras)
+                ob_ = bpy.data.objects[nm]
+                ob_.visible_camera = False if k == "axo_cutaway" else (ob_.visible_camera if nm in INTERIOR_HIDE else VIS0.setdefault(nm, ob_.visible_camera))
         cinema = (k == "cr_cinema")
         if SWIVEL_A is not None: v05_treatment.set_mode(SWIVEL_A, cinema)   # swivel armchair A rolls to the rear row for films
         for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = not cinema   # retracted except in movie mode
