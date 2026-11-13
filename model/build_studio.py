@@ -564,7 +564,7 @@ CAMS = {
 }
 if V05:   # extra v0.5 views (the v0.4 cameras above are kept identical for matched comparisons)
     CAMS.update({
-     "cr_fire_seat":  ((1.05, 4.75, 1.25), (S_("g_xs"), ys - 0.1, 0.55), 20),
+     "cr_fire_seat":  ((1.75, 4.30, 1.60), (S_("g_xs") - 0.2, ys - 0.2, 0.55), 22),
      "cr_ceiling":    ((AX - 2.4, 0.9, 1.45), (AX + 0.3, 5.2, 3.6), 16),
      "live_drums":    ((AX - 3.6, Y_LIVE_G - 1.0, 1.75), (AX + 3.0, Y_LOFT_END + 1.0, 0.9), 18),
     })
