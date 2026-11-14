@@ -231,7 +231,7 @@ def _exterior_dressing(g):
             for (ya, yb, za, zb) in ((y0 - w, y0, z0 - w, z1 + w), (y1, y1 + w, z0 - w, z1 + w), (y0, y1, z1, z1 + w), (y0, y1, z0 - w, z0)):
                 bx(f"LOOKDEV_trim_{o.name}", xa, xb, ya, yb, za, zb, white)
         else:              # on a gable
-            ya, yb = (G0 - t, G0) if y0 < 15 else (G1, G1 + t)
+            ya, yb = (G0 - 0.04 - t, G0 - 0.04) if y0 < 15 else (G1 + 0.04, G1 + 0.04 + t)   # on the siding's OUTER face (gable siding is 0.04 thick)
             for (xa, xb, za, zb) in ((x0 - w, x0, z0 - (0 if o.name.startswith("DOOR") else w), z1 + w), (x1, x1 + w, z0 - (0 if o.name.startswith("DOOR") else w), z1 + w), (x0, x1, z1, z1 + w)) + (((x0, x1, z0 - w, z0),) if o.name.startswith("WINDOW") else ()):
                 bx(f"LOOKDEV_trim_{o.name}", xa, xb, ya, yb, za, zb, white)
     # eave fascia (light metal, PHOTO-OBSERVED) along both long eaves
