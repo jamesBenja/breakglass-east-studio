@@ -22,8 +22,7 @@ L = [
  ("8", "P5", "Live + support rooms: Clark gobos/panels re-hung (34 + 21 units), cover foil, fuel cabinet, CO alarm, floor boxes, NEW-06 covers", 2300, 7800, "CHANGED", "+$0.3k–0.8k for NEW-06 protective covers"),
  ("9", "P6", "Studio wiring from Clark + tie-lines", 500, 3000, "v0.4", "unchanged"),
  ("10", "P4", "Family cinema: projector, 3.0 m AT screen, mount / hush box", 6000, 20000, "v0.4", "unchanged"),
- ("11", "P4", "Cinema sound now (5.1)", 2000, 8000, "v0.4", "unchanged"),
- ("12", "P4", "One-touch movie mode", 1500, 5000, "v0.4", "unchanged"),
+ ("12", "P4", "One-touch movie mode (stereo now: streaming box + source switching into the Geithain monitor path)", 1500, 5000, "v0.4", "unchanged; the processor stays useful when 5.1 is added later"),
  ("13", "P4", "NEW-04 fabric-faced folding shutters ×6 (blackout + late side reflections)", 1500, 4000, "CHANGED", "was blinds/shutters $1k–3k"),
  ("14", "P7", "Grand piano from Clark", 5000, 5000, "v0.4", "unchanged"),
  ("15", "P6", "Move from Clark (truck, movers, piano, crates) — now incl. 71 acoustic units", 4000, 12000, "v0.4", "acoustic units fit the same truck run (to confirm volume)"),
@@ -31,7 +30,8 @@ L = [
  ("17", "P1", "Structural check of hung loads (ceiling clouds, HYB barrels, under-loft panels, screen, overhead speakers)", 500, 1500, "NEW", "engineer letter; loads per panel to be weighed"),
  ("18", "P4", "Fireside lounge furniture: loveseat + 2 swivel armchairs on glides (replaces v0.4 lounge + cinema chairs)", 0, 3000, "NEW", "$0 if existing furniture is used"),
 ]
-LATER = [("19", "P7", "Complete immersive 7.1.4", 12000, 70000, "v0.4", "unchanged"),
+LATER = [("11", "P7", "Cinema 5.1 extras: centre behind the screen, side surrounds, subwoofer", 2000, 8000, "MOVED to later (owner 14 Nov)", "phase 1 is Geithain stereo only; films play through the RL 901K pair"),
+         ("19", "P7", "Complete immersive 7.1.4", 12000, 70000, "v0.4", "unchanged"),
          ("20", "P7", "Live-room 'dead' configuration curtains (2 × ≈3 × 6 m heavy wool on tracks)", 1500, 4000, "NEW (optional)", "only if band tracking needs it after measurement")]
 lo = sum(r[3] for r in L); hi = sum(r[4] for r in L)
 res = {"essential_low": lo, "essential_high": hi, "contingency_low": round(lo * 0.10), "contingency_high": round(hi * 0.15),

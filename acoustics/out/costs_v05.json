@@ -136,22 +136,13 @@
    "unchanged"
   ],
   [
-   "11",
-   "P4",
-   "Cinema sound now (5.1)",
-   2000,
-   8000,
-   "v0.4",
-   "unchanged"
-  ],
-  [
    "12",
    "P4",
-   "One-touch movie mode",
+   "One-touch movie mode (stereo now: streaming box + source switching into the Geithain monitor path)",
    1500,
    5000,
    "v0.4",
-   "unchanged"
+   "unchanged; the processor stays useful when 5.1 is added later"
   ],
   [
    "13",
@@ -210,6 +201,15 @@
  ],
  "later": [
   [
+   "11",
+   "P7",
+   "Cinema 5.1 extras: centre behind the screen, side surrounds, subwoofer",
+   2000,
+   8000,
+   "MOVED to later (owner 14 Nov)",
+   "phase 1 is Geithain stereo only; films play through the RL 901K pair"
+  ],
+  [
    "19",
    "P7",
    "Complete immersive 7.1.4",
@@ -229,16 +229,16 @@
   ]
  ],
  "totals": {
-  "essential_low": 39300,
-  "essential_high": 120500,
-  "contingency_low": 3930,
-  "contingency_high": 18075,
+  "essential_low": 37300,
+  "essential_high": 112500,
+  "contingency_low": 3730,
+  "contingency_high": 16875,
   "essential_incl_contingency": [
-   43230,
-   138575
+   41030,
+   129375
   ],
-  "later_low": 13500,
-  "later_high": 74000,
+  "later_low": 15500,
+  "later_high": 82000,
   "v04_essential": [
    35300,
    109500
@@ -248,8 +248,8 @@
    125925
   ],
   "delta_vs_v04": [
-   4000,
-   11000
+   2000,
+   3000
   ]
  }
 }

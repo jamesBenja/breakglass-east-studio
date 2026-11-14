@@ -35,7 +35,9 @@ The approved v0.4 files are left as they were (owner rule: preserve v0.4). The p
 - `drawings/v05/`, `renders/design/*_v05.png`, `renders/compare_v04_v05/`, `docs/v05/`.
 
 ## Costs
-- **Essential build:** $39.3k–$120.5k, up from $35.3k–$109.5k (**+$4.0k / +$11.0k**).
-- **With contingency:** $43.2k–$138.6k.
+- **Owner decision (14 Nov): phase 1 is Geithain stereo only.** The 5.1 cinema extras (centre, side surrounds, sub; $2k–8k) move to the later phase, and films play through the RL 901K pair in phase 1.
+- **Essential build:** $37.3k–$112.5k, up from $35.3k–$109.5k (**+$2.0k / +$3.0k**).
+- **With contingency:** $41.0k–$129.4k.
+- **Later phase:** $15.5k–$82k (5.1 extras + 7.1.4 completion + optional live-room curtains).
 - The increase is new LF traps, the door curtain, stand-off frames, shutters, a structural check of hung loads and lounge furniture.
 - Detail: `acoustics/out/costs_v05.csv`.

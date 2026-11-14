@@ -108,6 +108,13 @@ Counts are asserted in code: `acoustics/allocation.py` fails if any family is ov
 | C5 | live room | RT per configuration A–D; gobo positions marked on the floor | owner |
 | C6 | stove | WETT/insurer clearances: confirm the lounge, PAN-001 frame and hearth pad, or move them | WETT inspector |
 
+## Owner decisions during v0.5 review
+| Date | Decision |
+|---|---|
+| 13 Nov | Lounge seating must face the fire (implemented; see §2). |
+| 13 Nov | Overhead immersive speaker aim corrected (erratum; see the changelog). |
+| 14 Nov | **Phase 1 = Geithain stereo only.** Films play through the RL 901K pair; the 5.1 extras (centre, side surrounds, sub; $2k–8k) move to the later phase. Essential build is now $37.3k–$112.5k ($41.0k–$129.4k with contingency). Renders: `*_v05_phase1.png`. |
+
 ## 7. Files
 Drive (owner): folder “v0.5 — Acoustic Integration & Salvage” in the review package, containing the presentation Doc and the workbook (Budget v0.5 / Asset deployment / New items / Open items). The v0.4 Doc and Sheet are untouched.
 
