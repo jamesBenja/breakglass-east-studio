@@ -113,6 +113,7 @@ def build(g):
             boom_mic(mx, my, 0.55, (ax_ - 0.23 * math.sin(math.radians(face)), ay_ + 0.23 * math.cos(math.radians(face)), F + 0.40), "mic stand bass cab")
 
     # ---------------------------------------------------------------- piano mics (pair over the strings) + acoustic / vocal position
+    bpy.context.view_layer.update()   # the piano's world matrix must be evaluated before it is used (else identity -> stands at the origin)
     pe = bpy.data.objects["PR_grand_piano"]; pm = pe.matrix_world
     for lx in (-0.35, 0.30):
         tgt = pm @ Vector((lx * 0.8, 0.95, 1.05)); base = pm @ Vector((lx + 1.15 * (1 if lx > 0 else -1), 0.75, 0))
@@ -123,6 +124,8 @@ def build(g):
         a = math.radians(30 + k * 120); cyl((ox, oy, F + 0.25), (ox + 0.22 * math.cos(a), oy + 0.22 * math.sin(a), F), 0.012, "black", "stool")
     boom_mic(ox - 0.15, oy - 0.95, 1.30, (ox, oy - 0.25, F + 1.25), "mic stand vocal")
     boom_mic(ox + 0.35, oy - 0.80, 0.70, (ox + 0.05, oy - 0.30, F + 0.85), "mic stand acoustic guitar")
+    for o in coll.objects:   # guard: everything must sit inside the live room
+        assert g["LIVE_L"] - 0.1 < o.location.x < g["LIVE_R"] + 0.1 and g["Y_MID1"] < o.location.y < g["Y_LIVE_G"] + 0.1, f"backline object outside the live room: {o.name} {tuple(o.location)}"
     return len(coll.objects)
 
 def put_away():

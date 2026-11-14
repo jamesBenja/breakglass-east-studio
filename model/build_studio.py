@@ -581,6 +581,8 @@ if V05:   # extra v0.5 views (the v0.4 cameras above are kept identical for matc
      "cr_fire_seat":  ((1.75, 4.30, 1.60), (S_("g_xs") - 0.2, ys - 0.2, 0.55), 22),
      "cr_ceiling":    ((AX - 2.4, 0.9, 1.45), (AX + 0.3, 5.2, 3.6), 16),
      "live_drums":    ((AX - 3.6, Y_LIVE_G - 1.0, 1.75), (AX + 3.0, Y_LOFT_END + 1.0, 0.9), 18),
+     # owner request 14 Nov: see the band set-up (open side of the drum booth, amps beyond)
+     "live_band":     ((AX + 0.9, Y_LOFT_END - 2.3, 1.55), (AX + 3.4, Y_LIVE_G - 1.2, 0.75), 20),
      # owner request 14 Nov: high views back toward the entrance over the console (sofa, armchairs, door, diffusers)
      "cr_overview_rear":   ((AX + 0.9, 7.15, 3.05), (AX - 0.2, 0.4, 0.75), 17),
      "cr_overview_rear_L": ((3.05, 7.45, 2.70), (AX + 0.9, 0.4, 0.70), 17),
