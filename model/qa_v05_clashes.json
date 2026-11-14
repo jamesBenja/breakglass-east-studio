@@ -1,0 +1,17 @@
+{
+ "groups": 190,
+ "tolerance_m": 0.015,
+ "clashes": [
+  {
+   "v05": "V5_GOB-001_1",
+   "with": "V5_GOB-001_2",
+   "penetration_m": 0.213
+  },
+  {
+   "v05": "V5_GOB-001_2",
+   "with": "V5_GOB-001_3",
+   "penetration_m": 0.075
+  }
+ ],
+ "electrical_working_space_clear": true
+}

@@ -1,0 +1,371 @@
+{
+ "HYB-001": {
+  "clark_room": "Dead Room",
+  "count": 3,
+  "w_in": 45.7,
+  "h_in": 98,
+  "d_in": 9,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "barrel perforated wood 0.75 in shell, 4 in edges to 9 in centre, open rear, 30 in chains"
+ },
+ "DIF-001": {
+  "clark_room": "Resident Suite",
+  "count": 2,
+  "w_in": 52,
+  "h_in": 80,
+  "d_in": 5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "wooden fin diffuser, variable fin projection (not a QRD); demountable"
+ },
+ "DIF-003": {
+  "clark_room": "Live Room",
+  "count": 1,
+  "w_in": 52,
+  "h_in": 80,
+  "d_in": 5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "same design as DIF-001"
+ },
+ "DIF-004": {
+  "clark_room": "Vocal Booth",
+  "count": 1,
+  "w_in": 52,
+  "h_in": 80,
+  "d_in": 5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "same design as DIF-001"
+ },
+ "BTR-001": {
+  "clark_room": "Resident Suite",
+  "count": 2,
+  "w_in": 46.5,
+  "h_in": 15,
+  "d_in": 12,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "tapered foam trap, 12 in bottom to 6.2 in top depth, ~3 in fabric gap, solid wood back"
+ },
+ "BTR-002": {
+  "clark_room": "Live Room",
+  "count": 3,
+  "w_in": 46.5,
+  "h_in": 15,
+  "d_in": 12,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "same as BTR-001"
+ },
+ "BTR-003": {
+  "clark_room": "Vocal Booth",
+  "count": 1,
+  "w_in": 46.5,
+  "h_in": 15,
+  "d_in": 12,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "same as BTR-001"
+ },
+ "BTR-004": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 46.5,
+  "h_in": 15,
+  "d_in": 12,
+  "verification": "INHERITED FROM BTR-001",
+  "construction": "count owner-confirmed; dims inherited"
+ },
+ "ABS-001": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 49,
+  "h_in": 49,
+  "d_in": 5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "ceiling cloud; core/backing unverified"
+ },
+ "ABS-003": {
+  "clark_room": "Dead Room",
+  "count": 2,
+  "w_in": 134,
+  "h_in": 30,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul full 4 in, blue fabric, mesh back, no backboard"
+ },
+ "PAN-001": {
+  "clark_room": "Dead Room",
+  "count": 3,
+  "w_in": 24.8,
+  "h_in": 97,
+  "d_in": 5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul full 5 in, wood frame, mesh back, mounted direct to wall"
+ },
+ "PAN-002": {
+  "clark_room": "Vocal Booth",
+  "count": 1,
+  "w_in": 18,
+  "h_in": 36,
+  "d_in": 2,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul full 2 in, mesh back"
+ },
+ "ABS-004": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 49,
+  "h_in": 24,
+  "d_in": 4,
+  "verification": "POLYGON NOT MEASURED",
+  "construction": "tapered cloud 49 / 10.2 in edges, 24 in across, recessed light"
+ },
+ "ABS-005": {
+  "clark_room": "Sunny Suite",
+  "count": 2,
+  "w_in": 55.5,
+  "h_in": 46,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "fabric panel, core unknown"
+ },
+ "ABS-006": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 95.5,
+  "h_in": 13.4,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "blue strip panel, core unknown"
+ },
+ "ABS-007": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 48,
+  "h_in": 24,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "panel, core unknown"
+ },
+ "ABS-008": {
+  "clark_room": "Sunny Suite",
+  "count": 2,
+  "w_in": 46,
+  "h_in": 55,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "tan fabric panel, core unknown"
+ },
+ "ABS-009": {
+  "clark_room": "Sunny Suite",
+  "count": 2,
+  "w_in": 25.1,
+  "h_in": 58,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "blue fabric panel, core unknown"
+ },
+ "ABS-010": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 25.1,
+  "h_in": 58,
+  "d_in": null,
+  "verification": "DUPLICATION CHECK",
+  "construction": "blue panel; size inferred; may be ABS-014"
+ },
+ "ABS-011": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 85,
+  "h_in": 49,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "tan fabric panel, core unknown"
+ },
+ "ABS-012": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 36.5,
+  "h_in": 24,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "blue panel, core unknown"
+ },
+ "ABS-013": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 36.5,
+  "h_in": 24,
+  "d_in": null,
+  "verification": "DEPTH UNKNOWN",
+  "construction": "blue panel, core unknown"
+ },
+ "ABS-014": {
+  "clark_room": "Sunny Suite",
+  "count": 1,
+  "w_in": 25.1,
+  "h_in": 58,
+  "d_in": null,
+  "verification": "DUPLICATION CHECK",
+  "construction": "possible duplicate of ABS-010"
+ },
+ "ABS-015": {
+  "clark_room": "Vocal Booth",
+  "count": 1,
+  "w_in": 55.5,
+  "h_in": 45.5,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul core confirmed; fill extent/backing unknown"
+ },
+ "ABS-016": {
+  "clark_room": "Vocal Booth",
+  "count": 1,
+  "w_in": 25,
+  "h_in": 84,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul core confirmed; fill extent/backing unknown"
+ },
+ "GOB-001": {
+  "clark_room": "Live Room",
+  "count": 5,
+  "w_in": 49.7,
+  "h_in": 97,
+  "d_in": 3.6,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "wheeled gobo, Roxul, 103 in overall"
+ },
+ "GOB-002": {
+  "clark_room": "Live Room",
+  "count": 2,
+  "w_in": 55,
+  "h_in": 45.5,
+  "d_in": 3.5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "half-height wheeled gobo, pegboard both faces, fill unknown, 52 in overall"
+ },
+ "GOB-003": {
+  "clark_room": "Resident Suite",
+  "count": 5,
+  "w_in": 49.8,
+  "h_in": 96,
+  "d_in": 3,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul + burlap, suspended, no wheels"
+ },
+ "GOB-004": {
+  "clark_room": "Resident Suite",
+  "count": 1,
+  "w_in": 49.8,
+  "h_in": 96,
+  "d_in": 3,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul + burlap, ceiling-hung horizontal"
+ },
+ "GOB-005": {
+  "clark_room": "Resident Suite",
+  "count": 4,
+  "w_in": 45,
+  "h_in": 42,
+  "d_in": 3,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "Roxul + burlap, small"
+ },
+ "GOB-006": {
+  "clark_room": "Live Room",
+  "count": 2,
+  "w_in": 49.8,
+  "h_in": 96,
+  "d_in": 3,
+  "verification": "FAMILY MATCHED (NOT TAPED)",
+  "construction": "matched to GOB-003; verify on removal"
+ },
+ "PRF-001": {
+  "clark_room": "Live Room",
+  "count": 4,
+  "w_in": 24,
+  "h_in": 95,
+  "d_in": 1,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "perforated wood + fabric + air, 2 in shims"
+ },
+ "PRF-002": {
+  "clark_room": "Live Room",
+  "count": 3,
+  "w_in": 30,
+  "h_in": 60,
+  "d_in": 1,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "perforated wood + fabric + air, 2 in shims"
+ },
+ "WOOD-001": {
+  "clark_room": "Live Room",
+  "count": 6,
+  "w_in": 49.5,
+  "h_in": 15.8,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "hollow open-backed rustic wood box"
+ },
+ "WOOD-002": {
+  "clark_room": "Live Room",
+  "count": 2,
+  "w_in": 47,
+  "h_in": 15.3,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "hollow open-backed rustic wood box"
+ },
+ "WOOD-003": {
+  "clark_room": "Live Room",
+  "count": 1,
+  "w_in": 16.8,
+  "h_in": 37.8,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "hollow open-backed rustic wood box"
+ },
+ "WOOD-004": {
+  "clark_room": "Live Room",
+  "count": 1,
+  "w_in": 33,
+  "h_in": 10.5,
+  "d_in": 2.5,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "hollow open-backed rustic wood box"
+ },
+ "WOOD-005": {
+  "clark_room": "Live Room",
+  "count": 1,
+  "w_in": 18,
+  "h_in": 13,
+  "d_in": 4,
+  "verification": "DIMENSIONS DOCUMENTED",
+  "construction": "hollow open-backed rustic wood box"
+ },
+ "DIF-002": {
+  "clark_room": "Below Breakglass",
+  "count": null,
+  "w_in": null,
+  "h_in": null,
+  "d_in": null,
+  "verification": "COUNT UNKNOWN",
+  "construction": "slatted assembly, photo only"
+ },
+ "ABS-002": {
+  "clark_room": "Below Breakglass",
+  "count": null,
+  "w_in": null,
+  "h_in": null,
+  "d_in": null,
+  "verification": "COUNT UNKNOWN",
+  "construction": "thin wall panels, photo only"
+ },
+ "MAT-002": {
+  "clark_room": "Below Breakglass",
+  "count": null,
+  "w_in": null,
+  "h_in": null,
+  "d_in": null,
+  "verification": "COUNT UNKNOWN",
+  "construction": "paper-covered treatment, photo only"
+ }
+}

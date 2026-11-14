@@ -26,6 +26,7 @@ P = {k: v["value"] for k, v in SOL["params"].items()}
 G = geom(P)
 B = json.load(open(os.path.join(HERE, "scan_building_measurements.json")))
 MG = json.load(open(os.path.join(HERE, "monitoring_geometry.json")))
+V05 = os.environ.get("BG_VERSION", "v04") == "v05"   # v0.5 acoustic integration (default build = approved v0.4, unchanged)
 W, D, AX = G["W"], G["D"], G["xf"]
 
 # ------------------------------------------------------------------ building zones (local frame)
@@ -201,7 +202,13 @@ for nm, x, y, hbb in (("L", G["xL"], P["ypl"], G["hbbL"]), ("R", G["xR"], P["ypr
 S_ = lambda k: P[k]
 opening(wG, "Y0", min(S_("CR3.xe1"), S_("CR3.xe2")), max(S_("CR3.xe1"), S_("CR3.xe2")), 0, S_("CR3.he"), "gable_entry_door", "door_dark", "CR3 photo solve")
 opening(wG, "Y0", min(S_("CR3.xw1"), S_("CR3.xw2")), max(S_("CR3.xw1"), S_("CR3.xw2")), S_("CR3.hwb"), S_("CR3.hwt"), "gable_clerestory", "window", "CR3 photo solve")
-opening(wG, "Y0", min(S_("g_xi1"), S_("g_xi2")), max(S_("g_xi1"), S_("g_xi2")), 0, S_("g_hi"), "gable_interior_door", "door", "CR3 photo solve")
+if not V05:   # approved v0.4 kept as issued (erratum: this was modelled as a door)
+    opening(wG, "Y0", min(S_("g_xi1"), S_("g_xi2")), max(S_("g_xi1"), S_("g_xi2")), 0, S_("g_hi"), "gable_interior_door", "door", "CR3 photo solve")
+else:         # owner correction 14 Nov: an ELECTRICAL CABINET inside the barn, not a door; no hole in the gable
+    _cx0, _cx1 = min(S_("g_xi1"), S_("g_xi2")), max(S_("g_xi1"), S_("g_xi2"))
+    _cab = box("EX_CR_electrical_cabinet", _cx0, _cx1, 0.0, 0.25, 0.0, S_("g_hi"), "door", "13_EXISTING_OPENINGS", "OWNER-STATED type; outline PHOTO-SOLVED (CR3); depth UNKNOWN (0.25 m placeholder)")
+    _clr = box("QA_electrical_working_space", _cx0, _cx1, 0.25, 1.25, 0.0, 2.0, "door", "13_EXISTING_OPENINGS", "PLACEHOLDER 1.0 m working space (CEC Rule 2-308 intent; electrician to confirm)")
+    _clr.hide_render = True; _clr.display_type = "WIRE"
 opening(wG, "Y0", min(S_("CR3.gw1a"), S_("CR3.gw1b")), max(S_("CR3.gw1a"), S_("CR3.gw1b")), S_("CR3.gw1s"), S_("CR3.gw1h"), "gable_window_E", "window", "CR3 photo solve (scan disagrees: ledger X8)")
 opening(wG, "Y0", min(S_("CR3.gw2a"), S_("CR3.gw2b")), max(S_("CR3.gw2a"), S_("CR3.gw2b")), S_("CR3.gw2s"), S_("CR3.gw2h"), "gable_window_W", "window", "CR3 photo solve")
 opening(wP, "YD", S_("CR1.xd1"), S_("CR1.xd2"), 0, S_("CR1.hd"), "partition_doorway", "void", "CR1/CR2 photo solve")
@@ -289,7 +296,8 @@ for o in [o for o in bpy.data.objects if o.name.startswith(("WINDOW_", "DOOR_"))
     for tgt in (bpy.data.objects["EX_siding_long_L"], bpy.data.objects["EX_siding_long_R"], gs_c, gs_l):
         tb = [tgt.matrix_world @ Vector(c) for c in tgt.bound_box]
         if min(xs_) - 0.8 < max(v.x for v in tb) and max(xs_) + 0.8 > min(v.x for v in tb) and min(ys_) - 0.8 < max(v.y for v in tb) and max(ys_) + 0.8 > min(v.y for v in tb):
-            cut(tgt, min(xs_) - 0.5 if tgt.name.startswith("EX_siding_long") else min(xs_), max(xs_) + 0.5 if tgt.name.startswith("EX_siding_long") else max(xs_),
+            XR = 0.9 if V05 else 0.5   # v0.5 fix: the right-hand control-room windows sit 0.7 m inside the siding; 0.5 m missed it (exterior only)
+            cut(tgt, min(xs_) - XR if tgt.name.startswith("EX_siding_long") else min(xs_), max(xs_) + XR if tgt.name.startswith("EX_siding_long") else max(xs_),
                 min(ys_) - (0 if tgt.name.startswith("EX_siding_long") else 0.6), max(ys_) + (0 if tgt.name.startswith("EX_siding_long") else 0.6), min(zs_), max(zs_), f"ext_{o.name}_{tgt.name[-1]}")
 cut(gs_c, min(S_("CR3.xe1"), S_("CR3.xe2")), max(S_("CR3.xe1"), S_("CR3.xe2")), EXT_G0 - 0.6, EXT_G0 + 0.6, 0, S_("CR3.he"), "ext_entry")
 cut(gs_l, AX - GD_W/2, AX + GD_W/2, EXT_G1 - 0.6, EXT_G1 + 0.6, F_LIVE, F_LIVE + GD_H, "ext_garage")
@@ -393,25 +401,26 @@ box("PR_CR_rug_mixpos", LPx - 2.0, LPx + 2.0, LPy - 2.6, LPy + 1.8, 0.012, 0.022
 # front wall: full-width deep broadband absorber (fabric), doorway kept open
 fw_y = D - 0.30
 STOVE_X0 = S_("g_xs") - 0.28 - 0.90   # keep ~0.9 m clear of the existing wood stove (clearances per its label / WETT)
-for nm, a, b in (("L", 0.0, STOVE_X0), ("R", S_("CR1.xd2") + 0.05, W)):
-    box(f"PR_front_absorber_{nm}", a, b, fw_y, D - 0.01, 0.0, 2.15, "fabric_dark", PR, "PROPOSED", "~300 mm broadband absorber, front wall; depth/spec by acoustician")
-box("PR_front_absorber_header", S_("CR1.xd1") - 0.05, S_("CR1.xd2") + 0.05, fw_y, D - 0.01, S_("CR1.hd") + 0.05, 2.15, "fabric_dark", PR, "PROPOSED")
-# side low zones: LF traps BELOW the sills (windows preserved), reclaimed-wood capped
-for nm, x0_, x1_ in (("L", 0.0, 0.75), ("R", W - 0.75, W)):
-    box(f"PR_bass_trap_{nm}", x0_, x1_, 0.6, D - 0.35, 0.0, SILL - 0.05, "fabric", PR, "PROPOSED", "LF trap under windows (~0.75 m deep); sizes by acoustician")
-    box(f"PR_bass_trap_cap_{nm}", x0_, x1_, 0.6, D - 0.35, SILL - 0.05, SILL - 0.01, "reclaimed", PR, "PROPOSED", "reclaimed Clark wood cap = window bench")
-# ceiling: absorptive cloud on the flat ceiling over the mix position (first-reflection zone)
-box("PR_ceiling_cloud", AX - 1.55, AX + 1.55, LPy - 0.6, st["L"][1] - 0.2, G["hc"] - 0.22, G["hc"] - 0.12, "fabric", PR, "PROPOSED", "suspended absorber; height/area by reflection analysis")
-# rear wall (gable): reclaimed-wood diffusion between the existing openings
-import random; random.seed(7)
-spans = [(0.3, min(S_("CR3.gw2a"), S_("CR3.gw2b")) - 0.1), (max(S_("CR3.gw2a"), S_("CR3.gw2b")) + 0.1, min(S_("CR3.xe1"), S_("CR3.xe2")) - 0.15),
-         (max(S_("CR3.xe1"), S_("CR3.xe2")) + 0.15, min(S_("g_xi1"), S_("g_xi2")) - 0.15)]
-for si, (a, b) in enumerate(spans):
-    x = a
-    while x + 0.09 < b:
-        d_ = random.choice((0.04, 0.08, 0.12, 0.16, 0.20, 0.12, 0.06))
-        box(f"PR_rear_diffuser_{si}_{x:.2f}", x, x + 0.085, 0.0, d_, 0.45, 2.25, "reclaimed", PR, "PROPOSED", "QRD-style slat diffuser from reclaimed Clark wood")
-        x += 0.095
+if not V05:   # v0.4 element, replaced in v0.5 by Clark assets / new build (model/v05_treatment.py)
+    for nm, a, b in (("L", 0.0, STOVE_X0), ("R", S_("CR1.xd2") + 0.05, W)):
+        box(f"PR_front_absorber_{nm}", a, b, fw_y, D - 0.01, 0.0, 2.15, "fabric_dark", PR, "PROPOSED", "~300 mm broadband absorber, front wall; depth/spec by acoustician")
+    box("PR_front_absorber_header", S_("CR1.xd1") - 0.05, S_("CR1.xd2") + 0.05, fw_y, D - 0.01, S_("CR1.hd") + 0.05, 2.15, "fabric_dark", PR, "PROPOSED")
+    # side low zones: LF traps BELOW the sills (windows preserved), reclaimed-wood capped
+    for nm, x0_, x1_ in (("L", 0.0, 0.75), ("R", W - 0.75, W)):
+        box(f"PR_bass_trap_{nm}", x0_, x1_, 0.6, D - 0.35, 0.0, SILL - 0.05, "fabric", PR, "PROPOSED", "LF trap under windows (~0.75 m deep); sizes by acoustician")
+        box(f"PR_bass_trap_cap_{nm}", x0_, x1_, 0.6, D - 0.35, SILL - 0.05, SILL - 0.01, "reclaimed", PR, "PROPOSED", "reclaimed Clark wood cap = window bench")
+    # ceiling: absorptive cloud on the flat ceiling over the mix position (first-reflection zone)
+    box("PR_ceiling_cloud", AX - 1.55, AX + 1.55, LPy - 0.6, st["L"][1] - 0.2, G["hc"] - 0.22, G["hc"] - 0.12, "fabric", PR, "PROPOSED", "suspended absorber; height/area by reflection analysis")
+    # rear wall (gable): reclaimed-wood diffusion between the existing openings
+    import random; random.seed(7)
+    spans = [(0.3, min(S_("CR3.gw2a"), S_("CR3.gw2b")) - 0.1), (max(S_("CR3.gw2a"), S_("CR3.gw2b")) + 0.1, min(S_("CR3.xe1"), S_("CR3.xe2")) - 0.15),
+             (max(S_("CR3.xe1"), S_("CR3.xe2")) + 0.15, min(S_("g_xi1"), S_("g_xi2")) - 0.15)]
+    for si, (a, b) in enumerate(spans):
+        x = a
+        while x + 0.09 < b:
+            d_ = random.choice((0.04, 0.08, 0.12, 0.16, 0.20, 0.12, 0.06))
+            box(f"PR_rear_diffuser_{si}_{x:.2f}", x, x + 0.085, 0.0, d_, 0.45, 2.25, "reclaimed", PR, "PROPOSED", "QRD-style slat diffuser from reclaimed Clark wood")
+            x += 0.095
 # Quiet Light: concealed cove lighting along the beam lines washing the sloped planes and flat ceiling
 for nm, x, z in (("L", G["xL"] + 0.12, G["hbL"] + 0.02), ("R", G["xR"] - 0.12, G["hbR"] + 0.02)):
     box(f"PR_cove_{nm}", x - 0.03, x + 0.03, 0.15, D - 0.15, z, z + 0.02, "cove", PR, "PROPOSED", "dimmable tunable-white LED cove (Turrell-like wash)")
@@ -425,20 +434,23 @@ box("PR_sofa", AX - 1.4, AX + 1.4, SOFA_Y0, SOFA_Y0 + 0.95, 0.0, 0.45, "sofa", P
 box("PR_sofa_back", AX - 1.4, AX + 1.4, SOFA_Y0, SOFA_Y0 + 0.22, 0.45, 0.85, "sofa", PR, "PROPOSED")
 for nm, x in (("L", AX - 1.4), ("R", AX + 1.25)):
     box(f"PR_sofa_arm_{nm}", x, x + 0.15, SOFA_Y0, SOFA_Y0 + 0.95, 0.45, 0.65, "sofa", PR, "PROPOSED")
-for nm, x in (("L", AX - 2.75), ("R", AX + 2.75)):   # extra cinema seats beside the sofa
-    box(f"PR_cinema_chair_{nm}", x - 0.40, x + 0.40, 1.05, 1.85, 0.0, 0.42, "sofa", PR, "PROPOSED")
-    box(f"PR_cinema_chair_{nm}_back", x - 0.40, x + 0.40, 1.05, 1.25, 0.42, 0.85, "sofa", PR, "PROPOSED")
+if not V05:   # v0.4 element, replaced in v0.5 by Clark assets / new build (model/v05_treatment.py)
+    for nm, x in (("L", AX - 2.75), ("R", AX + 2.75)):   # extra cinema seats beside the sofa
+        box(f"PR_cinema_chair_{nm}", x - 0.40, x + 0.40, 1.05, 1.85, 0.0, 0.42, "sofa", PR, "PROPOSED")
+        box(f"PR_cinema_chair_{nm}_back", x - 0.40, x + 0.40, 1.05, 1.25, 0.42, 0.85, "sofa", PR, "PROPOSED")
 # fireside lounge around the EXISTING wood stove (kept by owner), behind the speakers
 LOUNGE_Y = (st["L"][1] + D) / 2
-box("PR_lounge_rug", S_("g_xs") - 2.0, S_("g_xs") + 0.6, st["L"][1] + 0.55, D - 0.75, 0.012, 0.022, "rug", PR, "PROPOSED", "fireside lounge (low, soft furniture below ~1 m)")
+if not V05:   # v0.4 element, replaced in v0.5 by Clark assets / new build (model/v05_treatment.py)
+    box("PR_lounge_rug", S_("g_xs") - 2.0, S_("g_xs") + 0.6, st["L"][1] + 0.55, D - 0.75, 0.012, 0.022, "rug", PR, "PROPOSED", "fireside lounge (low, soft furniture below ~1 m)")
 box("PR_hearth_pad", S_("g_xs") - 0.65, S_("g_xs") + 0.65, ys - 0.85, D - 0.02, 0.012, 0.03, "ex_concrete", PR, "PROPOSED", "non-combustible hearth pad (size per stove label / WETT)")
-for k, (dx, dy, r) in enumerate(((-1.45, -0.45, -90), (-1.25, -1.45, -55))):   # left of the stove: doorway route stays clear
-    e = bpy.data.objects.new(f"PR_lounge_chair_{k}", None); col(PR).objects.link(e)
-    for o in (box(f"PR_lounge_chair_{k}_seat", -0.42, 0.42, -0.40, 0.40, 0.0, 0.40, "sofa", PR, "PROPOSED"),
-              box(f"PR_lounge_chair_{k}_back", -0.42, 0.42, -0.40, -0.20, 0.40, 0.80, "sofa", PR, "PROPOSED")):
-        o.parent = e
-    e.location = (S_("g_xs") + dx, ys + dy, 0); e.rotation_euler = (0, 0, math.radians(180 + r))
-box("PR_lounge_table", S_("g_xs") - 1.05, S_("g_xs") - 0.55, ys - 1.25, ys - 0.70, 0.0, 0.38, "reclaimed", PR, "PROPOSED")
+if not V05:   # v0.4 element, replaced in v0.5 by Clark assets / new build (model/v05_treatment.py)
+    for k, (dx, dy, r) in enumerate(((-1.45, -0.45, -90), (-1.25, -1.45, -55))):   # left of the stove: doorway route stays clear
+        e = bpy.data.objects.new(f"PR_lounge_chair_{k}", None); col(PR).objects.link(e)
+        for o in (box(f"PR_lounge_chair_{k}_seat", -0.42, 0.42, -0.40, 0.40, 0.0, 0.40, "sofa", PR, "PROPOSED"),
+                  box(f"PR_lounge_chair_{k}_back", -0.42, 0.42, -0.40, -0.20, 0.40, 0.80, "sofa", PR, "PROPOSED")):
+            o.parent = e
+        e.location = (S_("g_xs") + dx, ys + dy, 0); e.rotation_euler = (0, 0, math.radians(180 + r))
+    box("PR_lounge_table", S_("g_xs") - 1.05, S_("g_xs") - 0.55, ys - 1.25, ys - 0.70, 0.0, 0.38, "reclaimed", PR, "PROPOSED")
 # mix chair
 box("PR_mix_chair_seat", LPx - 0.28, LPx + 0.28, LPy - 0.30, LPy + 0.22, 0.45, 0.55, "fabric_dark", PR, "PROPOSED")
 box("PR_mix_chair_back", LPx - 0.25, LPx + 0.25, LPy - 0.36, LPy - 0.30, 0.55, 1.05, "fabric_dark", PR, "PROPOSED")
@@ -451,6 +463,12 @@ for k in ("C", "Ls", "Rs", "Lrs", "Rrs", "Ltf", "Rtf", "Ltr", "Rtr"):
     b_ = box(f"PR_imm_{k}_cab", -0.14, 0.14, -0.12, 0.12, -0.20, 0.20, "spk_small", PR, "PROPOSED", "compact coaxial monitor, model TBD (e.g. smaller Geithain family)")
     d_ = cyl(f"PR_imm_{k}_driver", 0.09, 0.01, (0, 0.121, 0.02), "spk_cone", PR, rot=(math.pi/2, 0, 0), verts=24)
     b_.parent = e; d_.parent = e; e.location = (x, y, z); e.rotation_euler = (0, 0, -yaw) if z < 2 else (-math.radians(35) * (1 if y > LPy else -1), 0, -yaw)
+    if V05:   # v0.5 fix (owner review): tilt is applied before yaw, so every overhead aims DOWN; aim exactly at the ears
+        el = math.atan2(z - st["listening_position"][2], math.hypot(LPx - x, LPy - y))
+        e.rotation_euler = (-el, 0, -yaw)
+        bpy.context.view_layer.update()
+        ax_ = (e.matrix_world.to_3x3() @ Vector((0, 1, 0))).normalized(); to_lp = (Vector(st["listening_position"]) - Vector((x, y, z))).normalized()
+        assert math.degrees(ax_.angle(to_lp)) < 2.0, f"PR_imm_{k} not aimed at the LP"
     if z < 2.0:
         box(f"PR_imm_{k}_stand", x - 0.12, x + 0.12, y - 0.12, y + 0.12, 0, z - 0.2, "steel_black", PR, "PROPOSED")
     else:
@@ -495,24 +513,25 @@ def grand_piano(x, y, rot_deg, L=2.13, Wd=1.52):
     for o in [body, lid, kb] + legs: o.parent = e
     e.location = (x, y, F_LIVE); e.rotation_euler = (0, 0, math.radians(rot_deg)); return e
 grand_piano(AX - 1.4, Y_LOFT_END + 2.6, -25)
-for k in range(4):   # string quartet arc facing each other
+for k in (range(4) if not V05 else ()):   # v0.4 string quartet arc; v0.5 shows a band backline instead (model/v05_backline.py)
     a = math.radians(200 + k * 45); cx_, cy_ = AX + 2.2, Y_LOFT_END + 4.6
     x, y = cx_ + 1.2 * math.cos(a), cy_ + 1.2 * math.sin(a)
     box(f"PR_quartet_chair_{k}", x - 0.22, x + 0.22, y - 0.22, y + 0.22, F_LIVE + 0.44, F_LIVE + 0.48, "reclaimed", PL, "PROPOSED")
     for lx, ly in ((-0.18, -0.18), (0.18, -0.18), (-0.18, 0.18), (0.18, 0.18)):
         box(f"PR_quartet_chair_{k}_leg", x + lx - 0.015, x + lx + 0.015, y + ly - 0.015, y + ly + 0.015, F_LIVE, F_LIVE + 0.44, "steel_black", PL, "PROPOSED")
     box(f"PR_quartet_stand_{k}", x - 0.01 + 0.4*math.cos(a+math.pi), x + 0.01 + 0.4*math.cos(a+math.pi), y - 0.01 + 0.4*math.sin(a+math.pi), y + 0.01 + 0.4*math.sin(a+math.pi), F_LIVE, F_LIVE + 1.1, "steel_black", PL, "PROPOSED")
-for k, (x, y, r) in enumerate(((AX - 3.4, Y_LOFT_END + 4.4, 70), (AX - 3.0, Y_LOFT_END + 5.9, 100), (AX + 0.4, Y_LOFT_END + 6.6, 0), (AX + 3.9, Y_LOFT_END + 2.6, 120))):
-    e = bpy.data.objects.new(f"PR_gobo_{k}", None); col(PL).objects.link(e)
-    p_ = box(f"PR_gobo_{k}_panel", -0.6, 0.6, -0.05, 0.05, 0.12, 1.92, "gobo", PL, "PROPOSED", "movable gobo: reclaimed wood one face, absorptive other")
-    w_ = box(f"PR_gobo_{k}_base", -0.55, 0.55, -0.2, 0.2, 0, 0.12, "steel", PL, "PROPOSED")
-    p_.parent = e; w_.parent = e; e.location = (x, y, F_LIVE); e.rotation_euler = (0, 0, math.radians(r))
-# variable-acoustic hinged panels on the live-room side walls (tray zone, between windows)
-for side, x in (("L", LIVE_L + 0.06), ("R", LIVE_R - 0.06)):
-    for k in range(5):
-        y0_ = Y_LOFT_END + 0.6 + k * 1.45
-        box(f"PR_LV_varpanel_{side}{k}", x - 0.04, x + 0.04, y0_, y0_ + 1.2, F_LIVE + 0.3, F_LIVE + 2.3, "reclaimed" if k % 2 else "fabric", PL, "PROPOSED",
-            "hinged variable-acoustic panel: absorptive / reflective faces")
+if not V05:   # v0.4 element, replaced in v0.5 by Clark assets / new build (model/v05_treatment.py)
+    for k, (x, y, r) in enumerate(((AX - 3.4, Y_LOFT_END + 4.4, 70), (AX - 3.0, Y_LOFT_END + 5.9, 100), (AX + 0.4, Y_LOFT_END + 6.6, 0), (AX + 3.9, Y_LOFT_END + 2.6, 120))):
+        e = bpy.data.objects.new(f"PR_gobo_{k}", None); col(PL).objects.link(e)
+        p_ = box(f"PR_gobo_{k}_panel", -0.6, 0.6, -0.05, 0.05, 0.12, 1.92, "gobo", PL, "PROPOSED", "movable gobo: reclaimed wood one face, absorptive other")
+        w_ = box(f"PR_gobo_{k}_base", -0.55, 0.55, -0.2, 0.2, 0, 0.12, "steel", PL, "PROPOSED")
+        p_.parent = e; w_.parent = e; e.location = (x, y, F_LIVE); e.rotation_euler = (0, 0, math.radians(r))
+    # variable-acoustic hinged panels on the live-room side walls (tray zone, between windows)
+    for side, x in (("L", LIVE_L + 0.06), ("R", LIVE_R - 0.06)):
+        for k in range(5):
+            y0_ = Y_LOFT_END + 0.6 + k * 1.45
+            box(f"PR_LV_varpanel_{side}{k}", x - 0.04, x + 0.04, y0_, y0_ + 1.2, F_LIVE + 0.3, F_LIVE + 2.3, "reclaimed" if k % 2 else "fabric", PL, "PROPOSED",
+                "hinged variable-acoustic panel: absorptive / reflective faces")
 # industrial pendants in the tray zone
 for k in range(4):
     y_ = Y_LOFT_END + 1.2 + k * 1.9
@@ -521,6 +540,13 @@ for k in range(4):
 box("PR_loft_guard_rail", AX - 0.95, AX + 0.95, Y_LOFT_END - 0.26, Y_LOFT_END - 0.20, LOFT_DECK + 1.02, LOFT_DECK + 1.07, "steel", PL, "PROPOSED", "guard at loft overlook (code height/infill by architect)")
 for gx in (AX - 0.95, AX, AX + 0.95):
     box(f"PR_loft_guard_post_{gx:.2f}", gx - 0.025, gx + 0.025, Y_LOFT_END - 0.26, Y_LOFT_END - 0.20, LOFT_DECK, LOFT_DECK + 1.02, "steel", PL, "PROPOSED")
+
+# ================================================================== v0.5: Clark assets, new treatment, corrected lounge
+SWIVEL_A = None
+if V05:
+    import v05_treatment
+    SWIVEL_A = v05_treatment.build(globals())
+    import v05_backline; print("backline objects:", v05_backline.build(globals()))   # owner request 14 Nov: drums, amps, mic stands
 
 # ================================================================== lights, world, cameras, render
 world = bpy.data.worlds.new("World"); scene.world = world; world.use_nodes = True
@@ -550,6 +576,20 @@ CAMS = {
  "exterior":      ((-9.0, -12.0, 1.7), (AX, 10.0, 1.5), 26),
  "axo_cutaway":   ((-14.0, -10.0, 16.0), (AX, 15.0, 0.0), 24),
 }
+if V05:   # extra v0.5 views (the v0.4 cameras above are kept identical for matched comparisons)
+    CAMS.update({
+     "cr_fire_seat":  ((1.75, 4.30, 1.60), (S_("g_xs") - 0.2, ys - 0.2, 0.55), 22),
+     "cr_ceiling":    ((AX - 2.4, 0.9, 1.45), (AX + 0.3, 5.2, 3.6), 16),
+     "live_drums":    ((AX - 3.6, Y_LIVE_G - 1.0, 1.75), (AX + 3.0, Y_LOFT_END + 1.0, 0.9), 18),
+     # owner request 14 Nov: high views back toward the entrance over the console (sofa, armchairs, door, diffusers)
+     "cr_overview_rear":   ((AX + 0.9, 7.15, 3.05), (AX - 0.2, 0.4, 0.75), 17),
+     "cr_overview_rear_L": ((3.05, 7.45, 2.70), (AX + 0.9, 0.4, 0.70), 17),
+     # exterior presentation views (owner request 14 Nov), framed like the owner's site photos
+     "ext_entry":      ((20.5, -14.5, 1.60), (4.0, 9.0, 2.7), 28),
+     "ext_live_gable": ((23.0, 47.0, 1.60), (5.0, 22.0, 2.4), 28),
+     "ext_aerial":     ((27.0, -17.0, 15.0), (6.0, 14.0, 0.0), 26),
+     "ext_entry_dusk": ((20.5, -14.5, 1.60), (4.0, 9.0, 2.7), 28),
+    })
 cam_obs = {}
 for k, (loc, tgt, lens) in CAMS.items():
     c = bpy.data.cameras.new(k); c.lens = lens; c.sensor_width = 36; c.clip_start = 0.05; c.clip_end = 200
@@ -564,29 +604,37 @@ scene.cycles.samples = int(os.environ.get("BG_SAMPLES", 96)); scene.cycles.use_d
 scene.cycles.max_bounces = 6
 scene.render.resolution_x, scene.render.resolution_y = int(os.environ.get("BG_RES_X", 1600)), int(os.environ.get("BG_RES_Y", 900))
 scene.view_settings.view_transform = "AgX"; scene.view_settings.look = "AgX - Base Contrast"
-blend = os.path.join(HERE, "breakglass_east_v04.blend")
+blend = os.path.join(HERE, "breakglass_east_v05.blend" if V05 else "breakglass_east_v04.blend")
 bpy.ops.wm.save_as_mainfile(filepath=blend); print("saved", blend)
+if V05: print("scenarios:", v05_treatment.apply_scenarios(globals()))   # render-time only; the saved model keeps the full design
+LOOK = os.environ.get("BG_LOOK") == "photo"   # presentation look pass: materials/lighting/render settings only (model/lookdev.py)
+if LOOK:
+    import lookdev; print("look:", lookdev.apply(globals()))
 
 INTERIOR_HIDE = ["EX_roof_metal", "EX_siding_long_L", "EX_siding_long_R", "EX_siding_gable_control", "EX_siding_gable_live", "EX_ground"]
 if os.environ.get("BG_RENDER"):
     out = os.path.join(ROOT, "renders", "design"); os.makedirs(out, exist_ok=True)
     only = [s for s in os.environ.get("BG_ONLY", "").split(",") if s]
+    VIS0 = {nm: bpy.data.objects[nm].visible_camera for nm in ("EX_CR_ceiling", "EX_LV_tray_ceiling", "EX_MZ_ceiling", "EX_LOFT_deck", "EX_LV_underloft_foil", "EX_CR_wall_X0", "EX_LV_wall_L", "EX_MZ_extwall_L") if nm in bpy.data.objects}
     for k, o in cam_obs.items():
         if only and k not in only: continue
         scene.camera = o
-        interior = k not in ("exterior", "axo_cutaway")
+        interior = k not in ("exterior", "axo_cutaway") and not k.startswith("ext_")
         for nm in INTERIOR_HIDE:
             ob = bpy.data.objects[nm]; ob.visible_camera = not interior or nm == "EX_roof_metal" and False
             if nm == "EX_roof_metal": ob.hide_render = (k == "axo_cutaway")
         bpy.data.objects["EX_ground"].visible_camera = not interior
         for nm in ("EX_CR_ceiling", "EX_LV_tray_ceiling", "EX_MZ_ceiling", "EX_LOFT_deck", "EX_LV_underloft_foil", "EX_siding_long_L", "EX_CR_wall_X0", "EX_LV_wall_L", "EX_MZ_extwall_L", "EX_siding_gable_control"):
-            if nm in bpy.data.objects:
-                bpy.data.objects[nm].visible_camera = bpy.data.objects[nm].visible_camera if k != "axo_cutaway" else False
+            if nm in bpy.data.objects:   # restore after the axo cut-away (matters when views render after it, e.g. the v0.5 extras)
+                ob_ = bpy.data.objects[nm]
+                ob_.visible_camera = False if k == "axo_cutaway" else (ob_.visible_camera if nm in INTERIOR_HIDE else VIS0.setdefault(nm, ob_.visible_camera))
         cinema = (k == "cr_cinema")
+        if SWIVEL_A is not None: v05_treatment.set_mode(SWIVEL_A, cinema)   # swivel armchair A rolls to the rear row for films
         for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = not cinema   # retracted except in movie mode
         for L in bpy.data.lights:
             if L.type == "AREA" and L.name.startswith("cr_fill"): L.energy = (25 if cinema else (260 if L.name.endswith("1") else 160))
         M["screen"].node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 2.5 if cinema else 0.0
         M["cove"].node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 4 if cinema else 25
         sun.energy = 3.0 if not interior else 2.0
+        if LOOK: lookdev.per_view(globals(), k, cinema)
         scene.render.filepath = os.path.join(out, f"{k}{os.environ.get('BG_TAG', '')}.png"); bpy.ops.render.render(write_still=True); print("rendered", k)

@@ -1,0 +1,44 @@
+"""v0.5 phased planning costs (CAD, 2026, excl. taxes) = the owner's v0.4 lean budget with the acoustic lines revised.
+
+    python3 acoustics/costs_v05.py -> acoustics/out/costs_v05.csv / .json
+Planning allowances, not quotes (about -30 % / +50 %). v0.4 lines unchanged unless marked CHANGED / NEW.
+"""
+import csv, json, os
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
+# (#, phase, package, low, high, status, basis)
+L = [
+ ("1", "P0", "Permits and checks: municipal, CPTAQ/zoning call, insurer/WETT stove inspection", 500, 3000, "v0.4", "unchanged"),
+ ("2", "P0/P6", "Acoustics support: DIY measurement kit (REW + mic), optional remote acoustician consult", 300, 3000, "v0.4", "now also: empty-room + treated measurements (commissioning plan)"),
+ ("3", "P3", "Electrical (licensed master electrician): studio circuits, technical subpanel, cove LED, projector", 6000, 15000, "v0.4", "unchanged"),
+ ("4", "P3", "HVAC: move the Clark unit (licensed refrigeration tech)", 2000, 6000, "v0.4", "unchanged"),
+ ("5", "P4", "Wood stove stays; hearth pad and clearances", 0, 1500, "v0.4", "unchanged; clearances also govern lounge + PAN-001 position"),
+ ("6a", "P4", "Clark asset reuse in the control room: removal care, fabric repair, re-hanging 16 units (cleats, cable, Z-clips)", 1000, 3000, "CHANGED", "replaces v0.4 line 6 ($2k–8k) together with 6b–6f"),
+ ("6b", "P4", "NEW-01 under-sill LF bench traps ×2 (≈5.85 m each, 0.75 deep): mineral wool, framing, fabric, reclaimed-wood bench cap", 2000, 5000, "NEW", "≈9 m³ of wool; DIY labour"),
+ ("6c", "P4", "NEW-02 front-corner traps ×2 (floor to low ceiling)", 400, 1000, "NEW", ""),
+ ("6d", "P4", "NEW-03 heavy wool curtain + track across the gable entry door", 400, 1200, "NEW", "also cinema blackout / draught"),
+ ("6e", "P4", "NEW-07 front-wall stand-off frames (200 mm) + mineral wool behind ABS-003 / PAN-001", 400, 1000, "NEW", "turns the Clark panels into ~300 mm absorbers"),
+ ("6f", "P4", "NEW-05 mounting hardware: aircraft cable, chains, cleats, stand-offs (all rooms)", 500, 1500, "NEW", ""),
+ ("7", "P4", "Floor in Clark wood", 1500, 6000, "v0.4", "unchanged"),
+ ("8", "P5", "Live + support rooms: Clark gobos/panels re-hung (34 + 21 units), cover foil, fuel cabinet, CO alarm, floor boxes, NEW-06 covers", 2300, 7800, "CHANGED", "+$0.3k–0.8k for NEW-06 protective covers"),
+ ("9", "P6", "Studio wiring from Clark + tie-lines", 500, 3000, "v0.4", "unchanged"),
+ ("10", "P4", "Family cinema: projector, 3.0 m AT screen, mount / hush box", 6000, 20000, "v0.4", "unchanged"),
+ ("12", "P4", "One-touch movie mode (stereo now: streaming box + source switching into the Geithain monitor path)", 1500, 5000, "v0.4", "unchanged; the processor stays useful when 5.1 is added later"),
+ ("13", "P4", "NEW-04 fabric-faced folding shutters ×6 (blackout + late side reflections)", 1500, 4000, "CHANGED", "was blinds/shutters $1k–3k"),
+ ("14", "P7", "Grand piano from Clark", 5000, 5000, "v0.4", "unchanged"),
+ ("15", "P6", "Move from Clark (truck, movers, piano, crates) — now incl. 71 acoustic units", 4000, 12000, "v0.4", "acoustic units fit the same truck run (to confirm volume)"),
+ ("16", "P4", "Lighting materials", 1000, 4000, "v0.4", "unchanged"),
+ ("17", "P1", "Structural check of hung loads (ceiling clouds, HYB barrels, under-loft panels, screen, overhead speakers)", 500, 1500, "NEW", "engineer letter; loads per panel to be weighed"),
+ ("18", "P4", "Fireside lounge furniture: loveseat + 2 swivel armchairs on glides (replaces v0.4 lounge + cinema chairs)", 0, 3000, "NEW", "$0 if existing furniture is used"),
+]
+LATER = [("11", "P7", "Cinema 5.1 extras: centre behind the screen, side surrounds, subwoofer", 2000, 8000, "MOVED to later (owner 14 Nov)", "phase 1 is Geithain stereo only; films play through the RL 901K pair"),
+         ("19", "P7", "Complete immersive 7.1.4", 12000, 70000, "v0.4", "unchanged"),
+         ("20", "P7", "Live-room 'dead' configuration curtains (2 × ≈3 × 6 m heavy wool on tracks)", 1500, 4000, "NEW (optional)", "only if band tracking needs it after measurement")]
+lo = sum(r[3] for r in L); hi = sum(r[4] for r in L)
+res = {"essential_low": lo, "essential_high": hi, "contingency_low": round(lo * 0.10), "contingency_high": round(hi * 0.15),
+       "essential_incl_contingency": [round(lo * 1.10), round(hi * 1.15)], "later_low": sum(r[3] for r in LATER), "later_high": sum(r[4] for r in LATER),
+       "v04_essential": [35300, 109500], "v04_incl_contingency": [38830, 125925]}
+res["delta_vs_v04"] = [lo - 35300, hi - 109500]
+with open(os.path.join(OUT, "costs_v05.csv"), "w", newline="") as f:
+    w = csv.writer(f); w.writerow(["#", "phase", "package", "low_CAD", "high_CAD", "status", "basis"]); w.writerows(L + LATER)
+json.dump({"lines": L, "later": LATER, "totals": res}, open(os.path.join(OUT, "costs_v05.json"), "w"), indent=1)
+print(res)
