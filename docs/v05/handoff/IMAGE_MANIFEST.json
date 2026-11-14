@@ -1,0 +1,395 @@
+{
+ "commit": "6723110004b7e4630a26754f790712901e6a69c1",
+ "images": [
+  {
+   "path": "renders/design/ext_entry_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/ext_entry_v05_photo.png",
+   "section": "01 Site & building",
+   "title": "The barn from the entry gable",
+   "caption": "Existing barn at Ways Mills: control-room entry gable and the long east wall. Nothing on the exterior changes in v0.5.",
+   "kind": "render-photo",
+   "provenance": "Building geometry from the model; cladding/roof/trim type and colour from the owner's site photos (approximate). Lawn, grass, trees, sky and the entry-lamp glow are indicative context, not surveyed. Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": true
+  },
+  {
+   "path": "renders/design/ext_live_gable_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/ext_live_gable_v05_photo.png",
+   "section": "01 Site & building",
+   "title": "Live-room gable and machinery door",
+   "caption": "The live-room end keeps its large door for farm machinery; the studio works inside the existing envelope.",
+   "kind": "render-photo",
+   "provenance": "Building geometry from the model; cladding/roof/trim type and colour from the owner's site photos (approximate). Lawn, grass, trees, sky and the entry-lamp glow are indicative context, not surveyed. Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey). Door shown open as modelled.",
+   "hero": false
+  },
+  {
+   "path": "renders/design/ext_aerial_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/ext_aerial_v05_photo.png",
+   "section": "01 Site & building",
+   "title": "Aerial view",
+   "caption": "One continuous roof over control room, middle rooms and live room — no raised roof, no new primary partitions.",
+   "kind": "render-photo",
+   "provenance": "Building geometry from the model; cladding/roof/trim type and colour from the owner's site photos (approximate). Lawn, grass, trees, sky and the entry-lamp glow are indicative context, not surveyed. Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/ext_entry_dusk_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/ext_entry_dusk_v05_photo.png",
+   "section": "01 Site & building",
+   "title": "Dusk",
+   "caption": "The control room lit from inside at dusk.",
+   "kind": "render-photo",
+   "provenance": "Building geometry from the model; cladding/roof/trim type and colour from the owner's site photos (approximate). Lawn, grass, trees, sky and the entry-lamp glow are indicative context, not surveyed. Interior lighting is design intent.",
+   "hero": false
+  },
+  {
+   "path": "renders/design/axo_cutaway_v05.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/axo_cutaway_v05.png",
+   "section": "01 Site & building",
+   "title": "Cut-away axonometric",
+   "caption": "Roof and near walls removed to show the room sequence: control room, middle rooms, live room with loft.",
+   "kind": "render-standard",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_front_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_front_v05_photo.png",
+   "section": "02 Control room",
+   "title": "Control room — mix position",
+   "caption": "Spectra Sonics console and both Geithain RL 901Ks on the ±30° stereo triangle; ceiling halo and front Dead-Room panels above and behind.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": true
+  },
+  {
+   "path": "renders/design/cr_overview_rear_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_overview_rear_v05_photo.png",
+   "section": "02 Control room",
+   "title": "Control room — looking back to the entry",
+   "caption": "High view over the console to the sofa, armchairs, rear diffusers and the curtained entry door.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_overview_rear_L_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_overview_rear_L_v05_photo.png",
+   "section": "02 Control room",
+   "title": "Control room — rear left",
+   "caption": "The fireside side of the room from above the left speaker.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_console_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_console_v05_photo.png",
+   "section": "02 Control room",
+   "title": "The console",
+   "caption": "The actual Spectra Sonics console, modelled from photographs and measured dimensions.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_fireside_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_fireside_v05_photo.png",
+   "section": "02 Control room",
+   "title": "Fireside lounge (corrected)",
+   "caption": "Owner-authorised correction: the loveseat and swivel armchair now face the stove glass.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_fire_seat_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_fire_seat_v05_photo.png",
+   "section": "02 Control room",
+   "title": "From the fireside seat",
+   "caption": "The view a guest has from the lounge: fire, console and monitors.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_cinema_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_cinema_v05_photo.png",
+   "section": "02 Control room",
+   "title": "Cinema mode",
+   "caption": "Screen down, armchair A rolled to the rear row; phase 1 plays films through the RL 901K pair.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_front_v05_phase1.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_front_v05_phase1.png",
+   "section": "02 Control room",
+   "title": "Phase 1 — Geithain stereo only",
+   "caption": "Owner decision 14 Nov: phase 1 is the RL 901K pair only; immersive speakers and subs are later-phase.",
+   "kind": "render-standard",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_overview_rear_v05_phase1.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_overview_rear_v05_phase1.png",
+   "section": "02 Control room",
+   "title": "Phase 1 — open room",
+   "caption": "The same room without the immersive array: more open, fewer objects.",
+   "kind": "render-standard",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/cr_ceiling_v05.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/cr_ceiling_v05.png",
+   "section": "02 Control room",
+   "title": "Ceiling halo",
+   "caption": "GOB panels hung where the traced first reflections land: flat-ceiling cloud plus one panel on each slope.",
+   "kind": "render-standard",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/live_piano_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/live_piano_v05_photo.png",
+   "section": "03 Live room",
+   "title": "Live room — piano and ensemble",
+   "caption": "Grand piano with a mic pair, the band set-up (drums in the gobo booth, amps behind half-height screens) and Clark gobos under the existing tray ceiling. Backline is generic and indicative.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/live_band_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/live_band_v05_photo.png",
+   "section": "03 Live room",
+   "title": "Live room — the band set-up",
+   "caption": "Drum kit inside three wheeled Clark gobos (seen from its open side), piano with a mic pair, vocal / acoustic position and the guitar amp behind a half-height screen. Backline is generic and indicative.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": true
+  },
+  {
+   "path": "renders/design/live_drums_v05_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/live_drums_v05_photo.png",
+   "section": "03 Live room",
+   "title": "Live room — piano side",
+   "caption": "Piano with its mic pair, the vocal / acoustic position, and amps behind the half-height screens; machinery bays and aisle untouched. Backline is generic and indicative.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/live_farm_v05_farm_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/live_farm_v05_farm_photo.png",
+   "section": "03 Live room",
+   "title": "Farm mode",
+   "caption": "Piano covered on its dolly against the west wall, gobos nested, aisle clear for machinery.",
+   "kind": "render-photo",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py). Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/design/loft_overlook_v05_farm.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/design/loft_overlook_v05_farm.png",
+   "section": "03 Live room",
+   "title": "Farm mode from the loft",
+   "caption": "Looking down from the existing loft with the room cleared for farm use.",
+   "kind": "render-standard",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-501_control_room_treatment_plan.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-501_control_room_treatment_plan.png",
+   "section": "04 Drawings",
+   "title": "Control-room treatment plan",
+   "caption": "Control-room treatment plan (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-502_control_room_RCP.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-502_control_room_RCP.png",
+   "section": "04 Drawings",
+   "title": "Reflected ceiling plan",
+   "caption": "Reflected ceiling plan (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-503_control_room_elevations.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-503_control_room_elevations.png",
+   "section": "04 Drawings",
+   "title": "Elevations",
+   "caption": "Elevations (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-504_control_room_sections.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-504_control_room_sections.png",
+   "section": "04 Drawings",
+   "title": "Sections",
+   "caption": "Sections (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-505_monitoring_reflections.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-505_monitoring_reflections.png",
+   "section": "04 Drawings",
+   "title": "Monitoring geometry and first reflections",
+   "caption": "Monitoring geometry and first reflections (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-506_lounge_two_modes.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-506_lounge_two_modes.png",
+   "section": "04 Drawings",
+   "title": "Lounge: fireside and cinema modes",
+   "caption": "Lounge: fireside and cinema modes (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-511_live_room_treatment_configs.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-511_live_room_treatment_configs.png",
+   "section": "04 Drawings",
+   "title": "Live-room configurations A–D",
+   "caption": "Live-room configurations A–D (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "drawings/v05/PR-512_support_rooms_treatment.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/drawings/v05/PR-512_support_rooms_treatment.png",
+   "section": "04 Drawings",
+   "title": "Support rooms",
+   "caption": "Support rooms (v0.5, not for construction).",
+   "kind": "drawing",
+   "provenance": "Generated from the same model (model/make_v05_drawings.py). Magenta = provisional depth.",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/cr_console_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/cr_console_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/cr_fireside_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/cr_fireside_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/cr_front_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/cr_front_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/cr_overview_rear_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/cr_overview_rear_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/live_band_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/live_band_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/live_farm_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/live_farm_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v05_photo/live_piano_std_vs_photo.png",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v05_photo/live_piano_std_vs_photo.png",
+   "section": "05 Comparisons",
+   "title": "Standard vs photo look",
+   "caption": "Same camera, same geometry; only materials and lighting differ.",
+   "kind": "comparison",
+   "provenance": "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v04_v05/cr_front.jpg",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v04_v05/cr_front.jpg",
+   "section": "05 Comparisons",
+   "title": "v0.4 → v0.5: cr_front",
+   "caption": "Matched cameras: approved v0.4 on the left, v0.5 on the right.",
+   "kind": "comparison",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v04_v05/cr_fireside.jpg",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v04_v05/cr_fireside.jpg",
+   "section": "05 Comparisons",
+   "title": "v0.4 → v0.5: cr_fireside",
+   "caption": "Matched cameras: approved v0.4 on the left, v0.5 on the right.",
+   "kind": "comparison",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v04_v05/cr_rear.jpg",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v04_v05/cr_rear.jpg",
+   "section": "05 Comparisons",
+   "title": "v0.4 → v0.5: cr_rear",
+   "caption": "Matched cameras: approved v0.4 on the left, v0.5 on the right.",
+   "kind": "comparison",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  },
+  {
+   "path": "renders/compare_v04_v05/live_piano.jpg",
+   "url": "https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/6723110004b7e4630a26754f790712901e6a69c1/renders/compare_v04_v05/live_piano.jpg",
+   "section": "05 Comparisons",
+   "title": "v0.4 → v0.5: live_piano",
+   "caption": "Matched cameras: approved v0.4 on the left, v0.5 on the right.",
+   "kind": "comparison",
+   "provenance": "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey).",
+   "hero": false
+  }
+ ]
+}
