@@ -57,6 +57,8 @@ P.append(f"<p>Volume {cr['volume_m3']} m³ · Schroeder ≈ {cr['schroeder_Hz_at
          "Axial modes at the listening position: peaks 30.5 Hz (2,0,0), 62.8 Hz (0,3,0), 91.5 Hz (6,0,0); null 83.7 Hz (0,4,0). "
          "SBIR (omni ¼-wave): front wall 32 Hz, floor 67 Hz (console shadows the floor bounce), side walls 19–22 Hz; the RL 901K's cardioid bass weakens the front term.</p>")
 P.append("<h2>6. The treated control room</h2>")
+P.append("<p><i>High views back toward the entrance over the console (owner request): sofa, swivel armchairs, entry door with the wool curtain, DIF-001 diffusers, ceiling cloud and slope panels.</i></p>")
+for v in ("cr_overview_rear_v05", "cr_overview_rear_L_v05"): P.append(img(f"renders/design/{v}.png", 640))
 for v in ("cr_front_v05", "cr_ceiling_v05", "cr_rear_v05", "cr_cinema_v05"): P.append(img(f"renders/design/{v}.png", 640))
 P.append("<h2>7. Live room treatment plan and configurations</h2>")
 P.append(img("drawings/v05/PR-511_live_room_treatment_configs.png", 640))
