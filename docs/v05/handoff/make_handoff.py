@@ -45,10 +45,11 @@ for f, t, c in (
 # 3 live room
 for f, t, c in (
  ("live_piano_v05_photo", "Live room — piano and ensemble", "Grand piano with a mic pair, the band set-up (drums in the gobo booth, amps behind half-height screens) and Clark gobos under the existing tray ceiling. Backline is generic and indicative."),
- ("live_drums_v05_photo", "Live room — drums under the loft", "Drum kit inside three wheeled gobos, amps behind the half-height screens; machinery bays and aisle untouched. Backline is generic and indicative."),
+ ("live_band_v05_photo", "Live room — the band set-up", "Drum kit inside three wheeled Clark gobos (seen from its open side), piano with a mic pair, vocal / acoustic position and the guitar amp behind a half-height screen. Backline is generic and indicative."),
+ ("live_drums_v05_photo", "Live room — piano side", "Piano with its mic pair, the vocal / acoustic position, and amps behind the half-height screens; machinery bays and aisle untouched. Backline is generic and indicative."),
  ("live_farm_v05_farm_photo", "Farm mode", "Piano covered on its dolly against the west wall, gobos nested, aisle clear for machinery."),
 ):
-    add(f"renders/design/{f}.png", "03 Live room", t, c, "render-photo", f"{LOOK} {SHELL}", f.startswith("live_piano"))
+    add(f"renders/design/{f}.png", "03 Live room", t, c, "render-photo", f"{LOOK} {SHELL}", f.startswith("live_band"))
 add("renders/design/loft_overlook_v05_farm.png", "03 Live room", "Farm mode from the loft", "Looking down from the existing loft with the room cleared for farm use.", "render-standard", SHELL)
 # 4 drawings
 for f, t in (("PR-501_control_room_treatment_plan", "Control-room treatment plan"), ("PR-502_control_room_RCP", "Reflected ceiling plan"),
