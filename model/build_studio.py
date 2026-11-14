@@ -576,6 +576,11 @@ if V05:   # extra v0.5 views (the v0.4 cameras above are kept identical for matc
      # owner request 14 Nov: high views back toward the entrance over the console (sofa, armchairs, door, diffusers)
      "cr_overview_rear":   ((AX + 0.9, 7.15, 3.05), (AX - 0.2, 0.4, 0.75), 17),
      "cr_overview_rear_L": ((3.05, 7.45, 2.70), (AX + 0.9, 0.4, 0.70), 17),
+     # exterior presentation views (owner request 14 Nov), framed like the owner's site photos
+     "ext_entry":      ((20.5, -14.5, 1.60), (4.0, 9.0, 2.7), 28),
+     "ext_live_gable": ((23.0, 47.0, 1.60), (5.0, 22.0, 2.4), 28),
+     "ext_aerial":     ((27.0, -17.0, 15.0), (6.0, 14.0, 0.0), 26),
+     "ext_entry_dusk": ((20.5, -14.5, 1.60), (4.0, 9.0, 2.7), 28),
     })
 cam_obs = {}
 for k, (loc, tgt, lens) in CAMS.items():
@@ -606,7 +611,7 @@ if os.environ.get("BG_RENDER"):
     for k, o in cam_obs.items():
         if only and k not in only: continue
         scene.camera = o
-        interior = k not in ("exterior", "axo_cutaway")
+        interior = k not in ("exterior", "axo_cutaway") and not k.startswith("ext_")
         for nm in INTERIOR_HIDE:
             ob = bpy.data.objects[nm]; ob.visible_camera = not interior or nm == "EX_roof_metal" and False
             if nm == "EX_roof_metal": ob.hide_render = (k == "axo_cutaway")

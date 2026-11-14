@@ -1,8 +1,11 @@
 """Presentation look-development pass (BG_LOOK=photo). Materials, lighting and render settings ONLY.
 
-No object is moved, added to the building, removed or reshaped: geometry, cameras and the saved .blend are
-exactly the v0.5 model. The single added item is a fire-glow emitter inside the existing stove's door
-(presentation lighting, tagged LOOKDEV). Materials express the documented design intent (oak floor, pale
+No building object is moved, removed or reshaped: geometry and the saved .blend are exactly the v0.5 model
+(the look is applied after saving). Added presentation items, all tagged LOOKDEV and never saved:
+a fire-glow emitter in the existing stove door; thin white window/door casings, an eave fascia and an entry lamp
+(type/colour PHOTO-OBSERVED in the owner's site photos); and indicative site context (lawn, foreground grass strands,
+a distant treeline, procedural clouds) that is not surveyed. The modelled EX_ground box is swapped for a seamless
+disk at the same grade in look renders only. Materials express the documented design intent (oak floor, pale
 plaster tones, wool, burlap, walnut, concrete); existing-finish appearance (U9) stays a neutral matte paint
 because the real lining is unknown — no panel seams or textures are invented for it.
 Textures are procedural (no external downloads), mapped in world space so they are continuous across objects.
@@ -130,6 +133,202 @@ def glass(m):
     nt.links.new(sh.outputs["Value"], mx.inputs["Fac"]); nt.links.new(g.outputs["BSDF"], mx.inputs[1]); nt.links.new(tr.outputs["BSDF"], mx.inputs[2])
     nt.links.new(mx.outputs["Shader"], out.inputs["Surface"])
 
+def _xyz(nt):
+    geo = nt.nodes.new("ShaderNodeNewGeometry"); sp = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(geo.outputs["Position"], sp.inputs["Vector"]); return sp
+
+def _m(nt, op, a, b=None, c=None):
+    n = nt.nodes.new("ShaderNodeMath"); n.operation = op
+    for i, v in enumerate((a, b, c)):
+        if v is None: continue
+        if isinstance(v, (int, float)): n.inputs[i].default_value = v
+        else: nt.links.new(v, n.inputs[i])
+    return n.outputs["Value"]
+
+def siding(m, rgb, var=0.18, board=0.305, batten=0.07, ground=-0.5):
+    """Vertical board-and-batten, stained (PHOTO-OBSERVED exterior cladding). Walls are axis-aligned, so the
+    horizontal coordinate along any face is x + y; battens are raised strips every `board` metres."""
+    nt, b, _ = _clear(m); sp = _xyz(nt)
+    u = _m(nt, "ADD", sp.outputs["X"], sp.outputs["Y"])
+    q = _m(nt, "DIVIDE", u, board)
+    idx = _m(nt, "FLOOR", q); fr = _m(nt, "FRACT", q)
+    wn = nt.nodes.new("ShaderNodeTexWhiteNoise"); wn.noise_dimensions = "1D"; nt.links.new(idx, wn.inputs["W"])
+    bat = _m(nt, "LESS_THAN", fr, batten / board)
+    # vertical streaks + per-board tone + darker splash zone near grade
+    mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (14, 14, 0.7)
+    geo = nt.nodes.new("ShaderNodeNewGeometry"); nt.links.new(geo.outputs["Position"], mp.inputs["Vector"])
+    st = _noise(nt, mp.outputs["Vector"], 3.0, 8, 0.65)
+    tone = _m(nt, "MULTIPLY_ADD", wn.outputs["Value"], 0.5, st)
+    col = _ramp(nt, _m(nt, "MULTIPLY", tone, 0.67), [c * (1 - var) for c in rgb], [min(1, c * (1 + var)) for c in rgb])
+    splash = nt.nodes.new("ShaderNodeMapRange"); splash.inputs["From Min"].default_value = ground; splash.inputs["From Max"].default_value = ground + 0.7
+    splash.inputs["To Min"].default_value = 0.55; splash.inputs["To Max"].default_value = 1.0; nt.links.new(sp.outputs["Z"], splash.inputs["Value"])
+    mix = nt.nodes.new("ShaderNodeMixRGB"); mix.blend_type = "MULTIPLY"; mix.inputs["Fac"].default_value = 1.0
+    nt.links.new(col, mix.inputs["Color1"])
+    cmb = nt.nodes.new("ShaderNodeCombineXYZ")
+    for k_ in "XYZ": nt.links.new(splash.outputs["Result"], cmb.inputs[k_])
+    nt.links.new(cmb.outputs["Vector"], mix.inputs["Color2"]); nt.links.new(mix.outputs["Color"], b.inputs["Base Color"])
+    b.inputs["Roughness"].default_value = 0.88
+    h = _m(nt, "ADD", bat, _m(nt, "MULTIPLY", st, 0.15))
+    bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 1.0; bump.inputs["Distance"].default_value = 0.02
+    nt.links.new(h, bump.inputs["Height"]); nt.links.new(bump.outputs["Normal"], b.inputs["Normal"])
+
+def roof_metal(m, rgb=(0.42, 0.45, 0.48), pitch=0.229, panel=0.914):
+    """Galvanised ribbed steel (PHOTO-OBSERVED). Ribs run down the slope, i.e. repeat along the ridge (Y)."""
+    nt, b, _ = _clear(m); sp = _xyz(nt)
+    fr = _m(nt, "FRACT", _m(nt, "DIVIDE", sp.outputs["Y"], pitch))
+    rib = nt.nodes.new("ShaderNodeMapRange"); rib.interpolation_type = "SMOOTHSTEP"
+    rib.inputs["From Min"].default_value = 0.0; rib.inputs["From Max"].default_value = 0.12; nt.links.new(fr, rib.inputs["Value"])
+    ribh = _m(nt, "SUBTRACT", 1.0, rib.outputs["Result"])
+    pidx = _m(nt, "FLOOR", _m(nt, "DIVIDE", sp.outputs["Y"], panel))
+    wn = nt.nodes.new("ShaderNodeTexWhiteNoise"); wn.noise_dimensions = "1D"; nt.links.new(pidx, wn.inputs["W"])
+    f = _noise(nt, _pos(nt, (0.6, 0.6, 0.6)), 2.0, 8, 0.6)
+    tone = _m(nt, "MULTIPLY_ADD", wn.outputs["Value"], 0.35, _m(nt, "MULTIPLY", f, 0.65))
+    nt.links.new(_ramp(nt, tone, [c * 0.88 for c in rgb], [min(1, c * 1.08) for c in rgb]), b.inputs["Base Color"])
+    b.inputs["Metallic"].default_value = 0.9
+    rr = nt.nodes.new("ShaderNodeMapRange"); rr.inputs["To Min"].default_value = 0.28; rr.inputs["To Max"].default_value = 0.5
+    nt.links.new(f, rr.inputs["Value"]); nt.links.new(rr.outputs["Result"], b.inputs["Roughness"])
+    bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 1.0; bump.inputs["Distance"].default_value = 0.03
+    nt.links.new(ribh, bump.inputs["Height"]); nt.links.new(bump.outputs["Normal"], b.inputs["Normal"])
+
+def grass(m):
+    """Autumn lawn as in the site photos (indicative context, not surveyed)."""
+    nt, b, _ = _clear(m)
+    big = _noise(nt, _pos(nt, (1, 1, 1)), 0.12, 6, 0.6); mid = _noise(nt, _pos(nt, (1, 1, 1)), 1.5, 6, 0.6)
+    c1 = _ramp(nt, big, (0.035, 0.085, 0.010), (0.11, 0.16, 0.022))
+    vo = nt.nodes.new("ShaderNodeTexVoronoi"); vo.inputs["Scale"].default_value = 9.0
+    nt.links.new(_pos(nt, (1, 1, 1)), vo.inputs["Vector"])
+    leaf = _m(nt, "LESS_THAN", vo.outputs["Distance"], 0.13)
+    leafc = nt.nodes.new("ShaderNodeMixRGB"); leafc.inputs["Fac"].default_value = 1.0
+    nt.links.new(c1, leafc.inputs["Color1"]); leafc.inputs["Color2"].default_value = (0.32, 0.11, 0.03, 1)
+    fac = _m(nt, "MULTIPLY", leaf, _m(nt, "GREATER_THAN", mid, 0.55)); nt.links.new(fac, leafc.inputs["Fac"])
+    nt.links.new(leafc.outputs["Color"], b.inputs["Base Color"]); b.inputs["Roughness"].default_value = 0.95
+    bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.6
+    nt.links.new(_noise(nt, _pos(nt, (1, 1, 1)), 140.0, 4, 0.7), bump.inputs["Height"]); nt.links.new(bump.outputs["Normal"], b.inputs["Normal"])
+
+def _exterior_dressing(g):
+    """PHOTO-OBSERVED trim (white window/door casings, light eave fascia) as thin presentation boxes on the
+    existing siding faces, plus indicative context trees. Collection LOOKDEV_EXTERIOR; never saved to the model."""
+    scene = bpy.context.scene
+    from mathutils import Vector
+    co = bpy.data.collections.new("LOOKDEV_EXTERIOR"); scene.collection.children.link(co)
+    def mat(name, rgb, rough):
+        mm = bpy.data.materials.new(name); mm.use_nodes = True; satin(mm, rgb, rough); return mm
+    white = mat("lookdev_trim_white", (0.80, 0.80, 0.78), 0.5)
+    def bx(nm, x0, x1, y0, y1, z0, z1, mm):
+        me = bpy.data.meshes.new(nm)
+        v = [(x0, y0, z0), (x1, y0, z0), (x1, y1, z0), (x0, y1, z0), (x0, y0, z1), (x1, y0, z1), (x1, y1, z1), (x0, y1, z1)]
+        me.from_pydata(v, [], [(0, 1, 2, 3), (4, 7, 6, 5), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)])
+        me.materials.append(mm); o = bpy.data.objects.new(nm, me); co.objects.link(o)
+        o["evidence_class"] = "LOOKDEV presentation trim (PHOTO-OBSERVED colour/type)"; return o
+    EL, ER, G0, G1 = g["EXT_L"], g["EXT_R"], g["EXT_G0"], g["EXT_G1"]; EXT_G0 = G0
+    w, t = 0.09, 0.025
+    for o in [o for o in bpy.data.objects if o.name.startswith(("WINDOW_", "DOOR_"))]:
+        bb = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        x0, x1 = min(v.x for v in bb), max(v.x for v in bb); y0, y1 = min(v.y for v in bb), max(v.y for v in bb); z0, z1 = min(v.z for v in bb), max(v.z for v in bb)
+        if x1 - x0 < 0.2:   # on a long wall
+            xf = EL - t if x0 < 6 else ER; xa, xb = (xf, xf + t) if x0 >= 6 else (EL - t, EL)
+            if x0 >= 6: xa, xb = ER, ER + t
+            for (ya, yb, za, zb) in ((y0 - w, y0, z0 - w, z1 + w), (y1, y1 + w, z0 - w, z1 + w), (y0, y1, z1, z1 + w), (y0, y1, z0 - w, z0)):
+                bx(f"LOOKDEV_trim_{o.name}", xa, xb, ya, yb, za, zb, white)
+        else:              # on a gable
+            ya, yb = (G0 - t, G0) if y0 < 15 else (G1, G1 + t)
+            for (xa, xb, za, zb) in ((x0 - w, x0, z0 - (0 if o.name.startswith("DOOR") else w), z1 + w), (x1, x1 + w, z0 - (0 if o.name.startswith("DOOR") else w), z1 + w), (x0, x1, z1, z1 + w)) + (((x0, x1, z0 - w, z0),) if o.name.startswith("WINDOW") else ()):
+                bx(f"LOOKDEV_trim_{o.name}", xa, xb, ya, yb, za, zb, white)
+    # eave fascia (light metal, PHOTO-OBSERVED) along both long eaves
+    roof = bpy.data.objects["EX_roof_metal"]; rb = [roof.matrix_world @ Vector(c) for c in roof.bound_box]
+    rx0, rx1 = min(v.x for v in rb), max(v.x for v in rb); ry0, ry1 = min(v.y for v in rb), max(v.y for v in rb)
+    import math as _m_
+    t13 = _m_.tan(_m_.radians(g["ROOF_PITCH"])); AX, RZ = g["AX"], g["ROOF_RIDGE"]
+    for xe in (rx0, rx1):
+        ze = RZ - t13 * abs(xe - AX)
+        bx("LOOKDEV_fascia", xe - 0.03 if xe > AX else xe, xe if xe > AX else xe + 0.03, ry0, ry1, ze - 0.16, ze + 0.09, white)
+    # indicative context trees (not surveyed; species/positions from the site photos only in spirit)
+    rng = __import__("random").Random(7)
+    bark = mat("lookdev_bark", (0.07, 0.05, 0.04), 0.9)
+    def leaves(name, rgb):
+        mm = bpy.data.materials.new(name); mm.use_nodes = True; nt, b_, _ = _clear(mm)
+        f = _noise(nt, _pos(nt, (1, 1, 1)), 4.0, 6, 0.6)
+        nt.links.new(_ramp(nt, f, [c * 0.6 for c in rgb], [min(1, c * 1.3) for c in rgb]), b_.inputs["Base Color"])
+        b_.inputs["Roughness"].default_value = 0.8; b_.inputs["Subsurface Weight"].default_value = 0.15
+        bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 1.0
+        vo = nt.nodes.new("ShaderNodeTexVoronoi"); vo.inputs["Scale"].default_value = 9.0; nt.links.new(_pos(nt, (1, 1, 1)), vo.inputs["Vector"])
+        nt.links.new(vo.outputs["Distance"], bump.inputs["Height"]); nt.links.new(bump.outputs["Normal"], b_.inputs["Normal"])
+        return mm
+    pine = leaves("lookdev_pine", (0.012, 0.03, 0.015))
+    autumn = [leaves("lookdev_leaf_a", (0.16, 0.06, 0.015)), leaves("lookdev_leaf_b", (0.18, 0.11, 0.02)), leaves("lookdev_leaf_c", (0.05, 0.07, 0.015))]
+    tex = bpy.data.textures.new("lookdev_clouds", "CLOUDS"); tex.noise_scale = 0.35; tex.noise_depth = 4
+    tex2 = bpy.data.textures.new("lookdev_clouds_fine", "CLOUDS"); tex2.noise_scale = 0.07; tex2.noise_depth = 2
+    def link_new(o): co.objects.link(o); o["evidence_class"] = "LOOKDEV context (indicative, not surveyed)"; return o
+    def cone(nm, loc, r, h, mm):
+        bpy.ops.mesh.primitive_cone_add(vertices=24, radius1=r, radius2=0.0, depth=h, location=loc)
+        o = bpy.context.active_object; o.name = nm; o.data.materials.append(mm)
+        for c_ in o.users_collection: c_.objects.unlink(o)
+        sub = o.modifiers.new("s", "SUBSURF"); sub.levels = 2; sub.render_levels = 2
+        d = o.modifiers.new("d", "DISPLACE"); d.texture = tex; d.strength = r * 0.35
+        d2 = o.modifiers.new("d2", "DISPLACE"); d2.texture = tex2; d2.strength = r * 0.12
+        return link_new(o)
+    def conifer(x, y, H):
+        n = 7
+        for i in range(n):
+            f = i / n; cone("LOOKDEV_pine", (x + rng.uniform(-.2, .2), y + rng.uniform(-.2, .2), g["GROUND"] + H * (0.18 + 0.72 * f)), H * 0.22 * (1 - 0.8 * f) + 0.3, H * 0.28, pine)
+    def broadleaf(x, y, H, mm):
+        for i in range(9):
+            bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=4, radius=H * rng.uniform(0.11, 0.19),
+                location=(x + rng.uniform(-1, 1) * H * 0.2, y + rng.uniform(-1, 1) * H * 0.2, g["GROUND"] + H * rng.uniform(0.55, 0.85)))
+            o = bpy.context.active_object; o.name = "LOOKDEV_crown"; o.data.materials.append(mm)
+            for c_ in o.users_collection: c_.objects.unlink(o)
+            d = o.modifiers.new("d", "DISPLACE"); d.texture = tex; d.strength = H * 0.07
+            d2 = o.modifiers.new("d2", "DISPLACE"); d2.texture = tex2; d2.strength = H * 0.025; link_new(o)
+    # entry lamp above the gable door (fixture PHOTO-OBSERVED in the owner's entry photo; lit only at dusk)
+    d_ = bpy.data.objects.get("DOOR_DARK_gable_entry_door")
+    if d_:
+        db = [d_.matrix_world @ Vector(c) for c in d_.bound_box]
+        lx = (min(v.x for v in db) + max(v.x for v in db)) / 2; lz = max(v.z for v in db) + 0.45
+        bx("LOOKDEV_entry_lamp_body", lx - 0.06, lx + 0.06, EXT_G0 - 0.12, EXT_G0, lz - 0.08, lz + 0.08, mat("lookdev_lamp", (0.05, 0.05, 0.05), 0.4))
+        Ld = bpy.data.lights.new("lookdev_entry_lamp", "SPOT"); Ld.energy = 0; Ld.color = (1.0, 0.75, 0.5); Ld.spot_size = math.radians(120); Ld.shadow_soft_size = 0.05
+        Lo = bpy.data.objects.new("lookdev_entry_lamp", Ld); Lo.location = (lx, EXT_G0 - 0.15, lz - 0.1); Lo.rotation_euler = (math.radians(20), 0, 0); co.objects.link(Lo)
+    # distant treeline ring only (context; no tree is placed near the building or in front of any camera)
+    for cl in range(26):   # clumps, as on the site photos (pine stands + mixed hardwoods)
+        ang = rng.uniform(0, 2 * math.pi); r = rng.uniform(50, 110); cx_, cy_ = 6 + r * math.cos(ang), 15 + r * math.sin(ang)
+        pine_clump = rng.random() < 0.45
+        for i in range(rng.randint(3, 8)):
+            x, y = cx_ + rng.gauss(0, 6), cy_ + rng.gauss(0, 6)
+            if pine_clump or rng.random() < 0.2: conifer(x, y, rng.uniform(13, 22))
+            else: broadleaf(x, y, rng.uniform(10, 17), autumn[rng.randrange(3)])
+    # foreground grass strands (hair) in front of the street-level cameras only
+    for nm, (x0, x1, y0, y1) in (("entry", (5.0, 27.0, -17.0, -0.6)), ("live", (3.0, 27.0, 31.3, 45.0))):
+        bpy.ops.mesh.primitive_plane_add(size=1, location=((x0 + x1) / 2, (y0 + y1) / 2, g["GROUND"] + 0.002))
+        gp = bpy.context.active_object; gp.name = f"LOOKDEV_grass_{nm}"; gp.scale = (x1 - x0, y1 - y0, 1)
+        bpy.ops.object.transform_apply(scale=True)
+        bpy.ops.object.mode_set(mode="EDIT"); bpy.ops.mesh.subdivide(number_cuts=40); bpy.ops.object.mode_set(mode="OBJECT")
+        vg = gp.vertex_groups.new(name="dens")
+        for v in gp.data.vertices:
+            d = min(v.co.x - x0, x1 - v.co.x, v.co.y - y0, y1 - v.co.y)
+            vg.add([v.index], max(0.0, min(1.0, d / 5.0)) ** 1.5, "REPLACE")
+        for c_ in gp.users_collection: c_.objects.unlink(gp)
+        link_new(gp); gp.data.materials.append(g["M"]["ex_ground"])
+        hm = bpy.data.materials.new("lookdev_grass_blade"); hm.use_nodes = True; hnt, hb, _ = _clear(hm)
+        hi = hnt.nodes.new("ShaderNodeHairInfo")
+        hr = hnt.nodes.new("ShaderNodeValToRGB"); hr.color_ramp.elements[0].color = (0.03, 0.075, 0.008, 1); hr.color_ramp.elements[1].color = (0.10, 0.15, 0.02, 1)
+        e = hr.color_ramp.elements.new(0.94); e.color = (0.22, 0.17, 0.05, 1)
+        hnt.links.new(hi.outputs["Random"], hr.inputs["Fac"]); hnt.links.new(hr.outputs["Color"], hb.inputs["Base Color"])
+        hb.inputs["Roughness"].default_value = 0.7; hb.inputs["Subsurface Weight"].default_value = 0.1
+        gp.data.materials.append(hm)
+        mod = gp.modifiers.new("grass", "PARTICLE_SYSTEM"); ps = mod.particle_system.settings
+        ps.type = "HAIR"; ps.count = int((x1 - x0) * (y1 - y0) * 110); ps.hair_length = 0.11; ps.material = 2
+        ps.child_type = "INTERPOLATED"; ps.child_percent = 10; ps.rendered_child_count = 9; ps.child_length = 1.0; ps.child_length_threshold = 0.4
+        ps.roughness_1 = 0.03; ps.roughness_endpoint = 0.05; ps.roughness_2 = 0.02
+        ps.use_rotations = True; ps.phase_factor_random = 2.0; ps.factor_random = 0.0; ps.hair_length = 0.10
+        ps.root_radius = 1.0; ps.tip_radius = 0.0; ps.radius_scale = 0.0035; ps.display_step = 3; ps.render_step = 3
+        mod.particle_system.seed = 3; mod.particle_system.vertex_group_density = "dens"
+    # large ground disk under the modelled grade so wide / aerial views reach the treeline
+    bpy.ops.mesh.primitive_circle_add(vertices=96, radius=260, fill_type="NGON", location=(6, 15, g["GROUND"] - 0.003))
+    gd = bpy.context.active_object; gd.name = "LOOKDEV_ground_far"; gd.data.materials.append(g["M"]["ex_ground"])
+    for c_ in gd.users_collection: c_.objects.unlink(gd)
+    link_new(gd)
+    bpy.data.objects["EX_ground"].hide_render = True   # replaced in look renders by the seamless disk above (same material, same grade)
+    return co
+
 SPEC = {
  # existing (finish unknown -> neutral matte paint, no invented texture)
  "ex_wall": ("matte", dict(rgb=(0.72, 0.68, 0.62), rough=0.9, var=0.03, bump=0.02)),
@@ -137,6 +336,11 @@ SPEC = {
  "ex_concrete": ("concrete", dict(rgb=(0.52, 0.51, 0.49))),
  "ex_post": ("wood", dict(rgb=(0.46, 0.31, 0.19), axis="Z", rough=0.6)),
  "ex_joist": ("wood", dict(rgb=(0.58, 0.44, 0.29), axis="Y", rough=0.65)),
+ # existing exterior (PHOTO-OBSERVED cladding; colours sampled from the site photos, approximate)
+ "ex_siding": ("siding", dict(rgb=(0.115, 0.075, 0.048))),
+ "ex_siding_live": ("siding", dict(rgb=(0.17, 0.14, 0.115))),
+ "ex_roof": ("roof_metal", dict()),
+ "ex_ground": ("grass", dict()),
  "ex_osb": ("matte", dict(rgb=(0.62, 0.50, 0.33), rough=0.8, var=0.15, scale=40)),
  "stove": ("satin", dict(rgb=(0.025, 0.025, 0.025), rough=0.55)),
  "door": ("satin", dict(rgb=(0.90, 0.89, 0.86), rough=0.45)),
@@ -176,12 +380,13 @@ SPEC = {
  "v5_perf": ("wood", dict(rgb=(0.62, 0.47, 0.29), axis="Y")),
  "v5_peg": ("matte", dict(rgb=(0.68, 0.55, 0.38), rough=0.7, var=0.08, bump=0.1, scale=40)),
 }
-FN = dict(matte=matte, fabric=fabric, planks=planks, wood=wood, concrete=concrete, metal=metal, satin=satin)
+FN = dict(siding=siding, roof_metal=roof_metal, grass=grass, matte=matte, fabric=fabric, planks=planks, wood=wood, concrete=concrete, metal=metal, satin=satin)
 
 def apply(g):
     M, scene = g["M"], bpy.context.scene
     for key, (kind, kw) in SPEC.items():
         if key in M: FN[kind](M[key], **kw)
+    _exterior_dressing(g)
     if "glass" in M: glass(M["glass"])
     # world: physical sky; warm late-afternoon sun from the west through the existing side windows
     world = scene.world; nt = world.node_tree
@@ -192,7 +397,27 @@ def apply(g):
     except Exception: pass
     bg = nt.nodes.new("ShaderNodeBackground"); bg.inputs["Strength"].default_value = 0.35
     out = nt.nodes.new("ShaderNodeOutputWorld")
-    nt.links.new(sky.outputs["Color"], bg.inputs["Color"]); nt.links.new(bg.outputs["Background"], out.inputs["Surface"])
+    # soft procedural clouds projected on a high plane (direction.xy / direction.z), faded at the horizon
+    tc = nt.nodes.new("ShaderNodeTexCoord"); sp = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(tc.outputs["Generated"], sp.inputs["Vector"])
+    zc = nt.nodes.new("ShaderNodeMath"); zc.operation = "MAXIMUM"; zc.inputs[1].default_value = 0.04; nt.links.new(sp.outputs["Z"], zc.inputs[0])
+    cx = nt.nodes.new("ShaderNodeMath"); cx.operation = "DIVIDE"; nt.links.new(sp.outputs["X"], cx.inputs[0]); nt.links.new(zc.outputs["Value"], cx.inputs[1])
+    cy = nt.nodes.new("ShaderNodeMath"); cy.operation = "DIVIDE"; nt.links.new(sp.outputs["Y"], cy.inputs[0]); nt.links.new(zc.outputs["Value"], cy.inputs[1])
+    cv = nt.nodes.new("ShaderNodeCombineXYZ"); nt.links.new(cx.outputs["Value"], cv.inputs["X"]); nt.links.new(cy.outputs["Value"], cv.inputs["Y"])
+    cmp = nt.nodes.new("ShaderNodeMapping"); cmp.inputs["Scale"].default_value = (1.0, 2.2, 1.0); nt.links.new(cv.outputs["Vector"], cmp.inputs["Vector"])
+    cn = nt.nodes.new("ShaderNodeTexNoise"); cn.inputs["Scale"].default_value = 0.9; cn.inputs["Detail"].default_value = 10; cn.inputs["Roughness"].default_value = 0.62
+    nt.links.new(cmp.outputs["Vector"], cn.inputs["Vector"])
+    cr = nt.nodes.new("ShaderNodeMapRange"); cr.inputs["From Min"].default_value = 0.52; cr.inputs["From Max"].default_value = 0.78; nt.links.new(cn.outputs["Fac"], cr.inputs["Value"])
+    hz = nt.nodes.new("ShaderNodeMapRange"); hz.inputs["From Min"].default_value = 0.02; hz.inputs["From Max"].default_value = 0.25; nt.links.new(sp.outputs["Z"], hz.inputs["Value"])
+    cm = nt.nodes.new("ShaderNodeMath"); cm.operation = "MULTIPLY"; nt.links.new(cr.outputs["Result"], cm.inputs[0]); nt.links.new(hz.outputs["Result"], cm.inputs[1])
+    mixc = nt.nodes.new("ShaderNodeMixRGB"); mixc.name = "cloud_mix"; nt.links.new(cm.outputs["Value"], mixc.inputs["Fac"])
+    nt.links.new(sky.outputs["Color"], mixc.inputs["Color1"])
+    ccol = nt.nodes.new("ShaderNodeMath"); ccol.operation = "MULTIPLY"   # cloud brightness tracks the sky (dark at dusk)
+    sk = nt.nodes.new("ShaderNodeRGBToBW"); nt.links.new(sky.outputs["Color"], sk.inputs["Color"])
+    nt.links.new(sk.outputs["Val"], ccol.inputs[0]); ccol.inputs[1].default_value = 1.6
+    cc = nt.nodes.new("ShaderNodeCombineXYZ")
+    for k_ in "XYZ": nt.links.new(ccol.outputs["Value"], cc.inputs[k_])
+    nt.links.new(cc.outputs["Vector"], mixc.inputs["Color2"])
+    nt.links.new(mixc.outputs["Color"], bg.inputs["Color"]); nt.links.new(bg.outputs["Background"], out.inputs["Surface"])
     sun = g["sun"]; sun.color = (1.0, 0.86, 0.70); sun.angle = math.radians(1.2)
     g["so"].rotation_euler = (math.radians(66), 0, math.radians(-72))   # ~24 deg elevation, light travelling +X (from the X=0 side) and slightly +Y
     # fire glow behind the existing stove's door (presentation lighting only)
@@ -225,9 +450,50 @@ def apply(g):
     scene.view_settings.view_transform = "AgX"; scene.view_settings.look = "AgX - Medium High Contrast"
     return "photo"
 
+def _sun_dir(g, az_deg, el_deg, sky_strength):
+    """Sun shining FROM azimuth az (deg, 0 = +X, 90 = +Y) at elevation el; sky gradient follows."""
+    from mathutils import Vector
+    a, e = math.radians(az_deg), math.radians(el_deg)
+    to_sun = Vector((math.cos(a) * math.cos(e), math.sin(a) * math.cos(e), math.sin(e)))
+    g["so"].rotation_euler = (-to_sun).to_track_quat("-Z", "Y").to_euler()
+    nt = g["scene"].world.node_tree
+    for n in nt.nodes:
+        if n.type == "TEX_SKY":
+            n.sun_elevation = e; n.sun_rotation = a - math.pi / 2
+        if n.type == "BACKGROUND": n.inputs["Strength"].default_value = sky_strength
+
+EXTERIOR_LOOK = {   # view: (sun azimuth, elevation, sun energy, sky strength, exposure, interior lights on)
+ "ext_entry":      (-100, 24, 3.6, 0.32, -0.55, False),
+ "ext_live_gable": (125, 22, 3.6, 0.32, -0.55, False),
+ "ext_aerial":     (-100, 30, 3.6, 0.32, -0.55, False),
+ "ext_entry_dusk": (-150, 1.5, 0.0, 0.10, 1.3, True),
+}
+
 def per_view(g, k, cinema):
     """Called just before each render: balance interior fill against daylight for this look."""
     M = g["M"]
+    for o in bpy.data.objects:   # grass strands only where a street-level exterior camera sees them
+        if o.name.startswith("LOOKDEV_grass_"): o.hide_render = k not in ("ext_entry", "ext_entry_dusk", "ext_live_gable")
+    if k in EXTERIOR_LOOK:
+        az, el, se, sky, ex, lit = EXTERIOR_LOOK[k]
+        _sun_dir(g, az, el, sky); g["sun"].energy = se; g["sun"].color = (1.0, 0.80, 0.62) if el < 5 else (1.0, 0.90, 0.78)
+        g["scene"].view_settings.exposure = ex
+        for n in M["cove"].node_tree.nodes:
+            if n.type == "BSDF_PRINCIPLED": n.inputs["Emission Strength"].default_value = 18 if lit else 0; n.inputs["Emission Color"].default_value = (1.0, 0.72, 0.45, 1)
+        for L in bpy.data.lights:
+            if L.type == "AREA":
+                L["base_energy"] = L.get("base_energy", L.energy); L["base_color"] = L.get("base_color", tuple(L.color)); L.energy = L["base_energy"] * (1.0 if lit else 0.0); L.color = (1.0, 0.80, 0.58)
+            if L.name == "lookdev_fire_light": L.energy = 60 if lit else 0
+            if L.name == "lookdev_entry_lamp": L.energy = 40 if lit else 0
+        return
+    # interior views: restore the original look-pass sun / sky / light colours (in case an exterior view ran first)
+    g["so"].rotation_euler = (math.radians(66), 0, math.radians(-72)); g["sun"].color = (1.0, 0.86, 0.70)
+    for n in g["scene"].world.node_tree.nodes:
+        if n.type == "TEX_SKY": n.sun_elevation = math.radians(24); n.sun_rotation = math.radians(270)
+        if n.type == "BACKGROUND": n.inputs["Strength"].default_value = 0.35
+    for L in bpy.data.lights:
+        if "base_color" in L: L.color = tuple(L["base_color"])
+        if L.name == "lookdev_fire_light": L.energy = 25
     for L in bpy.data.lights:
         if L.type == "AREA" and L.name.startswith("cr_fill"): L.energy = 6 if cinema else (35 if L.name.endswith("1") else 22)
         if L.type == "AREA" and L.name.startswith(("lv_fill", "mz_light", "loft_light")):

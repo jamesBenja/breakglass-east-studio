@@ -17,3 +17,4 @@
 | U13 | Whether the Clark acoustic units fit the same move truck | cost line 15 | owner / mover | volume ≈ 71 units, mostly thin panels |
 | U14 | A third fireside seat | not possible behind the speaker line with 0.9 m clearance; revisit if WETT allows less | owner | after U6 |
 | U15 | Below Breakglass families DIF-002, ABS-002, MAT-002 | reserve only | owner | count + measure |
+| U16 | Exterior details seen in the owner's site photos but not in the model: the metal chimney pipe on the roof; additional windows along the long walls between the control room and the live room; whether the white door right of the gable entry is exterior (the photos crop it); the live-gable door type (white sectional door vs. steel swing gates both appear) | exterior renders only, no design impact | owner | 2–3 extra exterior photos square to each wall |
