@@ -329,6 +329,90 @@ def _exterior_dressing(g):
     bpy.data.objects["EX_ground"].hide_render = True   # replaced in look renders by the seamless disk above (same material, same grade)
     return co
 
+# ------------------------------------------------------------------ CC0 photo textures (model/fetch_assets.py)
+import json as _json, os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+try:
+    _MAN = _json.load(open(_os.path.join(_HERE, "assets", "polyhaven_manifest.json")))
+except Exception:
+    _MAN = {"textures": {}, "hdris": {}, "models": {}}
+def _asset(kind, aid, key):
+    try:
+        p = _os.path.join(_HERE, "assets", "polyhaven", _MAN[kind][aid]["files"][key]["file"])
+        return p if _os.path.exists(p) else None
+    except KeyError:
+        return None
+def _imgnode(nt, path, vec, noncolor=False, proj="FLAT"):
+    n = nt.nodes.new("ShaderNodeTexImage"); n.image = bpy.data.images.load(path, check_existing=True)
+    if noncolor: n.image.colorspace_settings.name = "Non-Color"
+    n.projection = proj
+    if proj == "BOX": n.projection_blend = 0.25
+    nt.links.new(vec, n.inputs["Vector"]); return n
+
+def img(m, tex, tile=1.0, coords="box", rot=0.0, sat=1.0, val=1.0, tint=None, tint_fac=0.0, bump=0.2, rough=(0.3, 0.9),
+        metal=0.0, coat=0.0, sheen=0.0, fallback=None):
+    """Photo-texture material. coords: 'box' (object coords, box projection; for furniture/props), 'floor' (x,y),
+    'wall' (U = height z, V = position along an axis-aligned wall x+y: vertical boards), 'roof' (U = ridge y, V = x)."""
+    dif = _asset("textures", tex, "Diffuse")
+    if not dif:   # cache missing (no network): keep the procedural look
+        if fallback: FN[fallback[0]](m, **fallback[1])
+        return
+    nt, b, _ = _clear(m)
+    geo = nt.nodes.new("ShaderNodeTexCoord")
+    if coords == "box":
+        vec = geo.outputs["Object"]; proj = "BOX"
+    else:
+        g_ = nt.nodes.new("ShaderNodeNewGeometry"); sp = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(g_.outputs["Position"], sp.inputs["Vector"])
+        cb = nt.nodes.new("ShaderNodeCombineXYZ"); proj = "FLAT"
+        if coords == "floor":
+            nt.links.new(sp.outputs["X"], cb.inputs["X"]); nt.links.new(sp.outputs["Y"], cb.inputs["Y"])
+        elif coords == "wall":
+            ad = nt.nodes.new("ShaderNodeMath"); ad.operation = "ADD"; nt.links.new(sp.outputs["X"], ad.inputs[0]); nt.links.new(sp.outputs["Y"], ad.inputs[1])
+            nt.links.new(sp.outputs["Z"], cb.inputs["X"]); nt.links.new(ad.outputs["Value"], cb.inputs["Y"])
+        elif coords == "roof":
+            nt.links.new(sp.outputs["Y"], cb.inputs["X"]); nt.links.new(sp.outputs["X"], cb.inputs["Y"])
+        vec = cb.outputs["Vector"]
+    mp = nt.nodes.new("ShaderNodeMapping"); s_ = 1.0 / tile; mp.inputs["Scale"].default_value = (s_, s_, s_)
+    mp.inputs["Rotation"].default_value = (0, 0, math.radians(rot)); nt.links.new(vec, mp.inputs["Vector"]); vec = mp.outputs["Vector"]
+    d = _imgnode(nt, dif, vec, proj=proj)
+    hs = nt.nodes.new("ShaderNodeHueSaturation"); hs.inputs["Saturation"].default_value = sat; hs.inputs["Value"].default_value = val
+    nt.links.new(d.outputs["Color"], hs.inputs["Color"]); col_ = hs.outputs["Color"]
+    if tint is not None:
+        mx = nt.nodes.new("ShaderNodeMixRGB"); mx.blend_type = "MULTIPLY"; mx.inputs["Fac"].default_value = tint_fac
+        nt.links.new(col_, mx.inputs["Color1"]); mx.inputs["Color2"].default_value = (*tint, 1); col_ = mx.outputs["Color"]
+    # break up tiling with a large-scale tone variation
+    nz = _noise(nt, _pos(nt, (1, 1, 1)), 0.35, 4, 0.5)
+    tv = nt.nodes.new("ShaderNodeMapRange"); tv.inputs["To Min"].default_value = 0.88; tv.inputs["To Max"].default_value = 1.10; nt.links.new(nz, tv.inputs["Value"])
+    mv = nt.nodes.new("ShaderNodeMixRGB"); mv.blend_type = "MULTIPLY"; mv.inputs["Fac"].default_value = 1.0
+    cm = nt.nodes.new("ShaderNodeCombineXYZ")
+    for k_ in "XYZ": nt.links.new(tv.outputs["Result"], cm.inputs[k_])
+    nt.links.new(col_, mv.inputs["Color1"]); nt.links.new(cm.outputs["Vector"], mv.inputs["Color2"])
+    nt.links.new(mv.outputs["Color"], b.inputs["Base Color"])
+    rp = _asset("textures", tex, "Rough")
+    if rp:
+        r = _imgnode(nt, rp, vec, True, proj); rr = nt.nodes.new("ShaderNodeMapRange"); rr.inputs["To Min"].default_value = rough[0]; rr.inputs["To Max"].default_value = rough[1]
+        nt.links.new(r.outputs["Color"], rr.inputs["Value"]); nt.links.new(rr.outputs["Result"], b.inputs["Roughness"])
+    b.inputs["Metallic"].default_value = metal
+    if coat: b.inputs["Coat Weight"].default_value = coat
+    if sheen: b.inputs["Sheen Weight"].default_value = sheen
+    if bump:
+        bw = nt.nodes.new("ShaderNodeRGBToBW"); nt.links.new(d.outputs["Color"], bw.inputs["Color"])
+        _bevel_bump(nt, b, bw.outputs["Val"], strength=bump, radius=0.004, distance=0.003)
+    else:
+        _bevel_bump(nt, b, None)
+
+def siding_img(m, tex, tint, val=1.0, ground=-0.5):
+    """Photo board texture (vertical boards) + the procedural batten relief and grade splash of siding()."""
+    if not _asset("textures", tex, "Diffuse"):
+        return siding(m, tint)
+    img(m, tex, tile=2.2, coords="wall", sat=0.55, val=val, tint=tint, tint_fac=0.75, bump=0.35, rough=(0.65, 0.95))
+    nt = m.node_tree; b = next(n for n in nt.nodes if n.type == "BSDF_PRINCIPLED")
+    sp = _xyz(nt); u = _m(nt, "ADD", sp.outputs["X"], sp.outputs["Y"]); fr = _m(nt, "FRACT", _m(nt, "DIVIDE", u, 0.305))
+    bat = _m(nt, "LESS_THAN", fr, 0.07 / 0.305)
+    nb = next(n for n in nt.nodes if n.type == "BUMP")
+    add = _m(nt, "ADD", _m(nt, "MULTIPLY", bat, 1.0), nb.inputs["Height"].links[0].from_socket if nb.inputs["Height"].links else 0.0)
+    nt.links.new(add, nb.inputs["Height"]); nb.inputs["Distance"].default_value = 0.02; nb.inputs["Strength"].default_value = 0.8
+
 SPEC = {
  # existing (finish unknown -> neutral matte paint, no invented texture)
  "ex_wall": ("matte", dict(rgb=(0.72, 0.68, 0.62), rough=0.9, var=0.03, bump=0.02)),
@@ -380,7 +464,25 @@ SPEC = {
  "v5_perf": ("wood", dict(rgb=(0.62, 0.47, 0.29), axis="Y")),
  "v5_peg": ("matte", dict(rgb=(0.68, 0.55, 0.38), rough=0.7, var=0.08, bump=0.1, scale=40)),
 }
-FN = dict(siding=siding, roof_metal=roof_metal, grass=grass, matte=matte, fabric=fabric, planks=planks, wood=wood, concrete=concrete, metal=metal, satin=satin)
+# photo-texture overrides (used when the CC0 cache is present; otherwise the procedural looks above stay)
+SPEC.update({
+ "oak": ("img", dict(tex="oak_wood_planks", tile=2.4, coords="floor", rot=90, sat=0.85, val=1.0, bump=0.15, rough=(0.25, 0.55), coat=0.1)),
+ "plaster": ("img", dict(tex="painted_plaster_wall", tile=3.0, coords="box", sat=0.0, val=1.45, tint=(0.95, 0.91, 0.85), tint_fac=1.0, bump=0.04, rough=(0.8, 0.95))),
+ "ex_wall": ("img", dict(tex="painted_plaster_wall", tile=3.0, coords="box", sat=0.0, val=1.35, tint=(0.92, 0.88, 0.82), tint_fac=1.0, bump=0.03, rough=(0.8, 0.95))),
+ "ex_concrete": ("img", dict(tex="brushed_concrete", tile=3.0, coords="floor", sat=0.4, val=1.5, bump=0.08, rough=(0.55, 0.85))),
+ "ex_floor_cr": ("img", dict(tex="brushed_concrete", tile=3.0, coords="floor", sat=0.5, val=1.2, bump=0.08, rough=(0.55, 0.85))),
+ "rug": ("img", dict(tex="poly_wool_herringbone", tile=0.9, coords="box", sat=0.3, val=1.0, bump=0.3, rough=(0.85, 1.0), sheen=0.5)),
+ "v5_black_leather": ("img", dict(tex="brown_leather", tile=0.7, coords="box", sat=0.0, val=0.16, bump=0.25, rough=(0.30, 0.55), coat=0.15)),
+ "v5_leather": ("img", dict(tex="brown_leather", tile=0.7, coords="box", sat=0.0, val=0.16, bump=0.25, rough=(0.30, 0.55), coat=0.15)),
+ "v5_linen_oat": ("img", dict(tex="rough_linen", tile=0.35, coords="box", sat=0.0, val=1.0, tint=(0.80, 0.73, 0.62), tint_fac=1.0, bump=0.35, rough=(0.85, 1.0), sheen=0.4)),
+ "v5_linen_charcoal": ("img", dict(tex="rough_linen", tile=0.35, coords="box", sat=0.0, val=0.35, tint=(0.40, 0.40, 0.42), tint_fac=1.0, bump=0.35, rough=(0.85, 1.0), sheen=0.4)),
+ "v5_linen_rust": ("img", dict(tex="rough_linen", tile=0.35, coords="box", sat=0.0, val=0.9, tint=(0.55, 0.22, 0.10), tint_fac=1.0, bump=0.35, rough=(0.85, 1.0), sheen=0.4)),
+ "ex_siding": ("siding_img", dict(tex="dark_wooden_planks", tint=(0.62, 0.36, 0.19), val=1.6)),
+ "ex_siding_live": ("siding_img", dict(tex="weathered_brown_planks", tint=(0.62, 0.53, 0.45), val=1.3)),
+ "ex_roof": ("img", dict(tex="corrugated_iron", tile=1.6, coords="roof", sat=0.4, val=1.0, bump=0.6, rough=(0.25, 0.55), metal=0.85)),
+ "ex_ground": ("img", dict(tex="leafy_grass", tile=4.0, coords="floor", sat=1.3, val=0.85, tint=(0.45, 0.80, 0.30), tint_fac=0.75, bump=0.3, rough=(0.8, 1.0))),
+})
+FN = dict(img=img, siding_img=siding_img, siding=siding, roof_metal=roof_metal, grass=grass, matte=matte, fabric=fabric, planks=planks, wood=wood, concrete=concrete, metal=metal, satin=satin)
 
 def apply(g):
     M, scene = g["M"], bpy.context.scene
@@ -418,6 +520,21 @@ def apply(g):
     for k_ in "XYZ": nt.links.new(ccol.outputs["Value"], cc.inputs[k_])
     nt.links.new(cc.outputs["Vector"], mixc.inputs["Color2"])
     nt.links.new(mixc.outputs["Color"], bg.inputs["Color"]); nt.links.new(bg.outputs["Background"], out.inputs["Surface"])
+    hdr = _asset("hdris", "kloofendal_48d_partly_cloudy_puresky", "hdr")
+    if hdr:   # photographed sky replaces the procedural sky + clouds; its sun is clamped out (the sun lamp casts the shadows)
+        import numpy as _np
+        im = bpy.data.images.load(hdr, check_existing=True); W_, H_ = im.size
+        px = _np.empty(W_ * H_ * 4, dtype=_np.float32); im.pixels.foreach_get(px); px = px.reshape(H_, W_, 4)[:, :, :3].mean(axis=2)
+        iy, ix = _np.unravel_index(_np.argmax(px), px.shape)
+        u = (ix + 0.5) / W_; scene["hdri_sun_az"] = math.pi - 2 * math.pi * (u - 0.5)
+        clampv = float(_np.percentile(px[H_ // 2:, :], 99.0)) * 1.5   # bright sky, not the sun disc (rows: bottom = top of image? use upper half)
+        clampv = max(clampv, float(_np.percentile(px, 99.0)) * 1.5)
+        env = nt.nodes.new("ShaderNodeTexEnvironment"); env.image = im
+        tc2 = nt.nodes.new("ShaderNodeTexCoord"); mpp = nt.nodes.new("ShaderNodeMapping"); mpp.name = "hdri_map"
+        nt.links.new(tc2.outputs["Generated"], mpp.inputs["Vector"]); nt.links.new(mpp.outputs["Vector"], env.inputs["Vector"])
+        cl = nt.nodes.new("ShaderNodeVectorMath"); cl.operation = "MINIMUM"; cl.inputs[1].default_value = (clampv, clampv, clampv)
+        nt.links.new(env.outputs["Color"], cl.inputs[0]); nt.links.new(cl.outputs["Vector"], bg.inputs["Color"])
+        scene["hdri_clamp"] = clampv
     sun = g["sun"]; sun.color = (1.0, 0.86, 0.70); sun.angle = math.radians(1.2)
     g["so"].rotation_euler = (math.radians(66), 0, math.radians(-72))   # ~24 deg elevation, light travelling +X (from the X=0 side) and slightly +Y
     # fire glow behind the existing stove's door (presentation lighting only)
@@ -457,11 +574,15 @@ def _sun_dir(g, az_deg, el_deg, sky_strength):
     to_sun = Vector((math.cos(a) * math.cos(e), math.sin(a) * math.cos(e), math.sin(e)))
     g["so"].rotation_euler = (-to_sun).to_track_quat("-Z", "Y").to_euler()
     nt = g["scene"].world.node_tree
+    if "hdri_map" in nt.nodes:   # rotate the photographed sky so its (clamped) sun direction matches the lamp
+        nt.nodes["hdri_map"].inputs["Rotation"].default_value = (0, 0, g["scene"].get("hdri_sun_az", 0.0) - a)
     for n in nt.nodes:
         if n.type == "TEX_SKY":
             n.sun_elevation = e; n.sun_rotation = a - math.pi / 2
-        if n.type == "BACKGROUND": n.inputs["Strength"].default_value = sky_strength
+        if n.type == "BACKGROUND": n.inputs["Strength"].default_value = sky_strength * (HDRI_GAIN if "hdri_map" in nt.nodes else 1.0)
 
+HDRI_GAIN = float(__import__("os").environ.get("BG_HDRI_GAIN", 1.0))          # photographed sky vs the procedural-sky calibration (exteriors)
+HDRI_GAIN_INT = float(__import__("os").environ.get("BG_HDRI_GAIN_INT", 3.0))  # interiors need more sky fill through the windows
 EXTERIOR_LOOK = {   # view: (sun azimuth, elevation, sun energy, sky strength, exposure, interior lights on)
  "ext_entry":      (-100, 24, 3.6, 0.32, -0.55, False),
  "ext_live_gable": (125, 22, 3.6, 0.32, -0.55, False),
@@ -488,9 +609,14 @@ def per_view(g, k, cinema):
         return
     # interior views: restore the original look-pass sun / sky / light colours (in case an exterior view ran first)
     g["so"].rotation_euler = (math.radians(66), 0, math.radians(-72)); g["sun"].color = (1.0, 0.86, 0.70)
-    for n in g["scene"].world.node_tree.nodes:
+    from mathutils import Euler, Vector
+    to_sun = Euler((math.radians(66), 0, math.radians(-72))).to_matrix() @ Vector((0, 0, 1))
+    wnt = g["scene"].world.node_tree
+    if "hdri_map" in wnt.nodes:
+        wnt.nodes["hdri_map"].inputs["Rotation"].default_value = (0, 0, g["scene"].get("hdri_sun_az", 0.0) - math.atan2(to_sun.y, to_sun.x))
+    for n in wnt.nodes:
         if n.type == "TEX_SKY": n.sun_elevation = math.radians(24); n.sun_rotation = math.radians(270)
-        if n.type == "BACKGROUND": n.inputs["Strength"].default_value = 0.35
+        if n.type == "BACKGROUND": n.inputs["Strength"].default_value = 0.35 * (HDRI_GAIN_INT if "hdri_map" in wnt.nodes else 1.0)
     for L in bpy.data.lights:
         if "base_color" in L: L.color = tuple(L["base_color"])
         if L.name == "lookdev_fire_light": L.energy = 25
