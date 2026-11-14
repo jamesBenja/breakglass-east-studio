@@ -5,7 +5,7 @@ These are verified: the v0.4 build with the v0.5 code produces 589 objects with 
 - Building shell, openings, posts, roof, ceiling, room divisions, loft, live room shell, machinery bays and aisle.
 - Console and both RL 901Ks, the listening position, ±30° geometry and the 2.70 m baffle-to-front distance.
 - Wood stove + flue, the hearth pad, the cinema screen / projector / sofa, 7.1.4 positions and subs.
-- Producer desk, LED coves, HVAC slots (indicative), piano, quartet, loft guard and pendants.
+- Producer desk, LED coves, HVAC slots (indicative), piano, loft guard and pendants.
 
 ## Changed (v0.5 build only, `BG_VERSION=v05`)
 | v0.4 element | v0.5 replacement | Why |
@@ -18,6 +18,7 @@ These are verified: the v0.4 build with the v0.5 code produces 589 objects with 
 | **Lounge chairs facing away from the stove** | **Loveseat + swivel armchair facing the stove glass; armchair rolls to the rear row for films** | **owner-authorised correction** |
 | Fixed cinema chairs ×2 | Swivel armchairs A/B (A doubles as the fireside seat) | fewer pieces; same seat count in cinema mode |
 | Live room: 4 generic gobos + 10 generic hinged side-wall panels | Clark HYB-001 ×3, PRF-001 ×4, PRF-002 ×3, DIF-003 + BTR-002, WOOD-001…005 (11 pcs), GOB-001 ×5, GOB-002 ×2, GOB-003/006 ×4 under the loft bays | actual assets; 4 documented configurations |
+| String-quartet chairs + music stands (live room) | **Band backline (indicative, generic)**: 5-piece drum kit inside the three GOB-001 drum gobos, guitar combo and bass rig behind the two GOB-002 screens, boom mic stands on kit / amps / piano, one stool + vocal and acoustic-guitar mics (`model/v05_backline.py`, collection 39) | owner request 14 Nov: the chairs read as clutter; the room is for bands, drums, amps and piano. Packed away in farm mode |
 | Support rooms: none | Clark vocal-booth set + Sunny Suite panels in the vocal booth, amp booth and machine room | uses existing rooms only |
 
 ## Erratum found in owner review (13 Nov): overhead immersive speakers mis-aimed

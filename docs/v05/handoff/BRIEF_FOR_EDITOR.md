@@ -74,7 +74,7 @@ This brief is for anyone producing the **client-facing v0.5 presentation**. Clau
 8. **Salvage deployment:** the allocation table (summarised) and the link to the full matrix.
 9. **Analysis and uncertainty:** the table from §3 of the rationale document, with confidence notes.
 10. **Phasing and cost:** phase 1 vs the later phase.
-11. **Commissioning C0–C6 and open items:** UNRESOLVED U1–U17, summarised.
+11. **Commissioning C0–C6 and open items:** UNRESOLVED U1–U18, summarised.
 12. **Appendix:** drawings at full size, the image manifest, and (optionally) fenced atmosphere studies.
 
 ## Deliverables and QA

@@ -19,3 +19,4 @@
 | U15 | Below Breakglass families DIF-002, ABS-002, MAT-002 | reserve only | owner | count + measure |
 | U16 | Exterior details seen in the owner's site photos but not in the model: the metal chimney pipe on the roof; additional windows along the long walls between the control room and the live room; the live-gable door type (white sectional door vs. steel swing gates both appear) | exterior renders only, no design impact | owner | 2–3 extra exterior photos square to each wall |
 | U17 | Electrical cabinet on the gable inside face: real depth, height and swing; required working space (CEC Rule 2-308; 1.0 m placeholder) | cinema rear-row position; the DIF-001 / curtain zone beside it | owner + electrician | tape + photo of the cabinet; electrician's note |
+| U18 | Owner's actual backline (drum kit, amps, piano model, mic stands) | live-room renders show generic, indicative gear; gobo positions | owner | gear list + photos |

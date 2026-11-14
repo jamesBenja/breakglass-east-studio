@@ -513,7 +513,7 @@ def grand_piano(x, y, rot_deg, L=2.13, Wd=1.52):
     for o in [body, lid, kb] + legs: o.parent = e
     e.location = (x, y, F_LIVE); e.rotation_euler = (0, 0, math.radians(rot_deg)); return e
 grand_piano(AX - 1.4, Y_LOFT_END + 2.6, -25)
-for k in range(4):   # string quartet arc facing each other
+for k in (range(4) if not V05 else ()):   # v0.4 string quartet arc; v0.5 shows a band backline instead (model/v05_backline.py)
     a = math.radians(200 + k * 45); cx_, cy_ = AX + 2.2, Y_LOFT_END + 4.6
     x, y = cx_ + 1.2 * math.cos(a), cy_ + 1.2 * math.sin(a)
     box(f"PR_quartet_chair_{k}", x - 0.22, x + 0.22, y - 0.22, y + 0.22, F_LIVE + 0.44, F_LIVE + 0.48, "reclaimed", PL, "PROPOSED")
@@ -546,6 +546,7 @@ SWIVEL_A = None
 if V05:
     import v05_treatment
     SWIVEL_A = v05_treatment.build(globals())
+    import v05_backline; print("backline objects:", v05_backline.build(globals()))   # owner request 14 Nov: drums, amps, mic stands
 
 # ================================================================== lights, world, cameras, render
 world = bpy.data.worlds.new("World"); scene.world = world; world.use_nodes = True

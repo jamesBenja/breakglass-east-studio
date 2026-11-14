@@ -167,7 +167,7 @@ for a, x, y in (("GOB-003", BAY_L[1] - 0.70, 19.95), ("GOB-003", BAY_L[1] - 2.05
     place(a, LV, "under-loft ceiling over the storage bays", "damp the low joist ceiling (slab-to-joist flutter); covers the foil insulation", "panel",
           (x, y, UL_CLG - 0.05 - ct / 2), (cw, cl, ct), gap=0.05, mode="reuse intact (horizontal under joists)",
           install="screwed cleats to joists; 2.46 m clear above the slab in the bays only (check against the tallest stored machine)")
-# --- movable gobos (live room tray zone); shown in the default 'ensemble' configuration (piano + strings + drums)
+# --- movable gobos (live room tray zone); shown in the default 'ensemble' configuration (piano + band: drums, amps, vocal/acoustic)
 DRUM = (AX + 3.35, 24.15)
 for i, (x, y, yaw) in enumerate(((DRUM[0] - 1.10, DRUM[1] + 0.30, 75), (DRUM[0] - 0.30, DRUM[1] + 1.16, 15), (DRUM[0] + 0.93, DRUM[1] + 0.98, -30),
                                  (AX - 3.40, 27.30, 70), (AX + 0.90, 25.40, 80))):
@@ -269,7 +269,7 @@ for a, (room, cnt, w, h, d, ver, cons) in INV.items():
                  "notes": RESERVE_NOTE.get(a, "") + (" depth PROVISIONAL 0.05 m in model" if d is None and n else "")})
 with open(os.path.join(OUT, "deployment_matrix.csv"), "w", newline="") as f:
     wr = csv.DictWriter(f, fieldnames=list(rows[0])); wr.writeheader(); wr.writerows(rows)
-json.dump({"placements": PL, "new_items": NEW, "inventory_units": 74, "allocated_units": sum(used.values()),
+json.dump({"placements": PL, "new_items": NEW, "ensemble": {"drum_centre": [round(DRUM[0], 3), round(DRUM[1], 3)]}, "inventory_units": 74, "allocated_units": sum(used.values()),
            "reserve": RESERVE_NOTE}, open(os.path.join(OUT, "placements.json"), "w"), indent=1)
 json.dump({k: {"clark_room": v[0], "count": v[1], "w_in": v[2], "h_in": v[3], "d_in": v[4], "verification": v[5], "construction": v[6]} for k, v in INV.items()},
           open(os.path.join(OUT, "inventory_snapshot.json"), "w"), indent=1)

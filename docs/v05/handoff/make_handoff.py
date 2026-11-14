@@ -44,8 +44,8 @@ for f, t, c in (
     add(f"renders/design/{f}.png", "02 Control room", t, c, "render-standard", SHELL)
 # 3 live room
 for f, t, c in (
- ("live_piano_v05_photo", "Live room — piano and ensemble", "Grand piano, quartet set-up and Clark gobos under the existing tray ceiling."),
- ("live_drums_v05_photo", "Live room — drums under the loft", "Drum position under the loft with wheeled gobos; machinery bays and aisle untouched."),
+ ("live_piano_v05_photo", "Live room — piano and ensemble", "Grand piano with a mic pair, the band set-up (drums in the gobo booth, amps behind half-height screens) and Clark gobos under the existing tray ceiling. Backline is generic and indicative."),
+ ("live_drums_v05_photo", "Live room — drums under the loft", "Drum kit inside three wheeled gobos, amps behind the half-height screens; machinery bays and aisle untouched. Backline is generic and indicative."),
  ("live_farm_v05_farm_photo", "Farm mode", "Piano covered on its dolly against the west wall, gobos nested, aisle clear for machinery."),
 ):
     add(f"renders/design/{f}.png", "03 Live room", t, c, "render-photo", f"{LOOK} {SHELL}", f.startswith("live_piano"))

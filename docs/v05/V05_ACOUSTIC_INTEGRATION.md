@@ -115,6 +115,7 @@ Counts are asserted in code: `acoustics/allocation.py` fails if any family is ov
 | 13 Nov | Lounge seating must face the fire (implemented; see §2). |
 | 13 Nov | Overhead immersive speaker aim corrected (erratum; see the changelog). |
 | 14 Nov | **The white rectangle right of the entry is an electrical cabinet inside the barn, not a second door** (owner correction). v0.5 removes the false opening (no hole in the gable, no exterior door), models it as an interior cabinet (depth unknown, 0.25 m placeholder) and keeps 1.0 m in front of it clear. The cinema rear row moves 0.40 m forward. Acoustic results are unchanged (no traced reflection landed on it; the decay ranges did not move). Erratum in the changelog. |
+| 14 Nov | **Live room shows a band, not a string quartet** (owner). The quartet chairs are replaced by an indicative, generic backline: drum kit in the GOB-001 booth, guitar and bass amps behind the GOB-002 screens, mic stands on kit, amps and piano, and a vocal/acoustic position. It is all packed away in farm mode. The owner's actual backline is not modelled yet (U18). |
 | 14 Nov | **Phase 1 = Geithain stereo only.** Films play through the RL 901K pair; the 5.1 extras (centre, side surrounds, sub; $2k–8k) move to the later phase. Essential build is now $37.3k–$112.5k ($41.0k–$129.4k with contingency). Renders: `*_v05_phase1.png`. |
 
 ## 7. Files

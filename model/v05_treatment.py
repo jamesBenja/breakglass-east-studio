@@ -179,7 +179,7 @@ def apply_scenarios(g):
         box("FARM_piano_cover", LL + 1.15 - 0.82, LL + 1.15 + 0.82, YL + 3.05 - 0.22, YL + 3.05 + 2.20, F + 0.60, F + 1.03, "rug", "38_V05_SCENARIOS", "PROPOSED",
             "quilted piano cover on a locked dolly (NEW-06)")
         for ob in bpy.data.objects:
-            if ob.name.startswith("PR_quartet_"): ob.hide_render = True
+            if ob.name.startswith(("PR_quartet_", "V5_BL_")): ob.hide_render = True   # quartet (v0.4) / band backline packed away
         gob = sorted([o for o in bpy.data.objects if o.name.startswith(("V5_GOB-001_", "V5_GOB-002_")) and o.type == "EMPTY"], key=lambda o: o.name)
         for i, o in enumerate(gob):   # nested on the east wall of the tray zone, clear of the rustic wood wall and the aisle
             o.location = (LR - 0.33 - 0.17 * i, 29.05, o.location.z); o.rotation_euler = (0, 0, math.radians(90))

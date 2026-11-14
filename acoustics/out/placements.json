@@ -4255,6 +4255,12 @@
    "geom": []
   }
  ],
+ "ensemble": {
+  "drum_centre": [
+   9.239,
+   24.15
+  ]
+ },
  "inventory_units": 74,
  "allocated_units": 71,
  "reserve": {
