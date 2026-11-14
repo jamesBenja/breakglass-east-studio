@@ -670,4 +670,8 @@ def per_view(g, k, cinema):
                 if key == "cove": n.inputs["Emission Color"].default_value = (1.0, 0.78, 0.55, 1)
     g["sun"].energy = 0.6 if cinema else 7.0
     hd = "hdri_map" in g["scene"].world.node_tree.nodes
-    g["scene"].view_settings.exposure = (0.2 if cinema else 0.55) if hd else (-0.3 if cinema else -0.1)
+    g["scene"].view_settings.exposure = (-0.35 if cinema else 0.55) if hd else (-0.3 if cinema else -0.1)
+    if cinema:   # screen as a softly lit projection surface (no invented picture), not a blown-out white panel
+        for n in M["screen"].node_tree.nodes:
+            if n.type == "BSDF_PRINCIPLED":
+                n.inputs["Emission Strength"].default_value = 0.9; n.inputs["Emission Color"].default_value = (0.78, 0.82, 0.92, 1)
