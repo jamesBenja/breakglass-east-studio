@@ -288,13 +288,48 @@ def _exterior_dressing(g):
         Ld = bpy.data.lights.new("lookdev_entry_lamp", "SPOT"); Ld.energy = 0; Ld.color = (1.0, 0.75, 0.5); Ld.spot_size = math.radians(120); Ld.shadow_soft_size = 0.05
         Lo = bpy.data.objects.new("lookdev_entry_lamp", Ld); Lo.location = (lx, EXT_G0 - 0.15, lz - 0.1); Lo.rotation_euler = (math.radians(20), 0, 0); co.objects.link(Lo)
     # distant treeline ring only (context; no tree is placed near the building or in front of any camera)
-    for cl in range(26):   # clumps, as on the site photos (pine stands + mixed hardwoods)
-        ang = rng.uniform(0, 2 * math.pi); r = rng.uniform(50, 110); cx_, cy_ = 6 + r * math.cos(ang), 15 + r * math.sin(ang)
-        pine_clump = rng.random() < 0.45
-        for i in range(rng.randint(3, 8)):
-            x, y = cx_ + rng.gauss(0, 6), cy_ + rng.gauss(0, 6)
-            if pine_clump or rng.random() < 0.2: conifer(x, y, rng.uniform(13, 22))
-            else: broadleaf(x, y, rng.uniform(10, 17), autumn[rng.randrange(3)])
+    fir_b = _asset("models", "fir_tree_01", "blend"); hw_b = _asset("models", "tree_small_02", "blend")
+    if fir_b and hw_b:   # CC0 scanned-quality tree models (Poly Haven), instanced as linked duplicates
+        def _load(f, name):
+            with bpy.data.libraries.load(f, link=False) as (src, dst): dst.collections = [name]
+            return dst.collections[0]
+        firs = []
+        for o in _load(fir_b, "fir_tree_01_LOD2").all_objects:   # three fir variants laid out in a row: re-centre each
+            bb = [Vector(c) for c in o.bound_box]; cx = sum(v.x for v in bb) / 8; cy = sum(v.y for v in bb) / 8; zmin = min(v.z for v in bb)
+            o.data = o.data.copy(); o.data.transform(__import__("mathutils").Matrix.Translation((-cx, -cy, -zmin))); firs.append(o)
+        hw0 = list(_load(hw_b, "tree_small_02_LOD1").all_objects)[0]
+        bb = [Vector(c) for c in hw0.bound_box]; hw0.data = hw0.data.copy()
+        hw0.data.transform(__import__("mathutils").Matrix.Translation((-sum(v.x for v in bb) / 8, -sum(v.y for v in bb) / 8, -min(v.z for v in bb))))
+        hws = [hw0]
+        for k, (hue, sat_) in enumerate(((0.25, 1.3), (0.30, 1.4))):   # Hue node: 0.5 = none; green -> orange / gold   # autumn variants (orange / gold) as in the site photos
+            me = hw0.data.copy()
+            for i, ms in enumerate(me.materials):
+                if ms and ("leaf" in ms.name.lower() or "leaves" in ms.name.lower()):
+                    m2 = ms.copy(); nt2 = m2.node_tree
+                    bsdf = next((n for n in nt2.nodes if n.type == "BSDF_PRINCIPLED"), None)
+                    if bsdf and bsdf.inputs["Base Color"].links:
+                        src_ = bsdf.inputs["Base Color"].links[0].from_socket
+                        hs = nt2.nodes.new("ShaderNodeHueSaturation"); hs.inputs["Hue"].default_value = hue; hs.inputs["Saturation"].default_value = sat_
+                        nt2.links.new(src_, hs.inputs["Color"]); nt2.links.new(hs.outputs["Color"], bsdf.inputs["Base Color"])
+                    me.materials[i] = m2
+            o2 = hw0.copy(); o2.data = me; hws.append(o2)
+        def place(tmpl, x, y, s_, rz):
+            o = tmpl.copy(); o.location = (x, y, g["GROUND"]); o.scale = (s_, s_, s_); o.rotation_euler = (0, 0, rz); link_new(o)
+        for cl in range(26):
+            ang = rng.uniform(0, 2 * math.pi); r = rng.uniform(45, 105); cx_, cy_ = 6 + r * math.cos(ang), 15 + r * math.sin(ang)
+            pine_clump = rng.random() < 0.5
+            for i in range(rng.randint(5, 11) if pine_clump else rng.randint(3, 7)):
+                x, y = cx_ + rng.gauss(0, 4.5), cy_ + rng.gauss(0, 4.5)
+                if pine_clump: place(firs[rng.randrange(len(firs))], x, y, rng.uniform(0.8, 1.1), rng.uniform(0, 6.28))
+                else: place(hws[rng.randrange(len(hws))], x, y, rng.uniform(2.2, 3.0), rng.uniform(0, 6.28))
+    else:
+     for cl in range(26):   # procedural fallback clumps (pine stands + mixed hardwoods)
+         ang = rng.uniform(0, 2 * math.pi); r = rng.uniform(50, 110); cx_, cy_ = 6 + r * math.cos(ang), 15 + r * math.sin(ang)
+         pine_clump = rng.random() < 0.45
+         for i in range(rng.randint(3, 8)):
+             x, y = cx_ + rng.gauss(0, 6), cy_ + rng.gauss(0, 6)
+             if pine_clump or rng.random() < 0.2: conifer(x, y, rng.uniform(13, 22))
+             else: broadleaf(x, y, rng.uniform(10, 17), autumn[rng.randrange(3)])
     # foreground grass strands (hair) in front of the street-level cameras only
     for nm, (x0, x1, y0, y1) in (("entry", (5.0, 27.0, -17.0, -0.6)), ("live", (3.0, 27.0, 31.3, 45.0))):
         bpy.ops.mesh.primitive_plane_add(size=1, location=((x0 + x1) / 2, (y0 + y1) / 2, g["GROUND"] + 0.002))
@@ -591,6 +626,10 @@ EXTERIOR_LOOK = {   # view: (sun azimuth, elevation, sun energy, sky strength, e
 def per_view(g, k, cinema):
     """Called just before each render: balance interior fill against daylight for this look."""
     M = g["M"]
+    cam = g["scene"].camera; tgt = bpy.data.objects.get("TGT_" + k)
+    if cam and tgt:   # subtle photographic depth of field, focused on the camera's target
+        cam.data.dof.use_dof = True; cam.data.dof.focus_distance = (cam.matrix_world.translation - tgt.location).length
+        cam.data.dof.aperture_fstop = 11.0 if k.startswith("ext_") else 4.0
     for o in bpy.data.objects:   # grass strands only where a street-level exterior camera sees them
         if o.name.startswith("LOOKDEV_grass_"): o.hide_render = k not in ("ext_entry", "ext_entry_dusk", "ext_live_gable")
     if k in EXTERIOR_LOOK:
