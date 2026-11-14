@@ -59,8 +59,9 @@ This brief is for anyone producing the **client-facing v0.5 presentation**. Clau
 - Later phase: $15.5k–$82k.
 - Change from v0.4: +$2.0k / +$3.0k.
 
-**Erratum**
+**Errata**
 - The v0.4 overhead speakers were mis-aimed. v0.5 aims all four exactly at the listening position.
+- The entry gable has **one** door. The white rectangle beside it is an interior electrical cabinet (owner, 14 Nov). Never show or describe a second front door. v0.4 images still show it, so don't use v0.4 exterior or rear views as current.
 
 ## Suggested structure (12 sections)
 1. **Cover:** ★ `ext_entry_v05_photo` or `cr_front_v05_photo`. No generated image.
@@ -73,7 +74,7 @@ This brief is for anyone producing the **client-facing v0.5 presentation**. Clau
 8. **Salvage deployment:** the allocation table (summarised) and the link to the full matrix.
 9. **Analysis and uncertainty:** the table from §3 of the rationale document, with confidence notes.
 10. **Phasing and cost:** phase 1 vs the later phase.
-11. **Commissioning C0–C6 and open items:** UNRESOLVED U1–U15, summarised.
+11. **Commissioning C0–C6 and open items:** UNRESOLVED U1–U17, summarised.
 12. **Appendix:** drawings at full size, the image manifest, and (optionally) fenced atmosphere studies.
 
 ## Deliverables and QA

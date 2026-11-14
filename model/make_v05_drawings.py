@@ -110,8 +110,12 @@ def cr_base(s, title_ceiling=False):
     for x, y in ((G["xL"], P["ypl"]), (G["xR"], P["ypr"])): s.rect(x - 0.07, y - 0.07, x + 0.07, y + 0.07, C["ex"], C["ex"], 1)
     s.line(AX, -0.3, AX, D + 0.3, "#999", 0.8, "14 4 2 4")
     # openings (plan ticks)
-    for a, b_ in ((min(P["CR3.xe1"], P["CR3.xe2"]), max(P["CR3.xe1"], P["CR3.xe2"])), (min(P["g_xi1"], P["g_xi2"]), max(P["g_xi1"], P["g_xi2"]))):
+    for a, b_ in ((min(P["CR3.xe1"], P["CR3.xe2"]), max(P["CR3.xe1"], P["CR3.xe2"])),):
         s.rect(a, -0.06, b_, 0.06, "#fff", "#fff", 1, 0); s.line(a, 0, a, -0.25, C["ex"]); s.line(b_, 0, b_, -0.25, C["ex"])
+    # electrical cabinet (owner 14 Nov; depth unknown) + 1.0 m working space kept clear (placeholder)
+    cx0, cx1 = min(P["g_xi1"], P["g_xi2"]), max(P["g_xi1"], P["g_xi2"])
+    s.rect(cx0, 0.25, cx1, 1.25, "#c0392b", "none", 1, 1.2, "6 4"); s.rect(cx0, 0.0, cx1, 0.25, C["ex"], "#ddd", 1, 2)
+    s.text((cx0 + cx1) / 2, 0.80, "ELEC. CABINET: 1.0 m CLEAR", "#c0392b", 8)
     s.rect(P["CR1.xd1"], D - 0.06, P["CR1.xd2"], D + 0.06, "#fff", "#fff", 1, 0)
     for a, b_ in ((1.15, 4.35), (4.50, 7.95)): s.rect(W - 0.05, a, W + 0.05, b_, "#7aa7c7", "#cfe3f0", 1, 1)
     for a, b_ in ((1.95, 2.90), (4.45, 8.05)): s.rect(-0.05, a, 0.05, b_, "#7aa7c7", "#cfe3f0", 1, 1)
@@ -234,7 +238,7 @@ def elevation(s, wall, ox_m, oz_m, sc):
         h = G["hloL"] if wall == "left" else G["hloR"]; prect(0, 0, L_, h, C["ex"], "#fff", 1, 3)
     ops = {"front": [(P["CR1.xd1"], P["CR1.xd2"], 0, P["CR1.hd"])],
            "rear": [(min(P["CR3.xe1"], P["CR3.xe2"]), max(P["CR3.xe1"], P["CR3.xe2"]), 0, P["CR3.he"]), (min(P["CR3.xw1"], P["CR3.xw2"]), max(P["CR3.xw1"], P["CR3.xw2"]), P["CR3.hwb"], P["CR3.hwt"]),
-                    (min(P["g_xi1"], P["g_xi2"]), max(P["g_xi1"], P["g_xi2"]), 0, P["g_hi"]), (min(P["CR3.gw1a"], P["CR3.gw1b"]), max(P["CR3.gw1a"], P["CR3.gw1b"]), P["CR3.gw1s"], P["CR3.gw1h"]),
+                    (min(P["CR3.gw1a"], P["CR3.gw1b"]), max(P["CR3.gw1a"], P["CR3.gw1b"]), P["CR3.gw1s"], P["CR3.gw1h"]),
                     (min(P["CR3.gw2a"], P["CR3.gw2b"]), max(P["CR3.gw2a"], P["CR3.gw2b"]), P["CR3.gw2s"], P["CR3.gw2h"])],
            "left": [(1.95, 2.90, P["CR1.wsill"], P["CR1.wh"]), (4.45, 8.05, P["CR1.wsill"], P["CR1.wh"])],
            "right": [(1.15, 4.35, P["CR1.wsill"], P["CR1.wh"]), (4.50, 7.95, P["CR1.wsill"], P["CR1.wh"])]}[wall]
@@ -407,7 +411,7 @@ defs = f'<defs><marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY=
 chk = LNG["checks"]
 save("PR-506_lounge_two_modes", 50 + 2 * (W + 1.4) * 55, 70 + (D + 0.9) * 55 + 200, defs + "\n".join(s1.b + s2.b),
      "PR-506  FIRESIDE LOUNGE — CORRECTED (owner-authorised): seats now face the existing wood stove; two simple furniture modes",
-     "Grey dashed = kept-clear zones (speaker + cardioid clear zone, sub, bench/corner traps, front frames, future Ls stand); yellow = doorway route to the live room; hearth pad hatched.",
+     "Grey dashed = kept-clear zones (speaker + cardioid clear zone, sub, bench/corner traps, front frames, future Ls stand, electrical cabinet + 1.0 m working space); yellow = doorway route to the live room; hearth pad hatched.",
      [f"Checks: minimum stove clearance {chk['min stove clearance (m)']} m (≥ 0.90 m placeholder); doorway route clear; lounge furniture ≤ 0.80 m high, below the RL 901K acoustic centre ({chk['speaker acoustic-centre height (m)']} m); nothing between the LP and either speaker.",
       "Tested: a third seat (second armchair) does not fit around the fire behind the speaker line with these clearances, so armchair B lives in the rear row in both modes.",
       "Honest limit: the lounge sits behind the drop-down screen; it is a fireside / listen-back spot, not a cinema seat. No mechanisms: armchair A is a swivel chair on felt glides."])

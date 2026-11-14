@@ -10,9 +10,9 @@
 <polygon points="501.2,675.6 560.8,675.6 560.8,667.5 501.2,667.5" fill="#fff" fill-opacity="1" stroke="#fff" stroke-width="0"/>
 <line x1="501.2" y1="671.5" x2="501.2" y2="688.5" stroke="#555" stroke-width="1" stroke-opacity="1"/>
 <line x1="560.8" y1="671.5" x2="560.8" y2="688.5" stroke="#555" stroke-width="1" stroke-opacity="1"/>
-<polygon points="679.6,675.6 748.2,675.6 748.2,667.5 679.6,667.5" fill="#fff" fill-opacity="1" stroke="#fff" stroke-width="0"/>
-<line x1="679.6" y1="671.5" x2="679.6" y2="688.5" stroke="#555" stroke-width="1" stroke-opacity="1"/>
-<line x1="748.2" y1="671.5" x2="748.2" y2="688.5" stroke="#555" stroke-width="1" stroke-opacity="1"/>
+<polygon points="679.6,654.5 748.2,654.5 748.2,586.5 679.6,586.5" fill="none" fill-opacity="1" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="679.6,671.5 748.2,671.5 748.2,654.5 679.6,654.5" fill="#ddd" fill-opacity="1" stroke="#555" stroke-width="2"/>
+<text x="713.9" y="617.1" font-size="8" text-anchor="middle" fill="#c0392b" font-weight="normal">ELEC. CABINET: 1.0 m CLEAR</text>
 <polygon points="491.9,118.1 568.3,118.1 568.3,109.9 491.9,109.9" fill="#fff" fill-opacity="1" stroke="#fff" stroke-width="0"/>
 <polygon points="892.0,593.3 898.8,593.3 898.8,375.7 892.0,375.7" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
 <polygon points="892.0,365.5 898.8,365.5 898.8,130.9 892.0,130.9" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>

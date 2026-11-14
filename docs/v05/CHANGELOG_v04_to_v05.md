@@ -29,6 +29,21 @@ The v0.4 model tilts each overhead speaker in its own frame *before* turning it 
 
 The approved v0.4 files are left as they were (owner rule: preserve v0.4). The positions were always correct (`monitoring_geometry.json`); only the rendered cabinet orientation was wrong. These are phase-P7 speakers, so nothing approved for construction depends on it.
 
+## Erratum found in owner review (14 Nov): an invented second door on the entry gable
+The model's "gable interior door" (white, right of the entry door, photo-solved outline from photo CR3) is an **electrical cabinet inside the barn**, not a door. The owner confirmed this. The barn has one entry door on this gable.
+
+v0.4 cut it through the gable as an opening, and the exterior renders showed a second front door. The rendered siding cut also hid the right-hand control-room windows.
+
+**v0.5 fixes:**
+- **Gable wall:** no opening. `EX_CR_electrical_cabinet` is modelled inside: outline photo-solved, depth UNKNOWN (0.25 m placeholder).
+- **Working space:** `QA_electrical_working_space` keeps 1.0 m clear in front of the cabinet. This is a placeholder for the CEC Rule 2-308 intent; an electrician confirms it. `qa_v05_clashes.py` now fails if anything sits in it.
+- **Cinema seating:** v0.4's rear-row chair sat 0.95 m in front of the panel, inside the working space. The cinema rear row (swivel armchairs A and B) now sits 0.40 m forward (y = 1.85 m); the screen view widens from 29.8° to 31.0°.
+- **Acoustics inputs:** door area 3.9 → 1.8 m². The decay ranges, first-reflection coverage and modes are unchanged.
+- **Exterior siding:** now cut at the right-hand control-room windows.
+- **Re-rendered:** drawings PR-501/503/505/506 and every render showing the rear wall or the rear row.
+
+The approved v0.4 files are left as issued (v0.4 build verified identical: 589 objects). The v0.4 drawings and renders still show the false door and the closer chair.
+
 ## New files
 - `acoustics/`: geometry, reflections, modes / SBIR / decay, allocation, lounge, costs, plus `out/` results.
 - `model/v05_treatment.py`, `model/make_v05_drawings.py`, `model/qa_v05_clashes.py`, `model/breakglass_east_v05.blend`.

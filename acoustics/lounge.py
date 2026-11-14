@@ -13,7 +13,7 @@ import json, math, os, sys
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from geometry import P, G, W, D, AX, SPK, EAR, MG
+from geometry import P, G, W, D, AX, SPK, EAR, MG, ELEC
 OUT = os.path.join(HERE, "out")
 STOVE_CLEAR = 0.90
 xs, ys = P["g_xs"], min(P["g_ys"], D - 0.35)
@@ -51,6 +51,7 @@ OBST = {
  "front-left PAN-001 on stand-off (NEW-07)": box(0.72, 3.19, D - 0.33, D),
  "future Ls surround stand (7.1.4)": box(MG["immersive_7_1_4"]["Ls"][0] - 0.20, MG["immersive_7_1_4"]["Ls"][0] + 0.20, MG["immersive_7_1_4"]["Ls"][1] - 0.20, MG["immersive_7_1_4"]["Ls"][1] + 0.20),
  "hearth pad": box(xs - 0.65, xs + 0.65, ys - 0.85, D),
+ "electrical cabinet + 1.0 m working clearance (owner 14 Nov; clearance placeholder)": box(ELEC["x0"] - 0.10, ELEC["x1"] + 0.10, 0, ELEC["depth"] + ELEC["clear"]),
  "doorway route (partition doorway to the room)": box(P["CR1.xd1"] - 0.10, P["CR1.xd2"] + 0.10, st["L"][1] - 0.30, D),
 }
 PIECES = {"loveseat": (1.45, 0.85), "swivel armchair A": (0.80, 0.80)}   # tested: a third seat does not fit behind the speaker line with these clearances
@@ -100,18 +101,26 @@ layout["side table"] = {"centre": [round(float(tb[1]), 2), round(float(tb[2]), 2
 # cinema mode positions for the two swivel armchairs (v0.4 cinema-chair spots), facing the screen centre
 CIN = MG["cinema"]; scr = np.array([AX, CIN["screen_y"]])
 cinema = {}
+# rear-row depth: the v0.4 spot (y 1.45) put armchair B inside the electrical cabinet's working space, so the row
+# moves forward just enough that both chairs (same row) clear every obstacle
+ZONE = OBST["electrical cabinet + 1.0 m working clearance (owner 14 Nov; clearance placeholder)"]
+YROW = next(round(float(y), 2) for y in np.arange(1.45, 3.0, 0.05)
+            if all(not any(overlap(rect(x, y, 0.80, 0.80, yaw_to(x, y, scr)), o) for o in OBST.values()) for x in (AX - 2.75, AX + 2.75)))
 for k, (name, x) in enumerate((("swivel armchair A (rolls back from the fire)", AX - 2.75), ("swivel armchair B (stays in the rear row)", AX + 2.75))):
-    c = (x, 1.45); yaw = yaw_to(*c, scr)
-    eye = np.array([x, 1.45 - 0.05, 1.05]); half = CIN["screen_width"] / 2
+    c = (x, YROW); yaw = yaw_to(*c, scr)
+    eye = np.array([x, YROW - 0.05, 1.05]); half = CIN["screen_width"] / 2
     a1 = math.degrees(math.atan2(AX - half - x, CIN["screen_y"] - eye[1])); a2 = math.degrees(math.atan2(AX + half - x, CIN["screen_y"] - eye[1]))
-    cinema[name] = {"centre": [round(x, 2), 1.45], "yaw_deg": round(yaw, 1), "screen_view_angle_deg": round(abs(a2 - a1), 1),
-                    "off_axis_to_screen_centre_deg": round(math.degrees(math.atan2(AX - x, CIN["screen_y"] - 1.45)), 1)}
+    fp = rect(x, YROW, 0.80, 0.80, yaw)
+    cinema[name] = {"centre": [round(x, 2), YROW], "yaw_deg": round(yaw, 1), "screen_view_angle_deg": round(abs(a2 - a1), 1),
+                    "off_axis_to_screen_centre_deg": round(math.degrees(math.atan2(AX - x, CIN["screen_y"] - YROW)), 1),
+                    "clear_of_electrical_working_space_m": round(dist(fp, box(ELEC["x0"], ELEC["x1"], 0, ELEC["depth"])) , 2)}
 # checks: nothing sits between LP and either speaker, nothing taller than 0.90 m in the lounge, route clear
 checks = {"all fireside pieces face the stove glass": True,
           "min stove clearance (m)": min(v["stove_clearance_m"] for k, v in layout.items() if "stove_clearance_m" in v),
           "lounge furniture max height (m)": 0.80,
           "speaker acoustic-centre height (m)": round(float(SPK["L"][2]), 3),
           "doorway route kept clear": True,
+          "electrical cabinet working space (1.0 m placeholder) kept clear": True,
           "obstructs LP->speaker direct path": False,
           "seats": "fireside: loveseat (2) + swivel armchair (1) = 3 facing the fire; cinema: sofa (3-4) + 2 swivel armchairs = 5-6 (as v0.4)",
           "note": "the lounge is BEHIND the drop-down screen and the speakers; it is a fireside / listening-back spot, not a cinema seat"}

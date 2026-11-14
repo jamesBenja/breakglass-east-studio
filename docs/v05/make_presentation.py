@@ -45,7 +45,7 @@ P.append(img("drawings/v05/PR-506_lounge_two_modes.png", 640))
 P.append(table(["Piece", "Fireside mode", "Distance to fire", "Stove clearance", "Cinema mode"],
                [["Loveseat (2)", "faces the stove glass", f'{fs["loveseat"]["to_fire_m"]} m', f'{fs["loveseat"]["stove_clearance_m"]} m', "stays (behind the screen, not a viewing seat)"],
                 ["Swivel armchair A", "faces the stove glass", f'{fs["swivel armchair A"]["to_fire_m"]} m', f'{fs["swivel armchair A"]["stove_clearance_m"]} m', "rolls on glides to the rear row"],
-                ["Swivel armchair B", "rear row", "—", "—", "rear row (29.8° screen width)"]]))
+                ["Swivel armchair B", "rear row", "—", "—", "rear row (31.0° screen width; clear of the electrical cabinet)"]]))
 P.append("<p>Constraints solved in <code>acoustics/lounge.py</code>: 0.90 m stove clearance (placeholder for the label / WETT value), speaker + cardioid clear zone, sub, traps, future Ls stand, doorway route to the live room clear, nobody blocking anybody's view of the fire. "
          "A third fireside seat was tested and does not fit behind the speaker line with these clearances — it is reported, not forced. No mechanisms.</p>")
 P.append(img("renders/design/cr_fire_seat_v05.png", 640))

@@ -34,7 +34,7 @@ win = [(1.15, 4.35), (4.50, 7.95), (1.95, 2.90), (4.45, 8.05)]
 op["glass"] += sum(b - a for a, b in win) * (P["CR1.wh"] - P["CR1.wsill"])
 op["glass"] += abs(P["CR3.xw2"] - P["CR3.xw1"]) * (P["CR3.hwt"] - P["CR3.hwb"])
 op["glass"] += abs(P["CR3.gw1b"] - P["CR3.gw1a"]) * (P["CR3.gw1h"] - P["CR3.gw1s"]) + abs(P["CR3.gw2b"] - P["CR3.gw2a"]) * (P["CR3.gw2h"] - P["CR3.gw2s"])
-op["door"] = abs(P["CR3.xe2"] - P["CR3.xe1"]) * P["CR3.he"] + abs(P["g_xi2"] - P["g_xi1"]) * P["g_hi"]
+op["door"] = abs(P["CR3.xe2"] - P["CR3.xe1"]) * P["CR3.he"]   # entry door only: the g_xi rectangle is an electrical cabinet (owner, 14 Nov), counted as wall
 op["doorway_open"] = (P["CR1.xd2"] - P["CR1.xd1"]) * P["CR1.hd"]
 
 # ------------------------------------------------------------------ modes (rectangular approximation, bracketed heights)

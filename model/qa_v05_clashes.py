@@ -34,6 +34,16 @@ for i in range(len(ks)):
     for j in range(i + 1, len(ks)):
         d = pen(G[ks[i]], G[ks[j]])
         if d > TOL: clashes.append({"v05": ks[i], "with": ks[j], "penetration_m": round(d, 3)})
-json.dump({"groups": len(G), "tolerance_m": TOL, "clashes": clashes}, open(os.path.join(HERE, "qa_v05_clashes.json"), "w"), indent=1)
+ez = bpy.data.objects.get("QA_electrical_working_space")
+elec = []
+if ez:
+    zb = aabb([ez])
+    for o in bpy.data.objects:
+        if not visible_mesh(o) or o is ez or o.name.startswith(("EX_", "PR_CR_oak", "PR_CR_rug", "LOOKDEV")): continue
+        if o.users_collection and o.users_collection[0].name.startswith(("90_", "91_")): continue
+        d = pen(zb, aabb([o]))
+        if d > TOL: elec.append({"object": o.name, "penetration_m": round(d, 3)})
+    assert not elec, f"objects inside the electrical working space: {elec}"
+json.dump({"groups": len(G), "tolerance_m": TOL, "clashes": clashes, "electrical_working_space_clear": not elec}, open(os.path.join(HERE, "qa_v05_clashes.json"), "w"), indent=1)
 print("groups", len(G), "clashes", len(clashes))
 for c in clashes: print(c)

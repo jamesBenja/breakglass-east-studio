@@ -6,6 +6,7 @@
 <polygon points="111.6,110.2 247.4,110.2 247.4,92.0 111.6,92.0" fill="#999" fill-opacity="0.15" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
 <polygon points="231.5,398.2 253.5,398.2 253.5,376.2 231.5,376.2" fill="#999" fill-opacity="0.15" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
 <polygon points="277.8,159.1 349.3,159.1 349.3,92.0 277.8,92.0" fill="#bbb" fill-opacity="0.3" stroke="#777" stroke-width="1" stroke-dasharray="3 2"/>
+<polygon points="510.3,542.9 576.8,542.9 576.8,474.2 510.3,474.2" fill="#999" fill-opacity="0.15" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
 <polygon points="358.6,257.0 431.4,257.0 431.4,92.0 358.6,92.0" fill="#c9a400" fill-opacity="0.12" stroke="#c9a400" stroke-width="1" stroke-dasharray="6 3"/>
 <polygon points="298.1,126.1 328.9,126.1 328.9,98.6 298.1,98.6" fill="#222" fill-opacity="1" stroke="#111" stroke-width="1.2"/>
 <polygon points="170.3,212.2 226.6,268.8 259.7,235.8 203.4,179.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
@@ -31,6 +32,7 @@
 <polygon points="807.0,110.2 942.9,110.2 942.9,92.0 807.0,92.0" fill="#999" fill-opacity="0.15" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
 <polygon points="926.9,398.2 948.9,398.2 948.9,376.2 926.9,376.2" fill="#999" fill-opacity="0.15" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
 <polygon points="973.2,159.1 1044.7,159.1 1044.7,92.0 973.2,92.0" fill="#bbb" fill-opacity="0.3" stroke="#777" stroke-width="1" stroke-dasharray="3 2"/>
+<polygon points="1205.8,542.9 1272.3,542.9 1272.3,474.2 1205.8,474.2" fill="#999" fill-opacity="0.15" stroke="#999" stroke-width="1" stroke-dasharray="3 2"/>
 <polygon points="1054.0,257.0 1126.8,257.0 1126.8,92.0 1054.0,92.0" fill="#c9a400" fill-opacity="0.12" stroke="#c9a400" stroke-width="1" stroke-dasharray="6 3"/>
 <polygon points="993.5,126.1 1024.3,126.1 1024.3,98.6 993.5,98.6" fill="#222" fill-opacity="1" stroke="#111" stroke-width="1.2"/>
 <polygon points="865.7,212.2 922.0,268.8 955.1,235.8 898.9,179.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
@@ -39,16 +41,16 @@
 <text x="1091.3" y="246.0" font-size="8" text-anchor="middle" fill="#333" font-weight="normal">screen down (faces the rear row)</text>
 <polygon points="1014.3,526.4 1168.3,526.4 1168.3,474.2 1014.3,474.2" fill="#7d6b5a" fill-opacity="0.4" stroke="#7d6b5a" stroke-width="1.2"/>
 <text x="1091.3" y="501.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">sofa 3–4</text>
-<polygon points="918.1,485.2 962.1,485.2 962.1,441.2 918.1,441.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
-<line x1="940.1" y1="463.2" x2="1091.3" y2="254.3" stroke="#8a5a2b" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 3"/>
-<text x="940.1" y="496.2" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal">swivel armchair A</text>
-<text x="940.1" y="504.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">29.8° screen width</text>
-<polygon points="1220.6,485.2 1264.6,485.2 1264.6,441.2 1220.6,441.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
-<line x1="1242.6" y1="463.2" x2="1091.3" y2="254.3" stroke="#8a5a2b" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 3"/>
-<text x="1242.6" y="496.2" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal">swivel armchair B</text>
-<text x="1242.6" y="504.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">29.8° screen width</text>
-<line x1="921.4" y1="135.9" x2="940.1" y2="463.2" stroke="#8a5a2b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="6 3"/>
-<text x="903.3" y="299.6" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal" transform="rotate(-75 903.3 299.6)">armchair A rolls back (glides)</text>
+<polygon points="918.1,463.2 962.1,463.2 962.1,419.2 918.1,419.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
+<line x1="940.1" y1="441.2" x2="1091.3" y2="254.3" stroke="#8a5a2b" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 3"/>
+<text x="940.1" y="474.2" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal">swivel armchair A</text>
+<text x="940.1" y="482.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">31.0° screen width</text>
+<polygon points="1220.6,463.2 1264.6,463.2 1264.6,419.2 1220.6,419.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
+<line x1="1242.6" y1="441.2" x2="1091.3" y2="254.3" stroke="#8a5a2b" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 3"/>
+<text x="1242.6" y="474.2" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal">swivel armchair B</text>
+<text x="1242.6" y="482.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">31.0° screen width</text>
+<line x1="921.4" y1="135.9" x2="940.1" y2="441.2" stroke="#8a5a2b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="6 3"/>
+<text x="903.3" y="288.6" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal" transform="rotate(-75 903.3 288.6)">armchair A rolls back (glides)</text>
 <polygon points="767.4,542.9 1385.8,542.9 1385.8,92.0 767.4,92.0" fill="none" fill-opacity="0" stroke="#555" stroke-width="3"/>
 <polygon points="1047.7,352.9 1134.9,352.9 1134.9,287.3 1047.7,287.3" fill="#1f4e79" fill-opacity="0.4" stroke="#1f4e79" stroke-width="1.5"/>
 <circle cx="1014.3" cy="240.5" r="6" fill="#1f4e79" stroke="none" stroke-width="1.5"/>
@@ -56,6 +58,6 @@
 <circle cx="1091.3" cy="373.8" r="4" fill="#000" stroke="none" stroke-width="1.5"/>
 <text x="1076.6" y="83.8" font-size="13" text-anchor="middle" fill="#8a5a2b" font-weight="bold">CINEMA MODE — sofa + 2 swivel armchairs (5–6 seats, as v0.4)</text><text x="20" y="678" font-size="10" fill="#444">Honest limit: the lounge sits behind the drop-down screen; it is a fireside / listen-back spot, not a cinema seat. No mechanisms: armchair A is a swivel chair on felt glides.</text><text x="20" y="663" font-size="10" fill="#444">Tested: a third seat (second armchair) does not fit around the fire behind the speaker line with these clearances, so armchair B lives in the rear row in both modes.</text><text x="20" y="648" font-size="10" fill="#444">Checks: minimum stove clearance 0.92 m (≥ 0.90 m placeholder); doorway route clear; lounge furniture ≤ 0.80 m high, below the RL 901K acoustic centre (1.278 m); nothing between the LP and either speaker.</text>
 <g font-size="11" fill="#333"><text x="20" y="708" font-size="15" font-weight="bold">PR-506  FIRESIDE LOUNGE — CORRECTED (owner-authorised): seats now face the existing wood stove; two simple furniture modes</text>
-<text x="20" y="726">Grey dashed = kept-clear zones (speaker + cardioid clear zone, sub, bench/corner traps, front frames, future Ls stand); yellow = doorway route to the live room; hearth pad hatched.</text>
+<text x="20" y="726">Grey dashed = kept-clear zones (speaker + cardioid clear zone, sub, bench/corner traps, front frames, future Ls stand, electrical cabinet + 1.0 m working space); yellow = doorway route to the live room; hearth pad hatched.</text>
 <text x="20" y="742">v0.5 ACOUSTIC INTEGRATION on the approved v0.4 layout and the provisional existing shell (scan + photos, about ±0.1–0.2 m). NOT FOR CONSTRUCTION. Acoustician review and on-site measurement required.</text>
 <text x="20" y="760"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment</tspan>  <tspan fill="#2f6f4f">&#9632; Clark asset (owner-measured body)</tspan>  <tspan fill="#c2187a">&#9632; Clark asset, depth PROVISIONAL</tspan>  <tspan fill="#b5651d">&#9632; NEW purpose-built</tspan>  <tspan fill="#8a5a2b">&#9632; lounge (owner-authorised correction)</tspan>  <tspan fill="#7a2e8e">&#9679; immersive (later)</tspan></text></g></svg>

@@ -41,7 +41,6 @@ SURF = [
 OPENINGS = [  # (surface, a0, a1, z0, z1, label) a = along-wall coordinate (X for end walls, Y for side walls)
     ("rear", min(P["CR3.xe1"], P["CR3.xe2"]), max(P["CR3.xe1"], P["CR3.xe2"]), 0, P["CR3.he"], "entry door"),
     ("rear", min(P["CR3.xw1"], P["CR3.xw2"]), max(P["CR3.xw1"], P["CR3.xw2"]), P["CR3.hwb"], P["CR3.hwt"], "clerestory"),
-    ("rear", min(P["g_xi1"], P["g_xi2"]), max(P["g_xi1"], P["g_xi2"]), 0, P["g_hi"], "interior door"),
     ("rear", min(P["CR3.gw1a"], P["CR3.gw1b"]), max(P["CR3.gw1a"], P["CR3.gw1b"]), P["CR3.gw1s"], P["CR3.gw1h"], "gable window E"),
     ("rear", min(P["CR3.gw2a"], P["CR3.gw2b"]), max(P["CR3.gw2a"], P["CR3.gw2b"]), P["CR3.gw2s"], P["CR3.gw2h"], "gable window W"),
     ("front", P["CR1.xd1"], P["CR1.xd2"], 0, P["CR1.hd"], "partition doorway"),
@@ -50,6 +49,10 @@ OPENINGS = [  # (surface, a0, a1, z0, z1, label) a = along-wall coordinate (X fo
     ("left", 1.95, 2.90, P["CR1.wsill"], P["CR1.wh"], "left window 1"),
     ("left", 4.45, 8.05, P["CR1.wsill"], P["CR1.wh"], "left window 2"),
 ]
+# Owner correction 14 Nov: the white rectangle on the gable inside face (photo-solved g_xi1..g_xi2 x g_hi) is an
+# ELECTRICAL CABINET inside the barn, not a door. Outline PHOTO-SOLVED; depth UNKNOWN (0.25 m placeholder).
+# Working space in front: 1.0 m PLACEHOLDER (CEC Rule 2-308 intent; electrician to confirm) - kept clear of furniture.
+ELEC = {"x0": min(P["g_xi1"], P["g_xi2"]), "x1": max(P["g_xi1"], P["g_xi2"]), "h": P["g_hi"], "depth": 0.25, "clear": 1.0}
 STOVE = {"x": P["g_xs"], "y": min(P["g_ys"], D - 0.35), "w": 0.56, "d": 0.50, "h": P["CR1.hs"]}
 
 def opening_at(surface_name, p):

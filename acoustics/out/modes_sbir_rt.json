@@ -5,7 +5,7 @@
   "h_eff_m": 3.132,
   "surface_m2": 306.8,
   "glass_m2": 11.0,
-  "doors_m2": 3.9,
+  "doors_m2": 1.8,
   "schroeder_Hz_at_0.3s": 64.0,
   "EBU3276_target_Tm_s": 0.36,
   "EBU_tolerance": "\u00b10.05 s 200 Hz\u20134 kHz; up to +0.3 s allowed at 63 Hz (sloping limit)",

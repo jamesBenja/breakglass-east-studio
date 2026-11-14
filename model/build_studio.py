@@ -202,7 +202,13 @@ for nm, x, y, hbb in (("L", G["xL"], P["ypl"], G["hbbL"]), ("R", G["xR"], P["ypr
 S_ = lambda k: P[k]
 opening(wG, "Y0", min(S_("CR3.xe1"), S_("CR3.xe2")), max(S_("CR3.xe1"), S_("CR3.xe2")), 0, S_("CR3.he"), "gable_entry_door", "door_dark", "CR3 photo solve")
 opening(wG, "Y0", min(S_("CR3.xw1"), S_("CR3.xw2")), max(S_("CR3.xw1"), S_("CR3.xw2")), S_("CR3.hwb"), S_("CR3.hwt"), "gable_clerestory", "window", "CR3 photo solve")
-opening(wG, "Y0", min(S_("g_xi1"), S_("g_xi2")), max(S_("g_xi1"), S_("g_xi2")), 0, S_("g_hi"), "gable_interior_door", "door", "CR3 photo solve")
+if not V05:   # approved v0.4 kept as issued (erratum: this was modelled as a door)
+    opening(wG, "Y0", min(S_("g_xi1"), S_("g_xi2")), max(S_("g_xi1"), S_("g_xi2")), 0, S_("g_hi"), "gable_interior_door", "door", "CR3 photo solve")
+else:         # owner correction 14 Nov: an ELECTRICAL CABINET inside the barn, not a door; no hole in the gable
+    _cx0, _cx1 = min(S_("g_xi1"), S_("g_xi2")), max(S_("g_xi1"), S_("g_xi2"))
+    _cab = box("EX_CR_electrical_cabinet", _cx0, _cx1, 0.0, 0.25, 0.0, S_("g_hi"), "door", "13_EXISTING_OPENINGS", "OWNER-STATED type; outline PHOTO-SOLVED (CR3); depth UNKNOWN (0.25 m placeholder)")
+    _clr = box("QA_electrical_working_space", _cx0, _cx1, 0.25, 1.25, 0.0, 2.0, "door", "13_EXISTING_OPENINGS", "PLACEHOLDER 1.0 m working space (CEC Rule 2-308 intent; electrician to confirm)")
+    _clr.hide_render = True; _clr.display_type = "WIRE"
 opening(wG, "Y0", min(S_("CR3.gw1a"), S_("CR3.gw1b")), max(S_("CR3.gw1a"), S_("CR3.gw1b")), S_("CR3.gw1s"), S_("CR3.gw1h"), "gable_window_E", "window", "CR3 photo solve (scan disagrees: ledger X8)")
 opening(wG, "Y0", min(S_("CR3.gw2a"), S_("CR3.gw2b")), max(S_("CR3.gw2a"), S_("CR3.gw2b")), S_("CR3.gw2s"), S_("CR3.gw2h"), "gable_window_W", "window", "CR3 photo solve")
 opening(wP, "YD", S_("CR1.xd1"), S_("CR1.xd2"), 0, S_("CR1.hd"), "partition_doorway", "void", "CR1/CR2 photo solve")

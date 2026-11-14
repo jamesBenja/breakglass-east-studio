@@ -40,13 +40,14 @@ The solver's constraints:
 - 0.90 m stove clearance, a **placeholder** for the stove's listed clearances (label / WETT);
 - no overlap with the speaker and cardioid clear zones, the sub, the traps, the front frames or the future Ls stand;
 - the doorway route to the live room kept clear;
+- a 1.0 m working space kept clear in front of the electrical cabinet on the rear (gable) wall (placeholder; electrician to confirm);
 - seats behind the speaker line;
 - nobody blocking anybody's view of the fire.
 
 | Mode | Seats | Positions |
 |---|---|---|
 | **Fireside** | loveseat (2) + swivel armchair A (1) facing the fire; side table between | loveseat 2.53 m from the fire, armchair 1.60 m; minimum stove clearance 0.92 m |
-| **Cinema** | sofa (3–4) + swivel armchairs A and B (5–6 seats, as v0.4) | armchair A rolls on glides from the fire to the rear row (the v0.4 cinema-chair spot); B stays there; each sees the screen at 29.8° width |
+| **Cinema** | sofa (3–4) + swivel armchairs A and B (5–6 seats, as v0.4) | armchair A rolls on glides from the fire to the rear row; B stays there. The row sits 0.40 m forward of the v0.4 cinema-chair spot so armchair B is clear of the electrical cabinet's working space; each sees the screen at 31.0° width |
 
 **Tested and reported, not hidden:** a third seat (second armchair) does not fit around the fire behind the speaker line with these clearances.
 
@@ -113,6 +114,7 @@ Counts are asserted in code: `acoustics/allocation.py` fails if any family is ov
 |---|---|
 | 13 Nov | Lounge seating must face the fire (implemented; see §2). |
 | 13 Nov | Overhead immersive speaker aim corrected (erratum; see the changelog). |
+| 14 Nov | **The white rectangle right of the entry is an electrical cabinet inside the barn, not a second door** (owner correction). v0.5 removes the false opening (no hole in the gable, no exterior door), models it as an interior cabinet (depth unknown, 0.25 m placeholder) and keeps 1.0 m in front of it clear. The cinema rear row moves 0.40 m forward. Acoustic results are unchanged (no traced reflection landed on it; the decay ranges did not move). Erratum in the changelog. |
 | 14 Nov | **Phase 1 = Geithain stereo only.** Films play through the RL 901K pair; the 5.1 extras (centre, side surrounds, sub; $2k–8k) move to the later phase. Essential build is now $37.3k–$112.5k ($41.0k–$129.4k with contingency). Renders: `*_v05_phase1.png`. |
 
 ## 7. Files

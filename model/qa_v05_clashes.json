@@ -12,5 +12,6 @@
    "with": "V5_GOB-001_3",
    "penetration_m": 0.075
   }
- ]
+ ],
+ "electrical_working_space_clear": true
 }
