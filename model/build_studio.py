@@ -290,7 +290,8 @@ for o in [o for o in bpy.data.objects if o.name.startswith(("WINDOW_", "DOOR_"))
     for tgt in (bpy.data.objects["EX_siding_long_L"], bpy.data.objects["EX_siding_long_R"], gs_c, gs_l):
         tb = [tgt.matrix_world @ Vector(c) for c in tgt.bound_box]
         if min(xs_) - 0.8 < max(v.x for v in tb) and max(xs_) + 0.8 > min(v.x for v in tb) and min(ys_) - 0.8 < max(v.y for v in tb) and max(ys_) + 0.8 > min(v.y for v in tb):
-            cut(tgt, min(xs_) - 0.5 if tgt.name.startswith("EX_siding_long") else min(xs_), max(xs_) + 0.5 if tgt.name.startswith("EX_siding_long") else max(xs_),
+            XR = 0.9 if V05 else 0.5   # v0.5 fix: the right-hand control-room windows sit 0.7 m inside the siding; 0.5 m missed it (exterior only)
+            cut(tgt, min(xs_) - XR if tgt.name.startswith("EX_siding_long") else min(xs_), max(xs_) + XR if tgt.name.startswith("EX_siding_long") else max(xs_),
                 min(ys_) - (0 if tgt.name.startswith("EX_siding_long") else 0.6), max(ys_) + (0 if tgt.name.startswith("EX_siding_long") else 0.6), min(zs_), max(zs_), f"ext_{o.name}_{tgt.name[-1]}")
 cut(gs_c, min(S_("CR3.xe1"), S_("CR3.xe2")), max(S_("CR3.xe1"), S_("CR3.xe2")), EXT_G0 - 0.6, EXT_G0 + 0.6, 0, S_("CR3.he"), "ext_entry")
 cut(gs_l, AX - GD_W/2, AX + GD_W/2, EXT_G1 - 0.6, EXT_G1 + 0.6, F_LIVE, F_LIVE + GD_H, "ext_garage")
