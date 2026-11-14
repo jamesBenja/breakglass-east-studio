@@ -306,20 +306,21 @@ def _exterior_dressing(g):
             for i, ms in enumerate(me.materials):
                 if ms and ("leaf" in ms.name.lower() or "leaves" in ms.name.lower()):
                     m2 = ms.copy(); nt2 = m2.node_tree
-                    bsdf = next((n for n in nt2.nodes if n.type == "BSDF_PRINCIPLED"), None)
-                    if bsdf and bsdf.inputs["Base Color"].links:
-                        src_ = bsdf.inputs["Base Color"].links[0].from_socket
+                    for tn in [n for n in nt2.nodes if n.type == "TEX_IMAGE" and n.image and n.image.colorspace_settings.name == "sRGB"]:
+                        outs = [l.to_socket for l in tn.outputs["Color"].links]   # tint the colour map wherever it feeds
+                        if not outs: continue
                         hs = nt2.nodes.new("ShaderNodeHueSaturation"); hs.inputs["Hue"].default_value = hue; hs.inputs["Saturation"].default_value = sat_
-                        nt2.links.new(src_, hs.inputs["Color"]); nt2.links.new(hs.outputs["Color"], bsdf.inputs["Base Color"])
+                        nt2.links.new(tn.outputs["Color"], hs.inputs["Color"])
+                        for ts in outs: nt2.links.new(hs.outputs["Color"], ts)
                     me.materials[i] = m2
             o2 = hw0.copy(); o2.data = me; hws.append(o2)
         def place(tmpl, x, y, s_, rz):
             o = tmpl.copy(); o.location = (x, y, g["GROUND"]); o.scale = (s_, s_, s_); o.rotation_euler = (0, 0, rz); link_new(o)
         for cl in range(26):
-            ang = rng.uniform(0, 2 * math.pi); r = rng.uniform(45, 105); cx_, cy_ = 6 + r * math.cos(ang), 15 + r * math.sin(ang)
+            ang = rng.uniform(0, 2 * math.pi); r = rng.uniform(40, 95); cx_, cy_ = 6 + r * math.cos(ang), 15 + r * math.sin(ang)
             pine_clump = rng.random() < 0.5
-            for i in range(rng.randint(5, 11) if pine_clump else rng.randint(3, 7)):
-                x, y = cx_ + rng.gauss(0, 4.5), cy_ + rng.gauss(0, 4.5)
+            for i in range(rng.randint(8, 14) if pine_clump else rng.randint(6, 10)):
+                x, y = cx_ + rng.gauss(0, 3.5), cy_ + rng.gauss(0, 3.5)
                 if pine_clump: place(firs[rng.randrange(len(firs))], x, y, rng.uniform(0.8, 1.1), rng.uniform(0, 6.28))
                 else: place(hws[rng.randrange(len(hws))], x, y, rng.uniform(2.2, 3.0), rng.uniform(0, 6.28))
     else:
@@ -344,7 +345,7 @@ def _exterior_dressing(g):
         link_new(gp); gp.data.materials.append(g["M"]["ex_ground"])
         hm = bpy.data.materials.new("lookdev_grass_blade"); hm.use_nodes = True; hnt, hb, _ = _clear(hm)
         hi = hnt.nodes.new("ShaderNodeHairInfo")
-        hr = hnt.nodes.new("ShaderNodeValToRGB"); hr.color_ramp.elements[0].color = (0.03, 0.075, 0.008, 1); hr.color_ramp.elements[1].color = (0.10, 0.15, 0.02, 1)
+        hr = hnt.nodes.new("ShaderNodeValToRGB"); hr.color_ramp.elements[0].color = (0.02, 0.07, 0.008, 1); hr.color_ramp.elements[1].color = (0.06, 0.14, 0.02, 1)
         e = hr.color_ramp.elements.new(0.94); e.color = (0.22, 0.17, 0.05, 1)
         hnt.links.new(hi.outputs["Random"], hr.inputs["Fac"]); hnt.links.new(hr.outputs["Color"], hb.inputs["Base Color"])
         hb.inputs["Roughness"].default_value = 0.7; hb.inputs["Subsurface Weight"].default_value = 0.1
@@ -513,7 +514,7 @@ SPEC.update({
  "ex_siding": ("siding_img", dict(tex="dark_wooden_planks", tint=(0.62, 0.36, 0.19), val=1.6)),
  "ex_siding_live": ("siding_img", dict(tex="weathered_brown_planks", tint=(0.62, 0.53, 0.45), val=1.3)),
  "ex_roof": ("img", dict(tex="corrugated_iron", tile=1.6, coords="roof", sat=0.4, val=1.0, bump=0.6, rough=(0.25, 0.55), metal=0.85)),
- "ex_ground": ("img", dict(tex="leafy_grass", tile=4.0, coords="floor", sat=1.3, val=0.85, tint=(0.45, 0.80, 0.30), tint_fac=0.75, bump=0.3, rough=(0.8, 1.0))),
+ "ex_ground": ("img", dict(tex="leafy_grass", tile=4.0, coords="floor", sat=1.2, val=0.75, tint=(0.30, 0.78, 0.16), tint_fac=1.0, bump=0.3, rough=(0.8, 1.0))),
 })
 FN = dict(img=img, siding_img=siding_img, siding=siding, roof_metal=roof_metal, grass=grass, matte=matte, fabric=fabric, planks=planks, wood=wood, concrete=concrete, metal=metal, satin=satin)
 
@@ -620,7 +621,7 @@ EXTERIOR_LOOK = {   # view: (sun azimuth, elevation, sun energy, sky strength, e
  "ext_entry":      (-100, 24, 3.6, 0.32, -0.55, False),
  "ext_live_gable": (125, 22, 3.6, 0.32, -0.55, False),
  "ext_aerial":     (-100, 30, 3.6, 0.32, -0.55, False),
- "ext_entry_dusk": (-150, 1.5, 0.0, 0.10, 1.3, True),
+ "ext_entry_dusk": (-150, 1.5, 0.0, 0.035, 1.3, True),
 }
 
 def per_view(g, k, cinema):
