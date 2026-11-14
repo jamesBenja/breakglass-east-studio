@@ -155,3 +155,33 @@ def build(g):
 def set_mode(A, cinema):
     x, y, yaw = A["cinema_pose"] if cinema else A["fireside_pose"]
     A.location = (x, y, 0); A.rotation_euler = (0, 0, math.radians(yaw))
+
+# ---------------------------------------------------------------- render-time scenarios (owner request 14 Nov)
+# Applied AFTER the .blend is saved, so the saved v0.5 model always holds the full design.
+#   BG_PHASE=1        control room phase 1: stereo only (the actual RL 901K pair); immersive 7.1.4 speakers and subs hidden
+#   BG_LIVE_MODE=farm live room farm mode: piano on its dolly against the west wall, lid down, covered; gobos nested on the
+#                     east wall; quartet chairs/stands put away; the painted 3.7 m aisle to the garage door is left clear
+def _hide(ob):
+    ob.hide_render = True
+    for c in ob.children_recursive: c.hide_render = True
+def apply_scenarios(g):
+    box, col, AX = g["box"], g["col"], g["AX"]
+    tags = []
+    if os.environ.get("BG_PHASE") == "1":
+        for ob in list(bpy.data.objects):
+            if ob.name.startswith(("PR_imm_", "PR_sub_")): _hide(ob)
+        tags.append("phase1")
+    if os.environ.get("BG_LIVE_MODE") == "farm":
+        F, LL, LR, YL = g["F_LIVE"], g["LIVE_L"], g["LIVE_R"], g["Y_LOFT_END"]
+        pe = bpy.data.objects["PR_grand_piano"]
+        pe.location = (LL + 1.15, YL + 3.05, F); pe.rotation_euler = (0, 0, 0)   # tail toward the garage end, flat side to the wall
+        bpy.data.objects["PR_piano_lid"].rotation_euler = (0, 0, 0)
+        box("FARM_piano_cover", LL + 1.15 - 0.82, LL + 1.15 + 0.82, YL + 3.05 - 0.22, YL + 3.05 + 2.20, F + 0.60, F + 1.03, "rug", "38_V05_SCENARIOS", "PROPOSED",
+            "quilted piano cover on a locked dolly (NEW-06)")
+        for ob in bpy.data.objects:
+            if ob.name.startswith("PR_quartet_"): ob.hide_render = True
+        gob = sorted([o for o in bpy.data.objects if o.name.startswith(("V5_GOB-001_", "V5_GOB-002_")) and o.type == "EMPTY"], key=lambda o: o.name)
+        for i, o in enumerate(gob):   # nested on the east wall of the tray zone, clear of the rustic wood wall and the aisle
+            o.location = (LR - 0.33 - 0.17 * i, 29.05, o.location.z); o.rotation_euler = (0, 0, math.radians(90))
+        tags.append("farm")
+    return tags

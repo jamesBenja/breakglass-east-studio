@@ -593,6 +593,7 @@ scene.render.resolution_x, scene.render.resolution_y = int(os.environ.get("BG_RE
 scene.view_settings.view_transform = "AgX"; scene.view_settings.look = "AgX - Base Contrast"
 blend = os.path.join(HERE, "breakglass_east_v05.blend" if V05 else "breakglass_east_v04.blend")
 bpy.ops.wm.save_as_mainfile(filepath=blend); print("saved", blend)
+if V05: print("scenarios:", v05_treatment.apply_scenarios(globals()))   # render-time only; the saved model keeps the full design
 
 INTERIOR_HIDE = ["EX_roof_metal", "EX_siding_long_L", "EX_siding_long_R", "EX_siding_gable_control", "EX_siding_gable_live", "EX_ground"]
 if os.environ.get("BG_RENDER"):
