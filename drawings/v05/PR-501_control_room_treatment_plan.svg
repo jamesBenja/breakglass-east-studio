@@ -73,8 +73,12 @@
 <polygon points="252.3,262.6 321.9,332.6 362.9,291.8 293.3,221.8" fill="#8a5a2b" fill-opacity="0.45" stroke="#8a5a2b" stroke-width="1.5"/>
 <polygon points="291.1,144.5 297.3,198.5 351.3,192.3 345.1,138.3" fill="#8a5a2b" fill-opacity="0.45" stroke="#8a5a2b" stroke-width="1.5"/>
 <circle cx="270.2" cy="198.9" r="17.0" fill="#8a5a2b" stroke="none" stroke-width="1.5"/>
+<polygon points="198.4,138.2 199.2,182.4 243.4,181.6 242.6,137.4" fill="#8a5a2b" fill-opacity="0.45" stroke="#8a5a2b" stroke-width="1.5"/>
+<polygon points="193.4,202.7 205.9,245.2 248.4,232.7 235.9,190.2" fill="#8a5a2b" fill-opacity="0.45" stroke="#8a5a2b" stroke-width="1.5"/>
 <line x1="307.6" y1="277.1" x2="429.4" y2="156.2" stroke="#8a5a2b" stroke-width="1.2" stroke-opacity="1" stroke-dasharray="2 3"/>
 <line x1="321.2" y1="168.3" x2="429.4" y2="156.2" stroke="#8a5a2b" stroke-width="1.2" stroke-opacity="1" stroke-dasharray="2 3"/>
+<line x1="221.2" y1="160.2" x2="429.4" y2="156.2" stroke="#8a5a2b" stroke-width="1.2" stroke-opacity="1" stroke-dasharray="2 3"/>
+<line x1="221.2" y1="218.0" x2="429.4" y2="156.2" stroke="#8a5a2b" stroke-width="1.2" stroke-opacity="1" stroke-dasharray="2 3"/>
 <text x="266.8" y="348.5" font-size="9" text-anchor="middle" fill="#8a5a2b" font-weight="bold">loveseat → faces fire</text>
 <text x="365.4" y="221.4" font-size="8" text-anchor="start" fill="#8a5a2b" font-weight="normal">armchair → fire</text>
 <polygon points="691.1,600.1 745.5,600.1 745.5,545.7 691.1,545.7" fill="#8a5a2b" fill-opacity="0.45" stroke="#8a5a2b" stroke-width="1.5"/>

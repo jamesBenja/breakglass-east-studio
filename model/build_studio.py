@@ -547,6 +547,7 @@ if V05:
     import v05_treatment
     SWIVEL_A = v05_treatment.build(globals())
     import v05_backline; print("backline objects:", v05_backline.build(globals()))   # owner request 14 Nov: drums, amps, mic stands
+    import v05_furniture; print("furniture detail objects:", v05_furniture.build(globals()))   # owner request 14 Nov: black leather, cushions
 
 # ================================================================== lights, world, cameras, render
 world = bpy.data.worlds.new("World"); scene.world = world; world.use_nodes = True

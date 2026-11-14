@@ -19,6 +19,7 @@ These are verified: the v0.4 build with the v0.5 code produces 589 objects with 
 | Fixed cinema chairs ×2 | Swivel armchairs A/B (A doubles as the fireside seat) | fewer pieces; same seat count in cinema mode |
 | Live room: 4 generic gobos + 10 generic hinged side-wall panels | Clark HYB-001 ×3, PRF-001 ×4, PRF-002 ×3, DIF-003 + BTR-002, WOOD-001…005 (11 pcs), GOB-001 ×5, GOB-002 ×2, GOB-003/006 ×4 under the loft bays | actual assets; 4 documented configurations |
 | String-quartet chairs + music stands (live room) | **Band backline (indicative, generic)**: 5-piece drum kit inside the three GOB-001 drum gobos, guitar combo and bass rig behind the two GOB-002 screens, boom mic stands on kit / amps / piano, one stool + vocal and acoustic-guitar mics (`model/v05_backline.py`, collection 39) | owner request 14 Nov: the chairs read as clutter; the room is for bands, drums, amps and piano. Packed away in farm mode |
+| Box stand-in sofa / loveseat / armchairs | **Black leather** cinema sofa, fireside loveseat and swivel armchairs with real cushion shapes and linen throw cushions; linen window-bench cushions; 2 floor cushions placed by the lounge solver (`model/v05_furniture.py`) | owner request 14 Nov; same footprints and positions |
 | Support rooms: none | Clark vocal-booth set + Sunny Suite panels in the vocal booth, amp booth and machine room | uses existing rooms only |
 
 ## Erratum found in owner review (13 Nov): overhead immersive speakers mis-aimed

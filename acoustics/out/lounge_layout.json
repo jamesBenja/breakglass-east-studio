@@ -1,4 +1,7 @@
 {
+ "not_placed": {
+  "pouf": "tested, no position clears the stove (0.90 m), the kept-clear zones and seat legroom"
+ },
  "fire_point": [
   4.391,
   7.579
@@ -79,6 +82,68 @@
     0.5
    ],
    "yaw_deg": 0
+  },
+  "floor cushion 1": {
+   "centre": [
+    1.33,
+    7.52
+   ],
+   "size": [
+    0.65,
+    0.65
+   ],
+   "yaw_deg": -89.0,
+   "to_fire_m": 3.07,
+   "stove_clearance_m": 2.46,
+   "footprint": [
+    [
+     0.994,
+     7.843
+    ],
+    [
+     1.006,
+     7.193
+    ],
+    [
+     1.656,
+     7.205
+    ],
+    [
+     1.644,
+     7.855
+    ]
+   ]
+  },
+  "floor cushion 2": {
+   "centre": [
+    1.33,
+    6.67
+   ],
+   "size": [
+    0.65,
+    0.65
+   ],
+   "yaw_deg": -73.6,
+   "to_fire_m": 3.2,
+   "stove_clearance_m": 2.6,
+   "footprint": [
+    [
+     0.921,
+     6.894
+    ],
+    [
+     1.105,
+     6.27
+    ],
+    [
+     1.729,
+     6.454
+    ],
+    [
+     1.545,
+     7.078
+    ]
+   ]
   }
  },
  "cinema_mode": {

@@ -98,6 +98,32 @@ for cx in np.arange(1.0, 4.0, 0.05):
         sc = sum(dist(p, q["footprint"]) for q in layout.values())
         if tb is None or sc < tb[0]: tb = (sc, cx, cy)
 layout["side table"] = {"centre": [round(float(tb[1]), 2), round(float(tb[2]), 2)], "size": [0.5, 0.5], "yaw_deg": 0}
+# owner request 14 Nov: floor cushions + a pouf by the fire. Soft furnishings are combustible, so they obey the SAME
+# stove clearance (0.90 m placeholder), prefer the rug, stay off every kept-clear zone and keep 0.35 m legroom at each seat.
+RUG = (1.45, 3.62, 5.05, 7.85); NOT_PLACED = {}
+seats_fp = [v["footprint"] for k, v in layout.items() if "footprint" in v] + [rect(layout["side table"]["centre"][0], layout["side table"]["centre"][1], 0.5, 0.5)]
+views = [[(v["centre"][0], v["centre"][1]), tuple(FIRE), (FIRE[0] + 0.15, FIRE[1]), (v["centre"][0] + 0.15, v["centre"][1])] for k, v in layout.items() if "footprint" in v]
+placed_soft = []
+for name, w_, d_ in (("floor cushion 1", 0.65, 0.65), ("floor cushion 2", 0.65, 0.65), ("pouf", 0.50, 0.50)):
+    best_ = None
+    for cx in np.arange(0.85 + w_ / 2, 4.2, 0.05):
+        for cy in np.arange(st["L"][1] + 0.30 + d_ / 2, D - 0.35 - d_ / 2 + 1e-6, 0.05):
+            yaw_ = yaw_to(cx, cy, FIRE); p_ = rect(cx, cy, w_, d_, yaw_)
+            if dist(p_, STOVE) < STOVE_CLEAR or any(overlap(p_, o) for o in OBST.values()): continue
+            if any(dist(p_, q) < 0.35 for q in seats_fp[:-1]) or dist(p_, seats_fp[-1]) < 0.10: continue   # legroom at seats; side table
+            if any(dist(p_, q["footprint"]) < 0.10 for q in placed_soft): continue
+            # floor cushions are 0.15 m high: they cannot block a seated view of the fire, so no sight-line test (legroom rule instead)
+            if min(x for x, _ in p_) < 0.80: continue   # bench traps along the left wall
+            on_rug = all(RUG[0] <= x <= RUG[1] and RUG[2] <= y <= RUG[3] for x, y in p_)
+            sc_ = float(np.hypot(cx - FIRE[0], cy - FIRE[1])) + (0 if on_rug else 0.6)   # prefer the rug
+            if best_ is None or sc_ < best_[0]: best_ = (sc_, cx, cy, yaw_, p_)
+    if best_ is None:
+        assert name == "pouf", f"no place for {name}"
+        NOT_PLACED["pouf"] = "tested, no position clears the stove (0.90 m), the kept-clear zones and seat legroom"; continue
+    sc_, cx, cy, yaw_, p_ = best_
+    placed_soft.append({"name": name, "centre": [round(float(cx), 2), round(float(cy), 2)], "size": [w_, d_], "yaw_deg": round(yaw_, 1),
+                        "to_fire_m": round(float(np.hypot(cx - FIRE[0], cy - FIRE[1])), 2), "stove_clearance_m": round(dist(p_, STOVE), 2), "footprint": [[round(x, 3), round(y, 3)] for x, y in p_]})
+for q in placed_soft: layout[q.pop("name")] = q
 # cinema mode positions for the two swivel armchairs (v0.4 cinema-chair spots), facing the screen centre
 CIN = MG["cinema"]; scr = np.array([AX, CIN["screen_y"]])
 cinema = {}
@@ -124,7 +150,7 @@ checks = {"all fireside pieces face the stove glass": True,
           "obstructs LP->speaker direct path": False,
           "seats": "fireside: loveseat (2) + swivel armchair (1) = 3 facing the fire; cinema: sofa (3-4) + 2 swivel armchairs = 5-6 (as v0.4)",
           "note": "the lounge is BEHIND the drop-down screen and the speakers; it is a fireside / listening-back spot, not a cinema seat"}
-json.dump({"fire_point": FIRE.round(3).tolist(), "stove_clearance_placeholder_m": STOVE_CLEAR, "fireside_mode": layout, "cinema_mode": cinema,
+json.dump({"not_placed": NOT_PLACED, "fire_point": FIRE.round(3).tolist(), "stove_clearance_placeholder_m": STOVE_CLEAR, "fireside_mode": layout, "cinema_mode": cinema,
            "obstacles": {k: [list(map(lambda q: round(q, 3), p)) for p in v] for k, v in OBST.items()}, "checks": checks}, open(os.path.join(OUT, "lounge_layout.json"), "w"), indent=1)
 for k, v in layout.items(): print(k, v)
 for k, v in cinema.items(): print("cinema", k, v)

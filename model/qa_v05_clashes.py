@@ -48,6 +48,7 @@ ks = list(G)
 for i in range(len(ks)):
     for j in range(i + 1, len(ks)):
         if ks[i].startswith("V5_BL_") and ks[j].startswith("V5_BL_"): continue
+        if ks[i].startswith("V5_NEW-01_") and ks[i][:12] == ks[j][:12] and "_cap_" in ks[i] + ks[j]: continue   # cushions/pillows resting on the same window seat
         d = pen(G[ks[i]], G[ks[j]])
         bl = ks[i].startswith("V5_BL_") or ks[j].startswith("V5_BL_")
         if d > TOL and bl:   # confirm with the exact oriented test (rotated gobos have loose world AABBs)
