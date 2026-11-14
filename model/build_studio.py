@@ -594,6 +594,9 @@ scene.view_settings.view_transform = "AgX"; scene.view_settings.look = "AgX - Ba
 blend = os.path.join(HERE, "breakglass_east_v05.blend" if V05 else "breakglass_east_v04.blend")
 bpy.ops.wm.save_as_mainfile(filepath=blend); print("saved", blend)
 if V05: print("scenarios:", v05_treatment.apply_scenarios(globals()))   # render-time only; the saved model keeps the full design
+LOOK = os.environ.get("BG_LOOK") == "photo"   # presentation look pass: materials/lighting/render settings only (model/lookdev.py)
+if LOOK:
+    import lookdev; print("look:", lookdev.apply(globals()))
 
 INTERIOR_HIDE = ["EX_roof_metal", "EX_siding_long_L", "EX_siding_long_R", "EX_siding_gable_control", "EX_siding_gable_live", "EX_ground"]
 if os.environ.get("BG_RENDER"):
@@ -620,4 +623,5 @@ if os.environ.get("BG_RENDER"):
         M["screen"].node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 2.5 if cinema else 0.0
         M["cove"].node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 4 if cinema else 25
         sun.energy = 3.0 if not interior else 2.0
+        if LOOK: lookdev.per_view(globals(), k, cinema)
         scene.render.filepath = os.path.join(out, f"{k}{os.environ.get('BG_TAG', '')}.png"); bpy.ops.render.render(write_still=True); print("rendered", k)
