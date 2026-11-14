@@ -615,7 +615,7 @@ def _sun_dir(g, az_deg, el_deg, sky_strength):
             n.sun_elevation = e; n.sun_rotation = a - math.pi / 2
         if n.type == "BACKGROUND": n.inputs["Strength"].default_value = sky_strength * (HDRI_GAIN if "hdri_map" in nt.nodes else 1.0)
 
-HDRI_GAIN = float(__import__("os").environ.get("BG_HDRI_GAIN", 1.0))          # photographed sky vs the procedural-sky calibration (exteriors)
+HDRI_GAIN = float(__import__("os").environ.get("BG_HDRI_GAIN", 1.8))          # photographed sky vs the procedural-sky calibration (exteriors)
 HDRI_GAIN_INT = float(__import__("os").environ.get("BG_HDRI_GAIN_INT", 8.0))  # interiors need more sky fill through the windows
 EXTERIOR_LOOK = {   # view: (sun azimuth, elevation, sun energy, sky strength, exposure, interior lights on)
  "ext_entry":      (-100, 24, 3.6, 0.32, -0.55, False),
