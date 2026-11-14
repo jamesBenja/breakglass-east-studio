@@ -467,9 +467,7 @@ SPEC = {
 # photo-texture overrides (used when the CC0 cache is present; otherwise the procedural looks above stay)
 SPEC.update({
  "oak": ("img", dict(tex="oak_wood_planks", tile=2.4, coords="floor", rot=90, sat=0.85, val=1.0, bump=0.15, rough=(0.25, 0.55), coat=0.1)),
- "plaster": ("img", dict(tex="painted_plaster_wall", tile=3.0, coords="box", sat=0.0, val=1.45, tint=(0.95, 0.91, 0.85), tint_fac=1.0, bump=0.04, rough=(0.8, 0.95))),
- "ex_wall": ("img", dict(tex="painted_plaster_wall", tile=3.0, coords="box", sat=0.0, val=1.35, tint=(0.92, 0.88, 0.82), tint_fac=1.0, bump=0.03, rough=(0.8, 0.95))),
- "ex_concrete": ("img", dict(tex="brushed_concrete", tile=3.0, coords="floor", sat=0.4, val=1.5, bump=0.08, rough=(0.55, 0.85))),
+   "ex_concrete": ("img", dict(tex="brushed_concrete", tile=3.0, coords="floor", sat=0.4, val=1.5, bump=0.08, rough=(0.55, 0.85))),
  "ex_floor_cr": ("img", dict(tex="brushed_concrete", tile=3.0, coords="floor", sat=0.5, val=1.2, bump=0.08, rough=(0.55, 0.85))),
  "rug": ("img", dict(tex="poly_wool_herringbone", tile=0.9, coords="box", sat=0.3, val=1.0, bump=0.3, rough=(0.85, 1.0), sheen=0.5)),
  "v5_black_leather": ("img", dict(tex="brown_leather", tile=0.7, coords="box", sat=0.0, val=0.16, bump=0.25, rough=(0.30, 0.55), coat=0.15)),
@@ -582,7 +580,7 @@ def _sun_dir(g, az_deg, el_deg, sky_strength):
         if n.type == "BACKGROUND": n.inputs["Strength"].default_value = sky_strength * (HDRI_GAIN if "hdri_map" in nt.nodes else 1.0)
 
 HDRI_GAIN = float(__import__("os").environ.get("BG_HDRI_GAIN", 1.0))          # photographed sky vs the procedural-sky calibration (exteriors)
-HDRI_GAIN_INT = float(__import__("os").environ.get("BG_HDRI_GAIN_INT", 3.0))  # interiors need more sky fill through the windows
+HDRI_GAIN_INT = float(__import__("os").environ.get("BG_HDRI_GAIN_INT", 8.0))  # interiors need more sky fill through the windows
 EXTERIOR_LOOK = {   # view: (sun azimuth, elevation, sun energy, sky strength, exposure, interior lights on)
  "ext_entry":      (-100, 24, 3.6, 0.32, -0.55, False),
  "ext_live_gable": (125, 22, 3.6, 0.32, -0.55, False),
@@ -631,4 +629,5 @@ def per_view(g, k, cinema):
                 n.inputs["Emission Strength"].default_value = val
                 if key == "cove": n.inputs["Emission Color"].default_value = (1.0, 0.78, 0.55, 1)
     g["sun"].energy = 0.6 if cinema else 7.0
-    g["scene"].view_settings.exposure = -0.3 if cinema else -0.1
+    hd = "hdri_map" in g["scene"].world.node_tree.nodes
+    g["scene"].view_settings.exposure = (0.2 if cinema else 0.55) if hd else (-0.3 if cinema else -0.1)
