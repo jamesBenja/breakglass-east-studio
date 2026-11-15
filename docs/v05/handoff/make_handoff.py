@@ -6,7 +6,8 @@ SHA = sys.argv[1]
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 RAW = f"https://raw.githubusercontent.com/jamesBenja/breakglass-east-studio/{SHA}/"
 SHELL = "Existing shell: phone-LiDAR + photo reconstruction, ±0.1–0.2 m (not a certified survey)."
-LOOK = "Photo look pass: materials + lighting only on the unchanged v0.5 model (model/lookdev.py)."
+LOOK = ("Photo look: CC0 photo textures, photographed sky and lighting on the unchanged v0.5 geometry (model/lookdev.py); "
+        "black leather furniture and cushions are proposed (owner request); backline generic.")
 EXT = ("Building geometry from the model; cladding/roof/trim type and colour from the owner's site photos (approximate). "
        "Lawn, grass, trees, sky and the entry-lamp glow are indicative context, not surveyed.")
 I = []
@@ -35,7 +36,8 @@ for f, t, c in (
  ("cr_fire_seat_v05_photo", "From the fireside seat", "The view a guest has from the lounge: fire, console and monitors."),
  ("cr_cinema_v05_photo", "Cinema mode", "Screen down, armchair A rolled to the rear row; phase 1 plays films through the RL 901K pair."),
 ):
-    add(f"renders/design/{f}.png", "02 Control room", t, c, "render-photo", f"{LOOK} {SHELL}", f == "cr_front_v05_photo")
+    f = f.replace("_v05_photo", "_v05_phase1_photo")   # hero set shows phase 1 (Geithain stereo; no subs / immersive)
+    add(f"renders/design/{f}.png", "02 Control room", t, c + " Phase 1 shown (Geithain stereo).", "render-photo", f"{LOOK} {SHELL}", f == "cr_front_v05_phase1_photo")
 for f, t, c in (
  ("cr_front_v05_phase1", "Phase 1 — Geithain stereo only", "Owner decision 14 Nov: phase 1 is the RL 901K pair only; immersive speakers and subs are later-phase."),
  ("cr_overview_rear_v05_phase1", "Phase 1 — open room", "The same room without the immersive array: more open, fewer objects."),
@@ -47,7 +49,8 @@ for f, t, c in (
  ("live_piano_v05_photo", "Live room — piano and ensemble", "Grand piano with a mic pair, the band set-up (drums in the gobo booth, amps behind half-height screens) and Clark gobos under the existing tray ceiling. Backline is generic and indicative."),
  ("live_band_v05_photo", "Live room — the band set-up", "Drum kit inside three wheeled Clark gobos (seen from its open side), piano with a mic pair, vocal / acoustic position and the guitar amp behind a half-height screen. Backline is generic and indicative."),
  ("live_drums_v05_photo", "Live room — piano side", "Piano with its mic pair, the vocal / acoustic position, and amps behind the half-height screens; machinery bays and aisle untouched. Backline is generic and indicative."),
- ("live_farm_v05_farm_photo", "Farm mode", "Piano covered on its dolly against the west wall, gobos nested, aisle clear for machinery."),
+ ("live_farm_v05_farm_photo", "Farm mode", "Piano covered on its dolly against the west wall, gobos nested, band gear packed away, aisle clear for machinery."),
+ ("live_band_v05_farm_photo", "Farm mode — same view as the band set-up", "The band-set-up camera with the room cleared for machinery: the before/after pair."),
 ):
     add(f"renders/design/{f}.png", "03 Live room", t, c, "render-photo", f"{LOOK} {SHELL}", f.startswith("live_band"))
 add("renders/design/loft_overlook_v05_farm.png", "03 Live room", "Farm mode from the loft", "Looking down from the existing loft with the room cleared for farm use.", "render-standard", SHELL)

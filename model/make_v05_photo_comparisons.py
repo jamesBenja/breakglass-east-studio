@@ -3,8 +3,8 @@ import os
 from PIL import Image, ImageDraw
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); R = os.path.join(ROOT, "renders", "design")
 OUT = os.path.join(ROOT, "renders", "compare_v05_photo"); os.makedirs(OUT, exist_ok=True)
-PAIRS = [("cr_front", "_v05", "_v05_photo"), ("cr_overview_rear", "_v05", "_v05_photo"), ("cr_fireside", "_v05", "_v05_photo"),
-         ("cr_console", "_v05", "_v05_photo"), ("live_band", "_v05", "_v05_photo"), ("live_piano", "_v05", "_v05_photo"),
+PAIRS = [("cr_front", "_v05_phase1", "_v05_phase1_photo"), ("cr_overview_rear", "_v05_phase1", "_v05_phase1_photo"),
+         ("cr_overview_rear_L", "_v05_phase1", "_v05_phase1_photo"), ("live_band", "_v05", "_v05_photo"), ("live_piano", "_v05", "_v05_photo"),
          ("live_farm", "_v05_farm", "_v05_farm_photo")]
 for v, a, b in PAIRS:
     A, B = os.path.join(R, f"{v}{a}.png"), os.path.join(R, f"{v}{b}.png")
