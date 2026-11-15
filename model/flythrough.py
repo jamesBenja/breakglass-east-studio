@@ -45,8 +45,8 @@ def build_property(g):
         print("flythrough: no BG_PROPERTY_DIR; property not built"); return None
     W0, H0 = L["px_size"]; s = L["m_per_px"]
     # --- terrain grid over the map extent (5 m), landcover image draped by UV
-    step = 5.0
-    c0 = _to_world(L, 0, 0); c1 = _to_world(L, W0, H0)
+    step = 6.0; margin = 900.0   # generic woods beyond the traced map so the overhead reveal is filled edge to edge
+    c0 = _to_world(L, 0, 0) - Vector((margin, margin)); c1 = _to_world(L, W0, H0) + Vector((margin, margin))
     xs = [c0.x + i * step for i in range(int((c1.x - c0.x) / step) + 1)]; ys = [c0.y + j * step for j in range(int((c1.y - c0.y) / step) + 1)]
     verts, uvs, faces = [], [], []
     for i, x in enumerate(xs):
@@ -91,6 +91,18 @@ def build_property(g):
     det = nt.nodes.new("ShaderNodeTexNoise"); det.inputs["Scale"].default_value = 0.08; det.inputs["Detail"].default_value = 8
     geo = nt.nodes.new("ShaderNodeNewGeometry"); nt.links.new(geo.outputs["Position"], det.inputs["Vector"])
     mr = nt.nodes.new("ShaderNodeMapRange"); mr.inputs["To Min"].default_value = 0.75; mr.inputs["To Max"].default_value = 1.2; nt.links.new(det.outputs["Fac"], mr.inputs["Value"])
+    import lookdev as _ld
+    gp = _ld._asset("textures", "leafy_grass", "Diffuse")
+    if gp:   # close-range detail: photo grass luminance (world-mapped, 4 m tile) modulates the landcover colour
+        sp_ = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(geo.outputs["Position"], sp_.inputs["Vector"])
+        cxy = nt.nodes.new("ShaderNodeCombineXYZ"); nt.links.new(sp_.outputs["X"], cxy.inputs["X"]); nt.links.new(sp_.outputs["Y"], cxy.inputs["Y"])
+        mpg = nt.nodes.new("ShaderNodeMapping"); mpg.inputs["Scale"].default_value = (0.25, 0.25, 0.25); nt.links.new(cxy.outputs["Vector"], mpg.inputs["Vector"])
+        gt = nt.nodes.new("ShaderNodeTexImage"); gt.image = bpy.data.images.load(gp, check_existing=True); nt.links.new(mpg.outputs["Vector"], gt.inputs["Vector"])
+        bw = nt.nodes.new("ShaderNodeRGBToBW"); nt.links.new(gt.outputs["Color"], bw.inputs["Color"])
+        mr2 = nt.nodes.new("ShaderNodeMapRange"); mr2.inputs["From Min"].default_value = 0.05; mr2.inputs["From Max"].default_value = 0.35
+        mr2.inputs["To Min"].default_value = 0.55; mr2.inputs["To Max"].default_value = 1.45; nt.links.new(bw.outputs["Val"], mr2.inputs["Value"])
+        mm_ = nt.nodes.new("ShaderNodeMath"); mm_.operation = "MULTIPLY"; nt.links.new(mr.outputs["Result"], mm_.inputs[0]); nt.links.new(mr2.outputs["Result"], mm_.inputs[1])
+        mr = type("R", (), {"outputs": {"Result": mm_.outputs["Value"]}})()
     mul = nt.nodes.new("ShaderNodeMixRGB"); mul.blend_type = "MULTIPLY"; mul.inputs["Fac"].default_value = 1.0
     gm = nt.nodes.new("ShaderNodeGamma"); gm.inputs["Gamma"].default_value = 2.2; nt.links.new(ramp_in, gm.inputs["Color"])
     cb = nt.nodes.new("ShaderNodeCombineXYZ")
@@ -133,14 +145,14 @@ def build_property(g):
     gi = N.new("NodeGroupInput"); go = N.new("NodeGroupOutput")
     na = N.new("GeometryNodeInputNamedAttribute"); na.data_type = "FLOAT"; na.inputs["Name"].default_value = "forest"
     dp = N.new("GeometryNodeDistributePointsOnFaces"); dp.distribute_method = "RANDOM"; dp.inputs["Density"].default_value = 0.035; dp.inputs["Seed"].default_value = 11
-    Lk.new(gi.outputs[0], dp.inputs["Mesh"]); Lk.new(na.outputs["Attribute"], dp.inputs["Density Factor"])
+    Lk.new(gi.outputs[0], dp.inputs["Mesh"]); Lk.new(na.outputs["Attribute"], dp.inputs["Selection"])   # woods only (attribute 1/0)
     ci = N.new("GeometryNodeCollectionInfo"); ci.inputs["Collection"].default_value = tcoll; ci.inputs["Separate Children"].default_value = True; ci.inputs["Reset Children"].default_value = True
     io = N.new("GeometryNodeInstanceOnPoints"); io.inputs["Pick Instance"].default_value = True
     rv = N.new("FunctionNodeRandomValue"); rv.data_type = "INT"; rv.inputs["Min"].default_value = 0; rv.inputs["Max"].default_value = max(0, len(src) - 1)
     rr = N.new("FunctionNodeRandomValue"); rr.data_type = "FLOAT_VECTOR"; rr.inputs["Min"].default_value = (0, 0, 0); rr.inputs["Max"].default_value = (0, 0, 6.283)
     rs = N.new("FunctionNodeRandomValue"); rs.data_type = "FLOAT"; rs.inputs["Min"].default_value = 0.75; rs.inputs["Max"].default_value = 1.15
     Lk.new(dp.outputs["Points"], io.inputs["Points"]); Lk.new(ci.outputs[0], io.inputs["Instance"])
-    Lk.new(rv.outputs[2], io.inputs["Instance Index"]); Lk.new(rr.outputs[0], io.inputs["Rotation"]); Lk.new(rs.outputs[1], io.inputs["Scale"])
+    Lk.new(rv.outputs["Value"], io.inputs["Instance Index"]); Lk.new(rr.outputs["Value"], io.inputs["Rotation"]); Lk.new(rs.outputs["Value"], io.inputs["Scale"])
     jn = N.new("GeometryNodeJoinGeometry"); Lk.new(gi.outputs[0], jn.inputs[0]); Lk.new(io.outputs["Instances"], jn.inputs[0]); Lk.new(jn.outputs[0], go.inputs[0])
     mod = ter.modifiers.new("forest", "NODES"); mod.node_group = ng
     # owner's boundary as a floating map annotation above the canopy (fades in at the end)
@@ -182,7 +194,7 @@ def camera_path(g, prop):
      (25.0, (xd + 0.15, D + 0.9, 1.45 + F_MID), (AX, D + 5.0, 1.4 + F_MID)),
      (29.0, (AX, (D + yM1) / 2, 1.45 + F_MID), (AX, yM1 + 3.0, 1.4 + F_LIVE)),
      (32.5, (AX, yM1 + 1.6, 1.55 + F_LIVE), (AX + 3.2, yLE + 1.4, 0.6 + F_LIVE)),   # into the live room, toward the band
-     (37.0, (AX - 1.2, yLE + 1.8, 1.75 + F_LIVE), (AX + 2.5, yLE + 4.0, 0.7 + F_LIVE)),
+     (37.0, (AX + 0.3, yLE - 0.6, 1.85 + F_LIVE), (AX + 3.4, yLE + 1.5, 0.6 + F_LIVE)),    # beside the drum booth
      (41.0, (AX - 0.4, yLG - 2.2, 1.9 + F_LIVE), (AX, yLG + 12.0, 1.6 + F_LIVE)),    # toward the open machinery door
      (44.0, (AX, yLG + 6.0, 3.5), (AX, yLG + 30.0, 2.0)),        # out into the field
      (49.0, (AX + 22.0, yLG + 40.0, 45.0), (AX, 15.0, 0.0)),     # rise and turn back to the barn
@@ -214,12 +226,12 @@ def setup_animation(g, prop):
     scene.camera = cam; scene.frame_start = 0; scene.frame_end = round(W[-1][0] * FPS)
     # exposure / sky: exterior -> interior -> exterior
     vs = scene.view_settings
-    for t, ex in ((0, -0.55), (7.0, -0.55), (9.5, 0.5), (40.5, 0.5), (43.5, -0.55), (66, -0.6)):
+    for t, ex in ((0, -0.55), (7.0, -0.55), (9.5, 0.5), (40.5, 0.5), (43.5, -0.45), (50.0, 0.1), (58.0, 0.9), (66, 0.9)):
         vs.exposure = ex; vs.keyframe_insert("exposure", frame=round(t * FPS))
     wnt = scene.world.node_tree; bgn = next((n for n in wnt.nodes if n.type == "BACKGROUND"), None)
     if bgn:   # sky fill: exterior calibration outside, interior calibration inside (see lookdev HDRI gains)
         out_s = bgn.inputs["Strength"].default_value
-        for t, v in ((0, out_s), (7.0, out_s), (9.5, out_s * 4.5), (40.5, out_s * 4.5), (43.5, out_s), (66, out_s)):
+        for t, v in ((0, out_s), (7.0, out_s), (9.5, out_s * 4.5), (40.5, out_s * 4.5), (43.5, out_s), (50.0, out_s * 1.6), (58.0, out_s * 3.0), (66, out_s * 3.0)):
             bgn.inputs["Strength"].default_value = v; bgn.inputs["Strength"].keyframe_insert("default_value", frame=round(t * FPS))
     if prop:
         fade = prop["fade"]
@@ -239,8 +251,9 @@ def prepare(g):
     for nm in ("DOOR_DARK_gable_entry_door",):                    # entry door stands open for the walk-in
         o = bpy.data.objects.get(nm)
         if o: o.hide_render = True
-    for o in bpy.data.objects:                                      # door curtain drawn back
-        if o.name.startswith("V5_NEW-03"): o.hide_render = True
+    for o in bpy.data.objects:                                      # door curtain drawn back; screen retracted; look-dev lawn patches off
+        if o.name.startswith(("V5_NEW-03", "LOOKDEV_grass")): o.hide_render = True
+        if o.users_collection and o.users_collection[0].name.startswith("32_PROPOSED_SCREEN"): o.hide_render = True
     for o in bpy.data.objects:                                      # interior/exterior shell visible as in exterior views
         if o.name.startswith(("EX_roof_metal", "EX_siding")): o.visible_camera = True
     prop = build_property(g)
@@ -257,16 +270,25 @@ def render(g):
     spec = os.environ.get("BG_FLY_FRAMES", f"{sc.frame_start}-{sc.frame_end}")
     frames = []
     for part in spec.split(","):
-        if "-" in part: a, b = map(int, part.split("-")); frames += list(range(a, b + 1))
+        st = 1
+        if ":" in part: part, st = part.split(":"); st = int(st)
+        if "-" in part: a, b = map(int, part.split("-")); frames += list(range(a, b + 1, st))
         else: frames.append(int(part))
     for f in frames:
         p = os.path.join(out, f"{f:04d}.png")
         if os.path.exists(p) and not os.environ.get("BG_FLY_OVERWRITE"): continue   # resumable
         sc.frame_set(f); sc.render.filepath = p; bpy.ops.render.render(write_still=True); print("frame", f, flush=True)
 
-def encode(root):
-    fr = os.path.join(root, "inputs", "private", "flythrough", "frames"); mp4 = os.path.join(root, "inputs", "private", "flythrough", "breakglass_east_flythrough.mp4")
-    os.system(f'ffmpeg -y -framerate {FPS} -i "{fr}/%04d.png" -c:v libx264 -pix_fmt yuv420p -crf 18 -preset slow "{mp4}"'); print(mp4)
+def encode(root, step=2):
+    """Frames rendered every `step` frames are re-numbered and motion-interpolated back to 24 fps."""
+    base = os.path.join(root, "inputs", "private", "flythrough"); fr = os.path.join(base, "frames"); seq = os.path.join(base, "seq")
+    os.makedirs(seq, exist_ok=True)
+    for f in os.listdir(seq): os.remove(os.path.join(seq, f))
+    names = sorted(f for f in os.listdir(fr) if f.endswith(".png"))
+    for i, n in enumerate(names): os.symlink(os.path.join(fr, n), os.path.join(seq, f"{i:04d}.png"))
+    mp4 = os.path.join(base, "breakglass_east_flythrough.mp4")
+    vf = f'-vf "minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1"' if step > 1 else ""
+    os.system(f'ffmpeg -y -framerate {FPS / step} -i "{seq}/%04d.png" {vf} -c:v libx264 -pix_fmt yuv420p -crf 18 -preset slow "{mp4}"'); print(mp4)
 
 if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "encode":
     encode(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
