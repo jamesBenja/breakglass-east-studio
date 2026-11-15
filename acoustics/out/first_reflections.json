@@ -1,0 +1,261 @@
+{
+ "listening_position": [
+  5.889,
+  3.075,
+  1.2
+ ],
+ "speakers": {
+  "L": [
+   4.489,
+   5.499,
+   1.278
+  ],
+  "R": [
+   7.289,
+   5.499,
+   1.278
+  ]
+ },
+ "reflections": [
+  {
+   "speaker": "L",
+   "surface": "floor",
+   "point": [
+    5.21,
+    4.25,
+    0.0
+   ],
+   "delay_ms": 2.74,
+   "level_dB_re_direct": -2.5,
+   "off_axis_deg": 40.0,
+   "lands_on": "surface",
+   "console_shadowed": true,
+   "comb_first_notch_Hz": 183.0
+  },
+  {
+   "speaker": "R",
+   "surface": "floor",
+   "point": [
+    6.57,
+    4.25,
+    0.0
+   ],
+   "delay_ms": 2.74,
+   "level_dB_re_direct": -2.5,
+   "off_axis_deg": 40.0,
+   "lands_on": "surface",
+   "console_shadowed": true,
+   "comb_first_notch_Hz": 183.0
+  },
+  {
+   "speaker": "L",
+   "surface": "left sloped ceiling",
+   "point": [
+    3.12,
+    4.53,
+    3.03
+   ],
+   "delay_ms": 9.47,
+   "level_dB_re_direct": -6.7,
+   "off_axis_deg": 87.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 53.0
+  },
+  {
+   "speaker": "R",
+   "surface": "right sloped ceiling",
+   "point": [
+    8.65,
+    4.52,
+    3.07
+   ],
+   "delay_ms": 9.58,
+   "level_dB_re_direct": -6.7,
+   "off_axis_deg": 87.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 52.0
+  },
+  {
+   "speaker": "L",
+   "surface": "flat ceiling (4.11 m)",
+   "point": [
+    5.18,
+    4.3,
+    4.11
+   ],
+   "delay_ms": 10.48,
+   "level_dB_re_direct": -7.2,
+   "off_axis_deg": 66.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 48.0
+  },
+  {
+   "speaker": "R",
+   "surface": "flat ceiling (4.11 m)",
+   "point": [
+    6.6,
+    4.3,
+    4.11
+   ],
+   "delay_ms": 10.48,
+   "level_dB_re_direct": -7.2,
+   "off_axis_deg": 66.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 48.0
+  },
+  {
+   "speaker": "L",
+   "surface": "front wall / partition (Y=D)",
+   "point": [
+    4.97,
+    8.2,
+    1.25
+   ],
+   "delay_ms": 15.01,
+   "level_dB_re_direct": -9.1,
+   "off_axis_deg": 140.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 33.0
+  },
+  {
+   "speaker": "R",
+   "surface": "front wall / partition (Y=D)",
+   "point": [
+    6.81,
+    8.2,
+    1.25
+   ],
+   "delay_ms": 15.01,
+   "level_dB_re_direct": -9.1,
+   "off_axis_deg": 140.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 33.0
+  },
+  {
+   "speaker": "R",
+   "surface": "left sloped ceiling",
+   "point": [
+    3.78,
+    4.13,
+    3.74
+   ],
+   "delay_ms": 15.08,
+   "level_dB_re_direct": -9.1,
+   "off_axis_deg": 50.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 33.0
+  },
+  {
+   "speaker": "L",
+   "surface": "right sloped ceiling",
+   "point": [
+    7.97,
+    4.13,
+    3.79
+   ],
+   "delay_ms": 15.11,
+   "level_dB_re_direct": -9.1,
+   "off_axis_deg": 51.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 33.0
+  },
+  {
+   "speaker": "L",
+   "surface": "rear wall / gable (Y=0)",
+   "point": [
+    5.39,
+    0.0,
+    1.23
+   ],
+   "delay_ms": 17.16,
+   "level_dB_re_direct": -9.8,
+   "off_axis_deg": 21.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 29.0
+  },
+  {
+   "speaker": "R",
+   "surface": "rear wall / gable (Y=0)",
+   "point": [
+    6.39,
+    0.0,
+    1.23
+   ],
+   "delay_ms": 17.16,
+   "level_dB_re_direct": -9.8,
+   "off_axis_deg": 21.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 29.0
+  },
+  {
+   "speaker": "R",
+   "surface": "right side wall (X=W)",
+   "point": [
+    11.24,
+    4.47,
+    1.24
+   ],
+   "delay_ms": 19.88,
+   "level_dB_re_direct": -10.7,
+   "off_axis_deg": 105.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 25.0
+  },
+  {
+   "speaker": "L",
+   "surface": "left side wall (X=0)",
+   "point": [
+    0.0,
+    4.45,
+    1.24
+   ],
+   "delay_ms": 22.91,
+   "level_dB_re_direct": -11.6,
+   "off_axis_deg": 107.0,
+   "lands_on": "left window 2",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 22.0
+  },
+  {
+   "speaker": "L",
+   "surface": "right side wall (X=W)",
+   "point": [
+    11.24,
+    4.15,
+    1.23
+   ],
+   "delay_ms": 27.84,
+   "level_dB_re_direct": -12.9,
+   "off_axis_deg": 49.0,
+   "lands_on": "right window 1",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 18.0
+  },
+  {
+   "speaker": "R",
+   "surface": "left side wall (X=0)",
+   "point": [
+    0.0,
+    4.16,
+    1.23
+   ],
+   "delay_ms": 30.9,
+   "level_dB_re_direct": -13.6,
+   "off_axis_deg": 50.0,
+   "lands_on": "surface",
+   "console_shadowed": false,
+   "comb_first_notch_Hz": 16.0
+  }
+ ]
+}

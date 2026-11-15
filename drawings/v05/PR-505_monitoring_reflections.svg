@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1676" height="852" viewBox="0 0 1676 852" font-family="Helvetica,Arial,sans-serif">
+<rect width="1676" height="852" fill="#fbfaf7"/><polygon points="130.8,671.5 895.4,671.5 895.4,114.0 130.8,114.0" fill="#fff" fill-opacity="1" stroke="#555" stroke-width="4"/>
+<line x1="306.6" y1="671.5" x2="306.6" y2="114.0" stroke="#555" stroke-width="1" stroke-opacity="1" stroke-dasharray="8 5"/>
+<line x1="759.2" y1="671.5" x2="759.2" y2="114.0" stroke="#555" stroke-width="1" stroke-opacity="1" stroke-dasharray="8 5"/>
+<line x1="411.0" y1="671.5" x2="411.0" y2="114.0" stroke="#555" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 4"/>
+<line x1="651.5" y1="671.5" x2="651.5" y2="114.0" stroke="#555" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 4"/>
+<polygon points="301.9,387.7 311.4,387.7 311.4,378.2 301.9,378.2" fill="#555" fill-opacity="1" stroke="#555" stroke-width="1.2"/>
+<polygon points="754.4,384.5 763.9,384.5 763.9,375.0 754.4,375.0" fill="#555" fill-opacity="1" stroke="#555" stroke-width="1.2"/>
+<line x1="531.3" y1="691.9" x2="531.3" y2="93.6" stroke="#999" stroke-width="0.8" stroke-opacity="1" stroke-dasharray="14 4 2 4"/>
+<polygon points="501.2,675.6 560.8,675.6 560.8,667.5 501.2,667.5" fill="#fff" fill-opacity="1" stroke="#fff" stroke-width="0"/>
+<line x1="501.2" y1="671.5" x2="501.2" y2="688.5" stroke="#555" stroke-width="1" stroke-opacity="1"/>
+<line x1="560.8" y1="671.5" x2="560.8" y2="688.5" stroke="#555" stroke-width="1" stroke-opacity="1"/>
+<polygon points="679.6,654.5 748.2,654.5 748.2,586.5 679.6,586.5" fill="none" fill-opacity="1" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="679.6,671.5 748.2,671.5 748.2,654.5 679.6,654.5" fill="#ddd" fill-opacity="1" stroke="#555" stroke-width="2"/>
+<text x="713.9" y="617.1" font-size="8" text-anchor="middle" fill="#c0392b" font-weight="normal">ELEC. CABINET: 1.0 m CLEAR</text>
+<polygon points="491.9,118.1 568.3,118.1 568.3,109.9 491.9,109.9" fill="#fff" fill-opacity="1" stroke="#fff" stroke-width="0"/>
+<polygon points="892.0,593.3 898.8,593.3 898.8,375.7 892.0,375.7" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<polygon points="892.0,365.5 898.8,365.5 898.8,130.9 892.0,130.9" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<polygon points="127.4,538.9 134.2,538.9 134.2,474.3 127.4,474.3" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<polygon points="127.4,368.9 134.2,368.9 134.2,124.1 127.4,124.1" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<polygon points="267.3,674.9 346.0,674.9 346.0,668.1 267.3,668.1" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<polygon points="751.0,674.9 833.2,674.9 833.2,668.1 751.0,668.1" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<polygon points="410.3,156.2 448.4,156.2 448.4,122.2 410.3,122.2" fill="#222" fill-opacity="1" stroke="#111" stroke-width="1.2"/>
+<polygon points="385.2,197.0 473.6,197.0 473.6,114.0 385.2,114.0" fill="#bbb" fill-opacity="0.25" stroke="#777" stroke-width="1" stroke-dasharray="3 2"/>
+<polygon points="477.4,436.6 585.1,436.6 585.1,355.4 477.4,355.4" fill="#1f4e79" fill-opacity="0.45" stroke="#1f4e79" stroke-width="2"/>
+<polygon points="421.3,306.1 450.8,289.1 436.4,264.1 406.9,281.1" fill="#1f4e79" fill-opacity="1" stroke="#1f4e79" stroke-width="1"/>
+<line x1="436.1" y1="297.6" x2="531.3" y2="462.4" stroke="#1f4e79" stroke-width="1" stroke-opacity="1" stroke-dasharray="5 3"/>
+<polygon points="611.7,289.1 641.2,306.1 655.6,281.1 626.2,264.1" fill="#1f4e79" fill-opacity="1" stroke="#1f4e79" stroke-width="1"/>
+<line x1="626.5" y1="297.6" x2="531.3" y2="462.4" stroke="#1f4e79" stroke-width="1" stroke-opacity="1" stroke-dasharray="5 3"/>
+<circle cx="531.3" cy="462.4" r="5" fill="#000" stroke="none" stroke-width="1.5"/>
+<polygon points="443.6,494.7 529.6,494.7 529.6,328.9 443.6,328.9" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8" stroke-dasharray="4 2"/>
+<polygon points="533.0,494.7 618.9,494.7 618.9,328.9 533.0,328.9" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8" stroke-dasharray="4 2"/>
+<polygon points="338.1,494.7 338.1,328.9" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8" stroke-dasharray="4 2"/>
+<polygon points="723.6,494.7 723.6,328.9" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8" stroke-dasharray="4 2"/>
+<polygon points="402.8,671.5 492.6,671.5 492.6,662.8 402.8,662.8" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="569.4,671.5 659.2,671.5 659.2,662.8 569.4,662.8" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="134.2,671.5 214.6,671.5 214.6,650.8 134.2,650.8" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="130.8,647.7 151.5,647.7 151.5,567.4 130.8,567.4" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="811.6,671.5 892.0,671.5 892.0,650.8 811.6,650.8" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="874.7,647.7 895.4,647.7 895.4,567.4 874.7,567.4" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="586.4,134.5 817.9,134.5 817.9,127.6 586.4,127.6" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="586.4,134.5 817.9,134.5 817.9,127.6 586.4,127.6" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="179.8,136.3 347.3,136.3 347.3,127.7 179.8,127.7" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="179.8,136.3 347.3,136.3 347.3,127.7 179.8,127.7" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="179.8,136.3 347.3,136.3 347.3,127.7 179.8,127.7" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polygon points="134.2,460.8 139.4,460.8 139.4,383.1 134.2,383.1" fill="#2f6f4f" fill-opacity="0.18" stroke="#2f6f4f" stroke-width="0.8"/>
+<polyline points="436.1,297.6 485.1,382.5 531.3,462.4" fill="none" stroke="#999" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="485.1" cy="382.5" r="4" fill="#999" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 577.6,382.5 531.3,462.4" fill="none" stroke="#999" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="577.6" cy="382.5" r="4" fill="#999" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 343.0,363.5 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="343.0" cy="363.5" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 719.0,364.2 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="719.0" cy="364.2" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 483.0,379.1 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="483.0" cy="379.1" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 579.6,379.1 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="579.6" cy="379.1" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 468.8,113.9 531.3,462.4" fill="none" stroke="#999" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="468.8" cy="113.9" r="4" fill="#999" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 593.9,113.9 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="593.9" cy="113.9" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 387.8,390.7 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="387.8" cy="390.7" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 672.8,390.7 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="672.8" cy="390.7" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 497.3,671.5 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="497.3" cy="671.5" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 565.3,671.5 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="565.3" cy="671.5" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 895.1,367.6 531.3,462.4" fill="none" stroke="#999" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="895.1" cy="367.6" r="4" fill="#999" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 130.8,368.9 531.3,462.4" fill="none" stroke="#999" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="130.8" cy="368.9" r="4" fill="#999" stroke="none" stroke-width="1.5"/>
+<polyline points="436.1,297.6 895.1,389.3 531.3,462.4" fill="none" stroke="#999" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="895.1" cy="389.3" r="4" fill="#999" stroke="none" stroke-width="1.5"/>
+<polyline points="626.5,297.6 130.8,388.7 531.3,462.4" fill="none" stroke="#2f6f4f" stroke-width="1.1" stroke-opacity="0.85"/>
+<circle cx="130.8" cy="388.7" r="4" fill="#2f6f4f" stroke="none" stroke-width="1.5"/>
+<text x="956.592" y="90" font-size="12" font-weight="bold">First reflections at the LP (image-source, real planes)</text>
+<text x="956.592" y="108" font-size="9.5" fill="#999">L · floor                    · +2.7 ms · -2.5 dB · 40° off-axis · console-shadowed</text>
+<text x="956.592" y="123" font-size="9.5" fill="#999">R · floor                    · +2.7 ms · -2.5 dB · 40° off-axis · console-shadowed</text>
+<text x="956.592" y="138" font-size="9.5" fill="#2f6f4f">L · left sloped ceiling      · +9.5 ms · -6.7 dB · 87° off-axis · GOB-003</text>
+<text x="956.592" y="153" font-size="9.5" fill="#2f6f4f">R · right sloped ceiling     · +9.6 ms · -6.7 dB · 87° off-axis · GOB-003</text>
+<text x="956.592" y="168" font-size="9.5" fill="#2f6f4f">L · flat ceiling (4.11 m)    · +10.5 ms · -7.2 dB · 66° off-axis · GOB-004</text>
+<text x="956.592" y="183" font-size="9.5" fill="#2f6f4f">R · flat ceiling (4.11 m)    · +10.5 ms · -7.2 dB · 66° off-axis · GOB-003</text>
+<text x="956.592" y="198" font-size="9.5" fill="#999">L · front wall / partition ( · +15.0 ms · -9.1 dB · 140° off-axis · rear radiation (cardioid); wall between stove </text>
+<text x="956.592" y="213" font-size="9.5" fill="#2f6f4f">R · front wall / partition ( · +15.0 ms · -9.1 dB · 140° off-axis · ABS-003, NEW-07</text>
+<text x="956.592" y="228" font-size="9.5" fill="#2f6f4f">R · left sloped ceiling      · +15.1 ms · -9.1 dB · 50° off-axis · GOB-003</text>
+<text x="956.592" y="243" font-size="9.5" fill="#2f6f4f">L · right sloped ceiling     · +15.1 ms · -9.1 dB · 51° off-axis · GOB-003</text>
+<text x="956.592" y="258" font-size="9.5" fill="#2f6f4f">L · rear wall / gable (Y=0)  · +17.2 ms · -9.8 dB · 21° off-axis · DIF-001, NEW-03</text>
+<text x="956.592" y="273" font-size="9.5" fill="#2f6f4f">R · rear wall / gable (Y=0)  · +17.2 ms · -9.8 dB · 21° off-axis · DIF-001, NEW-03</text>
+<text x="956.592" y="288" font-size="9.5" fill="#999">R · right side wall (X=W)    · +19.9 ms · -10.7 dB · 105° off-axis · late (>15 ms) and low (<= -10 dB); lands on gl</text>
+<text x="956.592" y="303" font-size="9.5" fill="#999">L · left side wall (X=0)     · +22.9 ms · -11.6 dB · 107° off-axis · late (>15 ms) and low (<= -10 dB); lands on gl</text>
+<text x="956.592" y="318" font-size="9.5" fill="#999">L · right side wall (X=W)    · +27.8 ms · -12.9 dB · 49° off-axis · late (>15 ms) and low (<= -10 dB); lands on gl</text>
+<text x="956.592" y="333" font-size="9.5" fill="#2f6f4f">R · left side wall (X=0)     · +30.9 ms · -13.6 dB · 50° off-axis · GOB-005</text>
+<text x="956.592" y="368" font-size="10" fill="#333">Volume 288.7 m³ · Schroeder ≈ 64 Hz · EBU 3276 T_m target 0.36 s</text>
+<text x="956.592" y="383" font-size="10" fill="#333">SBIR (omni ¼-wave): front wall 2.70 m → 32 Hz; floor 1.28 m → 67 Hz (console shadows the floor bounce); nearest side wall 4.5 m → 19 Hz</text>
+<text x="956.592" y="398" font-size="10" fill="#333">Axial modes at the LP: 30.5 Hz (2,0,0) and 62.8 Hz (0,3,0) peak; 83.7 Hz (0,4,0) null — see ANALYSIS_TABLES.md</text>
+<text x="956.592" y="413" font-size="10" fill="#333">Levels: spherical spreading only. Absorption and the RL 901K's cardioid pattern lower the real reflections further.</text>
+<g font-size="11" fill="#333"><text x="20" y="790" font-size="15" font-weight="bold">PR-505  MONITORING & FIRST-REFLECTION DIAGRAM v0.5 (actual RL 901K pair, LP at 0.375 L from the gable)</text>
+<text x="20" y="808">Every first-order reflection from both speakers to the LP, traced on the measured surfaces; colour = what intercepts it in the v0.5 layout (acoustics/out/reflection_coverage.json).</text>
+<text x="20" y="824">v0.5 ACOUSTIC INTEGRATION on the approved v0.4 layout and the provisional existing shell (scan + photos, about ±0.1–0.2 m). NOT FOR CONSTRUCTION. Acoustician review and on-site measurement required.</text>
+<text x="20" y="842"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment</tspan>  <tspan fill="#2f6f4f">&#9632; Clark asset (owner-measured body)</tspan>  <tspan fill="#c2187a">&#9632; Clark asset, depth PROVISIONAL</tspan>  <tspan fill="#b5651d">&#9632; NEW purpose-built</tspan>  <tspan fill="#8a5a2b">&#9632; lounge (owner-authorised correction)</tspan>  <tspan fill="#7a2e8e">&#9679; immersive (later)</tspan></text></g></svg>

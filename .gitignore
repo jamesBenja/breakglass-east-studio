@@ -19,3 +19,4 @@ __pycache__/
 renders/highres/
 build/tmp/
 cache/
+model/assets/polyhaven/

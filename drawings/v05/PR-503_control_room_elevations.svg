@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1614" height="748" viewBox="0 0 1614 748" font-family="Helvetica,Arial,sans-serif">
+<rect width="1614" height="748" fill="#fbfaf7"/><polygon points="71.0,325.2 768.1,325.2 768.1,182.7 643.9,182.7 643.9,173.4 545.8,70.2 326.5,70.2 231.3,173.2 231.3,185.4 71.0,185.4" fill="#fff" stroke="#555" stroke-width="3"/>
+<rect x="400.2" y="197.8" width="69.7" height="127.4" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="486.4" y="250.1" width="211.0" height="47.2" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="591.9" y="276.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">ABS-003</text>
+<rect x="486.4" y="199.8" width="211.0" height="47.2" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="591.9" y="226.5" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">ABS-003</text>
+<rect x="115.6" y="276.8" width="152.8" height="39.1" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="192.0" y="299.4" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">PAN-001</text>
+<rect x="115.6" y="236.5" width="152.8" height="39.1" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="192.0" y="259.1" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">PAN-001</text>
+<rect x="115.6" y="196.2" width="152.8" height="39.1" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="192.0" y="218.8" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">PAN-001</text>
+<rect x="71.0" y="186.6" width="43.4" height="138.6" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<rect x="724.7" y="183.9" width="43.4" height="141.3" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<rect x="486.4" y="201.8" width="211.0" height="96.1" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<rect x="115.6" y="197.2" width="152.8" height="119.7" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<rect x="325.9" y="281.3" width="34.7" height="43.9" fill="#222" fill-opacity="1" stroke="#111" stroke-width="1"/>
+<text x="343.2" y="277.3" font-size="8" text-anchor="middle">stove</text>
+<text x="419.6" y="346.9" font-size="12" text-anchor="middle" font-weight="bold">FRONT WALL (partition) — looking toward the live room</text>
+<polygon points="1552.1,325.2 854.9,325.2 854.9,182.7 979.1,182.7 979.1,173.4 1077.3,70.2 1296.6,70.2 1391.7,173.2 1391.7,185.4 1552.1,185.4" fill="#fff" stroke="#555" stroke-width="3"/>
+<rect x="1160.0" y="200.3" width="54.4" height="124.9" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="1170.6" y="80.2" width="35.2" height="69.4" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="911.6" y="204.8" width="75.0" height="63.5" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="1355.8" y="202.3" width="71.8" height="66.2" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="1222.2" y="142.2" width="81.8" height="126.0" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="1263.1" y="208.2" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">DIF-001</text>
+<rect x="1070.3" y="142.2" width="81.8" height="126.0" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="1111.2" y="208.2" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">DIF-001</text>
+<rect x="1475.7" y="301.6" width="73.3" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="1512.3" y="316.4" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-001</text>
+<rect x="1533.1" y="301.6" width="18.9" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="1542.6" y="316.4" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-001</text>
+<rect x="858.0" y="301.6" width="73.3" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="894.7" y="316.4" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-002</text>
+<rect x="854.9" y="301.6" width="18.9" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="864.4" y="316.4" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-002</text>
+<rect x="1146.6" y="188.8" width="80.6" height="136.4" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<text x="1203.5" y="346.9" font-size="12" text-anchor="middle" font-weight="bold">REAR WALL (gable) — looking toward the entry</text>
+<rect x="71.0" y="408.6" width="508.3" height="139.8" fill="#fff" fill-opacity="1" stroke="#555" stroke-width="3"/>
+<rect x="399.5" y="433.6" width="58.9" height="43.6" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="80.2" y="433.6" width="223.2" height="43.6" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="560.4" y="524.8" width="18.9" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="569.9" y="539.6" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-001</text>
+<rect x="484.4" y="524.8" width="73.3" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="521.0" y="539.6" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-001</text>
+<rect x="316.3" y="409.8" width="70.9" height="66.1" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="351.8" y="445.8" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">GOB-005</text>
+<rect x="117.4" y="480.2" width="362.7" height="68.2" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<rect x="71.0" y="409.8" width="43.4" height="138.6" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<text x="325.2" y="570.1" font-size="12" text-anchor="middle" font-weight="bold">LEFT SIDE WALL (X = 0)</text>
+<rect x="666.1" y="405.9" width="508.3" height="142.5" fill="#fff" fill-opacity="1" stroke="#555" stroke-width="3"/>
+<rect x="737.4" y="433.6" width="198.4" height="43.6" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="945.1" y="433.6" width="213.9" height="43.6" fill="#cfe3f0" fill-opacity="1" stroke="#7aa7c7" stroke-width="1"/>
+<rect x="666.1" y="524.8" width="18.9" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="675.6" y="539.6" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-002</text>
+<rect x="687.8" y="524.8" width="73.3" height="23.6" fill="#2f6f4f" fill-opacity="0.5" stroke="#2f6f4f" stroke-width="1.2"/>
+<text x="724.5" y="539.6" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BTR-002</text>
+<rect x="765.3" y="480.2" width="362.7" height="68.2" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<rect x="1131.1" y="407.1" width="43.4" height="141.3" fill="#b5651d" fill-opacity="0.25" stroke="#b5651d" stroke-width="1.2" stroke-dasharray="4 2"/>
+<text x="920.3" y="570.1" font-size="12" text-anchor="middle" font-weight="bold">RIGHT SIDE WALL (X = W)</text><text x="20" y="656" font-size="10" fill="#444">Side walls: bench traps stop under the sills; window glass stays clear (shutters NEW-04 fold into the reveals, not drawn). Left wall: GOB-005 between the windows above the bench.</text>
+<g font-size="11" fill="#333"><text x="20" y="686" font-size="15" font-weight="bold">PR-503  CONTROL ROOM — INTERIOR ELEVATIONS v0.5 (existing openings kept; assets drawn at their owner-measured sizes)</text>
+<text x="20" y="704">Solid = Clark asset face; dashed orange = NEW build (bench traps, corner traps, stand-off frames, door curtain). Elevations seen from inside the room.</text>
+<text x="20" y="720">v0.5 ACOUSTIC INTEGRATION on the approved v0.4 layout and the provisional existing shell (scan + photos, about ±0.1–0.2 m). NOT FOR CONSTRUCTION. Acoustician review and on-site measurement required.</text>
+<text x="20" y="738"><tspan fill="#555">&#9632; existing</tspan>  <tspan fill="#1f4e79">&#9632; actual equipment</tspan>  <tspan fill="#2f6f4f">&#9632; Clark asset (owner-measured body)</tspan>  <tspan fill="#c2187a">&#9632; Clark asset, depth PROVISIONAL</tspan>  <tspan fill="#b5651d">&#9632; NEW purpose-built</tspan>  <tspan fill="#8a5a2b">&#9632; lounge (owner-authorised correction)</tspan>  <tspan fill="#7a2e8e">&#9679; immersive (later)</tspan></text></g></svg>
