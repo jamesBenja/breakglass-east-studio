@@ -613,6 +613,8 @@ if V05: print("scenarios:", v05_treatment.apply_scenarios(globals()))   # render
 LOOK = os.environ.get("BG_LOOK") == "photo"   # presentation look pass: materials/lighting/render settings only (model/lookdev.py)
 if LOOK:
     import lookdev; print("look:", lookdev.apply(globals()))
+if os.environ.get("BG_FLY"):   # fly-through animation (model/flythrough.py); property data from a private folder
+    import flythrough; flythrough.prepare(globals()); flythrough.render(globals())
 
 INTERIOR_HIDE = ["EX_roof_metal", "EX_siding_long_L", "EX_siding_long_R", "EX_siding_gable_control", "EX_siding_gable_live", "EX_ground"]
 if os.environ.get("BG_RENDER"):
