@@ -598,6 +598,10 @@ if V05:   # extra v0.5 views (the v0.4 cameras above are kept identical for matc
      "live_drums":    ((AX - 3.6, Y_LIVE_G - 1.0, 1.75), (AX + 3.0, Y_LOFT_END + 1.0, 0.9), 18),
      # owner request 14 Nov: see the band set-up (open side of the drum booth, amps beyond)
      "live_band":     ((AX + 0.9, Y_LOFT_END - 2.3, 1.55), (AX + 3.4, Y_LIVE_G - 1.2, 0.75), 20),
+     # owner request 15 Nov: more cinema-mode viewpoints. Behind the sofa (in front of the NEW-03 curtain, over the
+     # sofa back), and from the clerestory window above the entry door (below the projector, so its beam path shows)
+     "cr_cinema_behind_sofa": ((AX - 0.35, 0.27, 1.25), (AX + 0.05, CIN["screen_y"], 0.20), 14),
+     "cr_cinema_window":      ((AX + 0.12, 0.14, 3.00), (AX, CIN["screen_y"], 1.20), 14),
      # owner request 14 Nov: high views back toward the entrance over the console (sofa, armchairs, door, diffusers)
      "cr_overview_rear":   ((AX + 0.9, 7.15, 3.05), (AX - 0.2, 0.4, 0.75), 17),
      "cr_overview_rear_L": ((3.05, 7.45, 2.70), (AX + 0.9, 0.4, 0.70), 17),
@@ -647,7 +651,7 @@ if os.environ.get("BG_RENDER"):
             if nm in bpy.data.objects:   # restore after the axo cut-away (matters when views render after it, e.g. the v0.5 extras)
                 ob_ = bpy.data.objects[nm]
                 ob_.visible_camera = False if k == "axo_cutaway" else (ob_.visible_camera if nm in INTERIOR_HIDE else VIS0.setdefault(nm, ob_.visible_camera))
-        cinema = (k == "cr_cinema")
+        cinema = k.startswith("cr_cinema")   # every cinema-mode view: screen down, lights dimmed, armchair A in the rear row
         if SWIVEL_A is not None: v05_treatment.set_mode(SWIVEL_A, cinema)   # swivel armchair A rolls to the rear row for films
         for ob in col("32_PROPOSED_SCREEN_MODE").objects: ob.hide_render = not cinema   # retracted except in movie mode
         for L in bpy.data.lights:
