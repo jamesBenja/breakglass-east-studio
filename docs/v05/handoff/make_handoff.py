@@ -34,6 +34,8 @@ for f, t, c in (
  ("cr_console_v05_photo", "The console", "The actual Spectra Sonics console, modelled from photographs and measured dimensions."),
  ("cr_fireside_v05_photo", "Fireside lounge (corrected)", "Owner-authorised correction: the loveseat and swivel armchair now face the stove glass."),
  ("cr_fire_seat_v05_photo", "From the fireside seat", "The view a guest has from the lounge: fire, console and monitors."),
+ ("cr_cinema_behind_sofa_v05_photo", "Cinema — from behind the sofa", "Owner-requested view: over the sofa backs to the lowered screen; console and both Geithains sit below the picture."),
+ ("cr_cinema_window_v05_photo", "Cinema — from the window above the entry door", "Owner-requested high view down the room axis: screen, black drop, projector line, console and Geithains."),
  ("cr_cinema_v05_photo", "Cinema mode", "Screen down: a 2.6 m matte roll-down whose picture clears the tops of both Geithains, with a black drop from the ceiling cassette. Armchair A is rolled to the rear row; phase 1 plays films through the RL 901K pair."),
 ):
     f = f.replace("_v05_photo", "_v05_phase1_photo")   # hero set shows phase 1 (Geithain stereo; no subs / immersive)

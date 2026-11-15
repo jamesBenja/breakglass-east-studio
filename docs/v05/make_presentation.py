@@ -45,7 +45,7 @@ P.append(img("drawings/v05/PR-506_lounge_two_modes.png", 640))
 P.append(table(["Piece", "Fireside mode", "Distance to fire", "Stove clearance", "Cinema mode"],
                [["Loveseat (2)", "faces the stove glass", f'{fs["loveseat"]["to_fire_m"]} m', f'{fs["loveseat"]["stove_clearance_m"]} m', "stays (behind the screen, not a viewing seat)"],
                 ["Swivel armchair A", "faces the stove glass", f'{fs["swivel armchair A"]["to_fire_m"]} m', f'{fs["swivel armchair A"]["stove_clearance_m"]} m', "rolls on glides to the rear row"],
-                ["Swivel armchair B", "rear row", "—", "—", "rear row (31.0° screen width; clear of the electrical cabinet)"]]))
+                ["Swivel armchair B", "rear row", "—", "—", "rear row (26.8° screen width; clear of the electrical cabinet)"]]))
 P.append("<p>Constraints solved in <code>acoustics/lounge.py</code>: 0.90 m stove clearance (placeholder for the label / WETT value), speaker + cardioid clear zone, sub, traps, future Ls stand, doorway route to the live room clear, nobody blocking anybody's view of the fire. "
          "A third fireside seat was tested and does not fit behind the speaker line with these clearances — it is reported, not forced. No mechanisms.</p>")
 P.append(img("renders/design/cr_fire_seat_v05.png", 640))
@@ -60,6 +60,8 @@ P.append("<h2>6. The treated control room</h2>")
 P.append("<p><i>High views back toward the entrance over the console (owner request): sofa, swivel armchairs, entry door with the wool curtain, DIF-001 diffusers, ceiling cloud and slope panels.</i></p>")
 for v in ("cr_overview_rear_v05", "cr_overview_rear_L_v05"): P.append(img(f"renders/design/{v}.png", 640))
 for v in ("cr_front_v05", "cr_ceiling_v05", "cr_rear_v05", "cr_cinema_v05"): P.append(img(f"renders/design/{v}.png", 640))
+P.append("<h3>Cinema mode (owner review 15 Nov)</h3><p>The screen is a 2.6 m (16:9) matte roll-down hung from a ceiling cassette on a black drop, so the picture starts 0.10 m above the tops of both RL 901Ks and never masks them; the projector hangs on a drop mount near the rear wall in a hush box, using vertical lens shift (verified in QA: 54-ray beam check, nothing in the way). Views from behind the sofa and from the window above the entry door:</p>")
+for v in ("cr_cinema_behind_sofa_v05_phase1_photo", "cr_cinema_window_v05_phase1_photo"): P.append(img(f"renders/design/{v}.png", 640))
 P.append("<h3>Phase 1: stereo only (the two Geithains)</h3><p>The same room before the later immersive phase: only the actual RL 901K pair monitors; the 9 immersive speakers, their stands and hangers, and both subs are not installed, so the floor and ceiling read much more open. Treatment, lounge, cinema screen and projector are as designed. <b>Owner decision 14 Nov: phase 1 is Geithain stereo only</b> — films play through the RL 901K pair; the 5.1 extras (centre, side surrounds, sub) move to the later phase with the 7.1.4 completion.</p>")
 for v in ("cr_front_v05_phase1", "cr_overview_rear_v05_phase1", "cr_overview_rear_L_v05_phase1"): P.append(img(f"renders/design/{v}.png", 640))
 P.append("<h2>7. Live room treatment plan and configurations</h2>")
