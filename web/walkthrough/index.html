@@ -1,0 +1,545 @@
+<title>Breakglass East Walkthrough</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the 3D room fills the screen; a console-strip control panel docks left (bottom sheet on phones); readouts sit on the floor of the view. */
+:root {
+  --ink: #ece6da;          /* panel text: warm paper white */
+  --ink-dim: #a39d92;
+  --panel: rgba(24, 23, 21, 0.86);
+  --panel-solid: #181715;
+  --line: rgba(236, 230, 218, 0.14);
+  --brass: #c9a24a;        /* the Spectra Sonics meter-bridge brass */
+  --brass-ink: #1b1710;
+  --scan: #6fa3c7;         /* evidence chips */
+  --photo: #7fb59a;
+  --proposed: #b9b2a6;
+  --indicative: #8a8478;
+  --bg: #0e0d0c;
+  --f-ui: "IBM Plex Sans Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-size: 14px; overflow: hidden; }
+#app { position: fixed; inset: 0; }
+canvas#view { display: block; width: 100%; height: 100%; touch-action: none; outline: none; }
+
+.panel { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px));
+  width: 268px; max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
+  background: var(--panel); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line); border-radius: 10px; padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 14px; }
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand h1 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: 0.01em; text-wrap: balance; }
+.brand p { margin: 0; color: var(--ink-dim); font-size: 12px; line-height: 1.35; }
+.sect { display: flex; flex-direction: column; gap: 6px; }
+.label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-dim); }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); background: rgba(255,255,255,0.05); border: 1px solid var(--line); border-radius: 7px; padding: 2px; gap: 2px; }
+.seg button { font: 500 13px var(--f-ui); color: var(--ink); background: none; border: 0; border-radius: 5px; padding: 6px 0; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--brass); color: var(--brass-ink); }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.switch { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font-size: 13px; line-height: 1.3; }
+.switch input { appearance: none; -webkit-appearance: none; width: 32px; height: 18px; border-radius: 9px; background: rgba(255,255,255,0.16); position: relative; flex: none; cursor: pointer; margin: 0; transition: background .15s; }
+.switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); transition: transform .15s; }
+.switch input:checked { background: var(--brass); }
+.switch input:checked::after { transform: translateX(14px); background: var(--brass-ink); }
+.views { display: flex; flex-direction: column; gap: 10px; }
+.vgroup { display: flex; flex-direction: column; gap: 2px; }
+.vgroup .label { margin-bottom: 2px; }
+.vbtn { text-align: left; font: 400 13.5px var(--f-ui); color: var(--ink); background: none; border: 0; border-radius: 5px; padding: 4px 8px; cursor: pointer; }
+.vbtn:hover { background: rgba(255,255,255,0.07); }
+.vbtn[aria-current="true"] { background: rgba(201,162,74,0.18); color: var(--brass); }
+.tool { font: 500 13px var(--f-ui); color: var(--ink); background: rgba(255,255,255,0.06); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+.tool[aria-pressed="true"] { border-color: var(--brass); color: var(--brass); }
+button:focus-visible, input:focus-visible, canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.note { margin: 0; font-size: 11.5px; color: var(--ink-dim); line-height: 1.4; }
+
+.hud { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  display: flex; flex-direction: column; align-items: center; gap: 6px; pointer-events: none; width: min(620px, calc(100% - 32px)); }
+.pick { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; max-width: 100%; }
+.pick .name { font-weight: 600; font-size: 14px; }
+.chip { font: 500 10.5px var(--f-data); letter-spacing: 0.02em; padding: 2px 6px; border-radius: 4px; color: #111; white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.pick .ev { font: 400 11.5px var(--f-data); color: var(--ink-dim); flex-basis: 100%; min-width: 0; }
+.readout { font: 400 11.5px var(--f-data); color: var(--ink-dim); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 4px 9px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hint { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); max-width: 300px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; font-size: 12.5px; line-height: 1.45; color: var(--ink); }
+.hint kbd { font: 500 11px var(--f-data); background: rgba(255,255,255,0.1); border-radius: 3px; padding: 0 4px; }
+.cross { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; pointer-events: none; }
+.cross::before, .cross::after { content: ""; position: absolute; background: rgba(255,255,255,0.85); box-shadow: 0 0 2px rgba(0,0,0,0.8); }
+.cross::before { left: 6px; top: 0; width: 2px; height: 14px; }
+.cross::after { top: 6px; left: 0; height: 2px; width: 14px; }
+.tape { position: absolute; pointer-events: none; font: 600 13px var(--f-data); color: var(--brass-ink); background: var(--brass); padding: 2px 7px; border-radius: 4px; transform: translate(-50%, -140%); white-space: nowrap; }
+
+.loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--bg); z-index: 5; padding-inline: 16px; }
+.loading .box { width: min(360px, 100%); display: flex; flex-direction: column; gap: 10px; }
+.loading h2 { margin: 0; font-size: 22px; font-weight: 600; }
+.loading p { margin: 0; color: var(--ink-dim); font-size: 13px; line-height: 1.45; }
+.bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--brass); transition: width .2s; }
+
+.stick { position: absolute; width: 110px; height: 110px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.35); background: rgba(0,0,0,0.18); pointer-events: none; }
+.stick i { position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(236,230,218,0.75); }
+.menu-btn { display: none; }
+
+@media (max-width: 720px) {
+  .panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; border-radius: 12px 12px 0 0; max-height: 58%;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .panel[data-collapsed="true"] { display: none; }
+  .menu-btn { display: block; position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px));
+    font: 600 13px var(--f-ui); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+  .hint { display: none; }
+  .hud { bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div id="app">
+  <canvas id="view" tabindex="0" aria-label="3D walkthrough of the studio. Click to look around; use W A S D to move."></canvas>
+  <div class="cross" id="cross" hidden></div>
+  <div class="tape" id="tape" hidden></div>
+  <div class="stick" id="stick" hidden><i></i></div>
+
+  <button class="menu-btn" id="menuBtn" aria-controls="panel" aria-expanded="false">Views &amp; modes</button>
+  <aside class="panel" id="panel" data-collapsed="true">
+    <div class="brand">
+      <h1>Breakglass East</h1>
+      <p>v0.5 design model. Proposed fit-out inside a phone-LiDAR and photo reconstruction (±0.1–0.2 m). Not for construction.</p>
+    </div>
+    <div class="sect">
+      <span class="label" id="modeLbl">Room mode</span>
+      <div class="seg" role="group" aria-labelledby="modeLbl">
+        <button id="m-studio" aria-pressed="true">Studio</button>
+        <button id="m-cinema" aria-pressed="false">Cinema</button>
+        <button id="m-farm" aria-pressed="false">Farm</button>
+      </div>
+      <label class="switch" for="immT"><span>Immersive 7.1.4 speakers and subs (later phase)</span><input type="checkbox" id="immT"></label>
+      <label class="switch" for="flyT"><span>Fly (no gravity or walls)</span><input type="checkbox" id="flyT"></label>
+      <label class="switch" for="roofT"><span>Hide roof</span><input type="checkbox" id="roofT"></label>
+    </div>
+    <div class="sect">
+      <div class="row"><span class="label">Tools</span></div>
+      <div class="row" style="justify-content:flex-start;gap:8px;flex-wrap:wrap">
+        <button class="tool" id="measureT" aria-pressed="false">Tape measure</button>
+        <button class="tool" id="copyT">Copy link to this view</button>
+      </div>
+      <p class="note" id="toolNote">Tape measure: click two surfaces. Distances come from the model, so they carry the scan's tolerance.</p>
+    </div>
+    <nav class="views" id="views" aria-label="Viewpoints"></nav>
+  </aside>
+
+  <div class="hint" id="hint">
+    <b>Click the view</b> to look around with the mouse.<br>
+    <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk · <kbd>Shift</kbd> faster · <kbd>E</kbd>/<kbd>Q</kbd> up/down when flying · <kbd>F</kbd> fly · <kbd>M</kbd> tape · <kbd>Esc</kbd> release the mouse.
+  </div>
+
+  <div class="hud">
+    <div class="pick" id="pick" hidden><span class="name" id="pickName"></span><span class="chip" id="pickChip"></span><span class="ev" id="pickEv"></span></div>
+    <div class="readout" id="readout">—</div>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="box">
+      <h2>Breakglass East</h2>
+      <p id="loadMsg">Loading the v0.5 studio model (5.5 MB)…</p>
+      <div class="bar"><i id="loadBar"></i></div>
+    </div>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+const $ = (id) => document.getElementById(id);
+const canvas = $("view");
+const isTouch = matchMedia("(pointer: coarse)").matches;
+const lowPower = isTouch || (navigator.hardwareConcurrency || 8) <= 4;
+
+// ---------- renderer / scene
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: !lowPower, powerPreference: "high-performance" });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPower ? 1.5 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.8;
+renderer.shadowMap.enabled = !lowPower;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+const SKY = new THREE.Color(0xbcd0de);
+scene.background = SKY.clone();
+scene.fog = new THREE.Fog(SKY.clone(), 120, 600);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(70, 1, 0.05, 2000);
+camera.rotation.order = "YXZ";
+const hemi = new THREE.HemisphereLight(0xdfe8f0, 0x5a5046, 0.55); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff1dc, 2.6);
+sun.position.set(40, 60, 30); sun.castShadow = !lowPower;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -40, right: 40, top: 40, bottom: -40, near: 1, far: 200 });
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.03;
+scene.add(sun); scene.add(sun.target);
+
+// ---------- state
+const EYE = 1.62, RADIUS = 0.28, STEP = 0.5;
+const state = { mode: "studio", imm: false, fly: false, roof: false, measure: false };
+let yaw = 0, pitch = 0;
+const feet = new THREE.Vector3();        // walk mode: feet position; camera = feet + EYE
+let vy = 0;
+const keys = new Set();
+const solids = [];                        // meshes that stop you walking
+const pickables = [];
+const floors = [];                        // floor surfaces only, for the eye-height readout
+const tagged = { cinema: [], imm: [], farm_hide: [], farm_only: [] };
+const movers = [];                        // { obj, base: [pos, quat], cinema?: [pos, quat], farm?: [pos, quat] }
+const roofObjs = [];
+const interiorLights = [];
+let screenMat = null, coveMats = [], VIEWS = [];
+
+function setLoad(p, msg) { $("loadBar").style.width = `${Math.round(p * 100)}%`; if (msg) $("loadMsg").textContent = msg; }
+
+// Blender Z-up world pose [x, y, z, rx, ry, rz] (degrees) -> glTF Y-up position + quaternion
+const toYup = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI / 2);
+function poseYup(p) {
+  const pos = new THREE.Vector3(p[0], p[2], -p[1]);
+  const qb = new THREE.Quaternion().setFromEuler(new THREE.Euler(THREE.MathUtils.degToRad(p[3]), THREE.MathUtils.degToRad(p[4]), THREE.MathUtils.degToRad(p[5]), "XYZ"));
+  const q = toYup.clone().multiply(qb).multiply(toYup.clone().invert());
+  return [pos, q];
+}
+function worldToParent(obj, pos, quat) {          // pose given in world space -> obj.parent space
+  const m = new THREE.Matrix4().compose(pos, quat, obj.scale.clone());
+  if (obj.parent) { obj.parent.updateMatrixWorld(true); m.premultiply(obj.parent.matrixWorld.clone().invert()); }
+  const p = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3(); m.decompose(p, q, s);
+  return [p, q];
+}
+
+// ---------- load (the model is served as base64 text: studio_v05.glb.txt holds the .glb bytes)
+async function loadModel() {
+  const r = await fetch("studio_v05.glb.txt"); if (!r.ok) throw new Error("model " + r.status);
+  const total = +r.headers.get("content-length") || 5.6e6; const rd = r.body.getReader(); const parts = []; let got = 0;
+  for (;;) { const { done, value } = await rd.read(); if (done) break; parts.push(value); got += value.length; setLoad(Math.min(got / total, 1) * 0.9); }
+  const txt = new TextDecoder().decode(await new Blob(parts).arrayBuffer());
+  const bin = atob(txt.trim()); const u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  return new Promise((res, rej) => new GLTFLoader().parse(u8.buffer, "", res, rej));
+}
+const [viewsData, gltf] = await Promise.all([
+  fetch("views.json").then((r) => { if (!r.ok) throw new Error("views.json " + r.status); return r.json(); }),
+  loadModel(),
+]).catch((err) => { setLoad(0, "The model could not be loaded: " + err.message + ". Reload the page to try again."); throw err; });
+VIEWS = viewsData.views;
+setLoad(1, "Preparing the rooms…");
+const root = gltf.scene; scene.add(root);
+
+root.traverse((o) => {
+  const ex = o.userData || {};
+  if (ex.wk && tagged[ex.wk]) tagged[ex.wk].push(o);
+  if (ex.wk_cinema || ex.wk_farm) {
+    const m = { obj: o, base: [o.position.clone(), o.quaternion.clone()] };
+    if (ex.wk_cinema) m.cinema = ex.wk_cinema;
+    if (ex.wk_farm) { m.farm = ex.wk_farm; m.farmLocal = !!ex.wk_farm_local; }
+    movers.push(m);
+  }
+  if (/^EX_roof|^EX_CR_ceiling|^EX_envelope_roof/i.test(o.name)) roofObjs.push(o);
+  if (!o.isMesh) return;
+  const mats = Array.isArray(o.material) ? o.material : [o.material];
+  for (const mt of mats) {
+    if (!mt) continue;
+    mt.envMapIntensity = 0.35;
+    const n = (mt.name || "").toLowerCase();
+    if (n === "glass" || n.includes("glass")) { mt.transparent = true; mt.opacity = 0.16; mt.depthWrite = false; mt.roughness = 0.05; mt.metalness = 0; o.castShadow = false; }
+    if (n.includes("cove") || n.includes("pendant_glow")) coveMats.push(mt);
+    if (n === "pr_ac_screen" || n === "screen") screenMat = mt;
+  }
+  const big = /^EX_(ground|siding|roof)/.test(o.name);
+  o.castShadow = !lowPower && !big && o.castShadow !== false; o.receiveShadow = !lowPower;
+  if (/^EX_ground/.test(o.name)) o.receiveShadow = true;
+  pickables.push(o);
+  if (/floor|slab|deck|ground|tray|loft|rug|stair/i.test(o.name)) floors.push(o);
+  const nm = o.name + " " + (o.parent ? o.parent.name : "");
+  if (!/DOOR|NEW-03|curtain|EX_ground|^WINDOW_gable_clerestory/i.test(nm)) solids.push(o);
+});
+// farm-mode poses resolved against the parents now that the scene is built
+root.updateMatrixWorld(true);
+for (const m of movers) {
+  if (m.cinema) { const [p, q] = poseYup(m.cinema); m.cinemaPose = worldToParent(m.obj, p, q); }
+  if (m.farm) {
+    if (m.farmLocal) {            // lid: keep its hinge position, only reset the rotation (local)
+      const [, q] = poseYup(m.farm); m.farmPose = [m.base[0].clone(), q];
+    } else { const [p, q] = poseYup(m.farm); m.farmPose = worldToParent(m.obj, p, q); }
+  }
+}
+for (const L of viewsData.lights || []) {
+  const pl = new THREE.PointLight(0xffe7c8, 0, 0, 2);
+  pl.position.set(...L.pos); pl.userData.zone = L.zone; scene.add(pl); interiorLights.push(pl);
+}
+
+// ---------- modes
+function applyModes() {
+  const cin = state.mode === "cinema", farm = state.mode === "farm";
+  for (const o of tagged.cinema) o.visible = cin;
+  for (const o of tagged.imm) o.visible = state.imm;
+  for (const o of tagged.farm_hide) o.visible = !farm;
+  for (const o of tagged.farm_only) o.visible = farm;
+  for (const m of movers) {
+    const p = (cin && m.cinemaPose) || (farm && m.farmPose) || m.base;
+    m.obj.position.copy(p[0]); m.obj.quaternion.copy(p[1]);
+  }
+  for (const o of roofObjs) o.visible = !state.roof;
+  for (const pl of interiorLights) pl.intensity = cin && pl.userData.zone === "cr" ? 0.8 : (pl.userData.zone === "cr" ? 6 : 5);
+  hemi.intensity = cin ? 0.12 : 0.55; sun.intensity = cin ? 0.4 : 2.4;
+  for (const mt of coveMats) mt.emissiveIntensity = cin ? 0.35 : 1.6;
+  if (screenMat) { screenMat.emissive = new THREE.Color(0xffffff); screenMat.emissiveIntensity = cin ? 0.9 : 0; }
+  renderer.toneMappingExposure = cin ? 1.2 : 0.8;
+  for (const id of ["studio", "cinema", "farm"]) $("m-" + id).setAttribute("aria-pressed", String(state.mode === id));
+  $("immT").checked = state.imm; $("flyT").checked = state.fly; $("roofT").checked = state.roof;
+}
+for (const id of ["studio", "cinema", "farm"]) $("m-" + id).addEventListener("click", () => { state.mode = id; applyModes(); });
+$("immT").addEventListener("change", (e) => { state.imm = e.target.checked; applyModes(); });
+$("flyT").addEventListener("change", (e) => setFly(e.target.checked));
+$("roofT").addEventListener("change", (e) => { state.roof = e.target.checked; applyModes(); });
+function setFly(on) { state.fly = on; $("flyT").checked = on; if (!on) { feet.copy(camera.position).y -= EYE; vy = 0; settleOnFloor(true); } }
+
+// ---------- viewpoints
+const hashId = (id) => id.replace(/_/g, "-");
+const groups = {};
+for (const v of VIEWS) (groups[v.group] ||= []).push(v);
+const nav = $("views");
+for (const [g, list] of Object.entries(groups)) {
+  const d = document.createElement("div"); d.className = "vgroup";
+  d.innerHTML = `<span class="label">${g}</span>`;
+  for (const v of list) {
+    const b = document.createElement("button"); b.className = "vbtn"; b.textContent = v.label; b.dataset.id = v.id;
+    b.addEventListener("click", () => { goView(v.id); if (isTouch) collapse(true); });
+    d.appendChild(b);
+  }
+  nav.appendChild(d);
+}
+function goView(id, keepMode) {
+  const v = VIEWS.find((x) => x.id === id); if (!v) return;
+  camera.position.set(...v.pos);
+  const d = new THREE.Vector3(...v.dir).normalize();
+  yaw = Math.atan2(-d.x, -d.z); pitch = Math.asin(THREE.MathUtils.clamp(d.y, -1, 1));
+  camera.fov = THREE.MathUtils.clamp(2 * THREE.MathUtils.radToDeg(Math.atan(12 / v.lens_mm)), 45, 85); camera.updateProjectionMatrix();
+  if (!keepMode) { state.mode = v.mode; applyModes(); }
+  setFly(!!v.fly);
+  if (!v.fly) { feet.set(v.pos[0], v.pos[1] - EYE, v.pos[2]); settleOnFloor(true); }
+  for (const b of nav.querySelectorAll(".vbtn")) b.setAttribute("aria-current", String(b.dataset.id === id));
+  try { history.replaceState(null, "", "#" + hashId(id)); } catch (e) { location.hash = hashId(id); }
+}
+window.addEventListener("hashchange", () => { const id = location.hash.slice(1).replace(/-/g, "_"); if (VIEWS.some((v) => v.id === id)) goView(id); });
+$("copyT").addEventListener("click", async () => {
+  const url = location.href;
+  try { await navigator.clipboard.writeText(url); $("toolNote").textContent = "Link copied. It opens at the viewpoint you last picked."; }
+  catch (e) { $("toolNote").textContent = "Copy this link: " + url; }
+});
+
+// ---------- physics: floors and walls by ray casting against the model
+const ray = new THREE.Raycaster();
+const DOWN = new THREE.Vector3(0, -1, 0);
+function visibleHit(hits) { for (const h of hits) { let o = h.object, vis = true; while (o) { if (!o.visible) { vis = false; break; } o = o.parent; } if (vis) return h; } return null; }
+function floorBelow(p, up = STEP) {
+  ray.set(new THREE.Vector3(p.x, p.y + up, p.z), DOWN); ray.far = 60;
+  return visibleHit(ray.intersectObjects(solids, false));
+}
+function settleOnFloor(snap) {
+  const h = floorBelow(feet, snap ? 1.2 : STEP);
+  if (h && (snap || h.point.y <= feet.y + STEP)) { if (snap || feet.y - h.point.y < 0.08) { feet.y = h.point.y; vy = 0; } return h.point.y; }
+  return null;
+}
+function blocked(from, dir, dist) {
+  for (const hgt of [0.45, 1.1, 1.7]) {
+    ray.set(new THREE.Vector3(from.x, from.y + hgt, from.z), dir); ray.far = dist + RADIUS;
+    if (visibleHit(ray.intersectObjects(solids, false))) return true;
+  }
+  return false;
+}
+
+// ---------- input: mouse look (pointer lock, or drag when it is refused), keys, touch stick
+let locked = false, dragging = false, lastX = 0, lastY = 0;
+canvas.addEventListener("click", (e) => {
+  if (state.measure) { measureClick(e); return; }
+  if (!isTouch && !locked && canvas.requestPointerLock) { const r = canvas.requestPointerLock(); if (r && r.catch) r.catch(() => {}); }
+});
+document.addEventListener("pointerlockchange", () => { locked = document.pointerLockElement === canvas; $("cross").hidden = !locked; $("hint").style.opacity = locked ? 0.35 : 1; });
+document.addEventListener("mousemove", (e) => { if (locked) look(e.movementX, e.movementY); });
+canvas.addEventListener("pointerdown", (e) => { if (e.pointerType === "mouse" && !locked) { dragging = true; lastX = e.clientX; lastY = e.clientY; } });
+window.addEventListener("pointerup", () => { dragging = false; });
+window.addEventListener("pointermove", (e) => { if (dragging && !locked) { look(e.clientX - lastX, e.clientY - lastY); lastX = e.clientX; lastY = e.clientY; } mouse.set(e.clientX, e.clientY); });
+const mouse = new THREE.Vector2(-1, -1);
+function look(dx, dy) { yaw -= dx * 0.0022; pitch = THREE.MathUtils.clamp(pitch - dy * 0.0022, -1.45, 1.45); }
+window.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "INPUT" && e.target.type !== "checkbox") return;
+  const k = e.key.toLowerCase(); keys.add(k);
+  if (k === "f") setFly(!state.fly);
+  if (k === "m") toggleMeasure();
+  if (["w", "a", "s", "d", "q", "e", " ", "arrowup", "arrowdown", "arrowleft", "arrowright"].includes(k) && document.activeElement === canvas) e.preventDefault();
+});
+window.addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
+window.addEventListener("blur", () => keys.clear());
+
+// touch: left-bottom area = movement stick, anywhere else = look
+const stick = { id: null, x: 0, y: 0, dx: 0, dy: 0 }, lookT = { id: null, x: 0, y: 0 };
+canvas.addEventListener("touchstart", (e) => {
+  for (const t of e.changedTouches) {
+    if (stick.id === null && t.clientX < innerWidth * 0.45 && t.clientY > innerHeight * 0.45) {
+      Object.assign(stick, { id: t.identifier, x: t.clientX, y: t.clientY, dx: 0, dy: 0 });
+      const s = $("stick"); s.hidden = false; s.style.left = t.clientX - 55 + "px"; s.style.top = t.clientY - 55 + "px"; s.firstElementChild.style.transform = "";
+    } else if (lookT.id === null) Object.assign(lookT, { id: t.identifier, x: t.clientX, y: t.clientY, t0: performance.now(), moved: 0 });
+  }
+}, { passive: true });
+canvas.addEventListener("touchmove", (e) => {
+  for (const t of e.changedTouches) {
+    if (t.identifier === stick.id) {
+      let dx = t.clientX - stick.x, dy = t.clientY - stick.y; const l = Math.hypot(dx, dy), mx = 45;
+      if (l > mx) { dx *= mx / l; dy *= mx / l; }
+      stick.dx = dx / mx; stick.dy = dy / mx; $("stick").firstElementChild.style.transform = `translate(${dx}px, ${dy}px)`;
+    } else if (t.identifier === lookT.id) {
+      const dx = t.clientX - lookT.x, dy = t.clientY - lookT.y; lookT.moved += Math.abs(dx) + Math.abs(dy);
+      look(dx * 1.6, dy * 1.6); lookT.x = t.clientX; lookT.y = t.clientY;
+    }
+  }
+}, { passive: true });
+function endTouch(e) {
+  for (const t of e.changedTouches) {
+    if (t.identifier === stick.id) { stick.id = null; stick.dx = stick.dy = 0; $("stick").hidden = true; }
+    if (t.identifier === lookT.id) {
+      if (lookT.moved < 8 && performance.now() - lookT.t0 < 300) { mouse.set(t.clientX, t.clientY); if (state.measure) measureClick({ clientX: t.clientX, clientY: t.clientY }); else pickAt(t.clientX, t.clientY, true); }
+      lookT.id = null;
+    }
+  }
+}
+canvas.addEventListener("touchend", endTouch); canvas.addEventListener("touchcancel", endTouch);
+
+// ---------- panel (bottom sheet on phones)
+function collapse(c) { $("panel").dataset.collapsed = String(c); $("menuBtn").setAttribute("aria-expanded", String(!c)); $("menuBtn").textContent = c ? "Views & modes" : "Close"; }
+$("menuBtn").addEventListener("click", () => collapse($("panel").dataset.collapsed !== "true"));
+if (innerWidth > 720) collapse(false);
+
+// ---------- what am I looking at? (evidence class of the object under the crosshair / pointer)
+const pickRay = new THREE.Raycaster();
+function nice(n) {
+  return n.replace(/^(EX|PR|V5|DOOR_DARK|DOOR|WINDOW)_/, "").replace(/_v05$/, "").replace(/[_]+/g, " ").replace(/\b(cr|lv|mz)\b/g, (m) => ({ cr: "control room", lv: "live room", mz: "middle zone" })[m]).trim();
+}
+function evidenceOf(o) {
+  let x = o;
+  while (x) { if (x.userData && x.userData.evidence_class) return { node: x, ev: String(x.userData.evidence_class), note: x.userData.note || x.userData.source || "" }; x = x.parent; }
+  return { node: o, ev: "", note: "" };
+}
+function chip(ev) {
+  const e = ev.toUpperCase();
+  if (e.startsWith("SCAN")) return ["Scan-measured", "var(--scan)"];
+  if (e.startsWith("PHOTO")) return ["Photo-based", "var(--photo)"];
+  if (e.startsWith("ACTUAL") || e.includes("OWNER-MEA")) return [e.startsWith("PROPOSED") ? "Owner's real item, proposed spot" : "Actual equipment", "var(--brass)"];
+  if (e.startsWith("INDICATIVE") || e.startsWith("GENERIC")) return ["Indicative", "var(--indicative)"];
+  if (e.startsWith("PROPOSED")) return ["Proposed", "var(--proposed)"];
+  return [ev ? ev.split(/[ ;(]/)[0] : "Unclassified", "var(--indicative)"];
+}
+let lastPick = 0;
+function pickAt(x, y, force) {
+  const now = performance.now(); if (!force && now - lastPick < 120) return; lastPick = now;
+  const ndc = new THREE.Vector2((x / innerWidth) * 2 - 1, -(y / innerHeight) * 2 + 1);
+  pickRay.setFromCamera(ndc, camera); pickRay.far = 80;
+  const h = visibleHit(pickRay.intersectObjects(pickables, false));
+  if (!h) { $("pick").hidden = true; return; }
+  const { node, ev, note } = evidenceOf(h.object);
+  const [lbl, col] = chip(ev);
+  $("pickName").textContent = nice(node.name);
+  $("pickChip").textContent = lbl; $("pickChip").style.background = col;
+  $("pickEv").textContent = [ev, note].filter(Boolean).join(" · ") + `  ·  ${h.distance.toFixed(2)} m away`;
+  $("pick").hidden = false;
+}
+
+// ---------- tape measure
+const tapeMat = new THREE.LineBasicMaterial({ color: 0xc9a24a, depthTest: false });
+const tapeGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
+const tapeLine = new THREE.Line(tapeGeo, tapeMat); tapeLine.renderOrder = 10; tapeLine.visible = false; scene.add(tapeLine);
+const dotGeo = new THREE.SphereGeometry(0.025, 12, 8), dotMat = new THREE.MeshBasicMaterial({ color: 0xc9a24a, depthTest: false });
+const dots = [new THREE.Mesh(dotGeo, dotMat), new THREE.Mesh(dotGeo, dotMat)]; for (const d of dots) { d.visible = false; d.renderOrder = 11; scene.add(d); }
+let tapePts = [];
+function toggleMeasure() {
+  state.measure = !state.measure; $("measureT").setAttribute("aria-pressed", String(state.measure));
+  if (!state.measure) { tapePts = []; tapeLine.visible = false; dots.forEach((d) => (d.visible = false)); $("tape").hidden = true; }
+  $("toolNote").textContent = state.measure ? (locked ? "Aim with the crosshair and click two surfaces." : "Click two surfaces in the view.") : "Tape measure: click two surfaces. Distances come from the model, so they carry the scan's tolerance.";
+}
+$("measureT").addEventListener("click", toggleMeasure);
+function measureClick(e) {
+  const x = locked ? innerWidth / 2 : e.clientX, y = locked ? innerHeight / 2 : e.clientY;
+  pickRay.setFromCamera(new THREE.Vector2((x / innerWidth) * 2 - 1, -(y / innerHeight) * 2 + 1), camera); pickRay.far = 200;
+  const h = visibleHit(pickRay.intersectObjects(pickables, false)); if (!h) return;
+  if (tapePts.length === 2) tapePts = [];
+  tapePts.push(h.point.clone());
+  dots.forEach((d, i) => { d.visible = i < tapePts.length; if (tapePts[i]) d.position.copy(tapePts[i]); });
+  if (tapePts.length === 2) { tapeGeo.setFromPoints(tapePts); tapeLine.visible = true; }
+  else { tapeLine.visible = false; $("tape").hidden = true; }
+}
+function updateTape() {
+  if (tapePts.length !== 2) return;
+  const mid = tapePts[0].clone().add(tapePts[1]).multiplyScalar(0.5).project(camera);
+  if (mid.z > 1) { $("tape").hidden = true; return; }
+  const d = tapePts[0].distanceTo(tapePts[1]), dh = Math.abs(tapePts[0].y - tapePts[1].y);
+  $("tape").textContent = `${d.toFixed(2)} m` + (dh > 0.05 && d - dh > 0.05 ? `  (rise ${dh.toFixed(2)} m)` : "");
+  $("tape").style.left = ((mid.x + 1) / 2) * innerWidth + "px"; $("tape").style.top = ((1 - mid.y) / 2) * innerHeight + "px"; $("tape").hidden = false;
+}
+
+// ---------- loop
+function resize() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+addEventListener("resize", resize); resize();
+const clock = new THREE.Clock();
+const fwd = new THREE.Vector3(), right = new THREE.Vector3(), mv = new THREE.Vector3();
+function step(dt) {
+  camera.rotation.set(pitch, yaw, 0);
+  const run = keys.has("shift") ? 2.4 : 1;
+  let f = (keys.has("w") || keys.has("arrowup") ? 1 : 0) - (keys.has("s") || keys.has("arrowdown") ? 1 : 0) - stick.dy;
+  let s = (keys.has("d") || keys.has("arrowright") ? 1 : 0) - (keys.has("a") || keys.has("arrowleft") ? 1 : 0) + stick.dx;
+  if (state.fly) {
+    camera.getWorldDirection(fwd); right.crossVectors(fwd, camera.up).normalize();
+    const u = (keys.has("e") || keys.has(" ") ? 1 : 0) - (keys.has("q") || keys.has("c") ? 1 : 0);
+    const speed = 3.2 * run * (camera.position.y > 8 ? 4 : 1);
+    camera.position.addScaledVector(fwd, f * speed * dt).addScaledVector(right, s * speed * dt).y += u * speed * dt;
+    return;
+  }
+  fwd.set(-Math.sin(yaw), 0, -Math.cos(yaw)); right.set(Math.cos(yaw), 0, -Math.sin(yaw));
+  mv.set(0, 0, 0).addScaledVector(fwd, f).addScaledVector(right, s);
+  if (mv.lengthSq() > 1) mv.normalize();
+  mv.multiplyScalar(1.45 * run * dt);
+  for (const axis of ["x", "z"]) {      // slide along walls: try each axis on its own
+    if (!mv[axis]) continue;
+    const d = new THREE.Vector3(); d[axis] = Math.sign(mv[axis]);
+    if (!blocked(feet, d, Math.abs(mv[axis]))) feet[axis] += mv[axis];
+  }
+  const fy = settleOnFloor(false);
+  if (fy === null || feet.y > fy + 0.01) { vy -= 9.8 * dt; feet.y += vy * dt; if (fy !== null && feet.y < fy) { feet.y = fy; vy = 0; } }
+  if (feet.y < -30) { goView("mix_position"); }
+  camera.position.set(feet.x, feet.y + EYE, feet.z);
+}
+function readout() {
+  const p = camera.position;   // back to model coordinates (Blender: x east-west, y along the barn, z up)
+  ray.set(p, DOWN); ray.far = 80; const h = visibleHit(ray.intersectObjects(floors, false)); const above = h ? p.y - h.point.y : null;
+  $("readout").textContent = `model x ${p.x.toFixed(2)}  y ${(-p.z).toFixed(2)}  ·  eye ${above !== null ? above.toFixed(2) + " m above floor" : "—"}  ·  ${state.fly ? "flying" : "walking"}`;
+}
+let frame = 0;
+function loop() {
+  const dt = Math.min(clock.getDelta(), 0.05);
+  step(dt);
+  if (locked) pickAt(innerWidth / 2, innerHeight / 2); else if (!isTouch && mouse.x >= 0 && !dragging) pickAt(mouse.x, mouse.y);
+  if ((frame++ & 7) === 0) readout();
+  updateTape();
+  renderer.render(scene, camera);
+  requestAnimationFrame(loop);
+}
+applyModes();
+const startId = location.hash.slice(1).replace(/-/g, "_");
+goView(VIEWS.some((v) => v.id === startId) ? startId : "mix_position");
+$("loading").hidden = true;
+canvas.focus({ preventScroll: true });
+loop();
+</script>

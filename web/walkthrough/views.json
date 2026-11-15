@@ -1,0 +1,432 @@
+{
+ "model": "breakglass_east_v05.blend",
+ "units": "metres",
+ "axes": "glTF Y-up (x, z_blender, -y_blender)",
+ "views": [
+  {
+   "id": "mix_position",
+   "label": "Mix position (seated)",
+   "group": "Control room",
+   "pos": [
+    5.889,
+    1.2,
+    -3.075
+   ],
+   "dir": [
+    0.0,
+    -0.05,
+    -0.999
+   ],
+   "lens_mm": 18.0,
+   "mode": "studio",
+   "fly": true
+  },
+  {
+   "id": "cr_front",
+   "label": "From the rear toward the monitors",
+   "group": "Control room",
+   "pos": [
+    5.289,
+    1.75,
+    -0.55
+   ],
+   "dir": [
+    0.091,
+    -0.078,
+    -0.993
+   ],
+   "lens_mm": 20.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "cr_console",
+   "label": "Over the console",
+   "group": "Control room",
+   "pos": [
+    4.339,
+    1.75,
+    -2.3
+   ],
+   "dir": [
+    0.515,
+    -0.195,
+    -0.835
+   ],
+   "lens_mm": 28.0,
+   "mode": "studio",
+   "fly": true
+  },
+  {
+   "id": "cr_fireside",
+   "label": "Fireside lounge",
+   "group": "Control room",
+   "pos": [
+    7.589,
+    1.5,
+    -6.9
+   ],
+   "dir": [
+    -0.969,
+    -0.211,
+    -0.124
+   ],
+   "lens_mm": 22.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "cr_fire_seat",
+   "label": "From the fireside seat",
+   "group": "Control room",
+   "pos": [
+    1.75,
+    1.6,
+    -4.3
+   ],
+   "dir": [
+    0.573,
+    -0.247,
+    -0.782
+   ],
+   "lens_mm": 22.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "cr_overview_rear",
+   "label": "Looking back to the entry",
+   "group": "Control room",
+   "pos": [
+    6.789,
+    3.05,
+    -7.15
+   ],
+   "dir": [
+    -0.152,
+    -0.319,
+    0.935
+   ],
+   "lens_mm": 17.0,
+   "mode": "studio",
+   "fly": true
+  },
+  {
+   "id": "cr_rear",
+   "label": "Toward the gable",
+   "group": "Control room",
+   "pos": [
+    7.989,
+    1.7,
+    -7.25
+   ],
+   "dir": [
+    -0.36,
+    -0.1,
+    0.927
+   ],
+   "lens_mm": 19.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "cr_cinema",
+   "label": "Cinema",
+   "group": "Cinema",
+   "pos": [
+    6.239,
+    1.1,
+    -1.05
+   ],
+   "dir": [
+    -0.079,
+    0.291,
+    -0.953
+   ],
+   "lens_mm": 24.0,
+   "mode": "cinema",
+   "fly": false
+  },
+  {
+   "id": "cr_cinema_behind_sofa",
+   "label": "Behind the sofa",
+   "group": "Cinema",
+   "pos": [
+    5.539,
+    1.25,
+    -0.27
+   ],
+   "dir": [
+    0.078,
+    -0.206,
+    -0.975
+   ],
+   "lens_mm": 14.0,
+   "mode": "cinema",
+   "fly": false
+  },
+  {
+   "id": "cr_cinema_window",
+   "label": "Window above the entry door",
+   "group": "Cinema",
+   "pos": [
+    6.009,
+    3.0,
+    -0.14
+   ],
+   "dir": [
+    -0.022,
+    -0.332,
+    -0.943
+   ],
+   "lens_mm": 14.0,
+   "mode": "cinema",
+   "fly": true
+  },
+  {
+   "id": "live_piano",
+   "label": "Piano and ensemble",
+   "group": "Live room",
+   "pos": [
+    8.589,
+    1.7,
+    -29.93
+   ],
+   "dir": [
+    -0.337,
+    -0.008,
+    0.942
+   ],
+   "lens_mm": 18.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "live_band",
+   "label": "Band set-up",
+   "group": "Live room",
+   "pos": [
+    6.789,
+    1.55,
+    -20.585
+   ],
+   "dir": [
+    0.274,
+    -0.088,
+    -0.958
+   ],
+   "lens_mm": 20.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "live_drums",
+   "label": "Drum booth",
+   "group": "Live room",
+   "pos": [
+    2.289,
+    1.75,
+    -29.53
+   ],
+   "dir": [
+    0.756,
+    -0.097,
+    0.647
+   ],
+   "lens_mm": 18.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "live_farm",
+   "label": "Machinery aisle",
+   "group": "Live room",
+   "pos": [
+    5.289,
+    1.6,
+    -16.785
+   ],
+   "dir": [
+    0.065,
+    -0.015,
+    -0.998
+   ],
+   "lens_mm": 18.0,
+   "mode": "farm",
+   "fly": false
+  },
+  {
+   "id": "loft_overlook",
+   "label": "Loft overlook",
+   "group": "Live room",
+   "pos": [
+    5.989,
+    3.155,
+    -21.985
+   ],
+   "dir": [
+    -0.091,
+    -0.38,
+    -0.92
+   ],
+   "lens_mm": 16.0,
+   "mode": "studio",
+   "fly": true
+  },
+  {
+   "id": "ext_entry",
+   "label": "Entry gable",
+   "group": "Outside",
+   "pos": [
+    20.5,
+    1.6,
+    14.5
+   ],
+   "dir": [
+    -0.574,
+    0.038,
+    -0.818
+   ],
+   "lens_mm": 28.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "ext_live_gable",
+   "label": "Machinery door",
+   "group": "Outside",
+   "pos": [
+    23.0,
+    1.6,
+    -47.0
+   ],
+   "dir": [
+    -0.584,
+    0.026,
+    0.811
+   ],
+   "lens_mm": 28.0,
+   "mode": "studio",
+   "fly": false
+  },
+  {
+   "id": "ext_aerial",
+   "label": "Aerial",
+   "group": "Outside",
+   "pos": [
+    27.0,
+    15.0,
+    17.0
+   ],
+   "dir": [
+    -0.521,
+    -0.372,
+    -0.769
+   ],
+   "lens_mm": 26.0,
+   "mode": "studio",
+   "fly": true
+  }
+ ],
+ "lights": [
+  {
+   "name": "cr_fill_1",
+   "pos": [
+    5.889,
+    3.813,
+    -3.075
+   ],
+   "zone": "cr"
+  },
+  {
+   "name": "cr_fill_2",
+   "pos": [
+    5.889,
+    3.813,
+    -2.0
+   ],
+   "zone": "cr"
+  },
+  {
+   "name": "loft_light",
+   "pos": [
+    5.889,
+    4.035,
+    -19.885
+   ],
+   "zone": "loft"
+  },
+  {
+   "name": "lv_fill_1",
+   "pos": [
+    5.889,
+    3.775,
+    -26.385
+   ],
+   "zone": "lv"
+  },
+  {
+   "name": "lv_fill_2",
+   "pos": [
+    5.889,
+    2.135,
+    -19.185
+   ],
+   "zone": "lv"
+  },
+  {
+   "name": "mz_light_0",
+   "pos": [
+    2.889,
+    2.125,
+    -10.649
+   ],
+   "zone": "mz"
+  },
+  {
+   "name": "mz_light_1",
+   "pos": [
+    8.889,
+    2.125,
+    -9.349
+   ],
+   "zone": "mz"
+  },
+  {
+   "name": "mz_light_2",
+   "pos": [
+    8.889,
+    2.125,
+    -12.249
+   ],
+   "zone": "mz"
+  },
+  {
+   "name": "mz_light_3",
+   "pos": [
+    2.889,
+    2.125,
+    -14.549
+   ],
+   "zone": "mz"
+  },
+  {
+   "name": "mz_light_4",
+   "pos": [
+    8.889,
+    2.125,
+    -15.149
+   ],
+   "zone": "mz"
+  },
+  {
+   "name": "mz_light_5",
+   "pos": [
+    5.889,
+    2.125,
+    -12.249
+   ],
+   "zone": "mz"
+  }
+ ]
+}
