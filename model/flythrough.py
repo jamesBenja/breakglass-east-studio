@@ -45,8 +45,8 @@ def build_property(g):
         print("flythrough: no BG_PROPERTY_DIR; property not built"); return None
     W0, H0 = L["px_size"]; s = L["m_per_px"]
     # --- terrain grid over the map extent (5 m), landcover image draped by UV
-    step = 6.0; margin = 900.0   # generic woods beyond the traced map so the overhead reveal is filled edge to edge
-    c0 = _to_world(L, 0, 0) - Vector((margin, margin)); c1 = _to_world(L, W0, H0) + Vector((margin, margin))
+    step = 6.0; margin = Vector((900.0, 1150.0))   # generic woods beyond the traced map so the ~3 km-wide overhead frame is filled edge to edge
+    c0 = _to_world(L, 0, 0) - margin; c1 = _to_world(L, W0, H0) + margin
     xs = [c0.x + i * step for i in range(int((c1.x - c0.x) / step) + 1)]; ys = [c0.y + j * step for j in range(int((c1.y - c0.y) / step) + 1)]
     verts, uvs, faces = [], [], []
     for i, x in enumerate(xs):
@@ -86,7 +86,13 @@ def build_property(g):
     out = nt.nodes.new("ShaderNodeOutputMaterial"); bs = nt.nodes.new("ShaderNodeBsdfPrincipled"); nt.links.new(bs.outputs["BSDF"], out.inputs["Surface"])
     tex = nt.nodes.new("ShaderNodeTexImage"); tex.image = bpy.data.images.load(os.path.join(d, "landcover.png")); tex.interpolation = "Cubic"
     uvn = nt.nodes.new("ShaderNodeUVMap"); uvn.uv_map = "map"; nt.links.new(uvn.outputs["UV"], tex.inputs["Vector"])
-    ramp_in = tex.outputs["Color"]
+    tex.extension = "CLIP"   # no tiling: outside the traced map the ground reads as generic woods (QA: the map tiled into a ghost copy)
+    fpx = [px[i, j] for i in range(0, LW, 7) for j in range(0, LH, 7) if px[i, j][1] < 75 and px[i, j][0] < 60]
+    fcol = tuple(sum(c[k] for c in fpx) / len(fpx) / 255.0 for k in range(3)) if fpx else (0.157, 0.235, 0.118)
+    fcol = tuple(((c + 0.055) / 1.055) ** 2.4 for c in fcol)   # sRGB -> linear, as the image texture is decoded
+    outside = nt.nodes.new("ShaderNodeMixRGB"); outside.inputs["Color1"].default_value = (*fcol, 1.0)
+    nt.links.new(tex.outputs["Alpha"], outside.inputs["Fac"]); nt.links.new(tex.outputs["Color"], outside.inputs["Color2"])
+    ramp_in = outside.outputs["Color"]
     grass = bpy.data.materials.get("ex_ground_grass") or None
     det = nt.nodes.new("ShaderNodeTexNoise"); det.inputs["Scale"].default_value = 0.08; det.inputs["Detail"].default_value = 8
     geo = nt.nodes.new("ShaderNodeNewGeometry"); nt.links.new(geo.outputs["Position"], det.inputs["Vector"])
@@ -110,6 +116,17 @@ def build_property(g):
     nt.links.new(gm.outputs["Color"], mul.inputs["Color1"]); nt.links.new(cb.outputs["Vector"], mul.inputs["Color2"])
     nt.links.new(mul.outputs["Color"], bs.inputs["Base Color"]); bs.inputs["Roughness"].default_value = 0.95
     me.materials.append(m)
+    # far ground: a wide plane just below the terrain so the top-down reveal never shows the terrain's edge (same material, woods colour)
+    R = 6000.0; mc = (c0 + c1) / 2; fz = g["GROUND"] - 6.0
+    fv = [(mc.x - R, mc.y - R, fz), (mc.x + R, mc.y - R, fz), (mc.x + R, mc.y + R, fz), (mc.x - R, mc.y + R, fz)]
+    fme = bpy.data.meshes.new("FLY_far_ground"); fme.from_pydata(fv, [], [(0, 1, 2, 3)]); fme.update()
+    ful = fme.uv_layers.new(name="map")
+    for li, lp in enumerate(fme.loops):
+        vx, vy, _ = fv[lp.vertex_index]
+        u = (vy + 0.25) / s + L["barn"]["entry_gable_u"]; v = (vx - 5.8) / s + L["barn"]["centre_v"]
+        ful.data[li].uv = (u / W0, 1.0 - v / H0)
+    fme.materials.append(m); far = bpy.data.objects.new("FLY_far_ground", fme); bpy.context.scene.collection.objects.link(far)
+    far["evidence_class"] = "INDICATIVE context (generic woods beyond the traced map)"
     # pond water
     pc = _to_world(L, *L["pond"]["c"]); pr = (L["pond"]["r"][1] * s, L["pond"]["r"][0] * s)
     bpy.ops.mesh.primitive_circle_add(vertices=64, radius=1.0, fill_type="NGON", location=(pc.x, pc.y, g["GROUND"] - 1.4))
