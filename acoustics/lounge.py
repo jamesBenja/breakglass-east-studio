@@ -125,7 +125,7 @@ for name, w_, d_ in (("floor cushion 1", 0.65, 0.65), ("floor cushion 2", 0.65, 
                         "to_fire_m": round(float(np.hypot(cx - FIRE[0], cy - FIRE[1])), 2), "stove_clearance_m": round(dist(p_, STOVE), 2), "footprint": [[round(x, 3), round(y, 3)] for x, y in p_]})
 for q in placed_soft: layout[q.pop("name")] = q
 # cinema mode positions for the two swivel armchairs (v0.4 cinema-chair spots), facing the screen centre
-CIN = MG["cinema"]; scr = np.array([AX, CIN["screen_y"]])
+CIN = MG["cinema_v05"]; scr = np.array([AX, CIN["screen_y"]])
 cinema = {}
 # rear-row depth: the v0.4 spot (y 1.45) put armchair B inside the electrical cabinet's working space, so the row
 # moves forward just enough that both chairs (same row) clear every obstacle

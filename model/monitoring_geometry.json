@@ -22,6 +22,37 @@
    "throw_ratio": 1.43
   }
  },
+ "cinema_v05": {
+  "screen_width": 2.6,
+  "screen_height": 1.463,
+  "screen_y": 5.249,
+  "screen_bottom_z": 1.65,
+  "screen_top_z": 3.112,
+  "black_drop_m": 0.841,
+  "cassette_underside_z": 3.953,
+  "screen_type": "motorised roll-down, solid matte white (not acoustically transparent: it never covers the monitors)",
+  "clearance_above_rl901k_top_m": 0.101,
+  "sofa_eye": [
+   5.889,
+   1.3,
+   1.05
+  ],
+  "viewing_distance": 3.95,
+  "horizontal_view_angle_deg": 36.4,
+  "elevation_to_centre_deg": 18.6,
+  "elevation_to_top_edge_deg": 27.6,
+  "sightline_z_at_console_back": 1.559,
+  "sightline_clears_console": true,
+  "projector": {
+   "y": 0.95,
+   "z": 3.45,
+   "throw_m": 4.3,
+   "throw_ratio": 1.65,
+   "lens_above_screen_centre_m": 1.069,
+   "vertical_lens_shift_pct_of_image_height": 73,
+   "note": "shift = lens offset from the image centre as % of image height (50% = lens level with the top edge); check against the chosen projector's lens-shift range"
+  }
+ },
  "inputs": {
   "room": {
    "W": 11.244,

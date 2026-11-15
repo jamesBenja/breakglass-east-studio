@@ -35,7 +35,13 @@
 <rect x="1541.7" y="215.0" width="4.2" height="154.0" fill="#b5651d" fill-opacity="0.6"/>
 <rect x="1229.6" y="296.1" width="83.6" height="72.9" fill="#1f4e79" fill-opacity="0.5" stroke="#1f4e79"/>
 <rect x="1140.7" y="260.5" width="29.4" height="37.8" fill="#1f4e79" fill-opacity="0.8"/>
-<line x1="1187.6" y1="285.0" x2="1187.6" y2="166.8" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>
+<line x1="1187.6" y1="253.5" x2="1187.6" y2="151.2" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>
+<line x1="1187.6" y1="151.2" x2="1187.6" y2="92.3" stroke="#222" stroke-width="2"/>
+<text x="1191.6" y="236.0" font-size="8" fill="#555">screen (down) 2.6 m, bottom 1.65 m: clears RL 901K</text>
+<rect x="1471.0" y="121.2" width="35.0" height="12.6" fill="#555"/>
+<line x1="1471.0" y1="127.5" x2="1187.6" y2="253.5" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+<line x1="1471.0" y1="127.5" x2="1187.6" y2="151.2" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="1488.5" y="113.5" font-size="8" fill="#555" text-anchor="middle">projector (lens 3.45 m)</text>
 <rect x="1467.5" y="309.5" width="66.5" height="59.5" fill="#7d6b5a" fill-opacity="0.3"/>
 <polyline points="1170.1,279.5 1257.5,369.0 1339.8,285.0" fill="none" stroke="#999" stroke-width="1.2" stroke-dasharray="5 3"/>
 <polyline points="1170.1,279.5 1254.0,81.3 1339.8,285.0" fill="none" stroke="#2f6f4f" stroke-width="1.2" stroke-dasharray="5 3"/>

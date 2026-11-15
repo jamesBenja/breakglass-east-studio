@@ -13,5 +13,13 @@
    "penetration_m": 0.075
   }
  ],
- "electrical_working_space_clear": true
+ "electrical_working_space_clear": true,
+ "cinema": {
+  "screen_bottom_z": 1.65,
+  "geithain_top_z": 1.549,
+  "screen_clears_geithains": true,
+  "projector_beam_rays": 54,
+  "projector_beam_clear": true,
+  "lens_shift_pct": 73
+ }
 }

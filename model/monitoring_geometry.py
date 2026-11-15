@@ -81,8 +81,30 @@ t2 = (lp[1] + 0.38 + console["depth"] - SOFA_EYE[1]) / d_view
 cin["sightline_z_at_console_back"] = round(SOFA_EYE[2] + t2 * (SCR_Z0 - SOFA_EYE[2]), 3)
 cin["sightline_clears_console"] = cin["sightline_z_at_console_back"] > console["h_top"]
 cin["projector"] = {"y": 0.95, "z": hc - 0.30, "throw_m": round(SCR_Y - 0.95, 2), "throw_ratio": round((SCR_Y - 0.95) / SCR_W, 2)}
+# --- v0.5 cinema revision (owner review 15 Nov): the v0.4 screen hung 1.06 m below its cassette with nothing between,
+# and its bottom edge (1.20 m) sat below the RL 901K tops, half-covering both cabinets. v0.5 raises the picture so the
+# bottom edge clears the Geithains, narrows it to fit, models the black top drop of a real roll-down screen, and lowers
+# the projector on a short drop so the required lens shift is achievable. Solid matte screen (no longer AT).
+V5_W = 2.6; V5_H = V5_W * 9 / 16; V5_Z0 = round(rl901k["top_on_stand"] + 0.10, 2)
+CASS_Z0 = hc - 0.16                                   # cassette underside (as v0.4)
+V5_LENS_Z = 3.45                                      # projector lens height (hush box on a ~0.55 m drop from the flat ceiling)
+v5c = V5_Z0 + V5_H / 2
+cin_v05 = {"screen_width": V5_W, "screen_height": round(V5_H, 3), "screen_y": round(SCR_Y, 3), "screen_bottom_z": V5_Z0,
+           "screen_top_z": round(V5_Z0 + V5_H, 3), "black_drop_m": round(CASS_Z0 - (V5_Z0 + V5_H), 3), "cassette_underside_z": round(CASS_Z0, 3),
+           "screen_type": "motorised roll-down, solid matte white (not acoustically transparent: it never covers the monitors)",
+           "clearance_above_rl901k_top_m": round(V5_Z0 - rl901k["top_on_stand"], 3),
+           "sofa_eye": SOFA_EYE, "viewing_distance": round(d_view, 2),
+           "horizontal_view_angle_deg": round(2 * math.degrees(math.atan(V5_W / 2 / d_view)), 1),
+           "elevation_to_centre_deg": round(math.degrees(math.atan((v5c - SOFA_EYE[2]) / d_view)), 1),
+           "elevation_to_top_edge_deg": round(math.degrees(math.atan((V5_Z0 + V5_H - SOFA_EYE[2]) / d_view)), 1)}
+cin_v05["sightline_z_at_console_back"] = round(SOFA_EYE[2] + t2 * (V5_Z0 - SOFA_EYE[2]), 3)
+cin_v05["sightline_clears_console"] = cin_v05["sightline_z_at_console_back"] > console["h_top"]
+cin_v05["projector"] = {"y": 0.95, "z": V5_LENS_Z, "throw_m": round(SCR_Y - 0.95, 2), "throw_ratio": round((SCR_Y - 0.95) / V5_W, 2),
+                        "lens_above_screen_centre_m": round(V5_LENS_Z - v5c, 3),
+                        "vertical_lens_shift_pct_of_image_height": round(100 * (V5_LENS_Z - v5c) / V5_H),
+                        "note": "shift = lens offset from the image centre as % of image height (50% = lens level with the top edge); check against the chosen projector's lens-shift range"}
 SBIR_D = BAFFLE_FROM_WALL
-out = {"layout": LAYOUT, "cinema": cin, "inputs": {"room": {"W": W, "D": D, "flat_ceiling": hc, "building_axis_x": axis}, "console_tape": console, "rl901k_tape": rl901k},
+out = {"layout": LAYOUT, "cinema": cin, "cinema_v05": cin_v05,"inputs": {"room": {"W": W, "D": D, "flat_ceiling": hc, "building_axis_x": axis}, "console_tape": console, "rl901k_tape": rl901k},
        "stereo": {"listening_position": [round(v, 3) for v in lp], "L": [round(v, 3) for v in spk["L"]], "R": [round(v, 3) for v in spk["R"]],
                   "spacing_m": round(2*half, 3), "ear_distance_m": DIST, "angle_deg": ANG, "toe_in_deg": toe_in,
                   "lp_from_front_wall_m": round(D - lp[1], 2), "lp_fraction_of_length_from_front": round(lp_ratio, 3), "lp_from_rear_wall_m": round(lp[1], 3),

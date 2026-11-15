@@ -110,6 +110,7 @@ M = {
  "oak": mat("pr_oak_floor", (0.66, 0.53, 0.38), 0.45, noise=(30, 0.15, (14, 1, 1))),
  "plaster": mat("pr_lime_plaster", (0.86, 0.84, 0.80), 0.95, noise=(12, 0.03)),
  "fabric": mat("pr_fabric_absorber", (0.42, 0.40, 0.37), 0.95, noise=(80, 0.05)),
+ "screen_black": mat("pr_screen_black", (0.012, 0.012, 0.013), 0.95),
  "fabric_dark": mat("pr_fabric_dark", (0.16, 0.16, 0.17), 0.95, noise=(80, 0.05)),
  "reclaimed": mat("pr_reclaimed_wood_clark", (0.45, 0.30, 0.18), 0.6, noise=(40, 0.25, (1, 1, 10))),
  "cove": mat("pr_cove_light", (1, 0.9, 0.75), 0.5, emit=(1.0, 0.86, 0.68), estr=25),
@@ -426,7 +427,7 @@ for nm, x, z in (("L", G["xL"] + 0.12, G["hbL"] + 0.02), ("R", G["xR"] - 0.12, G
     box(f"PR_cove_{nm}", x - 0.03, x + 0.03, 0.15, D - 0.15, z, z + 0.02, "cove", PR, "PROPOSED", "dimmable tunable-white LED cove (Turrell-like wash)")
 box("PR_cove_flat_perimeter", AX - G["wc"]/2 + 0.05, AX + G["wc"]/2 - 0.05, D - 0.45, D - 0.43, G["hc"] - 0.03, G["hc"] - 0.01, "cove_cool", PR, "PROPOSED")
 # producer desk + rear sofa (client listening / screening row)
-CIN = MG["cinema"]
+CIN = MG["cinema_v05"] if V05 else MG["cinema"]   # v0.5: screen raised clear of the Geithains (owner review 15 Nov)
 box("PR_producer_desk", 0.85, 1.55, 1.70, 3.90, 0.70, 0.74, "reclaimed", PR, "PROPOSED", "producer/outboard desk along the left wall (under the window line); racks below")
 box("PR_producer_desk_racks", 0.90, 1.50, 1.75, 3.85, 0.05, 0.70, "panel_black", PR, "PROPOSED")
 SOFA_Y0 = 0.30   # against the rear diffusers: family cinema row (eyes ~1.3 m from the gable)
@@ -479,7 +480,20 @@ SCR_Y, SCR_W = CIN["screen_y"], CIN["screen_width"]
 scr = box("PR_screen_down", AX - SCR_W/2, AX + SCR_W/2, SCR_Y, SCR_Y + 0.02, CIN["screen_bottom_z"], CIN["screen_bottom_z"] + CIN["screen_height"], "screen", "32_PROPOSED_SCREEN_MODE", "PROPOSED",
           "motorised acoustically-transparent 16:9 screen 3.0 m; drops in front of the Geithains for family film nights, retracts into the flat ceiling")
 box("PR_screen_cassette", AX - SCR_W/2 - 0.1, AX + SCR_W/2 + 0.1, SCR_Y - 0.08, SCR_Y + 0.10, G["hc"] - 0.16, G["hc"] - 0.02, "steel_black", PR, "PROPOSED")
-box("PR_projector", AX - 0.25, AX + 0.25, 0.70, 1.20, G["hc"] - 0.40, G["hc"] - 0.22, "steel_black", PR, "PROPOSED", "projector in hush-box on the flat ceiling above the sofa; throw ~4.3 m")
+if not V05:
+    box("PR_projector", AX - 0.25, AX + 0.25, 0.70, 1.20, G["hc"] - 0.40, G["hc"] - 0.22, "steel_black", PR, "PROPOSED", "projector in hush-box on the flat ceiling above the sofa; throw ~4.3 m")
+else:   # v0.5: one continuous roll-down sheet (black top drop + solid matte picture area), weighted bottom bar; projector on a short drop
+    scr["note"] = "motorised roll-down, solid matte white 2.6 m 16:9; bottom edge 0.10 m above the RL 901K tops, so it never covers the monitors"
+    box("PR_screen_black_drop", AX - SCR_W/2, AX + SCR_W/2, SCR_Y, SCR_Y + 0.02, CIN["screen_top_z"], CIN["cassette_underside_z"], "screen_black", "32_PROPOSED_SCREEN_MODE", "PROPOSED",
+        "black top drop of the same roll-down sheet (cassette to picture top)")
+    box("PR_screen_border_L", AX - SCR_W/2 - 0.04, AX - SCR_W/2, SCR_Y, SCR_Y + 0.02, CIN["screen_bottom_z"] - 0.05, CIN["screen_top_z"], "screen_black", "32_PROPOSED_SCREEN_MODE", "PROPOSED")
+    box("PR_screen_border_R", AX + SCR_W/2, AX + SCR_W/2 + 0.04, SCR_Y, SCR_Y + 0.02, CIN["screen_bottom_z"] - 0.05, CIN["screen_top_z"], "screen_black", "32_PROPOSED_SCREEN_MODE", "PROPOSED")
+    box("PR_screen_bottom_bar", AX - SCR_W/2 - 0.05, AX + SCR_W/2 + 0.05, SCR_Y - 0.01, SCR_Y + 0.03, CIN["screen_bottom_z"] - 0.05, CIN["screen_bottom_z"], "steel_black", "32_PROPOSED_SCREEN_MODE", "PROPOSED", "weighted hem bar")
+    PJ = CIN["projector"]; pz = PJ["z"]
+    box("PR_projector", AX - 0.25, AX + 0.25, 0.70, 1.20, pz - 0.09, pz + 0.09, "steel_black", PR, "PROPOSED", f"projector in hush-box on a short drop from the flat ceiling (lens {pz} m); throw {PJ['throw_m']} m; lens shift ~{PJ['vertical_lens_shift_pct_of_image_height']}%")
+    box("PR_projector_lens", AX - 0.05, AX + 0.05, 1.20, 1.23, pz - 0.05, pz + 0.05, "panel_black", PR, "PROPOSED")
+    for dx in (-0.18, 0.18):
+        box("PR_projector_drop", AX + dx - 0.015, AX + dx + 0.015, 0.93, 0.97, pz + 0.09, G["hc"], "steel_black", PR, "PROPOSED")
 # HVAC (indicative): linear slot supplies at the slope/flat junction, low return at rear
 for nm, x in (("L", AX - G["wc"]/2 - 0.25), ("R", AX + G["wc"]/2 + 0.25)):
     box(f"PR_hvac_slot_{nm}", x - 0.04, x + 0.04, 0.8, D - 0.8, G["hc"] - 0.12, G["hc"] - 0.08, "steel_black", PR, "PROPOSED", "low-velocity linear supply fed from roof void; design by mechanical engineer")

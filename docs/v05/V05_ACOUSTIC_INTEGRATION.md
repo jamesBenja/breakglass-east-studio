@@ -47,12 +47,13 @@ The solver's constraints:
 | Mode | Seats | Positions |
 |---|---|---|
 | **Fireside** | loveseat (2) + swivel armchair A (1) facing the fire; side table between | loveseat 2.53 m from the fire, armchair 1.60 m; minimum stove clearance 0.92 m |
-| **Cinema** | sofa (3–4) + swivel armchairs A and B (5–6 seats, as v0.4) | armchair A rolls on glides from the fire to the rear row; B stays there. The row sits 0.40 m forward of the v0.4 cinema-chair spot so armchair B is clear of the electrical cabinet's working space; each sees the screen at 31.0° width |
+| **Cinema** | sofa (3–4) + swivel armchairs A and B (5–6 seats, as v0.4) | armchair A rolls on glides from the fire to the rear row; B stays there. The row sits 0.40 m forward of the v0.4 cinema-chair spot so armchair B is clear of the electrical cabinet's working space; each sees the screen at 26.8° width (31.0° with the v0.4 3.0 m screen) |
 
 **Tested and reported, not hidden:** a third seat (second armchair) does not fit around the fire behind the speaker line with these clearances.
 
 **Honest limits:**
-- The lounge sits behind the drop-down screen. It is a fireside / listen-back spot, not a cinema seat.
+- The lounge sits behind the drop-down screen.
+- **Screen (revised 15 Nov, owner review):** a motorised roll-down, solid matte white, 2.6 m wide 16:9. Its picture bottom is 1.65 m, 0.10 m above the RL 901K tops, so it never covers the monitors. A 0.84 m black top drop runs from the ceiling cassette to the picture. The projector hangs on a short drop (lens 3.45 m) over the sofa. From the sofa: 3.95 m away, 36.4° wide, 18.6° up to the picture centre (27.6° to the top edge). The required lens shift is about 73% of image height, so check it against the chosen projector. QA ray-casts 54 beam paths from the lens to the screen; none are blocked. It is a fireside / listen-back spot, not a cinema seat.
 - There are no mechanisms, only a swivel chair on felt glides.
 
 Drawing PR-506 and renders `cr_fireside_v05`, `cr_fire_seat_v05` and `cr_cinema_v05` show the result.
@@ -118,6 +119,7 @@ Counts are asserted in code: `acoustics/allocation.py` fails if any family is ov
 | 14 Nov | **Live room shows a band, not a string quartet** (owner). The quartet chairs are replaced by an indicative, generic backline: drum kit in the GOB-001 booth, guitar and bass amps behind the GOB-002 screens, mic stands on kit, amps and piano, and a vocal/acoustic position. It is all packed away in farm mode. The owner's actual backline is not modelled yet (U18). |
 | 14 Nov | **Black leather seating and cushions** (owner). The cinema sofa, the fireside loveseat and both swivel armchairs are now modelled as black leather with real cushion shapes, on unchanged footprints, with linen throw cushions. The window benches (NEW-01 bass traps) get breathable linen cushions: leather or vinyl would seal the traps' top face. They sit 1.1 m high, so they read as a padded ledge, not a seat; lowering the traps to seat height would cost about 60% of their bass-trap volume. The lounge solver places two floor cushions under the same stove clearance and legroom rules. They land on the west side of the lounge, about 3 m from the fire, because nearer floor is the clearance, the doorway route or the speaker zone. A pouf was tested and does not fit. Leather seats are outside every traced first-reflection path. |
 | 14 Nov | **Phase 1 = Geithain stereo only.** Films play through the RL 901K pair; the 5.1 extras (centre, side surrounds, sub; $2k–8k) move to the later phase. Essential build is now $37.3k–$112.5k ($41.0k–$129.4k with contingency). Renders: `*_v05_phase1.png`. |
+| 15 Nov | **Cinema screen raised clear of the Geithains** (owner review: the v0.4 screen hung 1.06 m below its cassette with nothing between, and its 1.20 m bottom edge half-covered both RL 901Ks). It is now a 2.6 m solid matte roll-down. Its bottom edge is at 1.65 m (0.10 m above the speaker tops), with a modelled black top drop and weighted hem bar. The projector is on a short drop (lens 3.45 m, lens shift ~73%). It no longer needs to be acoustically transparent. The trade-off is a higher view: 18.6° to the picture centre from the sofa (14.1° before), and 36.4° wide (41.6°). The rear-row armchairs see 26.8° (31.0°). The cost range is unchanged. |
 
 ## 7. Files
 Drive (owner): folder “v0.5 — Acoustic Integration & Salvage” in the review package, containing the presentation Doc and the workbook (Budget v0.5 / Asset deployment / New items / Open items). The v0.4 Doc and Sheet are untouched.

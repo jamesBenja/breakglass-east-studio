@@ -20,7 +20,7 @@ AN = json.load(open(os.path.join(AO, "modes_sbir_rt.json")))
 W, D, AX = G["W"], G["D"], G["xf"]
 Y_OFF = 15.185; Y_PART1 = D + 0.15; Y_MID1 = 1.0 + Y_OFF; Y_LOFT_END = 7.7 + Y_OFF; Y_LG = B["live_gable_y"] + Y_OFF
 LL, LR = AX - 6.15, AX + 5.75; F_LIVE = B["live_floor"]; GD = 3.70
-st = MG["stereo"]; LP = st["listening_position"]; CIN = MG["cinema"]; CON = st["console"]
+st = MG["stereo"]; LP = st["listening_position"]; CIN = MG["cinema_v05"]; CON = st["console"]
 XS, YS = P["g_xs"], min(P["g_ys"], D - 0.35)
 OUT = os.path.join(ROOT, "drawings", "v05"); os.makedirs(OUT, exist_ok=True)
 C = {"ex": "#555", "eq": "#1f4e79", "asset": "#2f6f4f", "prov": "#c2187a", "new": "#b5651d", "lounge": "#8a5a2b", "imm": "#7a2e8e",
@@ -329,7 +329,14 @@ c3 = next(i for i in NEW if i["id"] == "NEW-03")["geom"][0]
 s.raw(f'<rect x="{qx(0.19):.1f}" y="{qz(2.2):.1f}" width="{0.06*sc:.1f}" height="{2.2*sc:.1f}" fill="{C["new"]}" fill-opacity="0.6"/>')
 s.raw(f'<rect x="{qx(CON["back_edge_y"]):.1f}" y="{qz(1.041):.1f}" width="{(CON["back_edge_y"]-CON["front_edge_y"])*sc:.1f}" height="{1.041*sc:.1f}" fill="{C["eq"]}" fill-opacity="0.5" stroke="{C["eq"]}"/>')
 s.raw(f'<rect x="{qx(st["L"][1]+0.42):.1f}" y="{qz(1.55):.1f}" width="{0.42*sc:.1f}" height="{0.54*sc:.1f}" fill="{C["eq"]}" fill-opacity="0.8"/>')
-s.raw(f'<line x1="{qx(CIN["screen_y"]):.1f}" y1="{qz(1.2):.1f}" x2="{qx(CIN["screen_y"]):.1f}" y2="{qz(1.2+CIN["screen_height"]):.1f}" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>')
+s.raw(f'<line x1="{qx(CIN["screen_y"]):.1f}" y1="{qz(CIN["screen_bottom_z"]):.1f}" x2="{qx(CIN["screen_y"]):.1f}" y2="{qz(CIN["screen_top_z"]):.1f}" stroke="#777" stroke-width="3" stroke-dasharray="2 2"/>')
+s.raw(f'<line x1="{qx(CIN["screen_y"]):.1f}" y1="{qz(CIN["screen_top_z"]):.1f}" x2="{qx(CIN["screen_y"]):.1f}" y2="{qz(CIN["cassette_underside_z"]):.1f}" stroke="#222" stroke-width="2"/>')
+s.raw(f'<text x="{qx(CIN["screen_y"]) + 4:.1f}" y="{qz(CIN["screen_bottom_z"] + 0.25):.1f}" font-size="8" fill="#555">screen (down) {CIN["screen_width"]} m, bottom {CIN["screen_bottom_z"]} m: clears RL 901K</text>')
+_pj = CIN["projector"]
+s.raw(f'<rect x="{qx(1.20):.1f}" y="{qz(_pj["z"] + 0.09):.1f}" width="{0.50*sc:.1f}" height="{0.18*sc:.1f}" fill="#555"/>')
+for _zt in (CIN["screen_bottom_z"], CIN["screen_top_z"]):
+    s.raw(f'<line x1="{qx(1.20):.1f}" y1="{qz(_pj["z"]):.1f}" x2="{qx(CIN["screen_y"]):.1f}" y2="{qz(_zt):.1f}" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>')
+s.raw(f'<text x="{qx(0.95):.1f}" y="{qz(_pj["z"] + 0.2):.1f}" font-size="8" fill="#555" text-anchor="middle">projector (lens {_pj["z"]} m)</text>')
 s.raw(f'<rect x="{qx(0.30+0.95):.1f}" y="{qz(0.85):.1f}" width="{0.95*sc:.1f}" height="{0.85*sc:.1f}" fill="#7d6b5a" fill-opacity="0.3"/>')
 for r in COV:
     if r["speaker"] == "L" and r["surface"] in ("floor", "flat ceiling (4.11 m)", "rear wall / gable (Y=0)", "front wall / partition (Y=D)"):

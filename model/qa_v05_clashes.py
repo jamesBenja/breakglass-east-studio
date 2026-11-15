@@ -65,6 +65,24 @@ if ez:
         d = pen(zb, aabb([o]))
         if d > TOL: elec.append({"object": o.name, "penetration_m": round(d, 3)})
     assert not elec, f"objects inside the electrical working space: {elec}"
-json.dump({"groups": len(G), "tolerance_m": TOL, "clashes": clashes, "electrical_working_space_clear": not elec}, open(os.path.join(HERE, "qa_v05_clashes.json"), "w"), indent=1)
+# cinema (owner review 15 Nov): the lowered screen clears both Geithains, and the projector beam reaches every part of
+# the picture without hitting anything (ray grid from the lens to the screen surface)
+CINQ = json.load(open(os.path.join(HERE, "monitoring_geometry.json")))["cinema_v05"]
+scr_o = bpy.data.objects["PR_screen_down"]; s_lo, s_hi = aabb([scr_o])
+geith = [o for o in bpy.data.objects if o.type == "MESH" and o.name.startswith("RL901K")]
+g_top = max(aabb([o])[1][2] for o in geith) if geith else None
+assert g_top is None or s_lo[2] > g_top, f"screen bottom {s_lo[2]:.3f} below Geithain top {g_top:.3f}"
+lens = bpy.data.objects["PR_projector_lens"]; l_lo, l_hi = aabb([lens]); L0 = Vector(((l_lo[0] + l_hi[0]) / 2, l_hi[1] + 0.005, (l_lo[2] + l_hi[2]) / 2))
+dg = bpy.context.evaluated_depsgraph_get(); blocked = []
+for i in range(9):
+    for j in range(6):
+        tgt = Vector((s_lo[0] + 0.02 + (s_hi[0] - s_lo[0] - 0.04) * i / 8, s_lo[1], s_lo[2] + 0.02 + (s_hi[2] - s_lo[2] - 0.04) * j / 5))
+        d = tgt - L0; hit, loc, _n, _i, ob, _m = bpy.context.scene.ray_cast(dg, L0, d.normalized(), distance=d.length + 0.05)
+        if not hit or ob.name != "PR_screen_down": blocked.append({"target": [round(v, 2) for v in tgt], "hit": ob.name if hit else None})
+assert not blocked, f"projector beam blocked: {blocked[:5]}"
+cinema_qa = {"screen_bottom_z": round(s_lo[2], 3), "geithain_top_z": round(g_top, 3) if g_top else None, "screen_clears_geithains": True,
+             "projector_beam_rays": 54, "projector_beam_clear": True, "lens_shift_pct": CINQ["projector"]["vertical_lens_shift_pct_of_image_height"]}
+print("cinema", cinema_qa)
+json.dump({"groups": len(G), "tolerance_m": TOL, "clashes": clashes, "electrical_working_space_clear": not elec, "cinema": cinema_qa}, open(os.path.join(HERE, "qa_v05_clashes.json"), "w"), indent=1)
 print("groups", len(G), "clashes", len(clashes))
 for c in clashes: print(c)

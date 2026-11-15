@@ -52,6 +52,7 @@ This brief is for anyone producing the **client-facing v0.5 presentation**. Clau
 - Stove clearance ≥ 0.92 m; 0.90 m is a placeholder pending the WETT/label value.
 - 5–6 seats in cinema mode.
 - A third fireside seat does not fit.
+- Cinema screen (revised 15 Nov): 2.6 m solid matte roll-down. The picture bottom is at 1.65 m, so it never covers the Geithains, with a black top drop to the ceiling cassette. From the sofa it is 36.4° wide and 18.6° up to the centre. Never show the v0.4 screen (3.0 m, bottom 1.20 m, floating) as current.
 
 **Phasing and cost**
 - Phase 1 is Geithain stereo only (owner decision, 14 Nov).
@@ -74,7 +75,7 @@ This brief is for anyone producing the **client-facing v0.5 presentation**. Clau
 8. **Salvage deployment:** the allocation table (summarised) and the link to the full matrix.
 9. **Analysis and uncertainty:** the table from §3 of the rationale document, with confidence notes.
 10. **Phasing and cost:** phase 1 vs the later phase.
-11. **Commissioning C0–C6 and open items:** UNRESOLVED U1–U18, summarised.
+11. **Commissioning C0–C6 and open items:** UNRESOLVED U1–U19, summarised.
 12. **Appendix:** drawings at full size, the image manifest, and (optionally) fenced atmosphere studies.
 
 ## Deliverables and QA

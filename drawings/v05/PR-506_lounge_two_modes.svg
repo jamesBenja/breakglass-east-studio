@@ -45,18 +45,18 @@
 <polygon points="993.5,126.1 1024.3,126.1 1024.3,98.6 993.5,98.6" fill="#222" fill-opacity="1" stroke="#111" stroke-width="1.2"/>
 <polygon points="865.7,212.2 922.0,268.8 955.1,235.8 898.9,179.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
 <text x="910.4" y="223.9" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">loveseat stays</text>
-<line x1="1008.8" y1="254.3" x2="1173.8" y2="254.3" stroke="#333" stroke-width="3" stroke-opacity="1"/>
+<line x1="1019.8" y1="254.3" x2="1162.8" y2="254.3" stroke="#333" stroke-width="3" stroke-opacity="1"/>
 <text x="1091.3" y="246.0" font-size="8" text-anchor="middle" fill="#333" font-weight="normal">screen down (faces the rear row)</text>
 <polygon points="1014.3,526.4 1168.3,526.4 1168.3,474.2 1014.3,474.2" fill="#7d6b5a" fill-opacity="0.4" stroke="#7d6b5a" stroke-width="1.2"/>
 <text x="1091.3" y="501.7" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">sofa 3–4</text>
 <polygon points="918.1,463.2 962.1,463.2 962.1,419.2 918.1,419.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
 <line x1="940.1" y1="441.2" x2="1091.3" y2="254.3" stroke="#8a5a2b" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 3"/>
 <text x="940.1" y="474.2" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal">swivel armchair A</text>
-<text x="940.1" y="482.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">31.0° screen width</text>
+<text x="940.1" y="482.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">26.8° screen width</text>
 <polygon points="1220.6,463.2 1264.6,463.2 1264.6,419.2 1220.6,419.2" fill="#8a5a2b" fill-opacity="0.5" stroke="#8a5a2b" stroke-width="1.5"/>
 <line x1="1242.6" y1="441.2" x2="1091.3" y2="254.3" stroke="#8a5a2b" stroke-width="1" stroke-opacity="1" stroke-dasharray="2 3"/>
 <text x="1242.6" y="474.2" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal">swivel armchair B</text>
-<text x="1242.6" y="482.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">31.0° screen width</text>
+<text x="1242.6" y="482.4" font-size="7" text-anchor="middle" fill="#8a5a2b" font-weight="normal">26.8° screen width</text>
 <line x1="921.4" y1="135.9" x2="940.1" y2="441.2" stroke="#8a5a2b" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="6 3"/>
 <text x="903.3" y="288.6" font-size="8" text-anchor="middle" fill="#8a5a2b" font-weight="normal" transform="rotate(-75 903.3 288.6)">armchair A rolls back (glides)</text>
 <polygon points="767.4,542.9 1385.8,542.9 1385.8,92.0 767.4,92.0" fill="none" fill-opacity="0" stroke="#555" stroke-width="3"/>

@@ -153,7 +153,7 @@
     1.85
    ],
    "yaw_deg": -39.0,
-   "screen_view_angle_deg": 31.0,
+   "screen_view_angle_deg": 26.8,
    "off_axis_to_screen_centre_deg": 39.0,
    "clear_of_electrical_working_space_m": 4.67
   },
@@ -163,7 +163,7 @@
     1.85
    ],
    "yaw_deg": 39.0,
-   "screen_view_angle_deg": 31.0,
+   "screen_view_angle_deg": 26.8,
    "off_axis_to_screen_centre_deg": -39.0,
    "clear_of_electrical_working_space_m": 1.04
   }

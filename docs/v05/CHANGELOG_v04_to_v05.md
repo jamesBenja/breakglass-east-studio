@@ -4,7 +4,7 @@
 These are verified: the v0.4 build with the v0.5 code produces 589 objects with identical bounding boxes.
 - Building shell, openings, posts, roof, ceiling, room divisions, loft, live room shell, machinery bays and aisle.
 - Console and both RL 901Ks, the listening position, ±30° geometry and the 2.70 m baffle-to-front distance.
-- Wood stove + flue, the hearth pad, the cinema screen / projector / sofa, 7.1.4 positions and subs.
+- Wood stove + flue, the hearth pad, the screen cassette, 7.1.4 positions and subs. (The screen and projector changed in v0.5; see the 15 Nov change below.)
 - Producer desk, LED coves, HVAC slots (indicative), piano, loft guard and pendants.
 
 ## Changed (v0.5 build only, `BG_VERSION=v05`)
@@ -45,6 +45,21 @@ v0.4 cut it through the gable as an opening, and the exterior renders showed a s
 - **Re-rendered:** drawings PR-501/503/505/506 and every render showing the rear wall or the rear row.
 
 The approved v0.4 files are left as issued (v0.4 build verified identical: 589 objects). The v0.4 drawings and renders still show the false door and the closer chair.
+
+## Design change from owner review (15 Nov): the cinema screen
+The v0.4 screen did not make physical sense:
+- the picture hung 1.06 m below its ceiling cassette with nothing in between;
+- its bottom edge (1.20 m) sat below the RL 901K tops (1.55 m) and its 3.0 m width overlapped both cabinets, so it half-covered the monitors;
+- the projector lens sat about 0.9 m above the picture, beyond the lens shift of most projectors.
+
+| | v0.4 | v0.5 |
+|---|---|---|
+| Screen | 3.0 m acoustically transparent, bottom 1.20 m | 2.6 m solid matte roll-down, bottom 1.65 m (0.10 m above the Geithains), black top drop 0.84 m to the cassette, weighted hem bar |
+| Projector | hush box against the flat ceiling | hush box on a short drop, lens 3.45 m (lens shift ~73% of image height) |
+| From the sofa | 41.6° wide, 14.1° up to the centre | 36.4° wide, 18.6° up to the centre (27.6° to the top edge) |
+| Rear-row armchairs | 31.0° | 26.8° |
+
+The monitors are never covered, and the screen no longer needs to be acoustically transparent. QA (`model/qa_v05_clashes.py`) asserts that the screen bottom clears both Geithains and ray-casts 54 beam paths from the lens to the picture: none are blocked. The v0.4 build is untouched (589 objects, identical). The cost range is unchanged (item 10).
 
 ## New files
 - `acoustics/`: geometry, reflections, modes / SBIR / decay, allocation, lounge, costs, plus `out/` results.

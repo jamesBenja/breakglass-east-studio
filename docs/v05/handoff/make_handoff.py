@@ -34,7 +34,7 @@ for f, t, c in (
  ("cr_console_v05_photo", "The console", "The actual Spectra Sonics console, modelled from photographs and measured dimensions."),
  ("cr_fireside_v05_photo", "Fireside lounge (corrected)", "Owner-authorised correction: the loveseat and swivel armchair now face the stove glass."),
  ("cr_fire_seat_v05_photo", "From the fireside seat", "The view a guest has from the lounge: fire, console and monitors."),
- ("cr_cinema_v05_photo", "Cinema mode", "Screen down, armchair A rolled to the rear row; phase 1 plays films through the RL 901K pair."),
+ ("cr_cinema_v05_photo", "Cinema mode", "Screen down: a 2.6 m matte roll-down whose picture clears the tops of both Geithains, with a black drop from the ceiling cassette. Armchair A is rolled to the rear row; phase 1 plays films through the RL 901K pair."),
 ):
     f = f.replace("_v05_photo", "_v05_phase1_photo")   # hero set shows phase 1 (Geithain stereo; no subs / immersive)
     add(f"renders/design/{f}.png", "02 Control room", t, c + " Phase 1 shown (Geithain stereo).", "render-photo", f"{LOOK} {SHELL}", f == "cr_front_v05_phase1_photo")
